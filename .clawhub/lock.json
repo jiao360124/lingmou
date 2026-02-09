@@ -1,0 +1,205 @@
+{
+  "version": 1,
+  "skills": {
+    "summarize": {
+      "version": "1.0.0",
+      "installedAt": 1770369717856
+    },
+    "weather": {
+      "version": "1.0.0",
+      "installedAt": 1770369774169
+    },
+    "sag": {
+      "version": "1.0.0",
+      "installedAt": 1770369887815
+    },
+    "file-search": {
+      "version": "1.0.0",
+      "installedAt": 1770371774392
+    },
+    "file-organizer": {
+      "version": "1.0.0",
+      "installedAt": 1770371786244
+    },
+    "git-essentials": {
+      "version": "1.0.0",
+      "installedAt": 1770371821636
+    },
+    "github-action-gen": {
+      "version": "1.0.2",
+      "installedAt": 1770371861231
+    },
+    "api-dev": {
+      "version": "1.0.0",
+      "installedAt": 1770371964941
+    },
+    "database": {
+      "version": "1.1.0",
+      "installedAt": 1770372059689
+    },
+    "sql-toolkit": {
+      "version": "1.0.0",
+      "installedAt": 1770372136344
+    },
+    "healthcheck": {
+      "version": "1.0.2",
+      "installedAt": 1770372354605
+    },
+    "skill-vetter": {
+      "version": "1.0.0",
+      "installedAt": 1770372394575
+    },
+    "openclaw-self-backup": {
+      "version": "1.0.1",
+      "installedAt": 1770373247963
+    },
+    "kesslerio-stealth-browser": {
+      "version": "1.0.0",
+      "installedAt": 1770373709360
+    },
+    "conventional-commits": {
+      "version": "1.0.1",
+      "installedAt": 1770373743244
+    },
+    "debug-pro": {
+      "version": "1.0.0",
+      "installedAt": 1770373800944
+    },
+    "test-runner": {
+      "version": "1.0.0",
+      "installedAt": 1770373803708
+    },
+    "nextjs-expert": {
+      "version": "1.0.0",
+      "installedAt": 1770373806684
+    },
+    "code-mentor": {
+      "version": "1.0.2",
+      "installedAt": 1770373810260
+    },
+    "github": {
+      "version": "1.0.0",
+      "installedAt": 1770373814675
+    },
+    "git-sync": {
+      "version": "1.0.0",
+      "installedAt": 1770373819352
+    },
+    "github-pr": {
+      "version": "1.0.0",
+      "installedAt": 1770373822197
+    },
+    "browse": {
+      "version": "1.0.1",
+      "installedAt": 1770373825179
+    },
+    "webapp-testing": {
+      "version": "0.1.0",
+      "installedAt": 1770373828308
+    },
+    "browser-cash": {
+      "version": "1.0.0",
+      "installedAt": 1770373833051
+    },
+    "agent-browser": {
+      "version": "0.2.0",
+      "installedAt": 1770373853925
+    },
+    "task-status": {
+      "version": "1.0.0",
+      "installedAt": 1770373868763
+    },
+    "deepwork-tracker": {
+      "version": "0.1.1",
+      "installedAt": 1770373875509
+    },
+    "exa-web-search-free": {
+      "version": "1.0.1",
+      "installedAt": 1770373881623
+    },
+    "technews": {
+      "version": "1.0.0",
+      "installedAt": 1770373889465
+    },
+    "deepwiki": {
+      "version": "1.0.0",
+      "installedAt": 1770373892711
+    },
+    "get-tldr": {
+      "version": "1.0.0",
+      "installedAt": 1770373895826
+    },
+    "slack": {
+      "version": "1.0.0",
+      "installedAt": 1770373906600
+    },
+    "discord": {
+      "version": "1.0.1",
+      "installedAt": 1770373909361
+    },
+    "smtp-send": {
+      "version": "1.0.0",
+      "installedAt": 1770373912411
+    },
+    "whatsapp-styling-guide": {
+      "version": "1.0.0",
+      "installedAt": 1770373939272
+    },
+    "docker-essentials": {
+      "version": "1.0.0",
+      "installedAt": 1770373945052
+    },
+    "coolify": {
+      "version": "2.0.3",
+      "installedAt": 1770373948144
+    },
+    "fail2ban-reporter": {
+      "version": "1.0.0",
+      "installedAt": 1770373974284
+    },
+    "git-crypt-backup": {
+      "version": "1.0.0",
+      "installedAt": 1770373982787
+    },
+    "agentguard": {
+      "version": "1.0.0",
+      "installedAt": 1770373988430
+    },
+    "decision-trees": {
+      "version": "1.0.1",
+      "installedAt": 1770374262283
+    },
+    "clawlist": {
+      "version": "0.0.1",
+      "installedAt": 1770374367210
+    },
+    "jq": {
+      "version": "1.2.0",
+      "installedAt": 1770375870500
+    },
+    "ffmpeg-cli": {
+      "version": "1.0.0",
+      "installedAt": 1770375894420
+    },
+    "fd-find": {
+      "version": "1.0.0",
+      "installedAt": 1770375947402
+    },
+    "ripgrep": {
+      "version": "1.0.0",
+      "installedAt": 1770375974258
+    },
+    "gemini": {
+      "version": "1.0.0",
+      "installedAt": 1770376070526
+    },
+    "gpt": {
+      "version": "1.1.0",
+      "installedAt": 1770376081657
+    },
+    "notion-cli": {
+      "version": "0.0.1",
+      "installedAt": 1770376191375
+    }
+  }
+}
