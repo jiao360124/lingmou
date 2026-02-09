@@ -40,6 +40,19 @@ try {
             $newEntry = "`n## 定时备份`n- **时间**: $(Get-Date -Format 'yyyy-MM-dd HH:mm')`n- **备份文件**: $zipFile`n- **文件大小**: $fileSize MB`n- **状态**: ✅ 成功"
             Add-Content -Path $memoryFile -Value $newEntry
         }
+
+        # Push to GitHub
+        Write-Host "📦 Pushing to GitHub..." -ForegroundColor Cyan
+        try {
+            $currentBranch = git rev-parse --abbrev-ref HEAD
+            git add -A
+            git commit -m "Auto backup: $timestamp" -q
+            git push origin $currentBranch -q
+
+            Write-Host "✅ GitHub push complete" -ForegroundColor Green
+        } catch {
+            Write-Host "⚠️  GitHub push skipped: $_" -ForegroundColor Yellow
+        }
     } else {
         Write-Host "⏭️  No changes to backup" -ForegroundColor Yellow
     }
