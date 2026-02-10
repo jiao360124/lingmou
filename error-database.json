@@ -1,0 +1,106 @@
+{
+  "error_categories": {
+    "network": {
+      "name": "网络错误",
+      "detection_methods": ["timeout", "connection_refused", "dns_failed"],
+      "recovery_strategies": [
+        "retry_3_times",
+        "fallback_to_caching",
+        "notify_user",
+        "log_and_wait"
+      ],
+      "learning_mechanism": "记录错误频率和恢复时间"
+    },
+    "api": {
+      "name": "API错误",
+      "detection_methods": ["429_rate_limit", "500_server_error", "502_bad_gateway"],
+      "recovery_strategies": [
+        "exponential_backoff",
+        "switch_alternative_api",
+        "queue_requests",
+        "truncate_response"
+      ],
+      "learning_mechanism": "记录API最佳间隔和限流点"
+    },
+    "memory": {
+      "name": "内存错误",
+      "detection_methods": ["memory_usage_high", "process_oom", "state_loss"],
+      "recovery_strategies": [
+        "state_compression",
+        "clear_caches",
+        "restart_session",
+        "reduce_context"
+      ],
+      "learning_mechanism": "监控内存使用趋势"
+    },
+    "disk": {
+      "name": "磁盘错误",
+      "detection_methods": ["disk_full", "permission_denied", "read_error"],
+      "recovery_strategies": [
+        "use_alternative_location",
+        "clean_old_backups",
+        "compact_storage",
+        "notify_user"
+      ],
+      "learning_mechanism": "追踪存储增长模式"
+    },
+    "timeout": {
+      "name": "超时错误",
+      "detection_methods": ["response_time_threshold"],
+      "recovery_strategies": [
+        "reduce_timeout",
+        "async_processing",
+        "progress_reporting",
+        "cancel_operation"
+      ],
+      "learning_mechanism": "识别最慢的操作模式"
+    },
+    "permission": {
+      "name": "权限错误",
+      "detection_methods": ["access_denied", "invalid_token"],
+      "recovery_strategies": [
+        "check_credentials",
+        "use_alternative_auth",
+        "request_admin_access",
+        "sandbox_mode"
+      ],
+      "learning_mechanism": "记录权限最佳实践"
+    },
+    "unknown": {
+      "name": "未知错误",
+      "detection_methods": ["unhandled_exception", "null_reference", "unexpected_state"],
+      "recovery_strategies": [
+        "basic_recovery",
+        "panic_mode",
+        "notify_admin",
+        "log_for_review"
+      ],
+      "learning_mechanism": "收集错误模式用于分析"
+    }
+  },
+  "recovery_priority": {
+    "critical": [
+      "network",
+      "permission"
+    ],
+    "high": [
+      "memory",
+      "disk"
+    ],
+    "medium": [
+      "api",
+      "timeout"
+    ],
+    "low": [
+      "unknown"
+    ]
+  },
+  "error_history": [],
+  "last_audit": null,
+  "stats": {
+    "total_errors": 0,
+    "recovered_errors": 0,
+    "failed_recoveries": 0,
+    "learning_rate": 0
+  }
+}
