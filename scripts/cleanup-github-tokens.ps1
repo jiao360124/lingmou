@@ -13,10 +13,7 @@
 
 ## 旧令牌信息
 
-**新令牌** (当前使用):
-```
-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
-```
+**新令牌** (当前使用): [已移除以保护安全]
 
 **旧令牌** (需要清理):
 - Git配置文件中的旧令牌
