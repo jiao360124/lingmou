@@ -1,9 +1,18 @@
 # Daily Backup Script for OpenClaw Workspace
 # Runs automatically at scheduled times
 
+# Load environment variables
+if (Test-Path -Path ".env-loader.ps1") {
+    . .env-loader.ps1
+}
+
 $timestamp = Get-Date -Format "yyyyMMdd_HHmmss"
 $backupDir = "backup"
 $zipFile = "$backupDir\$timestamp.zip"
+
+# Get ports from environment variables or use defaults
+$GATEWAY_PORT = if ($env:GATEWAY_PORT) { $env:GATEWAY_PORT } else { "18789" }
+$CANVAS_PORT = if ($env:CANVAS_PORT) { $env:CANVAS_PORT } else { "18789" }
 
 # Ensure backup directory exists
 if (!(Test-Path -Path $backupDir)) {

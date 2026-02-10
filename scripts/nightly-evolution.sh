@@ -5,9 +5,20 @@
 
 set -e
 
+# Load environment variables
+if [ -f ".env-loader.sh" ]; then
+    source .env-loader.sh
+fi
+
 TIMESTAMP=$(date +"%Y-%m-%d %H:%M:%S")
 LOG_FILE="logs/nightly-evolution.log"
 BACKUP_DIR="backup"
+
+# Get ports from environment variables or use defaults
+GATEWAY_PORT=${GATEWAY_PORT:-18789}
+CANVAS_PORT=${CANVAS_PORT:-18789}
+HEARTBEAT_PORT=${HEARTBEAT_PORT:-18789}
+WS_PORT=${WS_PORT:-18789}
 
 # 确保日志目录存在
 mkdir -p logs

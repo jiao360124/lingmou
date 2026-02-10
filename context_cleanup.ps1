@@ -1,7 +1,17 @@
 # OpenClaw 上下文清理脚本 (Windows PowerShell)
 
+# Load environment variables
+if (Test-Path -Path ".env-loader.ps1") {
+    . .env-loader.ps1
+}
+
 # 设置备份目录
 $backupDir = "C:\Users\Administrator\.openclaw\workspace\backup\$(Get-Date -Format 'yyyyMMdd')"
+
+# Get ports from environment variables or use defaults
+$GATEWAY_PORT = if ($env:GATEWAY_PORT) { $env:GATEWAY_PORT } else { "18789" }
+$CANVAS_PORT = if ($env:CANVAS_PORT) { $env:CANVAS_PORT } else { "18789" }
+$HEARTBEAT_PORT = if ($env:HEARTBEAT_PORT) { $env:HEARTBEAT_PORT } else { "18789" }
 if (-not (Test-Path $backupDir)) {
     New-Item -ItemType Directory -Path $backupDir | Out-Null
 }
