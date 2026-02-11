@@ -46,22 +46,12 @@ try {
         # Update memory
         $memoryFile = "memory/$(Get-Date -Format 'yyyy-MM-dd').md"
         if (Test-Path -Path $memoryFile) {
-            $newEntry = "`n## 定时备份`n- **时间**: $(Get-Date -Format 'yyyy-MM-dd HH:mm')`n- **备份文件**: $zipFile`n- **文件大小**: $fileSize MB`n- **状态**: ✅ 成功"
+            $newEntry = "`n## 定时备份`n- **时间**: $(Get-Date -Format 'yyyy-MM-dd HH:mm')`n- **备份文件**: $zipFile`n- **文件大小**: $fileSize MB`n- **状态**: ✅ 成功`n- **GitHub**: 仅本地备份（超过100MB限制）"
             Add-Content -Path $memoryFile -Value $newEntry
         }
 
-        # Push to GitHub
-        Write-Host "📦 Pushing to GitHub..." -ForegroundColor Cyan
-        try {
-            $currentBranch = git rev-parse --abbrev-ref HEAD
-            git add -A
-            git commit -m "Auto backup: $timestamp" -q
-            git push origin $currentBranch -q
-
-            Write-Host "✅ GitHub push complete" -ForegroundColor Green
-        } catch {
-            Write-Host "⚠️  GitHub push skipped: $_" -ForegroundColor Yellow
-        }
+        # NOTE: Backup files are NOT pushed to GitHub because they exceed 100MB limit
+        Write-Host "💾 Backup saved locally only (GitHub limit: 100MB)" -ForegroundColor Yellow
     } else {
         Write-Host "⏭️  No changes to backup" -ForegroundColor Yellow
     }
