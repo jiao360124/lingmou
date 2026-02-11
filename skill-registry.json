@@ -1,0 +1,165 @@
+{
+  "skills": {
+    "deepwiki": {
+      "name": "DeepWiki",
+      "description": "GitHub仓库文档查询和知识问答",
+      "version": "1.0.0",
+      "author": "Cognition",
+      "repository": "https://github.com/regenrek/deepwiki-mcp",
+      "documentation": "https://docs.devin.ai/work-with-devin/deepwiki-mcp",
+      "risk_level": "low",
+      "priority": "high",
+      "estimated_days": 2,
+      "status": "pending",
+      "config": {
+        "enabled": true,
+        "api_key": "",
+        "cache_enabled": true,
+        "cache_duration": 3600,
+        "max_retries": 3
+      },
+      "features": [
+        "repository_query",
+        "documentation_extraction",
+        "qa_conversation",
+        "code_search"
+      ],
+      "permissions": {
+        "required": [],
+        "optional": []
+      },
+      "dependencies": []
+    },
+    "exa-search": {
+      "name": "Exa Web Search",
+      "description": "AI搜索（代码、新闻、商业研究）",
+      "version": "1.0.0",
+      "author": "Exa AI",
+      "repository": "https://github.com/exa-labs/exa-mcp-server",
+      "documentation": "https://docs.exa.ai/reference/exa-mcp",
+      "risk_level": "medium",
+      "priority": "high",
+      "estimated_days": 2,
+      "status": "pending",
+      "config": {
+        "enabled": true,
+        "api_key": "",
+        "cache_enabled": true,
+        "cache_duration": 1800,
+        "max_retries": 3,
+        "rate_limit": 100
+      },
+      "features": [
+        "code_search",
+        "news_search",
+        "business_research",
+        "document_search",
+        "deep_researcher"
+      ],
+      "permissions": {
+        "required": ["EXA_API_KEY"],
+        "optional": []
+      },
+      "dependencies": ["npx"]
+    },
+    "technews": {
+      "name": "TechNews",
+      "description": "科技新闻聚合",
+      "version": "1.0.0",
+      "author": "Community",
+      "repository": "",
+      "documentation": "",
+      "risk_level": "low",
+      "priority": "medium",
+      "estimated_days": 1,
+      "status": "pending",
+      "config": {
+        "enabled": false,
+        "cache_enabled": true,
+        "cache_duration": 86400,
+        "sources": [
+          "https://techmeme.com/rss.xml",
+          "https://www.theverge.com/rss/index.xml"
+        ]
+      },
+      "features": [
+        "news_collection",
+        "content_aggregation",
+        "markdown_formatting",
+        "categorization"
+      ],
+      "permissions": {
+        "required": [],
+        "optional": []
+      },
+      "dependencies": []
+    },
+    "git-sync": {
+      "name": "Git Sync",
+      "description": "自动化Git同步",
+      "version": "1.0.0",
+      "author": "Community",
+      "repository": "",
+      "documentation": "",
+      "risk_level": "medium",
+      "priority": "medium",
+      "estimated_days": 1,
+      "status": "pending",
+      "config": {
+        "enabled": false,
+        "cache_enabled": true,
+        "cache_duration": 3600,
+        "auto_commit": true,
+        "auto_push": true,
+        "branch_name": "main"
+      },
+      "features": [
+        "git_status_check",
+        "auto_commit",
+        "auto_push",
+        "conflict_resolution"
+      ],
+      "permissions": {
+        "required": ["GIT_CREDENTIALS"],
+        "optional": []
+      },
+      "dependencies": ["git"]
+    },
+    "github-action-gen": {
+      "name": "GitHub Action Gen",
+      "description": "自动生成GitHub Actions工作流",
+      "version": "1.0.0",
+      "author": "Community",
+      "repository": "",
+      "documentation": "",
+      "risk_level": "medium",
+      "priority": "low",
+      "estimated_days": 2,
+      "status": "pending",
+      "config": {
+        "enabled": false,
+        "cache_enabled": true,
+        "cache_duration": 7200,
+        "template_path": "./templates/github-actions"
+      },
+      "features": [
+        "workflow_generation",
+        "task_configuration",
+        "parameterized_generation",
+        "multi_platform_support"
+      ],
+      "permissions": {
+        "required": ["GITHUB_TOKEN"],
+        "optional": []
+      },
+      "dependencies": ["curl", "jq"]
+    }
+  },
+  "metadata": {
+    "last_updated": "2026-02-19T00:00:00Z",
+    "total_skills": 5,
+    "enabled_skills": 0,
+    "pending_skills": 5,
+    "integration_framework": "MCP v1.0"
+  }
+}
