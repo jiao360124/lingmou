@@ -1,0 +1,51 @@
+{
+  "version": "1.0.0",
+  "description": "智能任务调度器任务定义文件",
+  "tasks": [
+    {
+      "id": "daily-backup",
+      "priority": 10,
+      "description": "每日自动备份",
+      "dependencies": [],
+      "script": "powershell -ExecutionPolicy Bypass -File \"C:\\Users\\Administrator\\.openclaw\\workspace\\scripts\\daily-backup.ps1\""
+    },
+    {
+      "id": "nightly-evolution",
+      "priority": 15,
+      "description": "夜间进化计划",
+      "dependencies": ["daily-backup"],
+      "script": "powershell -ExecutionPolicy Bypass -File \"C:\\Users\\Administrator\\.openclaw\\workspace\\scripts\\nightly-evolution.ps1\""
+    },
+    {
+      "id": "health-check",
+      "priority": 20,
+      "description": "健康检查",
+      "dependencies": ["daily-backup"],
+      "script": "powershell -ExecutionPolicy Bypass -File \"C:\\Users\\Administrator\\.openclaw\\workspace\\scripts\\simple-health-check.ps1\""
+    },
+    {
+      "id": "cleanup-logs",
+      "priority": 5,
+      "description": "日志清理",
+      "dependencies": [],
+      "script": "powershell -ExecutionPolicy Bypass -File \"C:\\Users\\Administrator\\.openclaw\\workspace\\scripts\\cleanup-logs.ps1\""
+    }
+  ],
+  "triggers": {
+    "time": {
+      "daily-backup": "02:00",
+      "nightly-evolution": "03:00",
+      "health-check": "04:00",
+      "cleanup-logs": "05:00"
+    },
+    "condition": {
+      "enable": true,
+      "rules": [
+        {
+          "task": "daily-backup",
+          "condition": "System -and (Not (Test-Path backup/latest.zip))"
+        }
+      ]
+    }
+  }
+}
