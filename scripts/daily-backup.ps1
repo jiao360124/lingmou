@@ -40,8 +40,8 @@ try {
         Write-Host "✅ Backup complete: $zipFile" -ForegroundColor Green
         Write-Host "   Size: $fileSize MB" -ForegroundColor Gray
 
-        # Keep only last 7 backups
-        Get-ChildItem -Path $backupDir -Filter "*.zip" | Sort-Object LastWriteTime -Descending | Select-Object -Skip 7 | Remove-Item -Force
+        # Keep only last 3 backups (GitHub limit: 100MB, so fewer backups = smaller size)
+        Get-ChildItem -Path $backupDir -Filter "*.zip" | Sort-Object LastWriteTime -Descending | Select-Object -Skip 3 | Remove-Item -Force
 
         # Update memory
         $memoryFile = "memory/$(Get-Date -Format 'yyyy-MM-dd').md"
