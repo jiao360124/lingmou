@@ -1,0 +1,227 @@
+{
+  "version": "1.0.0",
+  "abilityMatrix": {
+    "dimensions": {
+      "accuracy": {
+        "name": "准确性",
+        "weight": 0.3,
+        "description": "输出的准确程度"
+      },
+      "speed": {
+        "name": "速度",
+        "weight": 0.2,
+        "description": "执行效率"
+      },
+      "completeness": {
+        "name": "完整性",
+        "weight": 0.2,
+        "description": "覆盖全面程度"
+      },
+      "usability": {
+        "name": "可用性",
+        "weight": 0.15,
+        "description": "用户友好程度"
+      },
+      "scalability": {
+        "name": "可扩展性",
+        "weight": 0.1,
+        "description": "应对增长的能力"
+      },
+      "reliability": {
+        "name": "可靠性",
+        "weight": 0.05,
+        "description": "稳定性和一致性"
+      }
+    },
+    "skills": {
+      "copilot": {
+        "version": "1.0.0",
+        "created": "2026-02-09",
+        "abilities": {
+          "code-analysis": {
+            "current": "high",
+            "target": "high",
+            "trend": "stable"
+          },
+          "code-completion": {
+            "current": "high",
+            "target": "high",
+            "trend": "increasing"
+          },
+          "error-detection": {
+            "current": "medium",
+            "target": "high",
+            "trend": "increasing"
+          },
+          "refactoring": {
+            "current": "medium",
+            "target": "high",
+            "trend": "stable"
+          },
+          "optimization": {
+            "current": "low",
+            "target": "medium",
+            "trend": "increasing"
+          }
+        },
+        "overallScore": 75.5,
+        "level": "advanced",
+        "lastEvaluated": "2026-02-13"
+      },
+      "rag": {
+        "version": "1.0.0",
+        "created": "2026-02-12",
+        "abilities": {
+          "knowledge-search": {
+            "current": "high",
+            "target": "high",
+            "trend": "stable"
+          },
+          "document-indexing": {
+            "current": "high",
+            "target": "high",
+            "trend": "stable"
+          },
+          "faq-query": {
+            "current": "medium",
+            "target": "high",
+            "trend": "increasing"
+          },
+          "online-integration": {
+            "current": "low",
+            "target": "medium",
+            "trend": "increasing"
+          }
+        },
+        "overallScore": 68.3,
+        "level": "intermediate",
+        "lastEvaluated": "2026-02-13"
+      },
+      "auto-gpt": {
+        "version": "2.0.0",
+        "created": "2026-02-09",
+        "abilities": {
+          "task-execution": {
+            "current": "high",
+            "target": "high",
+            "trend": "stable"
+          },
+          "error-recovery": {
+            "current": "high",
+            "target": "high",
+            "trend": "stable"
+          },
+          "dependency-management": {
+            "current": "medium",
+            "target": "high",
+            "trend": "increasing"
+          },
+          "visualization": {
+            "current": "medium",
+            "target": "high",
+            "trend": "increasing"
+          }
+        },
+        "overallScore": 72.8,
+        "level": "advanced",
+        "lastEvaluated": "2026-02-13"
+      },
+      "skill-linkage": {
+        "version": "1.0.0",
+        "created": "2026-02-12",
+        "abilities": {
+          "skill-registration": {
+            "current": "high",
+            "target": "high",
+            "trend": "stable"
+          },
+          "linkage-routing": {
+            "current": "high",
+            "target": "high",
+            "trend": "stable"
+          },
+          "collaboration-engine": {
+            "current": "medium",
+            "target": "high",
+            "trend": "increasing"
+          },
+          "workflow-definitions": {
+            "current": "high",
+            "target": "high",
+            "trend": "stable"
+          }
+        },
+        "overallScore": 70.2,
+        "level": "intermediate",
+        "lastEvaluated": "2026-02-13"
+      }
+    }
+  },
+  "scoringCriteria": {
+    "expert": {
+      "min": 90,
+      "description": "专家级 - 能力卓越，超出预期"
+    },
+    "advanced": {
+      "min": 75,
+      "max": 89,
+      "description": "高级 - 能力优秀，满足需求"
+    },
+    "intermediate": {
+      "min": 50,
+      "max": 74,
+      "description": "中级 - 能力合格，需要改进"
+    },
+    "beginner": {
+      "max": 49,
+      "description": "初级 - 能力不足，急需提升"
+    }
+  },
+  "assessmentMethods": {
+    "usage-data": {
+      "description": "基于使用数据评估",
+      "weight": 0.5,
+      "dataSources": ["usage-log", "success-rate", "error-rate"]
+    },
+    "benchmark": {
+      "description": "基于基准测试评估",
+      "weight": 0.3,
+      "testCases": ["performance-test", "accuracy-test", "stress-test"]
+    },
+    "feedback": {
+      "description": "基于用户反馈评估",
+      "weight": 0.15,
+      "sources": ["user-rating", "suggestions", "complaints"]
+    },
+    "hybrid": {
+      "description": "综合评估",
+      "weight": 0.05,
+      "methods": ["usage-data", "benchmark", "feedback"]
+    }
+  },
+  "recommendationStrategies": {
+    "conservative": {
+      "description": "保守策略",
+      "minConfidence": 0.8,
+      "topK": 3
+    },
+    "balanced": {
+      "description": "平衡策略",
+      "minConfidence": 0.6,
+      "topK": 5
+    },
+    "exploratory": {
+      "description": "探索策略",
+      "minConfidence": 0.4,
+      "topK": 10
+    }
+  },
+  "recommendationScenarios": [
+    "code-review",
+    "knowledge-search",
+    "code-analysis",
+    "documentation-generation",
+    "debugging",
+    "optimization"
+  ]
+}
