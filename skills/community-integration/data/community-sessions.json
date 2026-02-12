@@ -1,0 +1,164 @@
+{
+  "version": "1.0.0",
+  "communitySessions": {
+    "totalSessions": 47,
+    "activeDiscussions": 23,
+    "totalContributions": 156,
+    "lastUpdated": "2026-02-13"
+  },
+  "discussionTopics": [
+    {
+      "topic": "performance-optimization",
+      "title": "性能优化",
+      "discussions": 8,
+      "posts": 45,
+      "participants": 23,
+      "active": true
+    },
+    {
+      "topic": "code-quality",
+      "title": "代码质量",
+      "discussions": 5,
+      "posts": 32,
+      "participants": 18,
+      "active": true
+    },
+    {
+      "topic": "best-practices",
+      "title": "最佳实践",
+      "discussions": 6,
+      "posts": 41,
+      "participants": 27,
+      "active": true
+    },
+    {
+      "topic": "troubleshooting",
+      "title": "故障排除",
+      "discussions": 4,
+      "posts": 28,
+      "participants": 15,
+      "active": false
+    },
+    {
+      "topic": "new-features",
+      "title": "新功能",
+      "discussions": 3,
+      "posts": 19,
+      "participants": 12,
+      "active": true
+    }
+  ],
+  "recentDiscussions": [
+    {
+      "id": "discussion-001",
+      "topic": "performance-optimization",
+      "title": "如何优化缓存命中率？",
+      "author": "jiao360124",
+      "createdAt": "2026-02-13 00:00:00",
+      "posts": 12,
+      "lastActivity": "2026-02-13 00:30:00",
+      "tags": ["cache", "performance", "optimization"]
+    },
+    {
+      "id": "discussion-002",
+      "topic": "code-quality",
+      "title": "代码重构的最佳实践",
+      "author": "user123",
+      "createdAt": "2026-02-12 23:45:00",
+      "posts": 8,
+      "lastActivity": "2026-02-13 00:15:00",
+      "tags": ["refactoring", "best-practices", "code-quality"]
+    },
+    {
+      "id": "discussion-003",
+      "topic": "best-practices",
+      "title": "分享我的异步编程经验",
+      "author": "lingmou",
+      "createdAt": "2026-02-12 23:00:00",
+      "posts": 15,
+      "lastActivity": "2026-02-13 00:00:00",
+      "tags": ["async", "performance", "experience"]
+    }
+  ],
+  "recentPosts": [
+    {
+      "id": "post-001",
+      "discussionId": "discussion-001",
+      "author": "jiao360124",
+      "content": "我尝试了多级缓存策略，效果很不错！",
+      "createdAt": "2026-02-13 00:30:00",
+      "likes": 8,
+      "replies": 3
+    },
+    {
+      "id": "post-002",
+      "discussionId": "discussion-002",
+      "author": "user123",
+      "content": "感谢分享！我也受益匪浅。",
+      "createdAt": "2026-02-13 00:25:00",
+      "likes": 5,
+      "replies": 2
+    },
+    {
+      "id": "post-003",
+      "discussionId": "discussion-003",
+      "author": "lingmou",
+      "content": "异步编程是提升性能的关键技巧之一。",
+      "createdAt": "2026-02-13 00:20:00",
+      "likes": 12,
+      "replies": 4
+    }
+  ],
+  "contributions": [
+    {
+      "id": "contribution-001",
+      "type": "best-practice",
+      "title": "多级缓存策略",
+      "author": "lingmou",
+      "createdAt": "2026-02-13",
+      "rating": 4.8,
+      "usageCount": 156
+    },
+    {
+      "id": "contribution-002",
+      "type": "best-practice",
+      "title": "延迟加载优化",
+      "author": "lingmou",
+      "createdAt": "2026-02-12",
+      "rating": 4.6,
+      "usageCount": 98
+    },
+    {
+      "id": "contribution-003",
+      "type": "best-practice",
+      "title": "智能缓存穿透保护",
+      "author": "lingmou",
+      "createdAt": "2026-02-12",
+      "rating": 4.5,
+      "usageCount": 87
+    }
+  ],
+  "userStats": {
+    "jiao360124": {
+      "name": "jiao360124",
+      "discussions": 8,
+      "posts": 45,
+      "contributions": 3,
+      "reputation": 128
+    },
+    "user123": {
+      "name": "user123",
+      "discussions": 5,
+      "posts": 32,
+      "contributions": 1,
+      "reputation": 95
+    },
+    "lingmou": {
+      "name": "lingmou",
+      "discussions": 6,
+      "posts": 41,
+      "contributions": 3,
+      "reputation": 145
+    }
+  }
+}
