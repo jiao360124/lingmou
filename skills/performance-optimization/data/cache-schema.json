@@ -1,0 +1,121 @@
+{
+  "version": "1.0.0",
+  "cache": {
+    "levels": {
+      "l1": {
+        "name": "内存缓存",
+        "capacity": "100MB",
+        "type": "RAM",
+        "ttl": "5-15 minutes",
+        "strategy": "LRU",
+        "speed": "Fast"
+      },
+      "l2": {
+        "name": "持久化缓存",
+        "capacity": "1GB",
+        "type": "Disk",
+        "ttl": "1-24 hours",
+        "strategy": "LRU",
+        "speed": "Medium"
+      },
+      "l3": {
+        "name": "远程缓存",
+        "capacity": "10GB+",
+        "type": "Remote",
+        "ttl": "1-7 days",
+        "strategy": "LFU",
+        "speed": "Slow"
+      }
+    },
+    "strategies": {
+      "LRU": {
+        "name": "最近最少使用",
+        "description": "移除最长时间未被访问的缓存项",
+        "pros": ["简单", "符合访问模式"],
+        "cons": ["冷数据可能被误删"]
+      },
+      "LFU": {
+        "name": "最不经常使用",
+        "description": "移除访问频率最低的缓存项",
+        "pros": ["适合访问模式稳定的数据"],
+        "cons": ["新数据难被缓存"]
+      },
+      "FIFO": {
+        "name": "先进先出",
+        "description": "按添加顺序移除缓存项",
+        "pros": ["实现简单"],
+        "cons": ["不访问热点数据"]
+      },
+      "TTL": {
+        "name": "过期时间",
+        "description": "基于时间过期",
+        "pros": ["保证数据新鲜度"],
+        "cons": ["可能提前失效"]
+      }
+    },
+    "invalidation": {
+      "timeBased": {
+        "type": "固定TTL",
+        "ttl": "可配置",
+        "trigger": "到达过期时间"
+      },
+      "accessBased": {
+        "type": "访问频率",
+        "threshold": "可配置",
+        "trigger": "低于阈值时失效"
+      },
+      "contentBased": {
+        "type": "内容变化",
+        "hash": "内容哈希检测",
+        "trigger": "内容发生变化"
+      },
+      "dependencyBased": {
+        "type": "依赖关系",
+        "dependencies": "依赖项列表",
+        "trigger": "依赖项变化"
+      }
+    },
+    "protection": {
+      "cachePenetration": {
+        "type": "空值缓存",
+        "description": "缓存不存在的键",
+        "ttl": "5-10 minutes"
+      },
+      "cacheBreakdown": {
+        "type": "互斥锁",
+        "description": "防止缓存击穿",
+        "enabled": true
+      },
+      "rateLimiting": {
+        "type": "请求限流",
+        "maxRequests": "可配置",
+        "timeWindow": "可配置"
+      }
+    },
+    "monitoring": {
+      "metrics": {
+        "hitRate": "缓存命中率",
+        "missRate": "缓存未命中率",
+        "hitTime": "缓存命中时间",
+        "missTime": "缓存未命中时间",
+        "evictionCount": "驱逐次数",
+        "size": "缓存大小",
+        "items": "缓存项数量"
+      },
+      "triggers": {
+        "lowHitRate": {
+          "threshold": "低于60%",
+          "action": "警告"
+        },
+        "highLoad": {
+          "threshold": "超过80%",
+          "action": "降级"
+        },
+        "full": {
+          "threshold": "达到容量",
+          "action": "驱逐"
+        }
+      }
+    }
+  }
+}
