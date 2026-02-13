@@ -1,0 +1,131 @@
+{
+  "category": "code",
+  "templates": [
+    {
+      "name": "function-generation",
+      "title": "函数生成",
+      "description": "生成特定语言的函数实现",
+      "template": "请生成一个${language}的${function_type}函数，要求：\n1. 完成${task_description}\n2. 遵循${best_practices}\n3. 包含${error_handling}\n4. 添加必要的注释",
+      "parameters": {
+        "language": ["JavaScript", "Python", "Go", "Rust", "TypeScript", "Java"],
+        "function_type": ["async", "sync", "generator", "iterator"],
+        "task_description": ["输入描述", "处理流程描述"],
+        "best_practices": ["性能优化", "错误处理", "类型安全", "代码规范"],
+        "error_handling": ["try-catch块", "返回错误码", "异常抛出"]
+      },
+      "examples": [
+        {
+          "language": "JavaScript",
+          "function_type": "async",
+          "task_description": "异步处理HTTP请求并返回JSON数据",
+          "best_practices": "使用async/await，错误处理，日志记录",
+          "error_handling": "try-catch，返回错误对象"
+        }
+      ]
+    },
+    {
+      "name": "api-design",
+      "title": "API设计",
+      "description": "设计RESTful API端点",
+      "template": "请设计一个RESTful API接口，功能是${api_function}。要求：\n1. 使用HTTP ${method}\n2. 路径为${endpoint}\n3. 请求体格式${request_format}\n4. 响应格式${response_format}\n5. 包含${authentication}验证\n6. 支持${pagination}和${filtering}",
+      "parameters": {
+        "api_function": ["用户认证", "数据查询", "资源管理", "批量操作"],
+        "method": ["GET", "POST", "PUT", "DELETE", "PATCH"],
+        "endpoint": ["路径格式"],
+        "request_format": ["JSON", "Form-data", "Multipart"],
+        "response_format": ["JSON", "XML", "CSV"],
+        "authentication": ["JWT", "API Key", "Basic Auth", "OAuth2"],
+        "pagination": ["分页参数", "游标", "偏移量"],
+        "filtering": ["查询参数", "过滤条件"]
+      },
+      "examples": [
+        {
+          "api_function": "获取用户列表",
+          "method": "GET",
+          "endpoint": "/api/users",
+          "request_format": "无",
+          "response_format": "JSON",
+          "authentication": "JWT Token",
+          "pagination": "offset/limit",
+          "filtering": "status, role, search"
+        }
+      ]
+    },
+    {
+      "name": "code-review",
+      "title": "代码审查",
+      "description": "对代码进行质量审查",
+      "template": "请对以下代码进行审查：\n\n\`\`\`${language}\n${code}\n\`\`\`\n\n关注以下方面：\n1. 代码风格是否符合${language}规范\n2. 是否存在${common_issues}\n3. 性能优化建议\n4. 安全性问题\n5. 可读性和可维护性\n6. 是否有测试覆盖",
+      "parameters": {
+        "language": ["JavaScript", "Python", "Go", "Rust", "TypeScript", "Java"],
+        "common_issues": ["内存泄漏", "性能瓶颈", "安全问题", "代码重复"]
+      },
+      "examples": [
+        {
+          "language": "Python",
+          "code": "# 代码片段",
+          "common_issues": ["未关闭文件", "错误处理不完整"]
+        }
+      ]
+    },
+    {
+      "name": "debug-help",
+      "title": "调试辅助",
+      "description": "帮助定位和解决代码问题",
+      "template": "我遇到一个${problem_type}问题，代码是：\n\n\`\`\`${language}\n${code_snippet}\n\`\`\`\n\n错误信息：\n${error_message}\n\n背景：${background_info}\n\n请帮我：\n1. 定位问题原因\n2. 提供修复建议\n3. 解释为什么会出现这个问题\n4. 给出最佳实践建议",
+      "parameters": {
+        "problem_type": ["运行时错误", "逻辑错误", "性能问题", "内存问题", "竞态条件"],
+        "language": ["JavaScript", "Python", "Go", "Rust", "TypeScript", "Java"],
+        "code_snippet": ["代码片段"],
+        "error_message": ["错误信息"],
+        "background_info": ["背景信息"]
+      },
+      "examples": [
+        {
+          "problem_type": "运行时错误",
+          "language": "JavaScript",
+          "code_snippet": "代码片段",
+          "error_message": "undefined is not a function",
+          "background_info": "在React组件中使用"
+        }
+      ]
+    },
+    {
+      "name": "refactor",
+      "title": "代码重构",
+      "description": "提供代码重构建议",
+      "template": "请对以下代码进行重构：\n\n\`\`\`${language}\n${old_code}\n\`\`\`\n\n目标：\n1. 提高可读性\n2. 减少复杂度\n3. 增强可维护性\n4. 优化性能\n\n请提供：\n1. 重构后的代码\n2. 改进点说明\n3. 重构前后的对比\n4. 优化效果评估",
+      "parameters": {
+        "language": ["JavaScript", "Python", "Go", "Rust", "TypeScript", "Java"],
+        "old_code": ["旧代码"]
+      },
+      "examples": [
+        {
+          "language": "JavaScript",
+          "old_code": "长函数"
+        }
+      ]
+    },
+    {
+      "name": "test-generation",
+      "title": "测试生成",
+      "description": "为代码生成单元测试",
+      "template": "为以下函数生成${test_framework}单元测试：\n\n\`\`\`${language}\n${function_code}\n\`\`\`\n\n要求：\n1. 覆盖正常情况和边界情况\n2. 包含${test_cases}测试用例\n3. 使用${test_style}风格\n4. 添加必要的断言\n5. 包含测试数据",
+      "parameters": {
+        "language": ["JavaScript", "Python", "Go", "Rust", "TypeScript", "Java"],
+        "test_framework": ["Jest", "pytest", "testing", "unittest"],
+        "test_cases": ["正常", "异常", "边界", "组合"],
+        "test_style": ["AAA模式", "Given-When-Then", "场景驱动"]
+      },
+      "examples": [
+        {
+          "language": "Python",
+          "function_code": "函数代码",
+          "test_framework": "pytest",
+          "test_cases": ["正常输入", "空输入", "边界值"],
+          "test_style": "Given-When-Then"
+        }
+      ]
+    }
+  ]
+}

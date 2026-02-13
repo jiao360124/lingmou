@@ -1,0 +1,128 @@
+{
+  "category": "writing",
+  "templates": [
+    {
+      "name": "article-writing",
+      "title": "文章写作",
+      "description": "生成结构化的文章内容",
+      "template": "请帮我写一篇关于${topic}的文章，要求：\n\n1. **结构**：\n   - 引言（${intro_style}）\n   - 主体（${body_structure}）\n   - 结论（${conclusion_style}）\n\n2. **风格**：${tone}，适合${audience}\n\n3. **字数**：${word_count}\n\n4. **关键要点**：\n   - ${key_point_1}\n   - ${key_point_2}\n   - ${key_point_3}\n\n5. **格式**：使用${formatting}和${heading_style}",
+      "parameters": {
+        "topic": ["科技趋势", "产品分析", "教程指南", "观点评论"],
+        "intro_style": ["故事开头", "数据开头", "问题开头", "引用开头"],
+        "body_structure": ["分论点论述", "案例分析", "对比分析", "步骤说明"],
+        "conclusion_style": ["总结观点", "提出展望", "行动号召", "开放式结尾"],
+        "tone": ["专业", "轻松", "正式", "幽默"],
+        "audience": ["技术专家", "普通用户", "学生", "专业人士"],
+        "word_count": ["500-800", "1000-1500", "2000-3000"],
+        "formatting": ["段落式", "列表式", "带格式"],
+        "heading_style": ["H2/H3", "Markdown", "标题+摘要"]
+      },
+      "examples": [
+        {
+          "topic": "AI在编程中的发展趋势",
+          "intro_style": "数据开头",
+          "body_structure": "分论点论述+案例分析",
+          "conclusion_style": "提出展望",
+          "tone": "专业",
+          "audience": "技术专家",
+          "word_count": "1000-1500"
+        }
+      ]
+    },
+    {
+      "name": "email-writing",
+      "title": "邮件撰写",
+      "description": "生成专业的商务邮件",
+      "template": "请帮我写一封${email_type}邮件，收件人是${recipient}，背景是${context}。\n\n主题：${subject}\n\n内容要求：\n1. **称呼**：${greeting_style}\n2. **开场白**：${opening_style}\n3. **主体内容**：\n   - ${main_point_1}\n   - ${main_point_2}\n   - ${main_point_3}\n4. **行动号召**：${action_required}\n5. **结尾**：${closing_style}\n\n语气：${tone}，${professionalism}\n\n请提供中文版本和英文版本。",
+      "parameters": {
+        "email_type": ["商务沟通", "工作汇报", "邀请", "投诉", "跟进"],
+        "recipient": ["客户", "上级", "同事", "合作伙伴"],
+        "context": ["项目进展", "会议安排", "问题反馈"],
+        "subject": ["邮件主题"],
+        "greeting_style": ["正式称呼", "友好称呼", "标准称呼"],
+        "opening_style": ["背景介绍", "直接陈述", "感谢开头"],
+        "main_point_1": ["要点1"],
+        "main_point_2": ["要点2"],
+        "main_point_3": ["要点3"],
+        "action_required": ["期待回复", "安排会议", "提供资料"],
+        "closing_style": ["感谢", "祝好", "商祺"],
+        "tone": ["礼貌", "专业", "友好", "坚定"],
+        "professionalism": ["正式", "非正式", "标准"]
+      },
+      "examples": [
+        {
+          "email_type": "工作汇报",
+          "recipient": ["上级"],
+          "context": ["项目周报"],
+          "subject": "本周工作汇报 - [项目名称]",
+          "greeting_style": "正式称呼",
+          "opening_style": "直接陈述",
+          "main_point_1": ["项目进度完成情况"],
+          "main_point_2": ["遇到的问题和解决方案"],
+          "main_point_3": ["下周计划"],
+          "action_required": ["请审阅"],
+          "closing_style": ["感谢"],
+          "tone": ["专业"],
+          "professionalism": ["标准"]
+        }
+      ]
+    },
+    {
+      "name": "report-writing",
+      "title": "报告撰写",
+      "description": "生成专业的分析报告",
+      "template": "请帮我撰写一份关于${report_topic}的分析报告。\n\n**报告结构**：\n1. **执行摘要**（${summary_style}）\n2. **背景介绍**（${background_style}）\n3. **现状分析**（${analysis_style}）\n4. **问题识别**（${issues_style}）\n5. **解决方案**（${solutions_style}）\n6. **实施计划**（${implementation_style}）\n7. **预期效果**（${outcomes_style}）\n8. **风险分析**（${risk_analysis_style}）\n\n**格式要求**：\n- 使用${formatting_style}\n- 包含${data_visualization}\n- 提供${references}\n\n**字数**：${word_count}\n\n**语气**：${tone}，适合${audience}",
+      "parameters": {
+        "report_topic": ["市场分析", "技术调研", "项目评估", "可行性研究"],
+        "summary_style": ["关键点摘要", "数据驱动", "要点列表"],
+        "background_style": ["项目背景", "行业背景", "问题背景"],
+        "analysis_style": ["数据分析", "趋势分析", "对比分析"],
+        "issues_style": ["问题陈述", "影响评估", "优先级排序"],
+        "solutions_style": ["解决方案列表", "推荐方案", "实施策略"],
+        "implementation_style": ["时间表", "责任分配", "里程碑"],
+        "outcomes_style": ["预期成果", "KPI指标", "ROI分析"],
+        "risk_analysis_style": ["风险评估矩阵", "风险应对策略", "监控机制"],
+        "formatting_style": ["正式结构", "清晰分段", "表格图表"],
+        "data_visualization": ["图表", "数据表格", "对比分析"],
+        "references": ["参考文献", "数据来源", "附录"],
+        "word_count": ["2000-3000", "3000-5000"],
+        "tone": ["专业", "客观", "分析性"],
+        "audience": ["管理层", "技术团队", "决策者"]
+      },
+      "examples": [
+        {
+          "report_topic": "AI技术在企业中的应用",
+          "summary_style": ["关键点摘要"],
+          "background_style": ["行业背景"],
+          "analysis_style": ["数据分析"],
+          "issues_style": ["问题识别"],
+          "solutions_style": ["解决方案"],
+          "implementation_style": ["实施计划"],
+          "outcomes_style": ["预期效果"],
+          "risk_analysis_style": ["风险分析"],
+          "formatting_style": ["正式结构"],
+          "data_visualization": ["图表"],
+          "word_count": ["3000-5000"],
+          "tone": ["专业"],
+          "audience": ["管理层"]
+        }
+      ]
+    },
+    {
+      "name": "prompt-improvement",
+      "title": "提示词优化",
+      "description": "优化现有提示词的质量",
+      "template": "请优化以下提示词：\n\n**原始提示词**：\n${original_prompt}\n\n**当前效果**：${current_result}\n\n**优化目标**：\n1. 提高清晰度\n2. 增强完整性\n3. 改善结构\n4. 优化风格\n5. 提升一致性\n\n请提供：\n1. 优化后的提示词\n2. 优化说明\n3. 预期效果提升",
+      "parameters": {
+        "original_prompt": ["原始提示词"],
+        "current_result": ["当前效果描述"]
+      },
+      "examples": [
+        {
+          "original_prompt": "写一个Python函数",
+          "current_result": "函数很简单但缺少注释和错误处理"
+        }
+      ]
+    }
+  ]
+}

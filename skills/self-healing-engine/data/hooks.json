@@ -1,0 +1,181 @@
+{
+    "lastUpdated":  "2026-02-13T16:06:14.7051843+08:00",
+    "hooks":  [
+                  {
+                      "id":  "HOOK-886266",
+                      "name":  "test-hook",
+                      "type":  "script",
+                      "location":  "Write-Host \u0027Test hook executed!\u0027 -ForegroundColor Green",
+                      "enabled":  true,
+                      "createdAt":  "2026-02-13T16:06:14.8642205+08:00"
+                  },
+                  {
+                      "id":  "HOOK-398860",
+                      "name":  "test-hook",
+                      "type":  "script",
+                      "location":  "Write-Host \u0027Test hook executed!\u0027 -ForegroundColor Green",
+                      "enabled":  true,
+                      "createdAt":  "2026-02-13T16:06:20.4171183+08:00"
+                  },
+                  {
+                      "id":  "HOOK-164231",
+                      "name":  "test-hook-1",
+                      "type":  "script",
+                      "location":  "Write-Host \u0027Test hook executed\u0027 -ForegroundColor Green",
+                      "enabled":  true,
+                      "createdAt":  "2026-02-13T16:12:10.9569018+08:00"
+                  },
+                  {
+                      "id":  "HOOK-932674",
+                      "name":  "test-hook-2",
+                      "type":  "script",
+                      "location":  "Write-Host \u0027Another test hook\u0027 -ForegroundColor Cyan",
+                      "enabled":  true,
+                      "createdAt":  "2026-02-13T16:12:11.1276019+08:00"
+                  },
+                  {
+                      "id":  "HOOK-955139",
+                      "name":  "test-hook-1",
+                      "type":  "script",
+                      "location":  "Write-Host \u0027Test hook executed\u0027 -ForegroundColor Green",
+                      "enabled":  true,
+                      "createdAt":  "2026-02-13T16:13:04.4628578+08:00"
+                  },
+                  {
+                      "id":  "HOOK-615402",
+                      "name":  "test-hook-2",
+                      "type":  "script",
+                      "location":  "Write-Host \u0027Another test hook\u0027 -ForegroundColor Cyan",
+                      "enabled":  true,
+                      "createdAt":  "2026-02-13T16:13:04.6232999+08:00"
+                  },
+                  {
+                      "id":  "HOOK-95946",
+                      "name":  "test-hook-1",
+                      "type":  "script",
+                      "location":  "Write-Host \u0027Test hook executed\u0027 -ForegroundColor Green",
+                      "enabled":  true,
+                      "createdAt":  "2026-02-13T16:13:45.9619296+08:00"
+                  },
+                  {
+                      "id":  "HOOK-617080",
+                      "name":  "test-hook-2",
+                      "type":  "script",
+                      "location":  "Write-Host \u0027Another test hook\u0027 -ForegroundColor Cyan",
+                      "enabled":  true,
+                      "createdAt":  "2026-02-13T16:13:46.1287611+08:00"
+                  },
+                  {
+                      "id":  "HOOK-589794",
+                      "name":  "test-hook-1",
+                      "type":  "script",
+                      "location":  "Write-Host \u0027Test hook executed\u0027 -ForegroundColor Green",
+                      "enabled":  true,
+                      "createdAt":  "2026-02-13T16:17:49.1079517+08:00"
+                  },
+                  {
+                      "id":  "HOOK-571745",
+                      "name":  "test-hook-2",
+                      "type":  "script",
+                      "location":  "Write-Host \u0027Another test hook\u0027 -ForegroundColor Cyan",
+                      "enabled":  true,
+                      "createdAt":  "2026-02-13T16:17:49.2747189+08:00"
+                  },
+                  {
+                      "id":  "HOOK-569811",
+                      "name":  "test-hook-1",
+                      "type":  "script",
+                      "location":  "Write-Host \u0027Test hook executed\u0027 -ForegroundColor Green",
+                      "enabled":  true,
+                      "createdAt":  "2026-02-13T16:18:59.7782723+08:00"
+                  },
+                  {
+                      "id":  "HOOK-797035",
+                      "name":  "test-hook-2",
+                      "type":  "script",
+                      "location":  "Write-Host \u0027Another test hook\u0027 -ForegroundColor Cyan",
+                      "enabled":  true,
+                      "createdAt":  "2026-02-13T16:18:59.9357948+08:00"
+                  },
+                  {
+                      "id":  "HOOK-980293",
+                      "name":  "test-hook-1",
+                      "type":  "script",
+                      "location":  "Write-Host \u0027Test hook executed\u0027 -ForegroundColor Green",
+                      "enabled":  true,
+                      "createdAt":  "2026-02-13T16:19:50.2506497+08:00"
+                  },
+                  {
+                      "id":  "HOOK-641339",
+                      "name":  "test-hook-2",
+                      "type":  "script",
+                      "location":  "Write-Host \u0027Another test hook\u0027 -ForegroundColor Cyan",
+                      "enabled":  true,
+                      "createdAt":  "2026-02-13T16:19:50.4062382+08:00"
+                  },
+                  {
+                      "id":  "HOOK-165319",
+                      "name":  "test-hook-1",
+                      "type":  "script",
+                      "location":  "Write-Host \u0027Test hook executed\u0027 -ForegroundColor Green",
+                      "enabled":  true,
+                      "createdAt":  "2026-02-13T16:30:56.2055895+08:00"
+                  },
+                  {
+                      "id":  "HOOK-115820",
+                      "name":  "test-hook-2",
+                      "type":  "script",
+                      "location":  "Write-Host \u0027Another test hook\u0027 -ForegroundColor Cyan",
+                      "enabled":  true,
+                      "createdAt":  "2026-02-13T16:30:56.3653746+08:00"
+                  },
+                  {
+                      "id":  "HOOK-377754",
+                      "name":  "test-hook-1",
+                      "type":  "script",
+                      "location":  "Write-Host \u0027Test hook executed\u0027 -ForegroundColor Green",
+                      "enabled":  true,
+                      "createdAt":  "2026-02-13T16:32:14.6344537+08:00"
+                  },
+                  {
+                      "id":  "HOOK-554308",
+                      "name":  "test-hook-2",
+                      "type":  "script",
+                      "location":  "Write-Host \u0027Another test hook\u0027 -ForegroundColor Cyan",
+                      "enabled":  true,
+                      "createdAt":  "2026-02-13T16:32:14.7898001+08:00"
+                  },
+                  {
+                      "id":  "HOOK-16847",
+                      "name":  "test-hook-1",
+                      "type":  "script",
+                      "location":  "Write-Host \u0027Test hook executed\u0027 -ForegroundColor Green",
+                      "enabled":  true,
+                      "createdAt":  "2026-02-13T16:33:15.4692431+08:00"
+                  },
+                  {
+                      "id":  "HOOK-317527",
+                      "name":  "test-hook-2",
+                      "type":  "script",
+                      "location":  "Write-Host \u0027Another test hook\u0027 -ForegroundColor Cyan",
+                      "enabled":  true,
+                      "createdAt":  "2026-02-13T16:33:15.6299755+08:00"
+                  },
+                  {
+                      "id":  "HOOK-336152",
+                      "name":  "test-hook-1",
+                      "type":  "script",
+                      "location":  "Write-Host \u0027Test hook executed\u0027 -ForegroundColor Green",
+                      "enabled":  true,
+                      "createdAt":  "2026-02-13T16:38:44.6477737+08:00"
+                  },
+                  {
+                      "id":  "HOOK-989668",
+                      "name":  "test-hook-2",
+                      "type":  "script",
+                      "location":  "Write-Host \u0027Another test hook\u0027 -ForegroundColor Cyan",
+                      "enabled":  true,
+                      "createdAt":  "2026-02-13T16:38:44.8012394+08:00"
+                  }
+              ]
+}

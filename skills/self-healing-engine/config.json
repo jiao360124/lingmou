@@ -1,0 +1,19 @@
+{
+  "enabled": true,
+  "monitorInterval": 60,
+  "snapshotRetention": 7,
+  "fixAttempts": 3,
+  "verifyDelay": 5000,
+  "logDirs": [".logs", ".learnings"],
+  "checkCommands": ["openclaw", "git", "npm"],
+  "alertOnErrors": true,
+  "autoRetry": true,
+  "retryAttempts": 3,
+  "retryDelay": 5000,
+  "logLevel": "info",
+  "services": {
+    "gateway": true,
+    "session": true,
+    "memory": false
+  }
+}

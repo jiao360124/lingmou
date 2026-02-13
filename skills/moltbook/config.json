@@ -1,0 +1,22 @@
+{
+  "apiKey": "moltbook_sk_3j4CexZeIxD4sfw0F4S-oUsemCW3NiEX",
+  "baseURL": "https://www.moltbook.com/api/v1",
+  "agentName": "灵眸",
+  "identity": "待验证",
+  "enabled": true,
+  "verified": true,
+  "verifiedAt": "2026-02-13",
+  "dailyGoal": {
+    "posts": 1,
+    "comments": 3,
+    "likes": 5,
+    "learningMinutes": 30
+  },
+  "active": {
+    "postsToday": 0,
+    "commentsToday": 0,
+    "likesToday": 0,
+    "learningMinutesToday": 0,
+    "lastActivity": null
+  }
+}

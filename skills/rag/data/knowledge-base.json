@@ -1,0 +1,58 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2026-02-14",
+  "categories": {
+    "documentation": {
+      "name": "项目文档",
+      "description": "项目相关的技术文档和指南",
+      "count": 0,
+      "files": []
+    },
+    "code-examples": {
+      "name": "代码示例",
+      "description": "常见编程代码模式示例",
+      "count": 0,
+      "files": []
+    },
+    "faq": {
+      "name": "常见问题",
+      "description": "常见问题解答",
+      "count": 0,
+      "files": []
+    },
+    "best-practices": {
+      "name": "最佳实践",
+      "description": "行业最佳实践和标准",
+      "count": 0,
+      "files": []
+    }
+  },
+  "searchConfig": {
+    "defaultLimit": 5,
+    "maxLimit": 20,
+    "enableCaching": true,
+    "cacheTTL": 300,
+    "enableVectorSearch": false
+  },
+  "faqConfig": {
+    "categories": ["getting-started", "usage", "troubleshooting", "advanced"],
+    "autoUpdate": true
+  },
+  "externalSources": [
+    {
+      "name": "GitHub",
+      "enabled": true,
+      "apiEndpoint": "https://api.github.com"
+    },
+    {
+      "name": "Stack Overflow",
+      "enabled": true,
+      "apiEndpoint": "https://api.stackexchange.com"
+    },
+    {
+      "name": "Official Docs",
+      "enabled": true,
+      "apiEndpoint": ""
+    }
+  ]
+}

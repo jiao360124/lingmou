@@ -1,0 +1,14 @@
+{
+  "enabled": true,
+  "maxHooks": 100,
+  "defaultTimeout": 5000,
+  "defaultMaxRetries": 3,
+  "executionMode": "sequential",
+  "hookDirs": [
+    ".hooks"
+  ],
+  "templateDirs": [
+    ".templates"
+  ],
+  "logLevel": "info"
+}

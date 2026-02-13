@@ -1,0 +1,114 @@
+{
+  "category": "admin",
+  "templates": [
+    {
+      "name": "decision-making",
+      "title": "决策支持",
+      "description": "决策分析和建议",
+      "template": "我需要做一个${decision_type}决策。以下是信息：\n\n**决策背景**：\n${background}\n\n**选项**：\n- 选项1：${option_1}\n  - 优势：${pros_1}\n  - 劣势：${cons_1}\n- 选项2：${option_2}\n  - 优势：${pros_2}\n  - 劣势：${cons_2}\n- 选项3：${option_3}\n  - 优势：${pros_3}\n  - 劣势：${cons_3}\n\n**决策标准**：\n1. ${criteria_1}\n2. ${criteria_2}\n3. ${criteria_3}\n\n**约束条件**：\n- ${constraints}\n- ${time_frame}\n- ${resources}\n\n请帮我：\n1. **分析评估**：使用${methodology}方法分析各选项\n2. **决策建议**：给出推荐决策及理由\n3. **风险评估**：分析各选项的风险\n4. **实施计划**：推荐方案的执行步骤\n5. **备选方案**：如果推荐方案不行的备选",
+      "parameters": {
+        "decision_type": ["战略决策", "产品决策",  "技术决策", "投资决策"],
+        "background": ["决策背景"],
+        "option_1": ["选项1"],
+        "option_2": ["选项2"],
+        "option_3": ["选项3"],
+        "pros_1": ["优势1"],
+        "cons_1": ["劣势1"],
+        "pros_2": ["优势2"],
+        "cons_2": ["劣势2"],
+        "pros_3": ["优势3"],
+        "cons_3": ["劣势3"],
+        "criteria_1": ["标准1"],
+        "criteria_2": ["标准2"],
+        "criteria_3": ["标准3"],
+        "constraints": ["约束条件"],
+        "time_frame": ["时间框架"],
+        "resources": ["资源限制"],
+        "methodology": ["加权评分", "成本效益分析", "决策矩阵", "SWOT分析"]
+      },
+      "examples": [
+        {
+          "decision_type": ["战略决策"],
+          "methodology": ["SWOT分析"]
+        }
+      ]
+    },
+    {
+      "name": "project-planning",
+      "title": "项目规划",
+      "description": "项目计划和任务分配",
+      "template": "请帮我规划一个${project_type}项目。\n\n**项目信息**：\n- 项目名称：${project_name}\n- 项目类型：${project_type}\n- 目标：${goal}\n- 预期成果：${outcomes}\n- 项目周期：${duration}\n- 预算：${budget}\n\n**项目要求**：\n1. **里程碑规划**：${milestones}\n2. **任务分解**：${task_breakdown}\n3. **资源分配**：${resource_allocation}\n4. **风险管理**：${risk_management}\n5. **质量保证**：${quality_assurance}\n6. **沟通计划**：${communication_plan}\n\n请提供详细的项目计划。",
+      "parameters": {
+        "project_type": ["软件开发", "产品开发", "市场营销", "企业变革"],
+        "project_name": ["项目名称"],
+        "goal": ["项目目标"],
+        "outcomes": ["预期成果"],
+        "duration": ["项目周期"],
+        "budget": ["预算限制"],
+        "milestones": ["里程碑列表"],
+        "task_breakdown": ["任务分解"],
+        "resource_allocation": ["资源分配"],
+        "risk_management": ["风险识别和处理"],
+        "quality_assurance": ["质量保证措施"],
+        "communication_plan": ["沟通计划"]
+      },
+      "examples": [
+        {
+          "project_type": ["软件开发"],
+          "project_name": ["电商平台重构"],
+          "duration": ["3个月"]
+        }
+      ]
+    },
+    {
+      "name": "meeting-agenda",
+      "title": "会议议程",
+      "description": "创建专业的会议议程",
+      "template": "请为我创建一个${meeting_type}的会议议程。\n\n**会议信息**：\n- 会议类型：${meeting_type}\n- 会议主题：${topic}\n- 参会人员：${participants}\n- 会议时间：${duration}\n- 会议地点/平台：${location}\n\n**会议目标**：\n${objectives}\n\n**议程要求**：\n1. **开场**：${opening_style}\n2. **议题1**：${agenda_item_1}\n   - 议题内容：${content_1}\n   - 讨论时间：${time_1}\n   - 输出要求：${output_1}\n3. **议题2**：${agenda_item_2}\n   - 议题内容：${content_2}\n   - 讨论时间：${time_2}\n   - 输出要求：${output_2}\n4. **议题3**：${agenda_item_3}\n   - 议题内容：${content_3}\n   - 讨论时间：${time_3}\n   - 输出要求：${output_3}\n5. **总结**：${closing_style}\n\n**格式要求**：\n- 清晰的时间分配\n- 明确的讨论目标\n- 可量化的产出\n- 决策跟踪机制",
+      "parameters": {
+        "meeting_type": ["项目会议", "团队例会", "客户会议", "战略会议"],
+        "topic": ["会议主题"],
+        "participants": ["参会人员"],
+        "duration": ["会议时长"],
+        "location": ["会议地点/平台"],
+        "objectives": ["会议目标"],
+        "opening_style": ["开场方式"],
+        "closing_style": ["总结方式"],
+        "agenda_item_1": ["议题1"],
+        "agenda_item_2": ["议题2"],
+        "agenda_item_3": ["议题3"]
+      },
+      "examples": [
+        {
+          "meeting_type": ["项目会议"],
+          "duration": ["1小时"],
+          "topic": ["项目进度汇报"]
+        }
+      ]
+    },
+    {
+      "name": "audit-planning",
+      "title": "审计规划",
+      "description": "审计计划和检查清单",
+      "template": "请帮我规划一次${audit_type}审计。\n\n**审计信息**：\n- 审计类型：${audit_type}\n- 审计范围：${scope}\n- 审计目标：${objective}\n- 审计对象：${subject}\n- 审计时间：${timeline}\n\n**审计计划**：\n1. **前期准备**：${preparation}\n   - 资料收集：${materials}\n   - 检查清单：${checklist}\n   - 人员安排：${staffing}\n\n2. **现场审计**：${field_work}\n   - 访谈安排：${interviews}\n   - 文档检查：${document_review}\n   - 系统测试：${system_testing}\n\n3. **后期工作**：${post_audit}\n   - 报告撰写：${reporting}\n   - 问题跟踪：${issue_tracking}\n   - 整改监督：${follow_up}\n\n**检查要点**：\n${key_points}\n\n**格式要求**：\n- 清晰的步骤流程\n- 明确的检查标准\n- 量化指标\n- 时间节点",
+      "parameters": {
+        "audit_type": ["财务审计", "质量审计", "安全审计", "合规审计"],
+        "scope": ["审计范围"],
+        "objective": ["审计目标"],
+        "subject": ["审计对象"],
+        "timeline": ["审计时间"],
+        "preparation": ["前期准备"],
+        "field_work": ["现场工作"],
+        "post_audit": ["后期工作"],
+        "key_points": ["关键检查点"]
+      },
+      "examples": [
+        {
+          "audit_type": ["质量审计"],
+          "scope": ["生产流程"],
+          "timeline": ["1周"]
+        }
+      ]
+    }
+  ]
+}

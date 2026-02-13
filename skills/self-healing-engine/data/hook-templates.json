@@ -1,0 +1,51 @@
+{
+  "templates": [
+    {
+      "name": "on-error",
+      "description": "在发生错误时执行",
+      "type": "conditional",
+      "trigger": "error",
+      "matcher": ["error"],
+      "priority": 90,
+      "executionMode": "sequential",
+      "location": "Write-Error 'Hook triggered on error'"
+    },
+    {
+      "name": "on-success",
+      "description": "在操作成功时执行",
+      "type": "conditional",
+      "trigger": "success",
+      "matcher": ["success"],
+      "priority": 80,
+      "executionMode": "sequential",
+      "location": "Write-Host 'Hook triggered on success' -ForegroundColor Green"
+    },
+    {
+      "name": "log-to-file",
+      "description": "将执行日志记录到文件",
+      "type": "script",
+      "trigger": "always",
+      "priority": 50,
+      "executionMode": "sequential",
+      "location": "Add-Content 'logs/hook-$(Get-Date -Format yyyyMMdd-HHmmss).log' '$($Context.ToString())'"
+    },
+    {
+      "name": "notify-telegram",
+      "description": "通过Telegram发送通知",
+      "type": "script",
+      "trigger": "always",
+      "priority": 60,
+      "executionMode": "sequential",
+      "location": "Invoke-Expression 'message send -Target channelId -Message \"Hook executed: $($Context.Name)\"'"
+    },
+    {
+      "name": "cleanup-old-files",
+      "description": "清理旧的日志文件",
+      "type": "script",
+      "trigger": "always",
+      "priority": 40,
+      "executionMode": "parallel",
+      "location": "Get-ChildItem logs -Filter '*.log' -OlderThan (Get-Date).AddDays(7) | Remove-Item"
+    }
+  ]
+}

@@ -1,262 +1,277 @@
-# RAG - 检索增强生成
+# RAG Knowledge Base Skill
 
-## 简介
-RAG（Retrieval-Augmented Generation）是我的知识增强系统，通过检索外部知识库来生成更准确、更全面的回答。结合了检索和生成能力，提供高质量的智能问答。
+检索增强生成知识库，支持项目文档、代码示例、FAQ和在线知识源。
 
-## 核心价值
+## 功能概览
 
-### 为什么需要RAG？
-- **准确性提升** - 基于事实而非记忆，减少幻觉
-- **知识扩展** - 超越自身训练数据的范围
-- **实时更新** - 可以查询最新的知识
-- **可追溯性** - 回答基于具体文档，可溯源
-- **专业领域** - 轻松处理专业技术问题
+### 1. 项目文档索引
+- 结构化项目信息存储
+- 文档分类和标签系统
+- 文档版本管理
 
-## 工作原理
+### 2. 代码示例库
+- 常见代码模式存储
+- 代码片段索引
+- 用法示例和最佳实践
 
-```
-用户提问 → 检索相关文档 → 上下文理解 → 生成回答 → 引用来源
-```
+### 3. FAQ知识库
+- 常见问题解答
+- 问题分类和搜索
+- 用户反馈收集
 
-### 步骤详解
+### 4. 在线知识源
+- 实时知识检索
+- 多源知识聚合
+- 知识更新同步
 
-#### 1. 问题分析
-- 解析用户问题
-- 提取关键信息
-- 识别问题类型（事实/代码/建议/分析）
-- 确定知识领域
+## 核心文件
 
-#### 2. 知识检索
-- 在知识库中搜索相关文档
-- 使用语义检索（而不是关键词匹配）
-- 返回最相关的文档片段
-- 排序并选择最佳片段
+### 知识库数据
+- `data/documents/` - 项目文档目录
+- `data/code-examples/` - 代码示例目录
+- `data/faq/` - FAQ目录
+- `data/knowledge-base.json` - 主知识库索引
 
-#### 3. 上下文构建
-- 提取检索到的信息
-- 构建上下文上下文
-- 添加问题本身
-- 限制上下文长度
+### 核心脚本
+- `scripts/knowledge-retriever.ps1` - 知识检索引擎
+- `scripts/knowledge-indexer.ps1` - 知识索引器
+- `scripts/faq-manager.ps1` - FAQ管理器
+- `scripts/online-source-integrator.ps1` - 在线源集成器
 
-#### 4. 生成回答
-- 基于检索到的信息回答
-- 整合多个文档的信息
-- 提供全面的答案
-- 保持专业性和准确性
-
-#### 5. 引用来源
-- 标注回答来源
-- 提供文档链接或引用
-- 帮助用户验证信息
-- 提升可信度
-
-## 知识库结构
-
-### 文档组织
-```
-knowledge/
-├── guides/           # 指南文档
-├── documentation/    # 技术文档
-├── faqs/            # 常见问题
-├── examples/        # 示例代码
-├── best-practices/  # 最佳实践
-└── policies/        # 政策文档
-```
-
-### 文档格式
-- Markdown (.md)
-- 纯文本 (.txt)
-- HTML (.html)
-- PDF (.pdf) - 需要转换
-
-## 检索策略
-
-### 1. 语义检索
-使用向量相似度搜索，理解问题的含义而非关键词。
-
-### 2. 多路召回
-- 同时检索多个知识源
-- 合并多个结果
-- 去重和排序
-
-### 3. 相关性评分
-为每个检索结果打分，选择最相关的片段。
-
-### 4. 上下文优化
-根据问题类型选择最佳文档片段组合。
+### 配置文件
+- `config/knowledge-rules.json` - 知识检索规则
+- `config/index-config.json` - 索引配置
 
 ## 使用方法
 
-### 方式1：通用问答
+### 基本用法
+```powershell
+# 加载模块
+Import-Module .\scripts\knowledge-retriever.ps1
+
+# 检索知识
+$results = Get-Knowledge -Query "API调用"
+$results = Get-Knowledge -Query "..." -Category "code"
+$results = Get-Knowledge -Query "..." -Limit 5
+
+# 添加文档
+Add-Document -Path "docs/api-guide.md" -Category "documentation"
+Add-Document -Path "docs/..." -Category "..."
+
+# 索引文档
+Update-KnowledgeIndex
+
+# 检索FAQ
+$faq = Get-FAQ -Question "如何使用API"
 ```
-RAG：如何在PowerShell中创建环境变量？
+
+### 命令行接口
+```bash
+# 检索知识
+rag search "API调用"
+rag search "..." --category code --limit 5
+
+# 添加文档
+rag add docs/api-guide.md --category documentation
+rag add docs/... --category ...
+
+# 更新索引
+rag index
+
+# 检索FAQ
+rag faq "如何使用API"
 ```
 
-### 方式2：代码相关
-```
-RAG：Next.js的Server Actions如何使用？
-```
+## 知识库结构
 
-### 方式3：特定文档
+### 文档分类
 ```
-RAG：在sql-toolkit中如何连接PostgreSQL？
-```
-
-### 方式4：知识库查询
-```
-RAG：在examples目录中查找有关API测试的示例
+documentation/
+├── api-guide.md
+├── architecture.md
+├── development.md
+└── deployment.md
 ```
 
-## 支持的查询类型
-
-### 1. 事实查询
+### 代码示例
 ```
-RAG：OpenClaw的最新版本是什么？
+code-examples/
+├── javascript/
+│   ├── async-api.md
+│   └── error-handling.md
+├── python/
+│   ├── data-processing.md
+│   └── database-connection.md
+└── ...
 ```
-- 适用于：版本信息、状态、配置等
 
-### 2. 操作指南
+### FAQ分类
 ```
-RAG：如何配置Telegram通知？
+faq/
+├── getting-started/
+├── usage/
+├── troubleshooting/
+└── advanced/
 ```
-- 适用于：使用指南、教程、步骤说明
 
-### 3. 代码示例
+## 检索功能
+
+### 多维度检索
+```powershell
+# 基于关键词
+Get-Knowledge -Query "API调用"
+
+# 基于分类
+Get-Knowledge -Query "..." -Category "code"
+
+# 基于标签
+Get-Knowledge -Query "..." -Tags ["javascript", "async"]
+
+# 组合检索
+Get-Knowledge -Query "..." -Category "code" -Tags ["javascript"] -Limit 5
 ```
-RAG：提供使用jq处理JSON的示例
+
+### 智能推荐
+```powershell
+# 基于上下文推荐
+Get-Knowledge -Query "..." -Context "用户正在编写JavaScript代码"
+
+# 基于历史推荐
+Get-Knowledge -Query "..." -History @(...)
 ```
-- 适用于：代码示例、API调用、脚本编写
 
-### 4. 问题解决
+## 代码示例库
+
+### 示例格式
+```markdown
+# 代码示例: 异步API调用
+
+## 描述
+使用fetch API进行异步HTTP请求
+
+## 代码
+\`\`\`javascript
+async function fetchData(url) {
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return await response.json();
+  } catch (error) {
+    console.error('Fetch error:', error);
+    throw error;
+  }
+}
+\`\`\`
+
+## 使用
+\`\`\`javascript
+fetchData('https://api.example.com/data')
+  .then(data => console.log(data))
+  .catch(error => console.error(error));
+\`\`\`
+
+## 说明
+- 异步处理防止阻塞
+- 错误处理确保健壮性
+- 返回Promise便于链式调用
 ```
-RAG：如何修复Git冲突？
+
+## FAQ系统
+
+### FAQ格式
+```markdown
+# FAQ: 如何使用API密钥？
+
+## 问题
+如何在应用程序中使用API密钥？
+
+## 答案
+1. **获取API密钥**
+   - 登录到控制台
+   - 进入API密钥管理页面
+   - 创建新密钥
+
+2. **配置密钥**
+   - 在代码中设置环境变量
+   - 或在配置文件中存储
+   - 确保**不要**将密钥提交到版本控制
+
+3. **使用密钥**
+   - 在请求头中包含: \`Authorization: Bearer YOUR_KEY\`
+   - 或使用SDK的认证方法
+
+## 常见问题
+- **Q: 密钥过期怎么办?**
+  A: 密钥长期有效，需手动在控制台删除和重新生成
+
+- **Q: 可以共享密钥吗?**
+  A: 不可以，每个API密钥应保持私密
 ```
-- 适用于：故障排除、问题诊断
 
-### 5. 技术决策
+## 在线知识源
+
+### 集成的知识源
+- GitHub文档
+- 官方文档
+- Stack Overflow
+- 技术博客
+
+### 检索流程
+1. 检索本地知识库
+2. 如未找到，搜索在线源
+3. 聚合多源结果
+4. 提供引用来源
+
+## 性能指标
+
+| 指标 | 目标值 | 当前值 |
+|------|--------|--------|
+| 检索速度 | <500ms | - |
+| 索引速度 | <10s | - |
+| 文档支持量 | 100+ | - |
+| FAQ数量 | 50+ | - |
+
+## 扩展接口
+
+### 自定义知识源
+```powershell
+Register-KnowledgeSource -Name "custom" -Source {
+    param($query)
+    # 实现自定义检索逻辑
+}
 ```
-RAG：在什么场景下应该使用Redis而不是MySQL？
+
+### 自定义分类
+```powershell
+Add-KnowledgeCategory -Name "custom" -Parent "documentation"
 ```
-- 适用于：技术选型、架构设计
 
-## 知识库维护
+### 索引优化
+```powershell
+Update-IndexConfig -EnableCaching $true
+Update-IndexConfig -EnableVectorSearch $true
+```
 
-### 新增文档
-1. 创建或更新Markdown文档
-2. 放置在对应的知识目录
-3. 编写清晰的标题和目录
-4. 包含必要的示例和说明
-
-### 更新知识
-- 定期审查现有文档
-- 更新过时信息
-- 添加新的最佳实践
-- 合并重复内容
-
-### 文档质量标准
-- 清晰的结构（标题、列表）
-- 准确的内容
-- 相关的代码示例
-- 适当的引用和链接
-
-## 优势特点
-
-### 1. 准确性
-- 基于事实而非记忆
-- 减少幻觉风险
-- 可验证的答案
-- 实时更新知识
-
-### 2. 全面性
-- 跨多个知识源
-- 整合多方面信息
-- 提供完整的解决方案
-- 包含替代方案
-
-### 3. 可靠性
-- 来源可追溯
-- 经过验证的内容
-- 专业领域知识
-- 最佳实践指导
-
-### 4. 灵活性
-- 支持多种问题类型
-- 上下文感知的检索
-- 个性化查询优化
-- 支持模糊搜索
-
-## 技术实现
-
-### 检索引擎
-- 本地文档检索
-- 向量搜索（如需）
-- 语义理解
-- 排序算法
-
-### 生成引擎
-- LLM生成回答
-- 上下文整合
-- 事实一致性检查
-- 回答格式化
-
-### 引用系统
-- 自动识别来源
-- 生成引用链接
-- 支持跳转
-- 格式标准化
-
-## 集成能力
+## 集成点
 
 ### 与其他技能集成
-```powershell
-# 示例：结合code-mentor技能
-RAG：如何优化这段SQL查询？
-[粘贴SQL代码]
-```
+- **Auto-GPT**: 检索相关知识支持任务执行
+- **Copilot**: 提供上下文代码示例
+- **Prompt-Engineering**: 基于知识库提供模板
 
-### 知识库查询接口
-```powershell
-# 搜索特定类型的文档
-RAG：在guides目录中查找"部署"相关内容
-```
+### API端点
+- `POST /api/knowledge/search` - 检索知识
+- `POST /api/knowledge/add` - 添加知识
+- `POST /api/knowledge/index` - 更新索引
+- `POST /api/faq/search` - 检索FAQ
 
-## 使用场景
+## 更新日志
 
-### 1. 日常问答
-快速查找操作指南、配置说明、常见问题解答。
-
-### 2. 代码辅助
-查找API文档、代码示例、最佳实践。
-
-### 3. 技术咨询
-获取专业领域知识和技术建议。
-
-### 4. 学习提升
-系统化学习技能和知识体系。
-
-### 5. 项目参考
-获取项目相关的文档和示例。
-
-## 注意事项
-
-### 1. 知识范围
-- 只基于已有知识库回答
-- 超出范围的查询需要告知用户
-
-### 2. 更新频率
-- 知识库需要定期更新
-- 最新信息可能需要手动添加
-
-### 3. 准确性保证
-- 知识库内容需经过审核
-- 提供引用来源以便验证
-
-## 扩展计划
-- 支持PDF文档解析
-- 添加在线知识源集成
-- 实现多语言支持
-- 添加用户反馈机制
-- 支持自定义知识库
-
-## 版本历史
-- v1.0.0 (2026-02-12) - 初始版本，支持Markdown知识库检索
+### v1.0.0 (2026-02-14)
+- 初始版本
+- 文档索引系统
+- 代码示例库
+- FAQ管理器
+- 在线源集成器

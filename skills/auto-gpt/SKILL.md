@@ -224,3 +224,97 @@ Import-Module -Name AutoGPT.Plugin.Custom
 
 ## 版本历史
 - v1.0.0 (2026-02-12) - 初始版本，支持基础自动化任务
+- v2.0.0 (2026-02-12) - 增强错误恢复、可视化进度面板、任务暂停/恢复、依赖管理
+
+---
+
+## 新增功能（v2.0.0）
+
+### 1. 智能错误恢复
+- 自动识别错误类型（超时、网络、未找到等）
+- 查找并应用修复方案
+- 自动重试机制（最多3次）
+- 记录错误和解决方案供未来参考
+- 错误记录到日志文件
+
+**使用示例**：
+```
+Auto-GPT：执行任务时遇到错误，自动尝试恢复
+```
+
+### 2. 可视化进度面板
+- 实时显示任务状态
+- 进度条可视化
+- 详细步骤列表
+- 实时日志输出
+- 统计信息（成功率、剩余时间等）
+- 通知系统（进度更新、任务完成等）
+
+**使用示例**：
+```
+Auto-GPT：在执行任务时，持续显示进度面板
+```
+
+### 3. 任务暂停/恢复
+- 支持手动暂停任务
+- 从任意断点恢复
+- 保存任务状态
+- 断点续传功能
+- 任务历史记录
+
+**使用示例**：
+```
+Auto-GPT：执行长时间任务，可以随时暂停
+命令：Stop-AutoTask -TaskId task-123
+恢复命令：Resume-AutoTask -TaskId task-123
+```
+
+### 4. 任务依赖管理
+- 自动检测任务依赖关系
+- 构建依赖关系图
+- 循环依赖检测
+- 拓扑排序优化执行顺序
+- 识别可并行执行的任务组
+- 优先级调度
+
+**使用示例**：
+```
+Auto-GPT：执行以下任务，自动处理依赖
+1. 下载源码
+2. 编译代码
+3. 运行测试（依赖2）
+4. 打包发布（依赖3）
+5. 生成报告（依赖4）
+```
+
+---
+
+## 工具脚本
+
+### 错误恢复
+- `scripts/error-recovery.ps1`
+  - Invoke-AutoErrorRecovery - 自动错误恢复
+  - Identify-ErrorType - 识别错误类型
+  - Search-ErrorSolutions - 查找修复方案
+  - Record-ErrorAndSolution - 记录错误和解决方案
+
+### 进度面板
+- `scripts/progress-dashboard.ps1`
+  - Show-ProgressDashboard - 显示进度面板
+  - Build-Dashboard - 构建面板
+  - Get-LastTask - 获取上次任务
+  - Update-StepStatus - 更新步骤状态
+
+### 暂停/恢复
+- `scripts/task-pause-resume.ps1`
+  - Stop-AutoTask - 暂停任务
+  - Resume-AutoTask - 恢复任务
+  - Test-TaskState - 检查任务状态
+  - Get-TaskList - 列出所有任务
+
+### 依赖管理
+- `scripts/task-dependencies.ps1`
+  - Initialize-TaskDependencyGraph - 初始化依赖图
+  - Detect-Cycle - 检测循环依赖
+  - Perform-TopologicalSort - 拓扑排序
+  - Get-ParallelTasks - 获取并行任务组
