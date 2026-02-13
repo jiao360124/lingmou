@@ -1,0 +1,17 @@
+﻿{
+    "version":  "1.0.0",
+    "name":  "test-skill",
+    "actions":  [
+                    "action1",
+                    "action2"
+                ],
+    "description":  "Test skill",
+    "author":  "LingMou",
+    "parameters":  {
+                       "param1":  {
+                                      "description":  "Test parameter",
+                                      "default":  "value",
+                                      "type":  "string"
+                                  }
+                   }
+}

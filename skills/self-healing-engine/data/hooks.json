@@ -176,6 +176,14 @@
                       "location":  "Write-Host \u0027Another test hook\u0027 -ForegroundColor Cyan",
                       "enabled":  true,
                       "createdAt":  "2026-02-13T16:38:44.8012394+08:00"
+                  },
+                  {
+                      "id":  "HOOK-320201",
+                      "name":  "test-hook",
+                      "type":  "script",
+                      "location":  "Write-Host \u0027Test hook executed!\u0027 -ForegroundColor Green",
+                      "enabled":  true,
+                      "createdAt":  "2026-02-13T18:08:10.3573642+08:00"
                   }
               ]
 }
