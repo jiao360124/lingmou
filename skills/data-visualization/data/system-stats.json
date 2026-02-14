@@ -1,0 +1,11 @@
+{
+  "date": "2026-02-14",
+  "gateway_status": "running",
+  "gateway_port": 18789,
+  "process_count": 3,
+  "avg_cpu": 8.5,
+  "avg_memory_mb": 217,
+  "cpu_cores": 8,
+  "disk_usage_percent": 60,
+  "memory_usage_percent": 45
+}

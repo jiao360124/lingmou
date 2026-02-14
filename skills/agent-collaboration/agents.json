@@ -1,0 +1,54 @@
+{
+  "agents": [
+    {
+      "id": "coder",
+      "name": "编码专家",
+      "capabilities": ["coding","refactoring","debugging","performance"],
+      "weight": 0.9,
+      "icon": "💻",
+      "description": "擅长代码编写、重构、调试和性能优化"
+    },
+    {
+      "id": "tester",
+      "name": "测试工程师",
+      "capabilities": ["testing","qa","automation","coverage"],
+      "weight": 0.8,
+      "icon": "🧪",
+      "description": "擅长单元测试、集成测试和自动化测试"
+    },
+    {
+      "id": "docs",
+      "name": "文档专家",
+      "capabilities": ["writing","documentation","markdown","api-docs"],
+      "weight": 0.7,
+      "icon": "📝",
+      "description": "擅长技术文档编写和API文档生成"
+    },
+    {
+      "id": "security",
+      "name": "安全专家",
+      "capabilities": ["security","authentication","authorization","audit"],
+      "weight": 0.85,
+      "icon": "🔒",
+      "description": "擅长安全审查、身份验证和权限管理"
+    },
+    {
+      "id": "designer",
+      "name": "设计师",
+      "capabilities": ["design","ui/ux","prototyping","wireframing"],
+      "weight": 0.75,
+      "icon": "🎨",
+      "description": "擅长UI设计、用户体验设计和原型制作"
+    },
+    {
+      "id": "analyst",
+      "name": "分析师",
+      "capabilities": ["analysis","planning","estimation","research"],
+      "weight": 0.7,
+      "icon": "📊",
+      "description": "擅长需求分析、计划和估算"
+    }
+  ],
+  "default_agents": ["coder","tester","docs"],
+  "last_updated": "2026-02-14T10:15:00+08:00"
+}

@@ -1,0 +1,91 @@
+{
+  "api_version": "1.0.0",
+  "name": "Smart Search & Data API",
+  "description": "统一API网关，提供智能搜索、数据可视化和系统管理功能",
+  "endpoints": [
+    {
+      "path": "/search",
+      "method": "POST",
+      "description": "多源智能搜索",
+      "request": {
+        "query": {
+          "type": "string",
+          "required": true,
+          "min_length": 2,
+          "description": "搜索查询内容"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["local", "web", "memory", "rag"]
+          },
+          "default": ["local", "web", "memory"],
+          "description": "搜索源列表"
+        },
+        "weights": {
+          "type": "object",
+          "properties": {
+            "rag": {"type": "number", "default": 0.9},
+            "memory": {"type": "number", "default": 0.7},
+            "local": {"type": "number", "default": 0.6},
+            "web": {"type": "number", "default": 0.5}
+          },
+          "description": "搜索源权重"
+        }
+      },
+      "response": {
+        "format": "json",
+        "schema": "results",
+        "description": "搜索结果"
+      }
+    },
+    {
+      "path": "/dashboard",
+      "method": "GET",
+      "description": "获取仪表盘数据",
+      "response": {
+        "format": "json",
+        "schema": "dashboard",
+        "description": "系统状态和任务进度"
+      }
+    },
+    {
+      "path": "/stats",
+      "method": "GET",
+      "description": "获取统计数据",
+      "response": {
+        "format": "json",
+        "schema": "stats",
+        "description": "系统统计信息"
+      }
+    }
+  ],
+  "common_headers": {
+    "Content-Type": {
+      "type": "string",
+      "default": "application/json"
+    },
+    "Authorization": {
+      "type": "string",
+      "description": "Bearer Token认证"
+    }
+  },
+  "errors": {
+    "VALIDATION_ERROR": {
+      "code": "VALIDATION_ERROR",
+      "message": "请求参数验证失败",
+      "details": "具体错误信息"
+    },
+    "API_ERROR": {
+      "code": "API_ERROR",
+      "message": "API调用失败",
+      "details": "错误详情"
+    },
+    "RATE_LIMIT_ERROR": {
+      "code": "RATE_LIMIT_ERROR",
+      "message": "超出速率限制",
+      "details": "限制详情"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "date": "2026-02-14",
+  "total_tasks": 4,
+  "completed": 1,
+  "progress": 25,
+  "tasks": [
+    {
+      "name": "智能搜索系统",
+      "progress": 100,
+      "status": "完成"
+    },
+    {
+      "name": "Agent协作系统",
+      "progress": 0,
+      "status": "跳过"
+    },
+    {
+      "name": "数据可视化系统",
+      "progress": 0,
+      "status": "进行中"
+    },
+    {
+      "name": "API网关",
+      "progress": 0,
+      "status": "未开始"
+    }
+  ]
+}
