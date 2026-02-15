@@ -175,6 +175,30 @@ openclaw-3.0/
 ## 🎯 下一步
 
 ✅ 所有任务已完成 - 系统已完全部署并运行中
+✅ 自动调度任务已设置完成
+
+### 调度任务列表
+
+| 任务名称 | 状态 | 触发时间 | 描述 |
+|---------|------|---------|------|
+| OpenClaw Moltbook Heartbeat | ✅ Ready | 每日 03:00 | Moltbook心跳监控 |
+| OpenClaw Rate Limiter | ✅ Ready | 每日 05:00 | 速率限制管理 |
+| OpenClaw Monitoring Dashboard | ✅ Ready | 每日 03:30 | 监控面板 |
+
+### 手动监控命令
+
+```powershell
+# 启动监控系统
+.\scripts\evolution\heartbeat-monitor.ps1
+.\scripts\evolution\rate-limiter.ps1
+.\scripts\evolution\monitoring-dashboard.ps1
+
+# 查看日志
+Get-Content logs/heartbeat.log -Tail 20
+
+# 检查状态
+Get-Content data/heartbeat-status.json
+```
 
 ---
 
