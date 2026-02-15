@@ -18,15 +18,24 @@ const logger = winston.createLogger({
 
 class Watchdog {
   constructor() {
-    // 检查间隔
-    this.checkInterval = 60 * 1000; // 60秒
+    // 🚀 优化: 增加检查频率（60秒 → 30秒）
+    this.checkInterval = 30 * 1000; // 30秒
 
-    // 系统压力阈值
+    // 🚀 优化: 更严格的阈值（提前预警）
     this.thresholds = {
-      maxTokenUsageRatio: 0.95,      // 95%
-      maxErrorRate: 15,              // 15%
-      maxErrorSpike: 10,             // 10%激增
-      minSuccessRate: 80             // 80%
+      // Token使用阈值（更严格）
+      maxTokenUsageRatio: 0.90,      // 90% (原95%)
+      warningTokenUsageRatio: 0.75,  // 75% (新：警告线)
+
+      // 错误率阈值（提前预警）
+      maxErrorRate: 12,              // 12% (原15%)
+      warningErrorRate: 5,           // 5% (新：警告线)
+
+      // 成功率阈值（提前预警）
+      minSuccessRate: 85,            // 85% (原80%，目标90%)
+
+      // 错误激增阈值
+      maxErrorSpike: 8               // 8%激增 (原10%)
     };
 
     // 严重程度标记

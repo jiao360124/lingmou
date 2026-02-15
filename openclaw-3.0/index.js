@@ -15,6 +15,15 @@ const rollbackEngine = require('./core/rollback-engine');
 const systemMemory = require('./memory/system-memory');
 const watchdog = require('./core/watchdog');
 
+// 新模块：Gap Analyzer
+const GapAnalyzer = require('./objective/gapAnalyzer');
+// 新模块：Pattern Miner
+const PatternMiner = require('./value/patternMiner');
+// 新模块：ROI Engine
+const ROIEngine = require('./economy/roiEngine');
+// 新模块：Template Manager
+const TemplateManager = require('./value/templateManager');
+
 const fs = require('fs').promises;
 
 // 日志配置
@@ -59,6 +68,9 @@ class OpenClaw3 {
     logger.info('✅ Watchdog 初始化完成');
     watchdog.start();
 
+    // 初始化新模块
+    this.initializeNewModules();
+
     // 初始化模块
     this.initialize();
 
@@ -70,6 +82,29 @@ class OpenClaw3 {
 
     // 启动 Watchdog
     this.startWatchdog();
+  }
+
+  initializeNewModules() {
+    logger.info('🆕 初始化新模块...');
+
+    // 初始化Gap Analyzer
+    this.gapAnalyzer = new GapAnalyzer('data/goals.json');
+    logger.info('✅ Gap Analyzer 初始化完成');
+
+    // 初始化Pattern Miner
+    this.patternMiner = new PatternMiner('data/patterns.json');
+    logger.info('✅ Pattern Miner 初始化完成');
+
+    // 初始化ROI Engine
+    this.roiEngine = new ROIEngine();
+    logger.info('✅ ROI Engine 初始化完成');
+
+    // 初始化Template Manager
+    this.templateManager = new TemplateManager('templates/');
+    logger.info('✅ Template Manager 初始化完成');
+    logger.info('   已有模板: ' + this.templateManager.getTemplates().length + '个');
+
+    logger.info('🆕 新模块初始化完成');
   }
 
   initialize() {
@@ -100,16 +135,40 @@ class OpenClaw3 {
       await this.checkOptimization();
     });
 
-    // 每天凌晨4点重置Token状态
-    cron.schedule('0 4 * * *', () => {
+    // 每天凌晨3:30点执行Gap分析
+    cron.schedule('30 3 * * *', async () => {
+      logger.info('⏰ 触发Gap分析');
+      await this.performGapAnalysis();
+    });
+
+    // 每天凌晨4:30点执行ROI计算
+    cron.schedule('30 4 * * *', async () => {
+      logger.info('⏰ 触发ROI计算');
+      await this.calculateROI();
+    });
+
+    // 每天凌晨5点执行模式挖掘
+    cron.schedule('0 5 * * *', async () => {
+      logger.info('⏰ 触发模式挖掘');
+      await this.performPatternMining();
+    });
+
+    // 每天凌晨5:30点生成模板报告
+    cron.schedule('30 5 * * *', () => {
+      logger.info('⏰ 生成模板报告');
+      this.generateTemplateReport();
+    });
+
+    // 每天凌晨6点重置Token状态
+    cron.schedule('0 6 * * *', () => {
       logger.info('⏰ 重置每日Token状态');
       tokenGovernor.resetDaily();
       tracker.resetDaily();
       sessionSummarizer.resetDaily();
     });
 
-    // 每天凌晨5点生成报告
-    cron.schedule('0 5 * * *', () => {
+    // 每天凌晨7点生成每日报告
+    cron.schedule('0 7 * * *', () => {
       logger.info('⏰ 生成每日报告');
       this.generateDailyReport();
     });
@@ -182,6 +241,141 @@ class OpenClaw3 {
       // controlTower.enterValidationWindow(decision);
     } else {
       logger.info('⚠️  优化未通过', decision);
+    }
+  }
+
+  // 🆕 新增：Gap分析
+  async performGapAnalysis() {
+    try {
+      // 分析Gap
+      const gap = this.gapAnalyzer.analyzeGap('data/metrics.json');
+
+      if (gap.suggestions.length > 0) {
+        logger.info(`🔍 Gap分析发现 ${gap.suggestions.length} 条优化建议`);
+
+        // 保存最紧迫的建议
+        const topSuggestion = gap.suggestions[0];
+        this.gapAnalyzer.saveSuggestion(topSuggestion);
+
+        logger.info('✅ 已保存最紧迫的建议');
+        logger.info(`   优先级: ${topSuggestion.priority}`);
+        logger.info(`   建议: ${topSuggestion.message}`);
+
+        // 生成Gap报告
+        const report = {
+          timestamp: new Date().toISOString(),
+          gap: gap,
+          suggestionsCount: gap.suggestions.length
+        };
+
+        fs.writeFile('reports/gap-analysis-report.json', JSON.stringify(report, null, 2))
+          .then(() => logger.info('✅ Gap报告已保存'))
+          .catch(error => logger.error('❌ 保存Gap报告失败:', error));
+      } else {
+        logger.info('✅ 无Gap，系统运行良好');
+      }
+
+    } catch (error) {
+      logger.error('❌ Gap分析失败:', error);
+    }
+  }
+
+  // 🆕 新增：ROI计算
+  async calculateROI() {
+    try {
+      // 获取Gap建议
+      const suggestions = this.gapAnalyzer.getHistory();
+
+      if (suggestions.length > 0) {
+        logger.info(`💰 计算ROI: ${suggestions.length} 条建议`);
+
+        // 计算ROI
+        const roiList = this.roiEngine.rankSuggestions(suggestions);
+
+        // 生成ROI报告
+        const roiReport = this.roiEngine.saveROIReport(roiList, 'reports/roi-report.json');
+
+        if (roiReport) {
+          logger.info('✅ ROI报告已保存');
+          logger.info(`   总ROI: ${roiReport.averageROI.toFixed(2)}%`);
+          logger.info(`   总预估收益: ${roiReport.totalEstimatedSavings.toLocaleString()} tokens`);
+        }
+
+        // 生成ROI摘要
+        const summary = this.roiEngine.generateSummary(roiList);
+        logger.info('\n' + summary);
+
+        // 获取高ROI建议
+        const highROI = this.roiEngine.getHighROIList(suggestions);
+        logger.info(`🎯 高ROI建议: ${highROI.length} 条`);
+        highROI.forEach((s, i) => {
+          logger.info(`   ${i + 1}. ${s.message} - ROI: ${s.roiPercentage.toFixed(2)}%`);
+        });
+      } else {
+        logger.info('✅ 无历史建议，无法计算ROI');
+      }
+
+    } catch (error) {
+      logger.error('❌ ROI计算失败:', error);
+    }
+  }
+
+  // 🆕 新增：模式挖掘
+  async performPatternMining() {
+    try {
+      logger.info('🔍 开始模式挖掘...');
+
+      // 从日志中提取prompts
+      const prompts = this.patternMiner.extractPromptsFromLogs('logs/openclaw-3.0.log');
+
+      if (prompts.length > 0) {
+        logger.info(`📊 提取到 ${prompts.length} 个prompts`);
+
+        // 生成模板
+        const templates = this.patternMiner.mineTemplates(prompts);
+
+        logger.info(`✅ 生成 ${templates.length} 个模板`);
+
+        // 导入模板
+        let count = 0;
+        for (const template of templates) {
+          const saved = this.templateManager.saveTemplate(template);
+          if (saved) count++;
+        }
+
+        logger.info(`✅ 已导入 ${count} 个模板到库`);
+
+        // 保存patterns配置
+        this.patternMiner.savePatterns();
+
+        // 生成报告
+        this.generateTemplateReport();
+
+      } else {
+        logger.info('✅ 未提取到prompts');
+      }
+
+    } catch (error) {
+      logger.error('❌ 模式挖掘失败:', error);
+    }
+  }
+
+  // 🆕 新增：模板报告
+  generateTemplateReport() {
+    try {
+      const stats = this.templateManager.getTemplateStats();
+      const report = this.templateManager.generateTemplateReport();
+
+      logger.info('=== 模板库统计 ===');
+      logger.info(report);
+
+      // 保存报告
+      fs.writeFile('reports/template-report.md', report, 'utf8')
+        .then(() => logger.info('✅ 模板报告已保存'))
+        .catch(error => logger.error('❌ 保存模板报告失败:', error));
+
+    } catch (error) {
+      logger.error('❌ 生成模板报告失败:', error);
     }
   }
 
@@ -389,7 +583,25 @@ class OpenClaw3 {
       gap: objectiveReport.gap,
       optimization: objectiveReport.optimization,
       controlTower: controlTowerStatus,
-      uptime: process.uptime()
+      uptime: process.uptime(),
+      // 🆕 新增：新模块信息
+      newModules: {
+        gapAnalyzer: {
+          suggestionsCount: this.gapAnalyzer.getHistory().length,
+          lastAnalysis: this.gapAnalyzer.getHistory().slice(-1)[0]?.timestamp || null
+        },
+        roiEngine: {
+          roiList: this.roiEngine.getHighROIList(this.gapAnalyzer.getHistory()),
+          averageROI: this.roiEngine.metrics.dailyTokens > 0 ? this.roiEngine.metrics.costReduction : 0
+        },
+        templateManager: {
+          totalTemplates: this.templateManager.getTemplates().length,
+          byType: this.templateManager.getTemplatesByType().reduce((acc, t) => {
+            acc[t.type] = (acc[t.type] || 0) + 1;
+            return acc;
+          }, {})
+        }
+      }
     };
   }
 

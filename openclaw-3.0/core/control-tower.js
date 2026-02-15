@@ -44,14 +44,17 @@ class ControlTower {
     };
     this.currentState = 'NORMAL';
 
-    // 配置
+    // 🚀 优化配置（更严格的阈值，提前预警）
     this.config = {
+      // 错误率阈值（更早预警）
       errorRateThresholds: {
-        warning: 3,      // 3%
-        recovery: 8      // 8%
+        warning: 2,      // 2% (原3%：提前50%预警)
+        recovery: 5      // 5% (原8%：提前37.5%恢复)
       },
+      // Token使用阈值（更严格）
       tokenUsageThresholds: {
-        limited: 0.85    // 85%
+        limited: 0.80,   // 80% (原85%：提前5%限制)
+        warning: 0.75    // 75% (新：警告线)
       },
       validationDays: 3,
       cooldownDays: 1,
