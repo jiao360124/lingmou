@@ -1,7 +1,7 @@
 # OpenClaw 工作空间状态
 
 ## 当前时间
-2026-02-15 16:09
+2026-02-15 17:09
 
 ---
 
@@ -207,7 +207,7 @@ Get-Content data/heartbeat-status.json
 ### Gateway状态 ✅
 - Gateway: 正常运行 (127.0.0.1:18789)
 - 响应时间: ~38ms
-- Token使用: 82k/200k (41%)
+- Token使用: 480k/200k (240%) ⚠️
 
 ### Agent状态 ✅
 - 会话: main (运行中)
@@ -220,8 +220,8 @@ Get-Content data/heartbeat-status.json
 
 ---
 
-**最后更新**: 2026-02-15 16:09
-**状态**: ✅ Week 5完成，自动化系统部署成功，OpenClaw 3.0升级完成，系统运行正常
+**最后更新**: 2026-02-15 17:09
+**状态**: ✅ Week 5完成，自动化系统部署成功，OpenClaw 3.0升级完成，系统运行正常（⚠️ Token超预算240%）
 
 ---
 
