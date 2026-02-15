@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp": "2026-02-15T05:25:58.452Z",
+    "optimizationType": "test_optimization",
+    "description": "测试优化",
+    "changes": [
+      "test_change"
+    ],
+    "result": {
+      "success": true
+    },
+    "success": true,
+    "riskScore": 0.5,
+    "snapshotId": "test_snapshot"
+  },
+  {
+    "timestamp": "2026-02-15T05:25:58.453Z",
+    "optimizationType": "test_optimization",
+    "description": "测试优化2",
+    "changes": [
+      "test_change2"
+    ],
+    "result": {
+      "success": false
+    },
+    "success": false,
+    "riskScore": 0.3,
+    "snapshotId": "test_snapshot2"
+  },
+  {
+    "timestamp": "2026-02-15T05:25:58.454Z",
+    "optimizationType": "test_optimization2",
+    "description": "测试优化2",
+    "changes": [],
+    "result": {
+      "success": true
+    },
+    "success": true,
+    "riskScore": 0.4,
+    "snapshotId": "test_snapshot3"
+  }
+]  {
+    "timestamp": "2026-02-15T05:25:58.454Z",
+    "optimizationType": "test_optimization2",
+    "description": "测试优化3",
+    "changes": [],
+    "result": {
+      "success": false
+    },
+    "success": false,
+    "riskScore": 0.6,
+    "snapshotId": "test_snapshot4"
+  }
+]

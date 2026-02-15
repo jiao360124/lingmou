@@ -1,0 +1,11 @@
+[
+  {
+    "timestamp": "2026-02-15T05:25:58.453Z",
+    "type": "api_timeout",
+    "description": "API超时",
+    "triggerCondition": "timeout",
+    "errorType": "TimeoutError",
+    "recoveryAction": "increase_timeout",
+    "frequency": 2
+  }
+]
