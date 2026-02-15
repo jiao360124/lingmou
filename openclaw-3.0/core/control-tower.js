@@ -18,6 +18,8 @@ const logger = winston.createLogger({
 
 class ControlTower {
   constructor() {
+    // 🎯 Predictive Engine（新增）
+    this.predictive = null; // 延迟初始化
     // 系统模式（4种 - 已废弃，使用权重模式）
     this.modes = {
       NORMAL: { name: 'NORMAL', description: '正常运行' },
@@ -78,6 +80,93 @@ class ControlTower {
     };
 
     logger.info('Control Tower 初始化完成');
+  }
+
+  /**
+   * 🚀 初始化 Predictive Engine
+   * @param {Object} config - Predictive Engine 配置
+   */
+  initPredictiveEngine(config) {
+    try {
+      const PredictiveEngine = require('./predictive-engine');
+
+      this.predictive = new PredictiveEngine({
+        maxRequestsPerMinute: config.maxRequestsPerMinute || 60,
+        ...config
+      });
+
+      logger.info('✅ Predictive Engine 初始化完成');
+    } catch (error) {
+      logger.error('❌ Predictive Engine 初始化失败:', {
+        message: error.message,
+        stack: error.stack
+      });
+      this.predictive = null;
+    }
+  }
+
+  /**
+   * 🚀 预测干预（每次 API 调用前调用）
+   * @param {Object} metrics - 性能指标
+   * @param {Object} context - 上下文信息
+   * @returns {Object|null} 干预建议，无干预返回 null
+   */
+  predictIntervention(metrics, context) {
+    if (!this.predictive) {
+      return null;
+    }
+
+    const intervention = this.predictive.computeIntervention(metrics, context);
+
+    logger.info({
+      action: 'predictive_intervention',
+      level: intervention.warningLevel,
+      throttleDelay: intervention.throttleDelay,
+      compressionLevel: intervention.compressionLevel,
+      modelBias: intervention.modelBias,
+      details: intervention.details
+    });
+
+    // 如果没有任何干预，返回 null
+    if (intervention.throttleDelay === 0 &&
+        intervention.compressionLevel === 0 &&
+        intervention.modelBias === 'NORMAL') {
+      return null;
+    }
+
+    return intervention;
+  }
+
+  /**
+   * 📦 应用干预建议（示例实现）
+   * 注意：这只是一个示例，实际应用需要根据你的架构实现
+   * @param {Object} intervention - 干预建议
+   * @param {Object} dependencies - 依赖注入
+   */
+  async applyIntervention(intervention, dependencies = {}) {
+    const {
+      sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms)),
+      summarizer = null,
+      tokenGovernor = null
+    } = dependencies;
+
+    // 1. 应用速率延迟
+    if (intervention.throttleDelay > 0) {
+      logger.info(`⏱️  速率延迟: ${intervention.throttleDelay}ms`);
+      await sleep(intervention.throttleDelay);
+    }
+
+    // 2. 应用上下文压缩
+    if (intervention.compressionLevel > 0 && summarizer) {
+      logger.info(`🗜️  上下文压缩等级: ${intervention.compressionLevel}`);
+      summarizer.compress(intervention.compressionLevel);
+    }
+
+    // 3. 应用模型降级
+    if (intervention.modelBias !== 'NORMAL' && tokenGovernor) {
+      logger.info(`🎯 模型偏置: ${intervention.modelBias}`);
+      tokenGovernor.applyModelBias(intervention.modelBias);
+    }
   }
 
   /**

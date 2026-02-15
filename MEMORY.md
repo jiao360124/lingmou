@@ -463,3 +463,195 @@ OpenClaw 3.0 生产级升级完成！
 ---
 
 **🎉 OpenClaw 3.0 生产级升级完成！**
+
+---
+
+## 2026-02-15 - Converged Predictive Engine 插入 🎯
+
+**时间**: 2026-02-15
+**文件**: `core/predictive-engine.js` (3.2KB)
+**目的**: 从"事后响应"到"事前预测"
+
+---
+
+### 📊 架构定位
+
+```
+OpenClaw 3.0 - Converged Engine 层
+│
+├── 🔄 主动干预层（Predictive Engine）
+│   ├── 速率压力 → throttleDelay
+│   ├── 上下文压力 → compressionLevel
+│   └── 预算压力 → modelBias
+│
+├── 🛡️ 自我保护层（Rollback + Memory）
+├── 🎚️ 调节能力（Watchdog + Weighted Mode）
+├── 🧠 主动进化引擎
+└── 📊 数据层
+```
+
+---
+
+### 🔍 三维压力评估
+
+#### 1️⃣ 速率压力评估
+```javascript
+evaluateRatePressure(metrics)
+```
+- **指标**: callsLastMinute
+- **平滑**: 移动平均（alpha=0.3）
+- **输出**:
+  - pressure: 0.0-1.0
+  - throttleDelay: 0/150/400/800ms
+  - level: NORMAL/MEDIUM/HIGH/CRITICAL
+- **阈值**:
+  - 0.6 → MEDIUM (150ms)
+  - 0.8 → HIGH (400ms)
+  - 0.95 → CRITICAL (800ms)
+
+---
+
+#### 2️⃣ 上下文压力评估
+```javascript
+evaluateContextPressure(context)
+```
+- **指标**: remainingTokens / maxTokens
+- **平滑**: 无（实时比例）
+- **输出**:
+  - remainingRatio: 0.0-1.0
+  - compressionLevel: 0/1/2/3
+  - level: NORMAL/MEDIUM/HIGH/CRITICAL
+- **阈值**:
+  - 0.35 → MEDIUM (1级压缩)
+  - 0.25 → HIGH (2级压缩)
+  - 0.15 → CRITICAL (3级压缩)
+
+---
+
+#### 3️⃣ 预算压力评估
+```javascript
+evaluateBudgetPressure(metrics)
+```
+- **指标**: tokensLastHour, remainingBudget
+- **平滑**: 移动平均（alpha=0.3）
+- **输出**:
+  - hoursLeft: 计算值
+  - modelBias: NORMAL/MID_ONLY/CHEAP_ONLY/REDUCE_HIGH
+  - level: NORMAL/MEDIUM/HIGH/CRITICAL
+- **阈值**:
+  - 12h → MEDIUM (REDUCE_HIGH)
+  - 6h → HIGH (MID_ONLY)
+  - 3h → CRITICAL (CHEAP_ONLY)
+
+---
+
+### 🔥 核心输出
+
+```javascript
+computeIntervention(metrics, context)
+```
+
+**统一干预建议**:
+```javascript
+{
+  throttleDelay: 150,        // 速率延迟（ms）
+  compressionLevel: 2,       // 上下文压缩等级
+  modelBias: "MID_ONLY",     // 模型偏置
+  warningLevel: "HIGH",      // 总体严重程度
+  details: {                 // 详细分解
+    rate: { pressure, throttleDelay, level },
+    ctx: { remainingRatio, compressionLevel, level },
+    budget: { hoursLeft, modelBias, level }
+  }
+}
+```
+
+---
+
+### 📦 接入控制塔
+
+```javascript
+// Control Tower 中接入
+const PredictiveEngine = require("./predictive-engine");
+
+this.predictive = new PredictiveEngine(config);
+
+// 在每次 API 调用前
+const intervention = this.predictive.computeIntervention(
+  metrics,
+  context
+);
+
+await sleep(intervention.throttleDelay);
+
+if (intervention.compressionLevel > 0) {
+  summarizer.compress(intervention.compressionLevel);
+}
+
+tokenGovernor.applyModelBias(intervention.modelBias);
+```
+
+---
+
+### 🎯 关键特性
+
+✅ **提前减速**
+- 速率压力 > 0.6 → 150ms 延迟
+- 速率压力 > 0.8 → 400ms 延迟
+- 速率压力 > 0.95 → 800ms 延迟
+
+✅ **提前压缩**
+- 上下文 < 35% → 1级压缩
+- 上下文 < 25% → 2级压缩
+- 上下文 < 15% → 3级压缩
+
+✅ **提前降级模型**
+- 预算 < 12h → 减少高价模型
+- 预算 < 6h → 只用中等模型
+- 预算 < 3h → 只用便宜模型
+
+✅ **平滑趋势防震荡**
+- 移动平均（alpha=0.3）
+- 阻尼系数防止剧烈波动
+
+✅ **统一输出接口**
+- 清晰的三维评估
+- 一致的警告等级
+- 详细的决策依据
+
+---
+
+### 🔄 与现有系统对比
+
+| 维度 | Week 5 事后响应 | Predictive Engine 事前预测 |
+|------|-----------------|--------------------------|
+| **延迟时间** | 429错误触发 | 压力 > 阈值立即 |
+| **响应速度** | 慢（等触发） | 快（提前预判） |
+| **成本控制** | 被动降级 | 主动预防 |
+| **用户体验** | 可能超时 | 流畅稳定 |
+| **实现方式** | 列表检查 | 平滑预测 |
+
+---
+
+### 🎊 总结
+
+**Predictive Engine** 完成了从"事后响应"到"事前预测"的跃迁：
+
+### 核心价值
+1. **速度**: 提前干预，不等错误触发
+2. **成本**: 主动预防，避免超时浪费
+3. **体验**: 流畅稳定，无感知优化
+
+### 技术特点
+1. **平滑预测**: 移动平均防止震荡
+2. **三维评估**: 速率+上下文+预算
+3. **统一接口**: 清晰的干预建议
+
+### 架构意义
+- OpenClaw 3.0 → "自稳自治系统"
+- Control Tower → "中央预测引擎"
+- 从"救火"到"防火"
+
+---
+
+**🎉 Predictive Engine 插入完成！从"事后响应"到"事前预测"！**

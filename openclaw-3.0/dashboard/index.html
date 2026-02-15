@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenClaw Dashboard - 实时监控</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            padding: 20px 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .status-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h3 {
+            color: #666;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .card .value {
+            font-size: 36px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .card .label {
+            font-size: 14px;
+            color: #999;
+        }
+
+        .card .trend {
+            font-size: 12px;
+            margin-top: 8px;
+        }
+
+        .card .trend.up { color: #10b981; }
+        .card .trend.down { color: #ef4444; }
+
+        .charts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .chart-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .chart-container h3 {
+            color: #333;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .chart {
+            height: 300px;
+        }
+
+        .fallback-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .fallback-section h3 {
+            color: #333;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .fallback-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .fallback-table th,
+        .fallback-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .fallback-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #666;
+        }
+
+        .fallback-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .update-time {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+
+        .loading {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 10px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 OpenClaw Dashboard</h1>
+            <p>实时监控系统状态、模型使用和性能指标</p>
+        </div>
+
+        <!-- 状态卡片 -->
+        <div class="status-cards">
+            <div class="card">
+                <h3>总请求数</h3>
+                <div class="value" id="totalRequests">-</div>
+                <div class="label">总请求数</div>
+            </div>
+            <div class="card">
+                <h3>成功率</h3>
+                <div class="value" id="successRate">-</div>
+                <div class="label">成功率</div>
+            </div>
+            <div class="card">
+                <h3>总失败数</h3>
+                <div class="value" id="totalFailures">-</div>
+                <div class="label">失败请求</div>
+            </div>
+            <div class="card">
+                <h3>平均延迟</h3>
+                <div class="value" id="avgLatency">-</div>
+                <div class="label">毫秒 (ms)</div>
+            </div>
+            <div class="card">
+                <h3>Fallback 次数</h3>
+                <div class="value" id="fallbackCount">-</div>
+                <div class="label">降级触发</div>
+            </div>
+            <div class="card">
+                <h3>当前主模型</h3>
+                <div class="value" id="primaryModel">-</div>
+                <div class="label">ZAI 健康度: <span id="zaiHealth">-</span>%</div>
+            </div>
+        </div>
+
+        <!-- 图表区域 -->
+        <div class="charts">
+            <div class="chart-container">
+                <h3>成本趋势 (24 小时)</h3>
+                <canvas id="costChart" class="chart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h3>模型使用占比</h3>
+                <canvas id="modelChart" class="chart"></canvas>
+            </div>
+        </div>
+
+        <!-- Fallback 区域 -->
+        <div class="fallback-section">
+            <h3>📊 Fallback 统计</h3>
+            <table class="fallback-table">
+                <thead>
+                    <tr>
+                        <th>模型</th>
+                        <th>总调用次数</th>
+                        <th>成功</th>
+                        <th>失败</th>
+                        <th>使用率</th>
+                        <th>Fallback 次数</th>
+                    </tr>
+                </thead>
+                <tbody id="modelTable">
+                    <tr>
+                        <td colspan="6" style="text-align: center; color: #999;">加载中...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="update-time">最后更新: <span id="lastUpdate">-</span></div>
+    <div class="loading">加载中...</div>
+
+    <script>
+        // WebSocket 连接
+        const ws = new WebSocket('ws://127.0.0.1:8080');
+
+        // Chart 实例
+        let costChart, modelChart;
+
+        // 显示加载中
+        document.querySelector('.loading').style.display = 'none';
+
+        // 更新时间
+        function updateTime() {
+            const now = new Date();
+            document.getElementById('lastUpdate').textContent = now.toLocaleTimeString();
+        }
+
+        // 更新状态卡片
+        function updateStatus(data) {
+            document.getElementById('totalRequests').textContent = data.requests.total;
+            document.getElementById('successRate').textContent = data.requests.successRate;
+            document.getElementById('totalFailures').textContent = data.requests.failures;
+            document.getElementById('avgLatency').textContent = data.performance.avgLatency;
+            document.getElementById('fallbackCount').textContent = data.requests.fallbacks;
+            document.getElementById('primaryModel').textContent = data.switcher.primaryModel;
+            document.getElementById('zaiHealth').textContent = data.switcher.zaiHealth;
+        }
+
+        // 初始化成本趋势图表
+        function initCostChart(trendData) {
+            const ctx = document.getElementById('costChart').getContext('2d');
+            costChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: trendData.trend.map(t => t.time),
+                    datasets: [{
+                        label: '成本',
+                        data: trendData.trend.map(t => t.cost),
+                        borderColor: '#667eea',
+                        backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: { display: true, text: '成本' }
+                        }
+                    }
+                }
+            });
+        }
+
+        // 初始化模型使用图表
+        function initModelChart(modelsData) {
+            const ctx = document.getElementById('modelChart').getContext('2d');
+            const models = modelsData.models;
+            const colors = ['#667eea', '#764ba2', '#f093fb', '#f5576c', '#4facfe', '#00f2fe'];
+
+            costChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: models.map(m => m.modelName),
+                    datasets: [{
+                        data: models.map(m => m.totalCalls),
+                        backgroundColor: colors.slice(0, models.length),
+                        borderWidth: 2,
+                        borderColor: '#fff'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: { padding: 20 }
+                        }
+                    }
+                }
+            });
+        }
+
+        // 更新模型表格
+        function updateModelTable(modelsData) {
+            const tbody = document.getElementById('modelTable');
+            tbody.innerHTML = '';
+
+            modelsData.models.forEach(model => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td><strong>${model.modelName}</strong></td>
+                    <td>${model.totalCalls}</td>
+                    <td style="color: #10b981;">${model.successCalls}</td>
+                    <td style="color: #ef4444;">${model.failureCalls}</td>
+                    <td>${model.usageRate}</td>
+                    <td style="color: #f59e0b;">${model.fallbackCount}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        // WebSocket 消息处理
+        ws.onmessage = (event) => {
+            const message = JSON.parse(event.data);
+
+            if (message.type === 'update' || message.type === 'init') {
+                updateStatus(message.data.status);
+                updateModelTable(message.data.models);
+
+                if (message.type === 'init') {
+                    initCostChart(message.data.trends);
+                    initModelChart(message.data.models);
+                }
+
+                updateTime();
+            }
+        };
+
+        ws.onopen = () => {
+            console.log('[Dashboard] Connected to server');
+        };
+
+        ws.onerror = (error) => {
+            console.error('[Dashboard] WebSocket error:', error);
+        };
+
+        ws.onclose = () => {
+            console.log('[Dashboard] Disconnected from server');
+        };
+    </script>
+</body>
+</html>
