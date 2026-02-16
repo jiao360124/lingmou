@@ -1,0 +1,30 @@
+{
+  "name": "openclaw-workspace",
+  "version": "3.2.0",
+  "description": "OpenClaw Strategic Intelligence Workspace",
+  "main": "index.js",
+  "scripts": {
+    "start": "node dashboard/server.js",
+    "report:daily": "node reports/generator.js",
+    "report:weekly": "node reports/generator.js --weekly",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "openclaw",
+    "ai",
+    "strategy",
+    "optimization"
+  ],
+  "author": "灵眸",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "memory-cache": "^0.2.1",
+    "telegram-bot-api": "^0.64.0",
+    "nodemailer": "^6.9.7"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
