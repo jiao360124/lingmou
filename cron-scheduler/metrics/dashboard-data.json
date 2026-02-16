@@ -1,0 +1,41 @@
+{
+  "metrics": {
+    "2026-02-16": {
+      "timestamp": "2026-02-16T00:58:29.793Z",
+      "status": "reset",
+      "resetAt": "2026-02-16 08:58:29",
+      "baseline": true,
+      "cpu": {
+        "current": 0,
+        "average": 0,
+        "peak": 0,
+        "unit": "%"
+      },
+      "memory": {
+        "current": 0,
+        "average": 0,
+        "peak": 0,
+        "unit": "MB"
+      },
+      "disk": {
+        "current": 0,
+        "average": 0,
+        "peak": 0,
+        "unit": "GB"
+      },
+      "network": {
+        "current": 0,
+        "average": 0,
+        "peak": 0,
+        "unit": "MB/s"
+      },
+      "responseTime": {
+        "current": 0,
+        "average": 0,
+        "peak": 0,
+        "unit": "ms"
+      }
+    }
+  },
+  "lastUpdated": "2026-02-16T00:58:29.793Z"
+}

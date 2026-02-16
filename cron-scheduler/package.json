@@ -1,0 +1,25 @@
+{
+  "name": "cron-scheduler",
+  "version": "1.0.0",
+  "description": "Cron-based scheduled task management system for OpenClaw",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node test-cron-scheduler.js",
+    "schedule": "node schedule-manager.js"
+  },
+  "keywords": [
+    "cron",
+    "scheduler",
+    "tasks",
+    "automation"
+  ],
+  "author": "OpenClaw",
+  "license": "MIT",
+  "dependencies": {
+    "cron": "^3.1.6",
+    "node-cron": "^3.0.3",
+    "moment-timezone": "^0.5.45",
+    "winston": "^3.11.0"
+  }
+}
