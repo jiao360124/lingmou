@@ -1,0 +1,40 @@
+{
+  "server": {
+    "port": 8082,
+    "host": "0.0.0.0"
+  },
+  "cache": {
+    "duration": 120000,
+    "maxLogs": 20000
+  },
+  "websocket": {
+    "path": "/ws",
+    "interval": 60000
+  },
+  "dataService": {
+    "logFile": "logs/dashboard-logs.json",
+    "exportFormats": [
+      "json",
+      "csv"
+    ]
+  },
+  "dashboard": {
+    "title": "Test Dashboard",
+    "refreshInterval": 60000,
+    "theme": "light"
+  },
+  "dataSources": {
+    "requestLogger": true,
+    "circuitBreaker": false,
+    "modelScheduler": false,
+    "dynamicSwitcher": false
+  },
+  "export": {
+    "enabled": true,
+    "formats": [
+      "json",
+      "csv"
+    ],
+    "autoExport": false
+  }
+}

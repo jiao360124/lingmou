@@ -1,0 +1,98 @@
+{
+  "apiBaseURL": {
+    "type": "string",
+    "required": true,
+    "default": "https://api.openai.com/v1",
+    "pattern": "^https?:\\/\\/.*$"
+  },
+  "dailyBudget": {
+    "type": "integer",
+    "required": true,
+    "default": 200000,
+    "min": 10000,
+    "max": 1000000
+  },
+  "turnThreshold": {
+    "type": "integer",
+    "required": true,
+    "default": 10,
+    "min": 1,
+    "max": 50
+  },
+  "baseContextThreshold": {
+    "type": "integer",
+    "required": true,
+    "default": 40000,
+    "min": 10000,
+    "max": 100000
+  },
+  "cooldownTurns": {
+    "type": "integer",
+    "required": true,
+    "default": 3,
+    "min": 0,
+    "max": 20
+  },
+  "nightBudgetTokens": {
+    "type": "integer",
+    "required": true,
+    "default": 50000,
+    "min": 0,
+    "max": 500000
+  },
+  "nightBudgetCalls": {
+    "type": "integer",
+    "required": true,
+    "default": 10,
+    "min": 0,
+    "max": 100
+  },
+  "maxRequestsPerMinute": {
+    "type": "integer",
+    "required": true,
+    "default": 60,
+    "min": 10,
+    "max": 200
+  },
+  "nightlyTaskTime": {
+    "type": "string",
+    "required": false,
+    "default": "03:00",
+    "pattern": "^([01]?[0-9]|2[0-3]):([0-5][0-9])$"
+  },
+  "enableMonitoring": {
+    "type": "boolean",
+    "required": false,
+    "default": true
+  },
+  "enableLogging": {
+    "type": "boolean",
+    "required": false,
+    "default": true
+  },
+  "logLevel": {
+    "type": "string",
+    "required": false,
+    "default": "info",
+    "enum": ["error", "warn", "info", "debug"]
+  },
+  "debugMode": {
+    "type": "boolean",
+    "required": false,
+    "default": false
+  },
+  "timeout": {
+    "type": "integer",
+    "required": false,
+    "default": 30000,
+    "min": 5000,
+    "max": 120000
+  },
+  "retryAttempts": {
+    "type": "integer",
+    "required": false,
+    "default": 5,
+    "min": 1,
+    "max": 10
+  }
+}

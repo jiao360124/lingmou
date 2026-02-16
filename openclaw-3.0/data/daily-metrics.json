@@ -1,0 +1,10 @@
+{
+  "startTime": "Mon Feb 16 2026",
+  "tokens": 400,
+  "calls": 3,
+  "successes": 2,
+  "failures": 1,
+  "totalCost": 0.035,
+  "avgLatency": 4433,
+  "successRate": 67
+}
