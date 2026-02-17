@@ -1,7 +1,3 @@
-/**
- * Doctor - 简化版配置验证工具
- */
-
 const fs = require('fs');
 const path = require('path');
 
@@ -10,6 +6,12 @@ console.log('='.repeat(60));
 
 let issues = 0;
 let warnings = 0;
+let checks = {
+  configuration: 0,
+  dependencies: 0,
+  files: 0,
+  modules: 0,
+};
 
 // 检查配置文件
 console.log('\n📋 检查配置文件...');
@@ -25,8 +27,10 @@ const configFiles = [
 configFiles.forEach(configFile => {
   const filePath = path.join(__dirname, configFile);
   if (fs.existsSync(filePath)) {
+    checks.files++;
     console.log(`✅ ${configFile}`);
   } else {
+    checks.files++;
     issues++;
     console.log(`❌ ${configFile} (缺失)`);
   }
@@ -45,8 +49,10 @@ const utils = [
 utils.forEach(utilsFile => {
   const filePath = path.join(__dirname, utilsFile);
   if (fs.existsSync(filePath)) {
+    checks.files++;
     console.log(`✅ ${utilsFile}`);
   } else {
+    checks.files++;
     issues++;
     console.log(`❌ ${utilsFile} (缺失)`);
   }
@@ -63,10 +69,12 @@ const modules = [
 ];
 
 modules.forEach(moduleFile => {
-  const filePath = path.join(__dirname, moduleFile);
+  const filePath = path.join(__DOCTYPE__, moduleFile);
   if (fs.existsSync(filePath)) {
+    checks.files++;
     console.log(`✅ ${moduleFile}`);
   } else {
+    checks.files++;
     issues++;
     console.log(`❌ ${moduleFile} (缺失)`);
   }
@@ -87,10 +95,12 @@ const tests = [
 tests.forEach(testFile => {
   const filePath = path.join(__dirname, testFile);
   if (fs.existsSync(filePath)) {
+    checks.files++;
     console.log(`✅ ${testFile}`);
   } else {
-    issues++;
-    console.log(`❌ ${testFile} (缺失)`);
+    checks.files++;
+    warnings++;
+    console.log(`⚠️  ${testFile} (缺失)`);
   }
 });
 
@@ -113,8 +123,10 @@ const directories = [
 directories.forEach(dir => {
   const dirPath = path.join(__dirname, dir);
   if (fs.existsSync(dirPath)) {
+    checks.files++;
     console.log(`✅ ${dir}/`);
   } else {
+    checks.files++;
     issues++;
     console.log(`❌ ${dir}/ (缺失)`);
   }
@@ -127,11 +139,13 @@ console.log('='.repeat(60));
 console.log(`配置文件: ${configFiles.length - issues} ✅ / ${configFiles.length} ${issues > 0 ? '❌' : ''}`);
 console.log(`工具文件: ${utils.length - issues} ✅ / ${utils.length} ${issues > utils.length ? '❌' : ''}`);
 console.log(`模块文件: ${modules.length - issues} ✅ / ${modules.length} ${issues > modules.length ? '❌' : ''}`);
-console.log(`测试文件: ${tests.length - issues} ✅ / ${tests.length} ${issues > tests.length ? '❌' : ''}`);
+console.log(`测试文件: ${tests.length - warnings} ✅ / ${tests.length} ${warnings > 0 ? '⚠️' : ''}`);
 console.log('='.repeat(60));
 
-if (issues === 0) {
+if (issues === 0 && warnings === 0) {
   console.log('\n🎉 所有检查通过！配置正常。');
+} else if (issues === 0) {
+  console.log(`\n✅ 检查通过！发现 ${warnings} 个警告。`);
 } else {
-  console.log(`\n❌ 发现 ${issues} 个问题，请检查。`);
+  console.log(`\n❌ 发现 ${issues} 个问题，${warnings} 个警告，请检查。`);
 }

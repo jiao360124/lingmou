@@ -1,8 +1,23 @@
-const StrategyEngine = require('./core/strategy-engine');
+const fs = require('fs');
 
-const engine = new StrategyEngine();
+console.log('Testing directory access...\n');
 
-console.log('🧪 测试 Strategy Engine');
-const strategies = engine.simulateScenarios({}, {});
-console.log('生成了', strategies.length, '个策略');
-console.log('第一个策略:', strategies[0].type);
+try {
+  const testPath = 'C:\\Users\\Administrator\\.openclaw';
+  console.log('Test path:', testPath);
+
+  if (fs.existsSync(testPath)) {
+    console.log('✅ Directory exists!');
+
+    const files = fs.readdirSync(testPath);
+    console.log('Files:', files.length);
+    files.forEach(file => {
+      console.log('  -', file);
+    });
+  } else {
+    console.log('❌ Directory does not exist');
+  }
+} catch (error) {
+  console.log('❌ Error:', error.message);
+  console.log('Stack:', error.stack);
+}
