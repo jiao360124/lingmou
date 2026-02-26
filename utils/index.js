@@ -462,9 +462,14 @@ function reduceArray(array, fn, initialValue) {
  * @returns {string} 转义后的字符串
  */
 function escapeHtml(str) {
-  const div = document.createElement('div');
-  div.textContent = str;
-  return div.innerHTML;
+  const map = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;'
+  };
+  return String(str).replace(/[&<>"']/g, m => map[m]);
 }
 
 /**

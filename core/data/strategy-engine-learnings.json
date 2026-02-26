@@ -1,0 +1,5396 @@
+[
+  [
+    "strategy_CONSERVATIVE_CONSERVATIVE_1771720937340_908",
+    {
+      "strategy": {
+        "id": "CONSERVATIVE_1771720937340_908",
+        "type": "CONSERVATIVE",
+        "label": "保守型",
+        "delay": 150,
+        "compressionLevel": 0,
+        "modelBias": "REDUCE_HIGH",
+        "estimatedCost": 12.8,
+        "expectedSuccessRate": 0.975,
+        "risks": [
+          "响应延迟较高",
+          "资源消耗低"
+        ],
+        "benefits": [
+          "风险最低",
+          "成本最低",
+          "适合稳定环境"
+        ],
+        "benefit": {
+          "totalScore": 9.4073,
+          "details": {
+            "successRateGain": 0.030000000000000027,
+            "costReduction": 0.9872000000000001,
+            "delayImprovement": 0.25,
+            "compressionImprovement": 1,
+            "modelScore": 90
+          }
+        },
+        "risk": {
+          "score": 16,
+          "level": "LOW",
+          "details": {
+            "successRateRisk": 0.025000000000000022,
+            "costRatio": 0.0128,
+            "delayRatio": 0.75,
+            "compression": 0
+          }
+        },
+        "combinedScore": 3.2251099999999995
+      },
+      "allStrategies": [
+        {
+          "id": "CONSERVATIVE_1771720937340_908",
+          "type": "CONSERVATIVE",
+          "label": "保守型",
+          "delay": 150,
+          "compressionLevel": 0,
+          "modelBias": "REDUCE_HIGH",
+          "estimatedCost": 12.8,
+          "expectedSuccessRate": 0.975,
+          "risks": [
+            "响应延迟较高",
+            "资源消耗低"
+          ],
+          "benefits": [
+            "风险最低",
+            "成本最低",
+            "适合稳定环境"
+          ],
+          "benefit": {
+            "totalScore": 9.4073,
+            "details": {
+              "successRateGain": 0.030000000000000027,
+              "costReduction": 0.9872000000000001,
+              "delayImprovement": 0.25,
+              "compressionImprovement": 1,
+              "modelScore": 90
+            }
+          },
+          "risk": {
+            "score": 16,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.025000000000000022,
+              "costRatio": 0.0128,
+              "delayRatio": 0.75,
+              "compression": 0
+            }
+          },
+          "combinedScore": 3.2251099999999995
+        },
+        {
+          "id": "BALANCED_1771720937340_710",
+          "type": "BALANCED",
+          "label": "平衡型",
+          "delay": 50,
+          "compressionLevel": 1,
+          "modelBias": "MID_ONLY",
+          "estimatedCost": 73.5,
+          "expectedSuccessRate": 0.96,
+          "risks": [
+            "响应速度中等",
+            "资源消耗中等"
+          ],
+          "benefits": [
+            "平衡性好",
+            "风险可控",
+            "成本合理"
+          ],
+          "benefit": {
+            "totalScore": 8.886875,
+            "details": {
+              "successRateGain": 0.015000000000000013,
+              "costReduction": 0.9265,
+              "delayImprovement": 0.75,
+              "compressionImprovement": 0,
+              "modelScore": 85
+            }
+          },
+          "risk": {
+            "score": 21.6,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.040000000000000036,
+              "costRatio": 0.0735,
+              "delayRatio": 0.25,
+              "compression": 1
+            }
+          },
+          "combinedScore": 1.6848124999999996
+        },
+        {
+          "id": "AGGRESSIVE_1771720937340_173",
+          "type": "AGGRESSIVE",
+          "label": "激进型",
+          "delay": 0,
+          "compressionLevel": 2,
+          "modelBias": "CHEAP_ONLY",
+          "estimatedCost": 100,
+          "expectedSuccessRate": 0.925,
+          "risks": [
+            "响应速度快但错误率高",
+            "成本较高"
+          ],
+          "benefits": [
+            "响应最快",
+            "处理能力最强",
+            "适合紧急场景"
+          ],
+          "benefit": {
+            "totalScore": 7.318,
+            "details": {
+              "successRateGain": -0.019999999999999907,
+              "costReduction": 0.9,
+              "delayImprovement": 1,
+              "compressionImprovement": -1,
+              "modelScore": 70
+            }
+          },
+          "risk": {
+            "score": 43,
+            "level": "MEDIUM",
+            "details": {
+              "successRateRisk": 0.07499999999999996,
+              "costRatio": 0.1,
+              "delayRatio": 0,
+              "compression": 2
+            }
+          },
+          "combinedScore": -3.9074000000000004
+        }
+      ],
+      "metrics": {
+        "callsLastMinute": 10,
+        "successRate": 0.95,
+        "costRate": 0.9,
+        "delayRate": 0.9,
+        "compressionLevel": 1,
+        "remainingBudget": 150000,
+        "dailyBudget": 200000,
+        "currentCost": 1000,
+        "currentDelay": 200,
+        "timestamp": "2026-02-22T00:42:17.340Z"
+      },
+      "context": {
+        "tokensRemaining": 70000,
+        "tokensTotal": 200000,
+        "compressionLevel": 1,
+        "timestamp": "2026-02-22T00:42:17.341Z"
+      },
+      "selectionReason": "选择 保守型 策略，组合得分 3.23; 收益得分: 9.41，风险得分: 16.00"
+    }
+  ],
+  [
+    "strategy_CONSERVATIVE_CONSERVATIVE_1771721124575_393",
+    {
+      "strategy": {
+        "id": "CONSERVATIVE_1771721124575_393",
+        "type": "CONSERVATIVE",
+        "label": "保守型",
+        "delay": 150,
+        "compressionLevel": 0,
+        "modelBias": "REDUCE_HIGH",
+        "estimatedCost": 12.8,
+        "expectedSuccessRate": 0.975,
+        "risks": [
+          "响应延迟较高",
+          "资源消耗低"
+        ],
+        "benefits": [
+          "风险最低",
+          "成本最低",
+          "适合稳定环境"
+        ],
+        "benefit": {
+          "totalScore": 9.4073,
+          "details": {
+            "successRateGain": 0.030000000000000027,
+            "costReduction": 0.9872000000000001,
+            "delayImprovement": 0.25,
+            "compressionImprovement": 1,
+            "modelScore": 90
+          }
+        },
+        "risk": {
+          "score": 16,
+          "level": "LOW",
+          "details": {
+            "successRateRisk": 0.025000000000000022,
+            "costRatio": 0.0128,
+            "delayRatio": 0.75,
+            "compression": 0
+          }
+        },
+        "combinedScore": 3.2251099999999995
+      },
+      "allStrategies": [
+        {
+          "id": "CONSERVATIVE_1771721124575_393",
+          "type": "CONSERVATIVE",
+          "label": "保守型",
+          "delay": 150,
+          "compressionLevel": 0,
+          "modelBias": "REDUCE_HIGH",
+          "estimatedCost": 12.8,
+          "expectedSuccessRate": 0.975,
+          "risks": [
+            "响应延迟较高",
+            "资源消耗低"
+          ],
+          "benefits": [
+            "风险最低",
+            "成本最低",
+            "适合稳定环境"
+          ],
+          "benefit": {
+            "totalScore": 9.4073,
+            "details": {
+              "successRateGain": 0.030000000000000027,
+              "costReduction": 0.9872000000000001,
+              "delayImprovement": 0.25,
+              "compressionImprovement": 1,
+              "modelScore": 90
+            }
+          },
+          "risk": {
+            "score": 16,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.025000000000000022,
+              "costRatio": 0.0128,
+              "delayRatio": 0.75,
+              "compression": 0
+            }
+          },
+          "combinedScore": 3.2251099999999995
+        },
+        {
+          "id": "BALANCED_1771721124576_308",
+          "type": "BALANCED",
+          "label": "平衡型",
+          "delay": 50,
+          "compressionLevel": 1,
+          "modelBias": "MID_ONLY",
+          "estimatedCost": 73.5,
+          "expectedSuccessRate": 0.96,
+          "risks": [
+            "响应速度中等",
+            "资源消耗中等"
+          ],
+          "benefits": [
+            "平衡性好",
+            "风险可控",
+            "成本合理"
+          ],
+          "benefit": {
+            "totalScore": 8.886875,
+            "details": {
+              "successRateGain": 0.015000000000000013,
+              "costReduction": 0.9265,
+              "delayImprovement": 0.75,
+              "compressionImprovement": 0,
+              "modelScore": 85
+            }
+          },
+          "risk": {
+            "score": 21.6,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.040000000000000036,
+              "costRatio": 0.0735,
+              "delayRatio": 0.25,
+              "compression": 1
+            }
+          },
+          "combinedScore": 1.6848124999999996
+        },
+        {
+          "id": "AGGRESSIVE_1771721124576_877",
+          "type": "AGGRESSIVE",
+          "label": "激进型",
+          "delay": 0,
+          "compressionLevel": 2,
+          "modelBias": "CHEAP_ONLY",
+          "estimatedCost": 100,
+          "expectedSuccessRate": 0.925,
+          "risks": [
+            "响应速度快但错误率高",
+            "成本较高"
+          ],
+          "benefits": [
+            "响应最快",
+            "处理能力最强",
+            "适合紧急场景"
+          ],
+          "benefit": {
+            "totalScore": 7.318,
+            "details": {
+              "successRateGain": -0.019999999999999907,
+              "costReduction": 0.9,
+              "delayImprovement": 1,
+              "compressionImprovement": -1,
+              "modelScore": 70
+            }
+          },
+          "risk": {
+            "score": 43,
+            "level": "MEDIUM",
+            "details": {
+              "successRateRisk": 0.07499999999999996,
+              "costRatio": 0.1,
+              "delayRatio": 0,
+              "compression": 2
+            }
+          },
+          "combinedScore": -3.9074000000000004
+        }
+      ],
+      "metrics": {
+        "callsLastMinute": 10,
+        "successRate": 0.95,
+        "costRate": 0.9,
+        "delayRate": 0.9,
+        "compressionLevel": 1,
+        "remainingBudget": 150000,
+        "dailyBudget": 200000,
+        "currentCost": 1000,
+        "currentDelay": 200,
+        "timestamp": "2026-02-22T00:45:24.576Z"
+      },
+      "context": {
+        "tokensRemaining": 70000,
+        "tokensTotal": 200000,
+        "compressionLevel": 1,
+        "timestamp": "2026-02-22T00:45:24.577Z"
+      },
+      "selectionReason": "选择 保守型 策略，组合得分 3.23; 收益得分: 9.41，风险得分: 16.00"
+    }
+  ],
+  [
+    "strategy_CONSERVATIVE_CONSERVATIVE_1771721124577_337",
+    {
+      "strategy": {
+        "id": "CONSERVATIVE_1771721124577_337",
+        "type": "CONSERVATIVE",
+        "label": "保守型",
+        "delay": 150,
+        "compressionLevel": 0,
+        "modelBias": "REDUCE_HIGH",
+        "estimatedCost": 12.8,
+        "expectedSuccessRate": 0.975,
+        "risks": [
+          "响应延迟较高",
+          "资源消耗低"
+        ],
+        "benefits": [
+          "风险最低",
+          "成本最低",
+          "适合稳定环境"
+        ],
+        "benefit": {
+          "totalScore": 9.4073,
+          "details": {
+            "successRateGain": 0.030000000000000027,
+            "costReduction": 0.9872000000000001,
+            "delayImprovement": 0.25,
+            "compressionImprovement": 1,
+            "modelScore": 90
+          }
+        },
+        "risk": {
+          "score": 16,
+          "level": "LOW",
+          "details": {
+            "successRateRisk": 0.025000000000000022,
+            "costRatio": 0.0128,
+            "delayRatio": 0.75,
+            "compression": 0
+          }
+        },
+        "combinedScore": 3.2251099999999995
+      },
+      "allStrategies": [
+        {
+          "id": "CONSERVATIVE_1771721124577_337",
+          "type": "CONSERVATIVE",
+          "label": "保守型",
+          "delay": 150,
+          "compressionLevel": 0,
+          "modelBias": "REDUCE_HIGH",
+          "estimatedCost": 12.8,
+          "expectedSuccessRate": 0.975,
+          "risks": [
+            "响应延迟较高",
+            "资源消耗低"
+          ],
+          "benefits": [
+            "风险最低",
+            "成本最低",
+            "适合稳定环境"
+          ],
+          "benefit": {
+            "totalScore": 9.4073,
+            "details": {
+              "successRateGain": 0.030000000000000027,
+              "costReduction": 0.9872000000000001,
+              "delayImprovement": 0.25,
+              "compressionImprovement": 1,
+              "modelScore": 90
+            }
+          },
+          "risk": {
+            "score": 16,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.025000000000000022,
+              "costRatio": 0.0128,
+              "delayRatio": 0.75,
+              "compression": 0
+            }
+          },
+          "combinedScore": 3.2251099999999995
+        },
+        {
+          "id": "BALANCED_1771721124577_876",
+          "type": "BALANCED",
+          "label": "平衡型",
+          "delay": 50,
+          "compressionLevel": 1,
+          "modelBias": "MID_ONLY",
+          "estimatedCost": 73.5,
+          "expectedSuccessRate": 0.96,
+          "risks": [
+            "响应速度中等",
+            "资源消耗中等"
+          ],
+          "benefits": [
+            "平衡性好",
+            "风险可控",
+            "成本合理"
+          ],
+          "benefit": {
+            "totalScore": 8.886875,
+            "details": {
+              "successRateGain": 0.015000000000000013,
+              "costReduction": 0.9265,
+              "delayImprovement": 0.75,
+              "compressionImprovement": 0,
+              "modelScore": 85
+            }
+          },
+          "risk": {
+            "score": 21.6,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.040000000000000036,
+              "costRatio": 0.0735,
+              "delayRatio": 0.25,
+              "compression": 1
+            }
+          },
+          "combinedScore": 1.6848124999999996
+        },
+        {
+          "id": "AGGRESSIVE_1771721124577_160",
+          "type": "AGGRESSIVE",
+          "label": "激进型",
+          "delay": 0,
+          "compressionLevel": 2,
+          "modelBias": "CHEAP_ONLY",
+          "estimatedCost": 100,
+          "expectedSuccessRate": 0.925,
+          "risks": [
+            "响应速度快但错误率高",
+            "成本较高"
+          ],
+          "benefits": [
+            "响应最快",
+            "处理能力最强",
+            "适合紧急场景"
+          ],
+          "benefit": {
+            "totalScore": 7.318,
+            "details": {
+              "successRateGain": -0.019999999999999907,
+              "costReduction": 0.9,
+              "delayImprovement": 1,
+              "compressionImprovement": -1,
+              "modelScore": 70
+            }
+          },
+          "risk": {
+            "score": 43,
+            "level": "MEDIUM",
+            "details": {
+              "successRateRisk": 0.07499999999999996,
+              "costRatio": 0.1,
+              "delayRatio": 0,
+              "compression": 2
+            }
+          },
+          "combinedScore": -3.9074000000000004
+        }
+      ],
+      "metrics": {
+        "callsLastMinute": 10,
+        "successRate": 0.95,
+        "costRate": 0.9,
+        "delayRate": 0.9,
+        "compressionLevel": 1,
+        "remainingBudget": 150000,
+        "dailyBudget": 200000,
+        "currentCost": 1000,
+        "currentDelay": 200,
+        "timestamp": "2026-02-22T00:45:24.577Z"
+      },
+      "context": {
+        "tokensRemaining": 70000,
+        "tokensTotal": 200000,
+        "compressionLevel": 1,
+        "timestamp": "2026-02-22T00:45:24.577Z"
+      },
+      "selectionReason": "选择 保守型 策略，组合得分 3.23; 收益得分: 9.41，风险得分: 16.00"
+    }
+  ],
+  [
+    "strategy_CONSERVATIVE_CONSERVATIVE_1771721217473_93",
+    {
+      "strategy": {
+        "id": "CONSERVATIVE_1771721217473_93",
+        "type": "CONSERVATIVE",
+        "label": "保守型",
+        "delay": 150,
+        "compressionLevel": 0,
+        "modelBias": "REDUCE_HIGH",
+        "estimatedCost": 12.8,
+        "expectedSuccessRate": 0.975,
+        "risks": [
+          "响应延迟较高",
+          "资源消耗低"
+        ],
+        "benefits": [
+          "风险最低",
+          "成本最低",
+          "适合稳定环境"
+        ],
+        "benefit": {
+          "totalScore": 9.4073,
+          "details": {
+            "successRateGain": 0.030000000000000027,
+            "costReduction": 0.9872000000000001,
+            "delayImprovement": 0.25,
+            "compressionImprovement": 1,
+            "modelScore": 90
+          }
+        },
+        "risk": {
+          "score": 16,
+          "level": "LOW",
+          "details": {
+            "successRateRisk": 0.025000000000000022,
+            "costRatio": 0.0128,
+            "delayRatio": 0.75,
+            "compression": 0
+          }
+        },
+        "combinedScore": 3.2251099999999995
+      },
+      "allStrategies": [
+        {
+          "id": "CONSERVATIVE_1771721217473_93",
+          "type": "CONSERVATIVE",
+          "label": "保守型",
+          "delay": 150,
+          "compressionLevel": 0,
+          "modelBias": "REDUCE_HIGH",
+          "estimatedCost": 12.8,
+          "expectedSuccessRate": 0.975,
+          "risks": [
+            "响应延迟较高",
+            "资源消耗低"
+          ],
+          "benefits": [
+            "风险最低",
+            "成本最低",
+            "适合稳定环境"
+          ],
+          "benefit": {
+            "totalScore": 9.4073,
+            "details": {
+              "successRateGain": 0.030000000000000027,
+              "costReduction": 0.9872000000000001,
+              "delayImprovement": 0.25,
+              "compressionImprovement": 1,
+              "modelScore": 90
+            }
+          },
+          "risk": {
+            "score": 16,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.025000000000000022,
+              "costRatio": 0.0128,
+              "delayRatio": 0.75,
+              "compression": 0
+            }
+          },
+          "combinedScore": 3.2251099999999995
+        },
+        {
+          "id": "BALANCED_1771721217473_18",
+          "type": "BALANCED",
+          "label": "平衡型",
+          "delay": 50,
+          "compressionLevel": 1,
+          "modelBias": "MID_ONLY",
+          "estimatedCost": 73.5,
+          "expectedSuccessRate": 0.96,
+          "risks": [
+            "响应速度中等",
+            "资源消耗中等"
+          ],
+          "benefits": [
+            "平衡性好",
+            "风险可控",
+            "成本合理"
+          ],
+          "benefit": {
+            "totalScore": 8.886875,
+            "details": {
+              "successRateGain": 0.015000000000000013,
+              "costReduction": 0.9265,
+              "delayImprovement": 0.75,
+              "compressionImprovement": 0,
+              "modelScore": 85
+            }
+          },
+          "risk": {
+            "score": 21.6,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.040000000000000036,
+              "costRatio": 0.0735,
+              "delayRatio": 0.25,
+              "compression": 1
+            }
+          },
+          "combinedScore": 1.6848124999999996
+        },
+        {
+          "id": "AGGRESSIVE_1771721217473_604",
+          "type": "AGGRESSIVE",
+          "label": "激进型",
+          "delay": 0,
+          "compressionLevel": 2,
+          "modelBias": "CHEAP_ONLY",
+          "estimatedCost": 100,
+          "expectedSuccessRate": 0.925,
+          "risks": [
+            "响应速度快但错误率高",
+            "成本较高"
+          ],
+          "benefits": [
+            "响应最快",
+            "处理能力最强",
+            "适合紧急场景"
+          ],
+          "benefit": {
+            "totalScore": 7.318,
+            "details": {
+              "successRateGain": -0.019999999999999907,
+              "costReduction": 0.9,
+              "delayImprovement": 1,
+              "compressionImprovement": -1,
+              "modelScore": 70
+            }
+          },
+          "risk": {
+            "score": 43,
+            "level": "MEDIUM",
+            "details": {
+              "successRateRisk": 0.07499999999999996,
+              "costRatio": 0.1,
+              "delayRatio": 0,
+              "compression": 2
+            }
+          },
+          "combinedScore": -3.9074000000000004
+        }
+      ],
+      "metrics": {
+        "callsLastMinute": 10,
+        "successRate": 0.95,
+        "costRate": 0.9,
+        "delayRate": 0.9,
+        "compressionLevel": 1,
+        "remainingBudget": 150000,
+        "dailyBudget": 200000,
+        "currentCost": 1000,
+        "currentDelay": 200,
+        "timestamp": "2026-02-22T00:46:57.473Z"
+      },
+      "context": {
+        "tokensRemaining": 70000,
+        "tokensTotal": 200000,
+        "compressionLevel": 1,
+        "timestamp": "2026-02-22T00:46:57.473Z"
+      },
+      "selectionReason": "选择 保守型 策略，组合得分 3.23; 收益得分: 9.41，风险得分: 16.00"
+    }
+  ],
+  [
+    "strategy_CONSERVATIVE_CONSERVATIVE_1771721217474_876",
+    {
+      "strategy": {
+        "id": "CONSERVATIVE_1771721217474_876",
+        "type": "CONSERVATIVE",
+        "label": "保守型",
+        "delay": 150,
+        "compressionLevel": 0,
+        "modelBias": "REDUCE_HIGH",
+        "estimatedCost": 12.8,
+        "expectedSuccessRate": 0.975,
+        "risks": [
+          "响应延迟较高",
+          "资源消耗低"
+        ],
+        "benefits": [
+          "风险最低",
+          "成本最低",
+          "适合稳定环境"
+        ],
+        "benefit": {
+          "totalScore": 9.4073,
+          "details": {
+            "successRateGain": 0.030000000000000027,
+            "costReduction": 0.9872000000000001,
+            "delayImprovement": 0.25,
+            "compressionImprovement": 1,
+            "modelScore": 90
+          }
+        },
+        "risk": {
+          "score": 16,
+          "level": "LOW",
+          "details": {
+            "successRateRisk": 0.025000000000000022,
+            "costRatio": 0.0128,
+            "delayRatio": 0.75,
+            "compression": 0
+          }
+        },
+        "combinedScore": 3.2251099999999995
+      },
+      "allStrategies": [
+        {
+          "id": "CONSERVATIVE_1771721217474_876",
+          "type": "CONSERVATIVE",
+          "label": "保守型",
+          "delay": 150,
+          "compressionLevel": 0,
+          "modelBias": "REDUCE_HIGH",
+          "estimatedCost": 12.8,
+          "expectedSuccessRate": 0.975,
+          "risks": [
+            "响应延迟较高",
+            "资源消耗低"
+          ],
+          "benefits": [
+            "风险最低",
+            "成本最低",
+            "适合稳定环境"
+          ],
+          "benefit": {
+            "totalScore": 9.4073,
+            "details": {
+              "successRateGain": 0.030000000000000027,
+              "costReduction": 0.9872000000000001,
+              "delayImprovement": 0.25,
+              "compressionImprovement": 1,
+              "modelScore": 90
+            }
+          },
+          "risk": {
+            "score": 16,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.025000000000000022,
+              "costRatio": 0.0128,
+              "delayRatio": 0.75,
+              "compression": 0
+            }
+          },
+          "combinedScore": 3.2251099999999995
+        },
+        {
+          "id": "BALANCED_1771721217474_268",
+          "type": "BALANCED",
+          "label": "平衡型",
+          "delay": 50,
+          "compressionLevel": 1,
+          "modelBias": "MID_ONLY",
+          "estimatedCost": 73.5,
+          "expectedSuccessRate": 0.96,
+          "risks": [
+            "响应速度中等",
+            "资源消耗中等"
+          ],
+          "benefits": [
+            "平衡性好",
+            "风险可控",
+            "成本合理"
+          ],
+          "benefit": {
+            "totalScore": 8.886875,
+            "details": {
+              "successRateGain": 0.015000000000000013,
+              "costReduction": 0.9265,
+              "delayImprovement": 0.75,
+              "compressionImprovement": 0,
+              "modelScore": 85
+            }
+          },
+          "risk": {
+            "score": 21.6,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.040000000000000036,
+              "costRatio": 0.0735,
+              "delayRatio": 0.25,
+              "compression": 1
+            }
+          },
+          "combinedScore": 1.6848124999999996
+        },
+        {
+          "id": "AGGRESSIVE_1771721217474_709",
+          "type": "AGGRESSIVE",
+          "label": "激进型",
+          "delay": 0,
+          "compressionLevel": 2,
+          "modelBias": "CHEAP_ONLY",
+          "estimatedCost": 100,
+          "expectedSuccessRate": 0.925,
+          "risks": [
+            "响应速度快但错误率高",
+            "成本较高"
+          ],
+          "benefits": [
+            "响应最快",
+            "处理能力最强",
+            "适合紧急场景"
+          ],
+          "benefit": {
+            "totalScore": 7.318,
+            "details": {
+              "successRateGain": -0.019999999999999907,
+              "costReduction": 0.9,
+              "delayImprovement": 1,
+              "compressionImprovement": -1,
+              "modelScore": 70
+            }
+          },
+          "risk": {
+            "score": 43,
+            "level": "MEDIUM",
+            "details": {
+              "successRateRisk": 0.07499999999999996,
+              "costRatio": 0.1,
+              "delayRatio": 0,
+              "compression": 2
+            }
+          },
+          "combinedScore": -3.9074000000000004
+        }
+      ],
+      "metrics": {
+        "callsLastMinute": 10,
+        "successRate": 0.95,
+        "costRate": 0.9,
+        "delayRate": 0.9,
+        "compressionLevel": 1,
+        "remainingBudget": 150000,
+        "dailyBudget": 200000,
+        "currentCost": 1000,
+        "currentDelay": 200,
+        "timestamp": "2026-02-22T00:46:57.474Z"
+      },
+      "context": {
+        "tokensRemaining": 70000,
+        "tokensTotal": 200000,
+        "compressionLevel": 1,
+        "timestamp": "2026-02-22T00:46:57.474Z"
+      },
+      "selectionReason": "选择 保守型 策略，组合得分 3.23; 收益得分: 9.41，风险得分: 16.00"
+    }
+  ],
+  [
+    "strategy_CONSERVATIVE_CONSERVATIVE_1771721242138_569",
+    {
+      "strategy": {
+        "id": "CONSERVATIVE_1771721242138_569",
+        "type": "CONSERVATIVE",
+        "label": "保守型",
+        "delay": 150,
+        "compressionLevel": 0,
+        "modelBias": "REDUCE_HIGH",
+        "estimatedCost": 12.8,
+        "expectedSuccessRate": 0.975,
+        "risks": [
+          "响应延迟较高",
+          "资源消耗低"
+        ],
+        "benefits": [
+          "风险最低",
+          "成本最低",
+          "适合稳定环境"
+        ],
+        "benefit": {
+          "totalScore": 9.4073,
+          "details": {
+            "successRateGain": 0.030000000000000027,
+            "costReduction": 0.9872000000000001,
+            "delayImprovement": 0.25,
+            "compressionImprovement": 1,
+            "modelScore": 90
+          }
+        },
+        "risk": {
+          "score": 16,
+          "level": "LOW",
+          "details": {
+            "successRateRisk": 0.025000000000000022,
+            "costRatio": 0.0128,
+            "delayRatio": 0.75,
+            "compression": 0
+          }
+        },
+        "combinedScore": 3.2251099999999995
+      },
+      "allStrategies": [
+        {
+          "id": "CONSERVATIVE_1771721242138_569",
+          "type": "CONSERVATIVE",
+          "label": "保守型",
+          "delay": 150,
+          "compressionLevel": 0,
+          "modelBias": "REDUCE_HIGH",
+          "estimatedCost": 12.8,
+          "expectedSuccessRate": 0.975,
+          "risks": [
+            "响应延迟较高",
+            "资源消耗低"
+          ],
+          "benefits": [
+            "风险最低",
+            "成本最低",
+            "适合稳定环境"
+          ],
+          "benefit": {
+            "totalScore": 9.4073,
+            "details": {
+              "successRateGain": 0.030000000000000027,
+              "costReduction": 0.9872000000000001,
+              "delayImprovement": 0.25,
+              "compressionImprovement": 1,
+              "modelScore": 90
+            }
+          },
+          "risk": {
+            "score": 16,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.025000000000000022,
+              "costRatio": 0.0128,
+              "delayRatio": 0.75,
+              "compression": 0
+            }
+          },
+          "combinedScore": 3.2251099999999995
+        },
+        {
+          "id": "BALANCED_1771721242138_399",
+          "type": "BALANCED",
+          "label": "平衡型",
+          "delay": 50,
+          "compressionLevel": 1,
+          "modelBias": "MID_ONLY",
+          "estimatedCost": 73.5,
+          "expectedSuccessRate": 0.96,
+          "risks": [
+            "响应速度中等",
+            "资源消耗中等"
+          ],
+          "benefits": [
+            "平衡性好",
+            "风险可控",
+            "成本合理"
+          ],
+          "benefit": {
+            "totalScore": 8.886875,
+            "details": {
+              "successRateGain": 0.015000000000000013,
+              "costReduction": 0.9265,
+              "delayImprovement": 0.75,
+              "compressionImprovement": 0,
+              "modelScore": 85
+            }
+          },
+          "risk": {
+            "score": 21.6,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.040000000000000036,
+              "costRatio": 0.0735,
+              "delayRatio": 0.25,
+              "compression": 1
+            }
+          },
+          "combinedScore": 1.6848124999999996
+        },
+        {
+          "id": "AGGRESSIVE_1771721242138_493",
+          "type": "AGGRESSIVE",
+          "label": "激进型",
+          "delay": 0,
+          "compressionLevel": 2,
+          "modelBias": "CHEAP_ONLY",
+          "estimatedCost": 100,
+          "expectedSuccessRate": 0.925,
+          "risks": [
+            "响应速度快但错误率高",
+            "成本较高"
+          ],
+          "benefits": [
+            "响应最快",
+            "处理能力最强",
+            "适合紧急场景"
+          ],
+          "benefit": {
+            "totalScore": 7.318,
+            "details": {
+              "successRateGain": -0.019999999999999907,
+              "costReduction": 0.9,
+              "delayImprovement": 1,
+              "compressionImprovement": -1,
+              "modelScore": 70
+            }
+          },
+          "risk": {
+            "score": 43,
+            "level": "MEDIUM",
+            "details": {
+              "successRateRisk": 0.07499999999999996,
+              "costRatio": 0.1,
+              "delayRatio": 0,
+              "compression": 2
+            }
+          },
+          "combinedScore": -3.9074000000000004
+        }
+      ],
+      "metrics": {
+        "callsLastMinute": 10,
+        "successRate": 0.95,
+        "costRate": 0.9,
+        "delayRate": 0.9,
+        "compressionLevel": 1,
+        "remainingBudget": 150000,
+        "dailyBudget": 200000,
+        "currentCost": 1000,
+        "currentDelay": 200,
+        "timestamp": "2026-02-22T00:47:22.138Z"
+      },
+      "context": {
+        "tokensRemaining": 70000,
+        "tokensTotal": 200000,
+        "compressionLevel": 1,
+        "timestamp": "2026-02-22T00:47:22.139Z"
+      },
+      "selectionReason": "选择 保守型 策略，组合得分 3.23; 收益得分: 9.41，风险得分: 16.00"
+    }
+  ],
+  [
+    "strategy_CONSERVATIVE_CONSERVATIVE_1771721242140_117",
+    {
+      "strategy": {
+        "id": "CONSERVATIVE_1771721242140_117",
+        "type": "CONSERVATIVE",
+        "label": "保守型",
+        "delay": 150,
+        "compressionLevel": 0,
+        "modelBias": "REDUCE_HIGH",
+        "estimatedCost": 12.8,
+        "expectedSuccessRate": 0.975,
+        "risks": [
+          "响应延迟较高",
+          "资源消耗低"
+        ],
+        "benefits": [
+          "风险最低",
+          "成本最低",
+          "适合稳定环境"
+        ],
+        "benefit": {
+          "totalScore": 9.4073,
+          "details": {
+            "successRateGain": 0.030000000000000027,
+            "costReduction": 0.9872000000000001,
+            "delayImprovement": 0.25,
+            "compressionImprovement": 1,
+            "modelScore": 90
+          }
+        },
+        "risk": {
+          "score": 16,
+          "level": "LOW",
+          "details": {
+            "successRateRisk": 0.025000000000000022,
+            "costRatio": 0.0128,
+            "delayRatio": 0.75,
+            "compression": 0
+          }
+        },
+        "combinedScore": 3.2251099999999995
+      },
+      "allStrategies": [
+        {
+          "id": "CONSERVATIVE_1771721242140_117",
+          "type": "CONSERVATIVE",
+          "label": "保守型",
+          "delay": 150,
+          "compressionLevel": 0,
+          "modelBias": "REDUCE_HIGH",
+          "estimatedCost": 12.8,
+          "expectedSuccessRate": 0.975,
+          "risks": [
+            "响应延迟较高",
+            "资源消耗低"
+          ],
+          "benefits": [
+            "风险最低",
+            "成本最低",
+            "适合稳定环境"
+          ],
+          "benefit": {
+            "totalScore": 9.4073,
+            "details": {
+              "successRateGain": 0.030000000000000027,
+              "costReduction": 0.9872000000000001,
+              "delayImprovement": 0.25,
+              "compressionImprovement": 1,
+              "modelScore": 90
+            }
+          },
+          "risk": {
+            "score": 16,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.025000000000000022,
+              "costRatio": 0.0128,
+              "delayRatio": 0.75,
+              "compression": 0
+            }
+          },
+          "combinedScore": 3.2251099999999995
+        },
+        {
+          "id": "BALANCED_1771721242140_57",
+          "type": "BALANCED",
+          "label": "平衡型",
+          "delay": 50,
+          "compressionLevel": 1,
+          "modelBias": "MID_ONLY",
+          "estimatedCost": 73.5,
+          "expectedSuccessRate": 0.96,
+          "risks": [
+            "响应速度中等",
+            "资源消耗中等"
+          ],
+          "benefits": [
+            "平衡性好",
+            "风险可控",
+            "成本合理"
+          ],
+          "benefit": {
+            "totalScore": 8.886875,
+            "details": {
+              "successRateGain": 0.015000000000000013,
+              "costReduction": 0.9265,
+              "delayImprovement": 0.75,
+              "compressionImprovement": 0,
+              "modelScore": 85
+            }
+          },
+          "risk": {
+            "score": 21.6,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.040000000000000036,
+              "costRatio": 0.0735,
+              "delayRatio": 0.25,
+              "compression": 1
+            }
+          },
+          "combinedScore": 1.6848124999999996
+        },
+        {
+          "id": "AGGRESSIVE_1771721242140_293",
+          "type": "AGGRESSIVE",
+          "label": "激进型",
+          "delay": 0,
+          "compressionLevel": 2,
+          "modelBias": "CHEAP_ONLY",
+          "estimatedCost": 100,
+          "expectedSuccessRate": 0.925,
+          "risks": [
+            "响应速度快但错误率高",
+            "成本较高"
+          ],
+          "benefits": [
+            "响应最快",
+            "处理能力最强",
+            "适合紧急场景"
+          ],
+          "benefit": {
+            "totalScore": 7.318,
+            "details": {
+              "successRateGain": -0.019999999999999907,
+              "costReduction": 0.9,
+              "delayImprovement": 1,
+              "compressionImprovement": -1,
+              "modelScore": 70
+            }
+          },
+          "risk": {
+            "score": 43,
+            "level": "MEDIUM",
+            "details": {
+              "successRateRisk": 0.07499999999999996,
+              "costRatio": 0.1,
+              "delayRatio": 0,
+              "compression": 2
+            }
+          },
+          "combinedScore": -3.9074000000000004
+        }
+      ],
+      "metrics": {
+        "callsLastMinute": 90,
+        "successRate": 0.9,
+        "costRate": 0.95,
+        "delayRate": 0.95,
+        "compressionLevel": 1,
+        "remainingBudget": 180000,
+        "dailyBudget": 200000,
+        "currentCost": 1000,
+        "currentDelay": 200,
+        "timestamp": "2026-02-22T00:47:22.140Z"
+      },
+      "context": {
+        "tokensRemaining": 40000,
+        "tokensTotal": 200000,
+        "compressionLevel": 1,
+        "timestamp": "2026-02-22T00:47:22.140Z"
+      },
+      "selectionReason": "选择 保守型 策略，组合得分 3.23; 收益得分: 9.41，风险得分: 16.00"
+    }
+  ],
+  [
+    "strategy_BALANCED_BALANCED_1771721242141_272",
+    {
+      "strategy": {
+        "id": "BALANCED_1771721242141_272",
+        "type": "BALANCED",
+        "label": "平衡型",
+        "delay": 50,
+        "compressionLevel": 0,
+        "modelBias": "MID_ONLY",
+        "estimatedCost": 3.5,
+        "expectedSuccessRate": 0.96,
+        "risks": [
+          "响应速度中等",
+          "资源消耗中等"
+        ],
+        "benefits": [
+          "平衡性好",
+          "风险可控",
+          "成本合理"
+        ],
+        "benefit": {
+          "totalScore": 8.904375,
+          "details": {
+            "successRateGain": 0.015000000000000013,
+            "costReduction": 0.9965,
+            "delayImprovement": 0.75,
+            "compressionImprovement": 0,
+            "modelScore": 85
+          }
+        },
+        "risk": {
+          "score": 11.600000000000001,
+          "level": "LOW",
+          "details": {
+            "successRateRisk": 0.040000000000000036,
+            "costRatio": 0.0035,
+            "delayRatio": 0.25,
+            "compression": 0
+          }
+        },
+        "combinedScore": 3.7970624999999996
+      },
+      "allStrategies": [
+        {
+          "id": "CONSERVATIVE_1771721242141_78",
+          "type": "CONSERVATIVE",
+          "label": "保守型",
+          "delay": 150,
+          "compressionLevel": 0,
+          "modelBias": "REDUCE_HIGH",
+          "estimatedCost": 12.8,
+          "expectedSuccessRate": 0.97,
+          "risks": [
+            "响应延迟较高",
+            "资源消耗低"
+          ],
+          "benefits": [
+            "风险最低",
+            "成本最低",
+            "适合稳定环境"
+          ],
+          "benefit": {
+            "totalScore": 9.30555,
+            "details": {
+              "successRateGain": 0.025000000000000022,
+              "costReduction": 0.9872000000000001,
+              "delayImprovement": 0.25,
+              "compressionImprovement": 0,
+              "modelScore": 90
+            }
+          },
+          "risk": {
+            "score": 16.200000000000003,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.030000000000000027,
+              "costRatio": 0.0128,
+              "delayRatio": 0.75,
+              "compression": 0
+            }
+          },
+          "combinedScore": 3.1118849999999996
+        },
+        {
+          "id": "BALANCED_1771721242141_272",
+          "type": "BALANCED",
+          "label": "平衡型",
+          "delay": 50,
+          "compressionLevel": 0,
+          "modelBias": "MID_ONLY",
+          "estimatedCost": 3.5,
+          "expectedSuccessRate": 0.96,
+          "risks": [
+            "响应速度中等",
+            "资源消耗中等"
+          ],
+          "benefits": [
+            "平衡性好",
+            "风险可控",
+            "成本合理"
+          ],
+          "benefit": {
+            "totalScore": 8.904375,
+            "details": {
+              "successRateGain": 0.015000000000000013,
+              "costReduction": 0.9965,
+              "delayImprovement": 0.75,
+              "compressionImprovement": 0,
+              "modelScore": 85
+            }
+          },
+          "risk": {
+            "score": 11.600000000000001,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.040000000000000036,
+              "costRatio": 0.0035,
+              "delayRatio": 0.25,
+              "compression": 0
+            }
+          },
+          "combinedScore": 3.7970624999999996
+        },
+        {
+          "id": "AGGRESSIVE_1771721242141_727",
+          "type": "AGGRESSIVE",
+          "label": "激进型",
+          "delay": 0,
+          "compressionLevel": 1,
+          "modelBias": "CHEAP_ONLY",
+          "estimatedCost": 50,
+          "expectedSuccessRate": 0.93,
+          "risks": [
+            "响应速度快但错误率高",
+            "成本较高"
+          ],
+          "benefits": [
+            "响应最快",
+            "处理能力最强",
+            "适合紧急场景"
+          ],
+          "benefit": {
+            "totalScore": 7.33225,
+            "details": {
+              "successRateGain": -0.014999999999999902,
+              "costReduction": 0.95,
+              "delayImprovement": 1,
+              "compressionImprovement": -1,
+              "modelScore": 70
+            }
+          },
+          "risk": {
+            "score": 32.8,
+            "level": "MEDIUM",
+            "details": {
+              "successRateRisk": 0.06999999999999995,
+              "costRatio": 0.05,
+              "delayRatio": 0,
+              "compression": 1
+            }
+          },
+          "combinedScore": -1.7554249999999985
+        }
+      ],
+      "metrics": {
+        "callsLastMinute": 20,
+        "successRate": 0.95,
+        "costRate": 0.85,
+        "delayRate": 0.85,
+        "compressionLevel": 0,
+        "remainingBudget": 150000,
+        "dailyBudget": 200000,
+        "currentCost": 1000,
+        "currentDelay": 200,
+        "timestamp": "2026-02-22T00:47:22.141Z"
+      },
+      "context": {
+        "tokensRemaining": 100000,
+        "tokensTotal": 200000,
+        "compressionLevel": 0,
+        "timestamp": "2026-02-22T00:47:22.141Z"
+      },
+      "selectionReason": "选择 平衡型 策略，组合得分 3.80; 收益得分: 8.90，风险得分: 11.60"
+    }
+  ],
+  [
+    "strategy_CONSERVATIVE_CONSERVATIVE_1771721242141_422",
+    {
+      "strategy": {
+        "id": "CONSERVATIVE_1771721242141_422",
+        "type": "CONSERVATIVE",
+        "label": "保守型",
+        "delay": 150,
+        "compressionLevel": 0,
+        "modelBias": "REDUCE_HIGH",
+        "estimatedCost": 12.8,
+        "expectedSuccessRate": 0.975,
+        "risks": [
+          "响应延迟较高",
+          "资源消耗低"
+        ],
+        "benefits": [
+          "风险最低",
+          "成本最低",
+          "适合稳定环境"
+        ],
+        "benefit": {
+          "totalScore": 9.4073,
+          "details": {
+            "successRateGain": 0.030000000000000027,
+            "costReduction": 0.9872000000000001,
+            "delayImprovement": 0.25,
+            "compressionImprovement": 1,
+            "modelScore": 90
+          }
+        },
+        "risk": {
+          "score": 16,
+          "level": "LOW",
+          "details": {
+            "successRateRisk": 0.025000000000000022,
+            "costRatio": 0.0128,
+            "delayRatio": 0.75,
+            "compression": 0
+          }
+        },
+        "combinedScore": 3.2251099999999995
+      },
+      "allStrategies": [
+        {
+          "id": "CONSERVATIVE_1771721242141_422",
+          "type": "CONSERVATIVE",
+          "label": "保守型",
+          "delay": 150,
+          "compressionLevel": 0,
+          "modelBias": "REDUCE_HIGH",
+          "estimatedCost": 12.8,
+          "expectedSuccessRate": 0.975,
+          "risks": [
+            "响应延迟较高",
+            "资源消耗低"
+          ],
+          "benefits": [
+            "风险最低",
+            "成本最低",
+            "适合稳定环境"
+          ],
+          "benefit": {
+            "totalScore": 9.4073,
+            "details": {
+              "successRateGain": 0.030000000000000027,
+              "costReduction": 0.9872000000000001,
+              "delayImprovement": 0.25,
+              "compressionImprovement": 1,
+              "modelScore": 90
+            }
+          },
+          "risk": {
+            "score": 16,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.025000000000000022,
+              "costRatio": 0.0128,
+              "delayRatio": 0.75,
+              "compression": 0
+            }
+          },
+          "combinedScore": 3.2251099999999995
+        },
+        {
+          "id": "BALANCED_1771721242141_701",
+          "type": "BALANCED",
+          "label": "平衡型",
+          "delay": 50,
+          "compressionLevel": 1,
+          "modelBias": "MID_ONLY",
+          "estimatedCost": 73.5,
+          "expectedSuccessRate": 0.96,
+          "risks": [
+            "响应速度中等",
+            "资源消耗中等"
+          ],
+          "benefits": [
+            "平衡性好",
+            "风险可控",
+            "成本合理"
+          ],
+          "benefit": {
+            "totalScore": 8.886875,
+            "details": {
+              "successRateGain": 0.015000000000000013,
+              "costReduction": 0.9265,
+              "delayImprovement": 0.75,
+              "compressionImprovement": 0,
+              "modelScore": 85
+            }
+          },
+          "risk": {
+            "score": 21.6,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.040000000000000036,
+              "costRatio": 0.0735,
+              "delayRatio": 0.25,
+              "compression": 1
+            }
+          },
+          "combinedScore": 1.6848124999999996
+        },
+        {
+          "id": "AGGRESSIVE_1771721242141_543",
+          "type": "AGGRESSIVE",
+          "label": "激进型",
+          "delay": 0,
+          "compressionLevel": 2,
+          "modelBias": "CHEAP_ONLY",
+          "estimatedCost": 100,
+          "expectedSuccessRate": 0.925,
+          "risks": [
+            "响应速度快但错误率高",
+            "成本较高"
+          ],
+          "benefits": [
+            "响应最快",
+            "处理能力最强",
+            "适合紧急场景"
+          ],
+          "benefit": {
+            "totalScore": 7.318,
+            "details": {
+              "successRateGain": -0.019999999999999907,
+              "costReduction": 0.9,
+              "delayImprovement": 1,
+              "compressionImprovement": -1,
+              "modelScore": 70
+            }
+          },
+          "risk": {
+            "score": 43,
+            "level": "MEDIUM",
+            "details": {
+              "successRateRisk": 0.07499999999999996,
+              "costRatio": 0.1,
+              "delayRatio": 0,
+              "compression": 2
+            }
+          },
+          "combinedScore": -3.9074000000000004
+        }
+      ],
+      "metrics": {
+        "callsLastMinute": 10,
+        "successRate": 0.95,
+        "costRate": 0.9,
+        "delayRate": 0.9,
+        "compressionLevel": 1,
+        "remainingBudget": 150000,
+        "dailyBudget": 200000,
+        "currentCost": 1000,
+        "currentDelay": 200,
+        "timestamp": "2026-02-22T00:47:22.141Z"
+      },
+      "context": {
+        "tokensRemaining": 70000,
+        "tokensTotal": 200000,
+        "compressionLevel": 1,
+        "timestamp": "2026-02-22T00:47:22.141Z"
+      },
+      "selectionReason": "选择 保守型 策略，组合得分 3.23; 收益得分: 9.41，风险得分: 16.00"
+    }
+  ],
+  [
+    "strategy_CONSERVATIVE_CONSERVATIVE_1771721242142_679",
+    {
+      "strategy": {
+        "id": "CONSERVATIVE_1771721242142_679",
+        "type": "CONSERVATIVE",
+        "label": "保守型",
+        "delay": 150,
+        "compressionLevel": 0,
+        "modelBias": "REDUCE_HIGH",
+        "estimatedCost": 12.8,
+        "expectedSuccessRate": 0.975,
+        "risks": [
+          "响应延迟较高",
+          "资源消耗低"
+        ],
+        "benefits": [
+          "风险最低",
+          "成本最低",
+          "适合稳定环境"
+        ],
+        "benefit": {
+          "totalScore": 9.4073,
+          "details": {
+            "successRateGain": 0.030000000000000027,
+            "costReduction": 0.9872000000000001,
+            "delayImprovement": 0.25,
+            "compressionImprovement": 1,
+            "modelScore": 90
+          }
+        },
+        "risk": {
+          "score": 16,
+          "level": "LOW",
+          "details": {
+            "successRateRisk": 0.025000000000000022,
+            "costRatio": 0.0128,
+            "delayRatio": 0.75,
+            "compression": 0
+          }
+        },
+        "combinedScore": 3.2251099999999995
+      },
+      "allStrategies": [
+        {
+          "id": "CONSERVATIVE_1771721242142_679",
+          "type": "CONSERVATIVE",
+          "label": "保守型",
+          "delay": 150,
+          "compressionLevel": 0,
+          "modelBias": "REDUCE_HIGH",
+          "estimatedCost": 12.8,
+          "expectedSuccessRate": 0.975,
+          "risks": [
+            "响应延迟较高",
+            "资源消耗低"
+          ],
+          "benefits": [
+            "风险最低",
+            "成本最低",
+            "适合稳定环境"
+          ],
+          "benefit": {
+            "totalScore": 9.4073,
+            "details": {
+              "successRateGain": 0.030000000000000027,
+              "costReduction": 0.9872000000000001,
+              "delayImprovement": 0.25,
+              "compressionImprovement": 1,
+              "modelScore": 90
+            }
+          },
+          "risk": {
+            "score": 16,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.025000000000000022,
+              "costRatio": 0.0128,
+              "delayRatio": 0.75,
+              "compression": 0
+            }
+          },
+          "combinedScore": 3.2251099999999995
+        },
+        {
+          "id": "BALANCED_1771721242142_35",
+          "type": "BALANCED",
+          "label": "平衡型",
+          "delay": 50,
+          "compressionLevel": 1,
+          "modelBias": "MID_ONLY",
+          "estimatedCost": 73.5,
+          "expectedSuccessRate": 0.96,
+          "risks": [
+            "响应速度中等",
+            "资源消耗中等"
+          ],
+          "benefits": [
+            "平衡性好",
+            "风险可控",
+            "成本合理"
+          ],
+          "benefit": {
+            "totalScore": 8.886875,
+            "details": {
+              "successRateGain": 0.015000000000000013,
+              "costReduction": 0.9265,
+              "delayImprovement": 0.75,
+              "compressionImprovement": 0,
+              "modelScore": 85
+            }
+          },
+          "risk": {
+            "score": 21.6,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.040000000000000036,
+              "costRatio": 0.0735,
+              "delayRatio": 0.25,
+              "compression": 1
+            }
+          },
+          "combinedScore": 1.6848124999999996
+        },
+        {
+          "id": "AGGRESSIVE_1771721242142_472",
+          "type": "AGGRESSIVE",
+          "label": "激进型",
+          "delay": 0,
+          "compressionLevel": 2,
+          "modelBias": "CHEAP_ONLY",
+          "estimatedCost": 100,
+          "expectedSuccessRate": 0.925,
+          "risks": [
+            "响应速度快但错误率高",
+            "成本较高"
+          ],
+          "benefits": [
+            "响应最快",
+            "处理能力最强",
+            "适合紧急场景"
+          ],
+          "benefit": {
+            "totalScore": 7.318,
+            "details": {
+              "successRateGain": -0.019999999999999907,
+              "costReduction": 0.9,
+              "delayImprovement": 1,
+              "compressionImprovement": -1,
+              "modelScore": 70
+            }
+          },
+          "risk": {
+            "score": 43,
+            "level": "MEDIUM",
+            "details": {
+              "successRateRisk": 0.07499999999999996,
+              "costRatio": 0.1,
+              "delayRatio": 0,
+              "compression": 2
+            }
+          },
+          "combinedScore": -3.9074000000000004
+        }
+      ],
+      "metrics": {
+        "callsLastMinute": 10,
+        "successRate": 0.95,
+        "costRate": 0.9,
+        "delayRate": 0.9,
+        "compressionLevel": 1,
+        "remainingBudget": 150000,
+        "dailyBudget": 200000,
+        "currentCost": 1000,
+        "currentDelay": 200,
+        "timestamp": "2026-02-22T00:47:22.142Z"
+      },
+      "context": {
+        "tokensRemaining": 70000,
+        "tokensTotal": 200000,
+        "compressionLevel": 1,
+        "timestamp": "2026-02-22T00:47:22.142Z"
+      },
+      "selectionReason": "选择 保守型 策略，组合得分 3.23; 收益得分: 9.41，风险得分: 16.00"
+    }
+  ],
+  [
+    "strategy_CONSERVATIVE_CONSERVATIVE_1771721242143_348",
+    {
+      "strategy": {
+        "id": "CONSERVATIVE_1771721242143_348",
+        "type": "CONSERVATIVE",
+        "label": "保守型",
+        "delay": 150,
+        "compressionLevel": 0,
+        "modelBias": "REDUCE_HIGH",
+        "estimatedCost": 12.8,
+        "expectedSuccessRate": 0.975,
+        "risks": [
+          "响应延迟较高",
+          "资源消耗低"
+        ],
+        "benefits": [
+          "风险最低",
+          "成本最低",
+          "适合稳定环境"
+        ],
+        "benefit": {
+          "totalScore": 9.4073,
+          "details": {
+            "successRateGain": 0.030000000000000027,
+            "costReduction": 0.9872000000000001,
+            "delayImprovement": 0.25,
+            "compressionImprovement": 1,
+            "modelScore": 90
+          }
+        },
+        "risk": {
+          "score": 16,
+          "level": "LOW",
+          "details": {
+            "successRateRisk": 0.025000000000000022,
+            "costRatio": 0.0128,
+            "delayRatio": 0.75,
+            "compression": 0
+          }
+        },
+        "combinedScore": 3.2251099999999995
+      },
+      "allStrategies": [
+        {
+          "id": "CONSERVATIVE_1771721242143_348",
+          "type": "CONSERVATIVE",
+          "label": "保守型",
+          "delay": 150,
+          "compressionLevel": 0,
+          "modelBias": "REDUCE_HIGH",
+          "estimatedCost": 12.8,
+          "expectedSuccessRate": 0.975,
+          "risks": [
+            "响应延迟较高",
+            "资源消耗低"
+          ],
+          "benefits": [
+            "风险最低",
+            "成本最低",
+            "适合稳定环境"
+          ],
+          "benefit": {
+            "totalScore": 9.4073,
+            "details": {
+              "successRateGain": 0.030000000000000027,
+              "costReduction": 0.9872000000000001,
+              "delayImprovement": 0.25,
+              "compressionImprovement": 1,
+              "modelScore": 90
+            }
+          },
+          "risk": {
+            "score": 16,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.025000000000000022,
+              "costRatio": 0.0128,
+              "delayRatio": 0.75,
+              "compression": 0
+            }
+          },
+          "combinedScore": 3.2251099999999995
+        },
+        {
+          "id": "BALANCED_1771721242143_460",
+          "type": "BALANCED",
+          "label": "平衡型",
+          "delay": 50,
+          "compressionLevel": 1,
+          "modelBias": "MID_ONLY",
+          "estimatedCost": 73.5,
+          "expectedSuccessRate": 0.96,
+          "risks": [
+            "响应速度中等",
+            "资源消耗中等"
+          ],
+          "benefits": [
+            "平衡性好",
+            "风险可控",
+            "成本合理"
+          ],
+          "benefit": {
+            "totalScore": 8.886875,
+            "details": {
+              "successRateGain": 0.015000000000000013,
+              "costReduction": 0.9265,
+              "delayImprovement": 0.75,
+              "compressionImprovement": 0,
+              "modelScore": 85
+            }
+          },
+          "risk": {
+            "score": 21.6,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.040000000000000036,
+              "costRatio": 0.0735,
+              "delayRatio": 0.25,
+              "compression": 1
+            }
+          },
+          "combinedScore": 1.6848124999999996
+        },
+        {
+          "id": "AGGRESSIVE_1771721242143_160",
+          "type": "AGGRESSIVE",
+          "label": "激进型",
+          "delay": 0,
+          "compressionLevel": 2,
+          "modelBias": "CHEAP_ONLY",
+          "estimatedCost": 100,
+          "expectedSuccessRate": 0.925,
+          "risks": [
+            "响应速度快但错误率高",
+            "成本较高"
+          ],
+          "benefits": [
+            "响应最快",
+            "处理能力最强",
+            "适合紧急场景"
+          ],
+          "benefit": {
+            "totalScore": 7.318,
+            "details": {
+              "successRateGain": -0.019999999999999907,
+              "costReduction": 0.9,
+              "delayImprovement": 1,
+              "compressionImprovement": -1,
+              "modelScore": 70
+            }
+          },
+          "risk": {
+            "score": 43,
+            "level": "MEDIUM",
+            "details": {
+              "successRateRisk": 0.07499999999999996,
+              "costRatio": 0.1,
+              "delayRatio": 0,
+              "compression": 2
+            }
+          },
+          "combinedScore": -3.9074000000000004
+        }
+      ],
+      "metrics": {
+        "callsLastMinute": 10,
+        "successRate": 0.95,
+        "costRate": 0.9,
+        "delayRate": 0.9,
+        "compressionLevel": 1,
+        "remainingBudget": 150000,
+        "dailyBudget": 200000,
+        "currentCost": 1000,
+        "currentDelay": 200,
+        "timestamp": "2026-02-22T00:47:22.143Z"
+      },
+      "context": {
+        "tokensRemaining": 70000,
+        "tokensTotal": 200000,
+        "compressionLevel": 1,
+        "timestamp": "2026-02-22T00:47:22.143Z"
+      },
+      "selectionReason": "选择 保守型 策略，组合得分 3.23; 收益得分: 9.41，风险得分: 16.00"
+    }
+  ],
+  [
+    "strategy_CONSERVATIVE_CONSERVATIVE_1771721242144_324",
+    {
+      "strategy": {
+        "id": "CONSERVATIVE_1771721242144_324",
+        "type": "CONSERVATIVE",
+        "label": "保守型",
+        "delay": 150,
+        "compressionLevel": 0,
+        "modelBias": "REDUCE_HIGH",
+        "estimatedCost": 12.8,
+        "expectedSuccessRate": 0.975,
+        "risks": [
+          "响应延迟较高",
+          "资源消耗低"
+        ],
+        "benefits": [
+          "风险最低",
+          "成本最低",
+          "适合稳定环境"
+        ],
+        "benefit": {
+          "totalScore": 9.4073,
+          "details": {
+            "successRateGain": 0.030000000000000027,
+            "costReduction": 0.9872000000000001,
+            "delayImprovement": 0.25,
+            "compressionImprovement": 1,
+            "modelScore": 90
+          }
+        },
+        "risk": {
+          "score": 16,
+          "level": "LOW",
+          "details": {
+            "successRateRisk": 0.025000000000000022,
+            "costRatio": 0.0128,
+            "delayRatio": 0.75,
+            "compression": 0
+          }
+        },
+        "combinedScore": 3.2251099999999995
+      },
+      "allStrategies": [
+        {
+          "id": "CONSERVATIVE_1771721242144_324",
+          "type": "CONSERVATIVE",
+          "label": "保守型",
+          "delay": 150,
+          "compressionLevel": 0,
+          "modelBias": "REDUCE_HIGH",
+          "estimatedCost": 12.8,
+          "expectedSuccessRate": 0.975,
+          "risks": [
+            "响应延迟较高",
+            "资源消耗低"
+          ],
+          "benefits": [
+            "风险最低",
+            "成本最低",
+            "适合稳定环境"
+          ],
+          "benefit": {
+            "totalScore": 9.4073,
+            "details": {
+              "successRateGain": 0.030000000000000027,
+              "costReduction": 0.9872000000000001,
+              "delayImprovement": 0.25,
+              "compressionImprovement": 1,
+              "modelScore": 90
+            }
+          },
+          "risk": {
+            "score": 16,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.025000000000000022,
+              "costRatio": 0.0128,
+              "delayRatio": 0.75,
+              "compression": 0
+            }
+          },
+          "combinedScore": 3.2251099999999995
+        },
+        {
+          "id": "BALANCED_1771721242144_742",
+          "type": "BALANCED",
+          "label": "平衡型",
+          "delay": 50,
+          "compressionLevel": 1,
+          "modelBias": "MID_ONLY",
+          "estimatedCost": 73.5,
+          "expectedSuccessRate": 0.96,
+          "risks": [
+            "响应速度中等",
+            "资源消耗中等"
+          ],
+          "benefits": [
+            "平衡性好",
+            "风险可控",
+            "成本合理"
+          ],
+          "benefit": {
+            "totalScore": 8.886875,
+            "details": {
+              "successRateGain": 0.015000000000000013,
+              "costReduction": 0.9265,
+              "delayImprovement": 0.75,
+              "compressionImprovement": 0,
+              "modelScore": 85
+            }
+          },
+          "risk": {
+            "score": 21.6,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.040000000000000036,
+              "costRatio": 0.0735,
+              "delayRatio": 0.25,
+              "compression": 1
+            }
+          },
+          "combinedScore": 1.6848124999999996
+        },
+        {
+          "id": "AGGRESSIVE_1771721242144_923",
+          "type": "AGGRESSIVE",
+          "label": "激进型",
+          "delay": 0,
+          "compressionLevel": 2,
+          "modelBias": "CHEAP_ONLY",
+          "estimatedCost": 100,
+          "expectedSuccessRate": 0.925,
+          "risks": [
+            "响应速度快但错误率高",
+            "成本较高"
+          ],
+          "benefits": [
+            "响应最快",
+            "处理能力最强",
+            "适合紧急场景"
+          ],
+          "benefit": {
+            "totalScore": 7.318,
+            "details": {
+              "successRateGain": -0.019999999999999907,
+              "costReduction": 0.9,
+              "delayImprovement": 1,
+              "compressionImprovement": -1,
+              "modelScore": 70
+            }
+          },
+          "risk": {
+            "score": 43,
+            "level": "MEDIUM",
+            "details": {
+              "successRateRisk": 0.07499999999999996,
+              "costRatio": 0.1,
+              "delayRatio": 0,
+              "compression": 2
+            }
+          },
+          "combinedScore": -3.9074000000000004
+        }
+      ],
+      "metrics": {
+        "callsLastMinute": 10,
+        "successRate": 0.95,
+        "costRate": 0.9,
+        "delayRate": 0.9,
+        "compressionLevel": 1,
+        "remainingBudget": 150000,
+        "dailyBudget": 200000,
+        "currentCost": 1000,
+        "currentDelay": 200,
+        "timestamp": "2026-02-22T00:47:22.144Z"
+      },
+      "context": {
+        "tokensRemaining": 70000,
+        "tokensTotal": 200000,
+        "compressionLevel": 1,
+        "timestamp": "2026-02-22T00:47:22.144Z"
+      },
+      "selectionReason": "选择 保守型 策略，组合得分 3.23; 收益得分: 9.41，风险得分: 16.00"
+    }
+  ],
+  [
+    "strategy_CONSERVATIVE_CONSERVATIVE_1771721242144_784",
+    {
+      "strategy": {
+        "id": "CONSERVATIVE_1771721242144_784",
+        "type": "CONSERVATIVE",
+        "label": "保守型",
+        "delay": 150,
+        "compressionLevel": 0,
+        "modelBias": "REDUCE_HIGH",
+        "estimatedCost": 12.8,
+        "expectedSuccessRate": 0.975,
+        "risks": [
+          "响应延迟较高",
+          "资源消耗低"
+        ],
+        "benefits": [
+          "风险最低",
+          "成本最低",
+          "适合稳定环境"
+        ],
+        "benefit": {
+          "totalScore": 9.4073,
+          "details": {
+            "successRateGain": 0.030000000000000027,
+            "costReduction": 0.9872000000000001,
+            "delayImprovement": 0.25,
+            "compressionImprovement": 1,
+            "modelScore": 90
+          }
+        },
+        "risk": {
+          "score": 16,
+          "level": "LOW",
+          "details": {
+            "successRateRisk": 0.025000000000000022,
+            "costRatio": 0.0128,
+            "delayRatio": 0.75,
+            "compression": 0
+          }
+        },
+        "combinedScore": 3.2251099999999995
+      },
+      "allStrategies": [
+        {
+          "id": "CONSERVATIVE_1771721242144_784",
+          "type": "CONSERVATIVE",
+          "label": "保守型",
+          "delay": 150,
+          "compressionLevel": 0,
+          "modelBias": "REDUCE_HIGH",
+          "estimatedCost": 12.8,
+          "expectedSuccessRate": 0.975,
+          "risks": [
+            "响应延迟较高",
+            "资源消耗低"
+          ],
+          "benefits": [
+            "风险最低",
+            "成本最低",
+            "适合稳定环境"
+          ],
+          "benefit": {
+            "totalScore": 9.4073,
+            "details": {
+              "successRateGain": 0.030000000000000027,
+              "costReduction": 0.9872000000000001,
+              "delayImprovement": 0.25,
+              "compressionImprovement": 1,
+              "modelScore": 90
+            }
+          },
+          "risk": {
+            "score": 16,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.025000000000000022,
+              "costRatio": 0.0128,
+              "delayRatio": 0.75,
+              "compression": 0
+            }
+          },
+          "combinedScore": 3.2251099999999995
+        },
+        {
+          "id": "BALANCED_1771721242144_341",
+          "type": "BALANCED",
+          "label": "平衡型",
+          "delay": 50,
+          "compressionLevel": 1,
+          "modelBias": "MID_ONLY",
+          "estimatedCost": 73.5,
+          "expectedSuccessRate": 0.96,
+          "risks": [
+            "响应速度中等",
+            "资源消耗中等"
+          ],
+          "benefits": [
+            "平衡性好",
+            "风险可控",
+            "成本合理"
+          ],
+          "benefit": {
+            "totalScore": 8.886875,
+            "details": {
+              "successRateGain": 0.015000000000000013,
+              "costReduction": 0.9265,
+              "delayImprovement": 0.75,
+              "compressionImprovement": 0,
+              "modelScore": 85
+            }
+          },
+          "risk": {
+            "score": 21.6,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.040000000000000036,
+              "costRatio": 0.0735,
+              "delayRatio": 0.25,
+              "compression": 1
+            }
+          },
+          "combinedScore": 1.6848124999999996
+        },
+        {
+          "id": "AGGRESSIVE_1771721242144_339",
+          "type": "AGGRESSIVE",
+          "label": "激进型",
+          "delay": 0,
+          "compressionLevel": 2,
+          "modelBias": "CHEAP_ONLY",
+          "estimatedCost": 100,
+          "expectedSuccessRate": 0.925,
+          "risks": [
+            "响应速度快但错误率高",
+            "成本较高"
+          ],
+          "benefits": [
+            "响应最快",
+            "处理能力最强",
+            "适合紧急场景"
+          ],
+          "benefit": {
+            "totalScore": 7.318,
+            "details": {
+              "successRateGain": -0.019999999999999907,
+              "costReduction": 0.9,
+              "delayImprovement": 1,
+              "compressionImprovement": -1,
+              "modelScore": 70
+            }
+          },
+          "risk": {
+            "score": 43,
+            "level": "MEDIUM",
+            "details": {
+              "successRateRisk": 0.07499999999999996,
+              "costRatio": 0.1,
+              "delayRatio": 0,
+              "compression": 2
+            }
+          },
+          "combinedScore": -3.9074000000000004
+        }
+      ],
+      "metrics": {
+        "callsLastMinute": 10,
+        "successRate": 0.95,
+        "costRate": 0.9,
+        "delayRate": 0.9,
+        "compressionLevel": 1,
+        "remainingBudget": 150000,
+        "dailyBudget": 200000,
+        "currentCost": 1000,
+        "currentDelay": 200,
+        "timestamp": "2026-02-22T00:47:22.144Z"
+      },
+      "context": {
+        "tokensRemaining": 70000,
+        "tokensTotal": 200000,
+        "compressionLevel": 1,
+        "timestamp": "2026-02-22T00:47:22.144Z"
+      },
+      "selectionReason": "选择 保守型 策略，组合得分 3.23; 收益得分: 9.41，风险得分: 16.00"
+    }
+  ],
+  [
+    "strategy_CONSERVATIVE_CONSERVATIVE_1771721365743_156",
+    {
+      "strategy": {
+        "id": "CONSERVATIVE_1771721365743_156",
+        "type": "CONSERVATIVE",
+        "label": "保守型",
+        "delay": 150,
+        "compressionLevel": 0,
+        "modelBias": "REDUCE_HIGH",
+        "estimatedCost": 12.8,
+        "expectedSuccessRate": 0.975,
+        "risks": [
+          "响应延迟较高",
+          "资源消耗低"
+        ],
+        "benefits": [
+          "风险最低",
+          "成本最低",
+          "适合稳定环境"
+        ],
+        "benefit": {
+          "totalScore": 9.4073,
+          "details": {
+            "successRateGain": 0.030000000000000027,
+            "costReduction": 0.9872000000000001,
+            "delayImprovement": 0.25,
+            "compressionImprovement": 1,
+            "modelScore": 90
+          }
+        },
+        "risk": {
+          "score": 16,
+          "level": "LOW",
+          "details": {
+            "successRateRisk": 0.025000000000000022,
+            "costRatio": 0.0128,
+            "delayRatio": 0.75,
+            "compression": 0
+          }
+        },
+        "combinedScore": 3.2251099999999995
+      },
+      "allStrategies": [
+        {
+          "id": "CONSERVATIVE_1771721365743_156",
+          "type": "CONSERVATIVE",
+          "label": "保守型",
+          "delay": 150,
+          "compressionLevel": 0,
+          "modelBias": "REDUCE_HIGH",
+          "estimatedCost": 12.8,
+          "expectedSuccessRate": 0.975,
+          "risks": [
+            "响应延迟较高",
+            "资源消耗低"
+          ],
+          "benefits": [
+            "风险最低",
+            "成本最低",
+            "适合稳定环境"
+          ],
+          "benefit": {
+            "totalScore": 9.4073,
+            "details": {
+              "successRateGain": 0.030000000000000027,
+              "costReduction": 0.9872000000000001,
+              "delayImprovement": 0.25,
+              "compressionImprovement": 1,
+              "modelScore": 90
+            }
+          },
+          "risk": {
+            "score": 16,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.025000000000000022,
+              "costRatio": 0.0128,
+              "delayRatio": 0.75,
+              "compression": 0
+            }
+          },
+          "combinedScore": 3.2251099999999995
+        },
+        {
+          "id": "BALANCED_1771721365743_9",
+          "type": "BALANCED",
+          "label": "平衡型",
+          "delay": 50,
+          "compressionLevel": 1,
+          "modelBias": "MID_ONLY",
+          "estimatedCost": 73.5,
+          "expectedSuccessRate": 0.96,
+          "risks": [
+            "响应速度中等",
+            "资源消耗中等"
+          ],
+          "benefits": [
+            "平衡性好",
+            "风险可控",
+            "成本合理"
+          ],
+          "benefit": {
+            "totalScore": 8.886875,
+            "details": {
+              "successRateGain": 0.015000000000000013,
+              "costReduction": 0.9265,
+              "delayImprovement": 0.75,
+              "compressionImprovement": 0,
+              "modelScore": 85
+            }
+          },
+          "risk": {
+            "score": 21.6,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.040000000000000036,
+              "costRatio": 0.0735,
+              "delayRatio": 0.25,
+              "compression": 1
+            }
+          },
+          "combinedScore": 1.6848124999999996
+        },
+        {
+          "id": "AGGRESSIVE_1771721365743_535",
+          "type": "AGGRESSIVE",
+          "label": "激进型",
+          "delay": 0,
+          "compressionLevel": 2,
+          "modelBias": "CHEAP_ONLY",
+          "estimatedCost": 100,
+          "expectedSuccessRate": 0.925,
+          "risks": [
+            "响应速度快但错误率高",
+            "成本较高"
+          ],
+          "benefits": [
+            "响应最快",
+            "处理能力最强",
+            "适合紧急场景"
+          ],
+          "benefit": {
+            "totalScore": 7.318,
+            "details": {
+              "successRateGain": -0.019999999999999907,
+              "costReduction": 0.9,
+              "delayImprovement": 1,
+              "compressionImprovement": -1,
+              "modelScore": 70
+            }
+          },
+          "risk": {
+            "score": 43,
+            "level": "MEDIUM",
+            "details": {
+              "successRateRisk": 0.07499999999999996,
+              "costRatio": 0.1,
+              "delayRatio": 0,
+              "compression": 2
+            }
+          },
+          "combinedScore": -3.9074000000000004
+        }
+      ],
+      "metrics": {
+        "callsLastMinute": 10,
+        "successRate": 0.95,
+        "costRate": 0.9,
+        "delayRate": 0.9,
+        "compressionLevel": 1,
+        "remainingBudget": 150000,
+        "dailyBudget": 200000,
+        "currentCost": 1000,
+        "currentDelay": 200,
+        "timestamp": "2026-02-22T00:49:25.744Z"
+      },
+      "context": {
+        "tokensRemaining": 70000,
+        "tokensTotal": 200000,
+        "compressionLevel": 1,
+        "timestamp": "2026-02-22T00:49:25.744Z"
+      },
+      "selectionReason": "选择 保守型 策略，组合得分 3.23; 收益得分: 9.41，风险得分: 16.00"
+    }
+  ],
+  [
+    "strategy_CONSERVATIVE_CONSERVATIVE_1771721365745_594",
+    {
+      "strategy": {
+        "id": "CONSERVATIVE_1771721365745_594",
+        "type": "CONSERVATIVE",
+        "label": "保守型",
+        "delay": 150,
+        "compressionLevel": 0,
+        "modelBias": "REDUCE_HIGH",
+        "estimatedCost": 12.8,
+        "expectedSuccessRate": 0.975,
+        "risks": [
+          "响应延迟较高",
+          "资源消耗低"
+        ],
+        "benefits": [
+          "风险最低",
+          "成本最低",
+          "适合稳定环境"
+        ],
+        "benefit": {
+          "totalScore": 9.4073,
+          "details": {
+            "successRateGain": 0.030000000000000027,
+            "costReduction": 0.9872000000000001,
+            "delayImprovement": 0.25,
+            "compressionImprovement": 1,
+            "modelScore": 90
+          }
+        },
+        "risk": {
+          "score": 16,
+          "level": "LOW",
+          "details": {
+            "successRateRisk": 0.025000000000000022,
+            "costRatio": 0.0128,
+            "delayRatio": 0.75,
+            "compression": 0
+          }
+        },
+        "combinedScore": 3.2251099999999995
+      },
+      "allStrategies": [
+        {
+          "id": "CONSERVATIVE_1771721365745_594",
+          "type": "CONSERVATIVE",
+          "label": "保守型",
+          "delay": 150,
+          "compressionLevel": 0,
+          "modelBias": "REDUCE_HIGH",
+          "estimatedCost": 12.8,
+          "expectedSuccessRate": 0.975,
+          "risks": [
+            "响应延迟较高",
+            "资源消耗低"
+          ],
+          "benefits": [
+            "风险最低",
+            "成本最低",
+            "适合稳定环境"
+          ],
+          "benefit": {
+            "totalScore": 9.4073,
+            "details": {
+              "successRateGain": 0.030000000000000027,
+              "costReduction": 0.9872000000000001,
+              "delayImprovement": 0.25,
+              "compressionImprovement": 1,
+              "modelScore": 90
+            }
+          },
+          "risk": {
+            "score": 16,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.025000000000000022,
+              "costRatio": 0.0128,
+              "delayRatio": 0.75,
+              "compression": 0
+            }
+          },
+          "combinedScore": 3.2251099999999995
+        },
+        {
+          "id": "BALANCED_1771721365745_961",
+          "type": "BALANCED",
+          "label": "平衡型",
+          "delay": 50,
+          "compressionLevel": 1,
+          "modelBias": "MID_ONLY",
+          "estimatedCost": 73.5,
+          "expectedSuccessRate": 0.96,
+          "risks": [
+            "响应速度中等",
+            "资源消耗中等"
+          ],
+          "benefits": [
+            "平衡性好",
+            "风险可控",
+            "成本合理"
+          ],
+          "benefit": {
+            "totalScore": 8.886875,
+            "details": {
+              "successRateGain": 0.015000000000000013,
+              "costReduction": 0.9265,
+              "delayImprovement": 0.75,
+              "compressionImprovement": 0,
+              "modelScore": 85
+            }
+          },
+          "risk": {
+            "score": 21.6,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.040000000000000036,
+              "costRatio": 0.0735,
+              "delayRatio": 0.25,
+              "compression": 1
+            }
+          },
+          "combinedScore": 1.6848124999999996
+        },
+        {
+          "id": "AGGRESSIVE_1771721365745_792",
+          "type": "AGGRESSIVE",
+          "label": "激进型",
+          "delay": 0,
+          "compressionLevel": 2,
+          "modelBias": "CHEAP_ONLY",
+          "estimatedCost": 100,
+          "expectedSuccessRate": 0.925,
+          "risks": [
+            "响应速度快但错误率高",
+            "成本较高"
+          ],
+          "benefits": [
+            "响应最快",
+            "处理能力最强",
+            "适合紧急场景"
+          ],
+          "benefit": {
+            "totalScore": 7.318,
+            "details": {
+              "successRateGain": -0.019999999999999907,
+              "costReduction": 0.9,
+              "delayImprovement": 1,
+              "compressionImprovement": -1,
+              "modelScore": 70
+            }
+          },
+          "risk": {
+            "score": 43,
+            "level": "MEDIUM",
+            "details": {
+              "successRateRisk": 0.07499999999999996,
+              "costRatio": 0.1,
+              "delayRatio": 0,
+              "compression": 2
+            }
+          },
+          "combinedScore": -3.9074000000000004
+        }
+      ],
+      "metrics": {
+        "callsLastMinute": 90,
+        "successRate": 0.9,
+        "costRate": 0.95,
+        "delayRate": 0.95,
+        "compressionLevel": 1,
+        "remainingBudget": 180000,
+        "dailyBudget": 200000,
+        "currentCost": 1000,
+        "currentDelay": 200,
+        "timestamp": "2026-02-22T00:49:25.745Z"
+      },
+      "context": {
+        "tokensRemaining": 40000,
+        "tokensTotal": 200000,
+        "compressionLevel": 1,
+        "timestamp": "2026-02-22T00:49:25.745Z"
+      },
+      "selectionReason": "选择 保守型 策略，组合得分 3.23; 收益得分: 9.41，风险得分: 16.00"
+    }
+  ],
+  [
+    "strategy_BALANCED_BALANCED_1771721365746_17",
+    {
+      "strategy": {
+        "id": "BALANCED_1771721365746_17",
+        "type": "BALANCED",
+        "label": "平衡型",
+        "delay": 50,
+        "compressionLevel": 0,
+        "modelBias": "MID_ONLY",
+        "estimatedCost": 3.5,
+        "expectedSuccessRate": 0.96,
+        "risks": [
+          "响应速度中等",
+          "资源消耗中等"
+        ],
+        "benefits": [
+          "平衡性好",
+          "风险可控",
+          "成本合理"
+        ],
+        "benefit": {
+          "totalScore": 8.904375,
+          "details": {
+            "successRateGain": 0.015000000000000013,
+            "costReduction": 0.9965,
+            "delayImprovement": 0.75,
+            "compressionImprovement": 0,
+            "modelScore": 85
+          }
+        },
+        "risk": {
+          "score": 11.600000000000001,
+          "level": "LOW",
+          "details": {
+            "successRateRisk": 0.040000000000000036,
+            "costRatio": 0.0035,
+            "delayRatio": 0.25,
+            "compression": 0
+          }
+        },
+        "combinedScore": 3.7970624999999996
+      },
+      "allStrategies": [
+        {
+          "id": "CONSERVATIVE_1771721365746_781",
+          "type": "CONSERVATIVE",
+          "label": "保守型",
+          "delay": 150,
+          "compressionLevel": 0,
+          "modelBias": "REDUCE_HIGH",
+          "estimatedCost": 12.8,
+          "expectedSuccessRate": 0.97,
+          "risks": [
+            "响应延迟较高",
+            "资源消耗低"
+          ],
+          "benefits": [
+            "风险最低",
+            "成本最低",
+            "适合稳定环境"
+          ],
+          "benefit": {
+            "totalScore": 9.30555,
+            "details": {
+              "successRateGain": 0.025000000000000022,
+              "costReduction": 0.9872000000000001,
+              "delayImprovement": 0.25,
+              "compressionImprovement": 0,
+              "modelScore": 90
+            }
+          },
+          "risk": {
+            "score": 16.200000000000003,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.030000000000000027,
+              "costRatio": 0.0128,
+              "delayRatio": 0.75,
+              "compression": 0
+            }
+          },
+          "combinedScore": 3.1118849999999996
+        },
+        {
+          "id": "BALANCED_1771721365746_17",
+          "type": "BALANCED",
+          "label": "平衡型",
+          "delay": 50,
+          "compressionLevel": 0,
+          "modelBias": "MID_ONLY",
+          "estimatedCost": 3.5,
+          "expectedSuccessRate": 0.96,
+          "risks": [
+            "响应速度中等",
+            "资源消耗中等"
+          ],
+          "benefits": [
+            "平衡性好",
+            "风险可控",
+            "成本合理"
+          ],
+          "benefit": {
+            "totalScore": 8.904375,
+            "details": {
+              "successRateGain": 0.015000000000000013,
+              "costReduction": 0.9965,
+              "delayImprovement": 0.75,
+              "compressionImprovement": 0,
+              "modelScore": 85
+            }
+          },
+          "risk": {
+            "score": 11.600000000000001,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.040000000000000036,
+              "costRatio": 0.0035,
+              "delayRatio": 0.25,
+              "compression": 0
+            }
+          },
+          "combinedScore": 3.7970624999999996
+        },
+        {
+          "id": "AGGRESSIVE_1771721365746_451",
+          "type": "AGGRESSIVE",
+          "label": "激进型",
+          "delay": 0,
+          "compressionLevel": 1,
+          "modelBias": "CHEAP_ONLY",
+          "estimatedCost": 50,
+          "expectedSuccessRate": 0.93,
+          "risks": [
+            "响应速度快但错误率高",
+            "成本较高"
+          ],
+          "benefits": [
+            "响应最快",
+            "处理能力最强",
+            "适合紧急场景"
+          ],
+          "benefit": {
+            "totalScore": 7.33225,
+            "details": {
+              "successRateGain": -0.014999999999999902,
+              "costReduction": 0.95,
+              "delayImprovement": 1,
+              "compressionImprovement": -1,
+              "modelScore": 70
+            }
+          },
+          "risk": {
+            "score": 32.8,
+            "level": "MEDIUM",
+            "details": {
+              "successRateRisk": 0.06999999999999995,
+              "costRatio": 0.05,
+              "delayRatio": 0,
+              "compression": 1
+            }
+          },
+          "combinedScore": -1.7554249999999985
+        }
+      ],
+      "metrics": {
+        "callsLastMinute": 20,
+        "successRate": 0.95,
+        "costRate": 0.85,
+        "delayRate": 0.85,
+        "compressionLevel": 0,
+        "remainingBudget": 150000,
+        "dailyBudget": 200000,
+        "currentCost": 1000,
+        "currentDelay": 200,
+        "timestamp": "2026-02-22T00:49:25.746Z"
+      },
+      "context": {
+        "tokensRemaining": 100000,
+        "tokensTotal": 200000,
+        "compressionLevel": 0,
+        "timestamp": "2026-02-22T00:49:25.746Z"
+      },
+      "selectionReason": "选择 平衡型 策略，组合得分 3.80; 收益得分: 8.90，风险得分: 11.60"
+    }
+  ],
+  [
+    "strategy_CONSERVATIVE_CONSERVATIVE_1771721365747_415",
+    {
+      "strategy": {
+        "id": "CONSERVATIVE_1771721365747_415",
+        "type": "CONSERVATIVE",
+        "label": "保守型",
+        "delay": 150,
+        "compressionLevel": 0,
+        "modelBias": "REDUCE_HIGH",
+        "estimatedCost": 12.8,
+        "expectedSuccessRate": 0.975,
+        "risks": [
+          "响应延迟较高",
+          "资源消耗低"
+        ],
+        "benefits": [
+          "风险最低",
+          "成本最低",
+          "适合稳定环境"
+        ],
+        "benefit": {
+          "totalScore": 9.4073,
+          "details": {
+            "successRateGain": 0.030000000000000027,
+            "costReduction": 0.9872000000000001,
+            "delayImprovement": 0.25,
+            "compressionImprovement": 1,
+            "modelScore": 90
+          }
+        },
+        "risk": {
+          "score": 16,
+          "level": "LOW",
+          "details": {
+            "successRateRisk": 0.025000000000000022,
+            "costRatio": 0.0128,
+            "delayRatio": 0.75,
+            "compression": 0
+          }
+        },
+        "combinedScore": 3.2251099999999995
+      },
+      "allStrategies": [
+        {
+          "id": "CONSERVATIVE_1771721365747_415",
+          "type": "CONSERVATIVE",
+          "label": "保守型",
+          "delay": 150,
+          "compressionLevel": 0,
+          "modelBias": "REDUCE_HIGH",
+          "estimatedCost": 12.8,
+          "expectedSuccessRate": 0.975,
+          "risks": [
+            "响应延迟较高",
+            "资源消耗低"
+          ],
+          "benefits": [
+            "风险最低",
+            "成本最低",
+            "适合稳定环境"
+          ],
+          "benefit": {
+            "totalScore": 9.4073,
+            "details": {
+              "successRateGain": 0.030000000000000027,
+              "costReduction": 0.9872000000000001,
+              "delayImprovement": 0.25,
+              "compressionImprovement": 1,
+              "modelScore": 90
+            }
+          },
+          "risk": {
+            "score": 16,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.025000000000000022,
+              "costRatio": 0.0128,
+              "delayRatio": 0.75,
+              "compression": 0
+            }
+          },
+          "combinedScore": 3.2251099999999995
+        },
+        {
+          "id": "BALANCED_1771721365747_412",
+          "type": "BALANCED",
+          "label": "平衡型",
+          "delay": 50,
+          "compressionLevel": 1,
+          "modelBias": "MID_ONLY",
+          "estimatedCost": 73.5,
+          "expectedSuccessRate": 0.96,
+          "risks": [
+            "响应速度中等",
+            "资源消耗中等"
+          ],
+          "benefits": [
+            "平衡性好",
+            "风险可控",
+            "成本合理"
+          ],
+          "benefit": {
+            "totalScore": 8.886875,
+            "details": {
+              "successRateGain": 0.015000000000000013,
+              "costReduction": 0.9265,
+              "delayImprovement": 0.75,
+              "compressionImprovement": 0,
+              "modelScore": 85
+            }
+          },
+          "risk": {
+            "score": 21.6,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.040000000000000036,
+              "costRatio": 0.0735,
+              "delayRatio": 0.25,
+              "compression": 1
+            }
+          },
+          "combinedScore": 1.6848124999999996
+        },
+        {
+          "id": "AGGRESSIVE_1771721365747_486",
+          "type": "AGGRESSIVE",
+          "label": "激进型",
+          "delay": 0,
+          "compressionLevel": 2,
+          "modelBias": "CHEAP_ONLY",
+          "estimatedCost": 100,
+          "expectedSuccessRate": 0.925,
+          "risks": [
+            "响应速度快但错误率高",
+            "成本较高"
+          ],
+          "benefits": [
+            "响应最快",
+            "处理能力最强",
+            "适合紧急场景"
+          ],
+          "benefit": {
+            "totalScore": 7.318,
+            "details": {
+              "successRateGain": -0.019999999999999907,
+              "costReduction": 0.9,
+              "delayImprovement": 1,
+              "compressionImprovement": -1,
+              "modelScore": 70
+            }
+          },
+          "risk": {
+            "score": 43,
+            "level": "MEDIUM",
+            "details": {
+              "successRateRisk": 0.07499999999999996,
+              "costRatio": 0.1,
+              "delayRatio": 0,
+              "compression": 2
+            }
+          },
+          "combinedScore": -3.9074000000000004
+        }
+      ],
+      "metrics": {
+        "callsLastMinute": 10,
+        "successRate": 0.95,
+        "costRate": 0.9,
+        "delayRate": 0.9,
+        "compressionLevel": 1,
+        "remainingBudget": 150000,
+        "dailyBudget": 200000,
+        "currentCost": 1000,
+        "currentDelay": 200,
+        "timestamp": "2026-02-22T00:49:25.747Z"
+      },
+      "context": {
+        "tokensRemaining": 70000,
+        "tokensTotal": 200000,
+        "compressionLevel": 1,
+        "timestamp": "2026-02-22T00:49:25.747Z"
+      },
+      "selectionReason": "选择 保守型 策略，组合得分 3.23; 收益得分: 9.41，风险得分: 16.00"
+    }
+  ],
+  [
+    "strategy_CONSERVATIVE_CONSERVATIVE_1771721365748_30",
+    {
+      "strategy": {
+        "id": "CONSERVATIVE_1771721365748_30",
+        "type": "CONSERVATIVE",
+        "label": "保守型",
+        "delay": 150,
+        "compressionLevel": 0,
+        "modelBias": "REDUCE_HIGH",
+        "estimatedCost": 12.8,
+        "expectedSuccessRate": 0.975,
+        "risks": [
+          "响应延迟较高",
+          "资源消耗低"
+        ],
+        "benefits": [
+          "风险最低",
+          "成本最低",
+          "适合稳定环境"
+        ],
+        "benefit": {
+          "totalScore": 9.4073,
+          "details": {
+            "successRateGain": 0.030000000000000027,
+            "costReduction": 0.9872000000000001,
+            "delayImprovement": 0.25,
+            "compressionImprovement": 1,
+            "modelScore": 90
+          }
+        },
+        "risk": {
+          "score": 16,
+          "level": "LOW",
+          "details": {
+            "successRateRisk": 0.025000000000000022,
+            "costRatio": 0.0128,
+            "delayRatio": 0.75,
+            "compression": 0
+          }
+        },
+        "combinedScore": 3.2251099999999995
+      },
+      "allStrategies": [
+        {
+          "id": "CONSERVATIVE_1771721365748_30",
+          "type": "CONSERVATIVE",
+          "label": "保守型",
+          "delay": 150,
+          "compressionLevel": 0,
+          "modelBias": "REDUCE_HIGH",
+          "estimatedCost": 12.8,
+          "expectedSuccessRate": 0.975,
+          "risks": [
+            "响应延迟较高",
+            "资源消耗低"
+          ],
+          "benefits": [
+            "风险最低",
+            "成本最低",
+            "适合稳定环境"
+          ],
+          "benefit": {
+            "totalScore": 9.4073,
+            "details": {
+              "successRateGain": 0.030000000000000027,
+              "costReduction": 0.9872000000000001,
+              "delayImprovement": 0.25,
+              "compressionImprovement": 1,
+              "modelScore": 90
+            }
+          },
+          "risk": {
+            "score": 16,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.025000000000000022,
+              "costRatio": 0.0128,
+              "delayRatio": 0.75,
+              "compression": 0
+            }
+          },
+          "combinedScore": 3.2251099999999995
+        },
+        {
+          "id": "BALANCED_1771721365748_297",
+          "type": "BALANCED",
+          "label": "平衡型",
+          "delay": 50,
+          "compressionLevel": 1,
+          "modelBias": "MID_ONLY",
+          "estimatedCost": 73.5,
+          "expectedSuccessRate": 0.96,
+          "risks": [
+            "响应速度中等",
+            "资源消耗中等"
+          ],
+          "benefits": [
+            "平衡性好",
+            "风险可控",
+            "成本合理"
+          ],
+          "benefit": {
+            "totalScore": 8.886875,
+            "details": {
+              "successRateGain": 0.015000000000000013,
+              "costReduction": 0.9265,
+              "delayImprovement": 0.75,
+              "compressionImprovement": 0,
+              "modelScore": 85
+            }
+          },
+          "risk": {
+            "score": 21.6,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.040000000000000036,
+              "costRatio": 0.0735,
+              "delayRatio": 0.25,
+              "compression": 1
+            }
+          },
+          "combinedScore": 1.6848124999999996
+        },
+        {
+          "id": "AGGRESSIVE_1771721365748_481",
+          "type": "AGGRESSIVE",
+          "label": "激进型",
+          "delay": 0,
+          "compressionLevel": 2,
+          "modelBias": "CHEAP_ONLY",
+          "estimatedCost": 100,
+          "expectedSuccessRate": 0.925,
+          "risks": [
+            "响应速度快但错误率高",
+            "成本较高"
+          ],
+          "benefits": [
+            "响应最快",
+            "处理能力最强",
+            "适合紧急场景"
+          ],
+          "benefit": {
+            "totalScore": 7.318,
+            "details": {
+              "successRateGain": -0.019999999999999907,
+              "costReduction": 0.9,
+              "delayImprovement": 1,
+              "compressionImprovement": -1,
+              "modelScore": 70
+            }
+          },
+          "risk": {
+            "score": 43,
+            "level": "MEDIUM",
+            "details": {
+              "successRateRisk": 0.07499999999999996,
+              "costRatio": 0.1,
+              "delayRatio": 0,
+              "compression": 2
+            }
+          },
+          "combinedScore": -3.9074000000000004
+        }
+      ],
+      "metrics": {
+        "callsLastMinute": 10,
+        "successRate": 0.95,
+        "costRate": 0.9,
+        "delayRate": 0.9,
+        "compressionLevel": 1,
+        "remainingBudget": 150000,
+        "dailyBudget": 200000,
+        "currentCost": 1000,
+        "currentDelay": 200,
+        "timestamp": "2026-02-22T00:49:25.748Z"
+      },
+      "context": {
+        "tokensRemaining": 70000,
+        "tokensTotal": 200000,
+        "compressionLevel": 1,
+        "timestamp": "2026-02-22T00:49:25.748Z"
+      },
+      "selectionReason": "选择 保守型 策略，组合得分 3.23; 收益得分: 9.41，风险得分: 16.00"
+    }
+  ],
+  [
+    "strategy_CONSERVATIVE_CONSERVATIVE_1771721365749_625",
+    {
+      "strategy": {
+        "id": "CONSERVATIVE_1771721365749_625",
+        "type": "CONSERVATIVE",
+        "label": "保守型",
+        "delay": 150,
+        "compressionLevel": 0,
+        "modelBias": "REDUCE_HIGH",
+        "estimatedCost": 12.8,
+        "expectedSuccessRate": 0.975,
+        "risks": [
+          "响应延迟较高",
+          "资源消耗低"
+        ],
+        "benefits": [
+          "风险最低",
+          "成本最低",
+          "适合稳定环境"
+        ],
+        "benefit": {
+          "totalScore": 9.4073,
+          "details": {
+            "successRateGain": 0.030000000000000027,
+            "costReduction": 0.9872000000000001,
+            "delayImprovement": 0.25,
+            "compressionImprovement": 1,
+            "modelScore": 90
+          }
+        },
+        "risk": {
+          "score": 16,
+          "level": "LOW",
+          "details": {
+            "successRateRisk": 0.025000000000000022,
+            "costRatio": 0.0128,
+            "delayRatio": 0.75,
+            "compression": 0
+          }
+        },
+        "combinedScore": 3.2251099999999995
+      },
+      "allStrategies": [
+        {
+          "id": "CONSERVATIVE_1771721365749_625",
+          "type": "CONSERVATIVE",
+          "label": "保守型",
+          "delay": 150,
+          "compressionLevel": 0,
+          "modelBias": "REDUCE_HIGH",
+          "estimatedCost": 12.8,
+          "expectedSuccessRate": 0.975,
+          "risks": [
+            "响应延迟较高",
+            "资源消耗低"
+          ],
+          "benefits": [
+            "风险最低",
+            "成本最低",
+            "适合稳定环境"
+          ],
+          "benefit": {
+            "totalScore": 9.4073,
+            "details": {
+              "successRateGain": 0.030000000000000027,
+              "costReduction": 0.9872000000000001,
+              "delayImprovement": 0.25,
+              "compressionImprovement": 1,
+              "modelScore": 90
+            }
+          },
+          "risk": {
+            "score": 16,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.025000000000000022,
+              "costRatio": 0.0128,
+              "delayRatio": 0.75,
+              "compression": 0
+            }
+          },
+          "combinedScore": 3.2251099999999995
+        },
+        {
+          "id": "BALANCED_1771721365749_243",
+          "type": "BALANCED",
+          "label": "平衡型",
+          "delay": 50,
+          "compressionLevel": 1,
+          "modelBias": "MID_ONLY",
+          "estimatedCost": 73.5,
+          "expectedSuccessRate": 0.96,
+          "risks": [
+            "响应速度中等",
+            "资源消耗中等"
+          ],
+          "benefits": [
+            "平衡性好",
+            "风险可控",
+            "成本合理"
+          ],
+          "benefit": {
+            "totalScore": 8.886875,
+            "details": {
+              "successRateGain": 0.015000000000000013,
+              "costReduction": 0.9265,
+              "delayImprovement": 0.75,
+              "compressionImprovement": 0,
+              "modelScore": 85
+            }
+          },
+          "risk": {
+            "score": 21.6,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.040000000000000036,
+              "costRatio": 0.0735,
+              "delayRatio": 0.25,
+              "compression": 1
+            }
+          },
+          "combinedScore": 1.6848124999999996
+        },
+        {
+          "id": "AGGRESSIVE_1771721365749_224",
+          "type": "AGGRESSIVE",
+          "label": "激进型",
+          "delay": 0,
+          "compressionLevel": 2,
+          "modelBias": "CHEAP_ONLY",
+          "estimatedCost": 100,
+          "expectedSuccessRate": 0.925,
+          "risks": [
+            "响应速度快但错误率高",
+            "成本较高"
+          ],
+          "benefits": [
+            "响应最快",
+            "处理能力最强",
+            "适合紧急场景"
+          ],
+          "benefit": {
+            "totalScore": 7.318,
+            "details": {
+              "successRateGain": -0.019999999999999907,
+              "costReduction": 0.9,
+              "delayImprovement": 1,
+              "compressionImprovement": -1,
+              "modelScore": 70
+            }
+          },
+          "risk": {
+            "score": 43,
+            "level": "MEDIUM",
+            "details": {
+              "successRateRisk": 0.07499999999999996,
+              "costRatio": 0.1,
+              "delayRatio": 0,
+              "compression": 2
+            }
+          },
+          "combinedScore": -3.9074000000000004
+        }
+      ],
+      "metrics": {
+        "callsLastMinute": 10,
+        "successRate": 0.95,
+        "costRate": 0.9,
+        "delayRate": 0.9,
+        "compressionLevel": 1,
+        "remainingBudget": 150000,
+        "dailyBudget": 200000,
+        "currentCost": 1000,
+        "currentDelay": 200,
+        "timestamp": "2026-02-22T00:49:25.749Z"
+      },
+      "context": {
+        "tokensRemaining": 70000,
+        "tokensTotal": 200000,
+        "compressionLevel": 1,
+        "timestamp": "2026-02-22T00:49:25.749Z"
+      },
+      "selectionReason": "选择 保守型 策略，组合得分 3.23; 收益得分: 9.41，风险得分: 16.00"
+    }
+  ],
+  [
+    "strategy_CONSERVATIVE_CONSERVATIVE_1771721365750_464",
+    {
+      "strategy": {
+        "id": "CONSERVATIVE_1771721365750_464",
+        "type": "CONSERVATIVE",
+        "label": "保守型",
+        "delay": 150,
+        "compressionLevel": 0,
+        "modelBias": "REDUCE_HIGH",
+        "estimatedCost": 12.8,
+        "expectedSuccessRate": 0.975,
+        "risks": [
+          "响应延迟较高",
+          "资源消耗低"
+        ],
+        "benefits": [
+          "风险最低",
+          "成本最低",
+          "适合稳定环境"
+        ],
+        "benefit": {
+          "totalScore": 9.4073,
+          "details": {
+            "successRateGain": 0.030000000000000027,
+            "costReduction": 0.9872000000000001,
+            "delayImprovement": 0.25,
+            "compressionImprovement": 1,
+            "modelScore": 90
+          }
+        },
+        "risk": {
+          "score": 16,
+          "level": "LOW",
+          "details": {
+            "successRateRisk": 0.025000000000000022,
+            "costRatio": 0.0128,
+            "delayRatio": 0.75,
+            "compression": 0
+          }
+        },
+        "combinedScore": 3.2251099999999995
+      },
+      "allStrategies": [
+        {
+          "id": "CONSERVATIVE_1771721365750_464",
+          "type": "CONSERVATIVE",
+          "label": "保守型",
+          "delay": 150,
+          "compressionLevel": 0,
+          "modelBias": "REDUCE_HIGH",
+          "estimatedCost": 12.8,
+          "expectedSuccessRate": 0.975,
+          "risks": [
+            "响应延迟较高",
+            "资源消耗低"
+          ],
+          "benefits": [
+            "风险最低",
+            "成本最低",
+            "适合稳定环境"
+          ],
+          "benefit": {
+            "totalScore": 9.4073,
+            "details": {
+              "successRateGain": 0.030000000000000027,
+              "costReduction": 0.9872000000000001,
+              "delayImprovement": 0.25,
+              "compressionImprovement": 1,
+              "modelScore": 90
+            }
+          },
+          "risk": {
+            "score": 16,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.025000000000000022,
+              "costRatio": 0.0128,
+              "delayRatio": 0.75,
+              "compression": 0
+            }
+          },
+          "combinedScore": 3.2251099999999995
+        },
+        {
+          "id": "BALANCED_1771721365750_686",
+          "type": "BALANCED",
+          "label": "平衡型",
+          "delay": 50,
+          "compressionLevel": 1,
+          "modelBias": "MID_ONLY",
+          "estimatedCost": 73.5,
+          "expectedSuccessRate": 0.96,
+          "risks": [
+            "响应速度中等",
+            "资源消耗中等"
+          ],
+          "benefits": [
+            "平衡性好",
+            "风险可控",
+            "成本合理"
+          ],
+          "benefit": {
+            "totalScore": 8.886875,
+            "details": {
+              "successRateGain": 0.015000000000000013,
+              "costReduction": 0.9265,
+              "delayImprovement": 0.75,
+              "compressionImprovement": 0,
+              "modelScore": 85
+            }
+          },
+          "risk": {
+            "score": 21.6,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.040000000000000036,
+              "costRatio": 0.0735,
+              "delayRatio": 0.25,
+              "compression": 1
+            }
+          },
+          "combinedScore": 1.6848124999999996
+        },
+        {
+          "id": "AGGRESSIVE_1771721365750_957",
+          "type": "AGGRESSIVE",
+          "label": "激进型",
+          "delay": 0,
+          "compressionLevel": 2,
+          "modelBias": "CHEAP_ONLY",
+          "estimatedCost": 100,
+          "expectedSuccessRate": 0.925,
+          "risks": [
+            "响应速度快但错误率高",
+            "成本较高"
+          ],
+          "benefits": [
+            "响应最快",
+            "处理能力最强",
+            "适合紧急场景"
+          ],
+          "benefit": {
+            "totalScore": 7.318,
+            "details": {
+              "successRateGain": -0.019999999999999907,
+              "costReduction": 0.9,
+              "delayImprovement": 1,
+              "compressionImprovement": -1,
+              "modelScore": 70
+            }
+          },
+          "risk": {
+            "score": 43,
+            "level": "MEDIUM",
+            "details": {
+              "successRateRisk": 0.07499999999999996,
+              "costRatio": 0.1,
+              "delayRatio": 0,
+              "compression": 2
+            }
+          },
+          "combinedScore": -3.9074000000000004
+        }
+      ],
+      "metrics": {
+        "callsLastMinute": 10,
+        "successRate": 0.95,
+        "costRate": 0.9,
+        "delayRate": 0.9,
+        "compressionLevel": 1,
+        "remainingBudget": 150000,
+        "dailyBudget": 200000,
+        "currentCost": 1000,
+        "currentDelay": 200,
+        "timestamp": "2026-02-22T00:49:25.751Z"
+      },
+      "context": {
+        "tokensRemaining": 70000,
+        "tokensTotal": 200000,
+        "compressionLevel": 1,
+        "timestamp": "2026-02-22T00:49:25.751Z"
+      },
+      "selectionReason": "选择 保守型 策略，组合得分 3.23; 收益得分: 9.41，风险得分: 16.00"
+    }
+  ],
+  [
+    "strategy_CONSERVATIVE_CONSERVATIVE_1771721365751_280",
+    {
+      "strategy": {
+        "id": "CONSERVATIVE_1771721365751_280",
+        "type": "CONSERVATIVE",
+        "label": "保守型",
+        "delay": 150,
+        "compressionLevel": 0,
+        "modelBias": "REDUCE_HIGH",
+        "estimatedCost": 12.8,
+        "expectedSuccessRate": 0.975,
+        "risks": [
+          "响应延迟较高",
+          "资源消耗低"
+        ],
+        "benefits": [
+          "风险最低",
+          "成本最低",
+          "适合稳定环境"
+        ],
+        "benefit": {
+          "totalScore": 9.4073,
+          "details": {
+            "successRateGain": 0.030000000000000027,
+            "costReduction": 0.9872000000000001,
+            "delayImprovement": 0.25,
+            "compressionImprovement": 1,
+            "modelScore": 90
+          }
+        },
+        "risk": {
+          "score": 16,
+          "level": "LOW",
+          "details": {
+            "successRateRisk": 0.025000000000000022,
+            "costRatio": 0.0128,
+            "delayRatio": 0.75,
+            "compression": 0
+          }
+        },
+        "combinedScore": 3.2251099999999995
+      },
+      "allStrategies": [
+        {
+          "id": "CONSERVATIVE_1771721365751_280",
+          "type": "CONSERVATIVE",
+          "label": "保守型",
+          "delay": 150,
+          "compressionLevel": 0,
+          "modelBias": "REDUCE_HIGH",
+          "estimatedCost": 12.8,
+          "expectedSuccessRate": 0.975,
+          "risks": [
+            "响应延迟较高",
+            "资源消耗低"
+          ],
+          "benefits": [
+            "风险最低",
+            "成本最低",
+            "适合稳定环境"
+          ],
+          "benefit": {
+            "totalScore": 9.4073,
+            "details": {
+              "successRateGain": 0.030000000000000027,
+              "costReduction": 0.9872000000000001,
+              "delayImprovement": 0.25,
+              "compressionImprovement": 1,
+              "modelScore": 90
+            }
+          },
+          "risk": {
+            "score": 16,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.025000000000000022,
+              "costRatio": 0.0128,
+              "delayRatio": 0.75,
+              "compression": 0
+            }
+          },
+          "combinedScore": 3.2251099999999995
+        },
+        {
+          "id": "BALANCED_1771721365751_953",
+          "type": "BALANCED",
+          "label": "平衡型",
+          "delay": 50,
+          "compressionLevel": 1,
+          "modelBias": "MID_ONLY",
+          "estimatedCost": 73.5,
+          "expectedSuccessRate": 0.96,
+          "risks": [
+            "响应速度中等",
+            "资源消耗中等"
+          ],
+          "benefits": [
+            "平衡性好",
+            "风险可控",
+            "成本合理"
+          ],
+          "benefit": {
+            "totalScore": 8.886875,
+            "details": {
+              "successRateGain": 0.015000000000000013,
+              "costReduction": 0.9265,
+              "delayImprovement": 0.75,
+              "compressionImprovement": 0,
+              "modelScore": 85
+            }
+          },
+          "risk": {
+            "score": 21.6,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.040000000000000036,
+              "costRatio": 0.0735,
+              "delayRatio": 0.25,
+              "compression": 1
+            }
+          },
+          "combinedScore": 1.6848124999999996
+        },
+        {
+          "id": "AGGRESSIVE_1771721365751_656",
+          "type": "AGGRESSIVE",
+          "label": "激进型",
+          "delay": 0,
+          "compressionLevel": 2,
+          "modelBias": "CHEAP_ONLY",
+          "estimatedCost": 100,
+          "expectedSuccessRate": 0.925,
+          "risks": [
+            "响应速度快但错误率高",
+            "成本较高"
+          ],
+          "benefits": [
+            "响应最快",
+            "处理能力最强",
+            "适合紧急场景"
+          ],
+          "benefit": {
+            "totalScore": 7.318,
+            "details": {
+              "successRateGain": -0.019999999999999907,
+              "costReduction": 0.9,
+              "delayImprovement": 1,
+              "compressionImprovement": -1,
+              "modelScore": 70
+            }
+          },
+          "risk": {
+            "score": 43,
+            "level": "MEDIUM",
+            "details": {
+              "successRateRisk": 0.07499999999999996,
+              "costRatio": 0.1,
+              "delayRatio": 0,
+              "compression": 2
+            }
+          },
+          "combinedScore": -3.9074000000000004
+        }
+      ],
+      "metrics": {
+        "callsLastMinute": 10,
+        "successRate": 0.95,
+        "costRate": 0.9,
+        "delayRate": 0.9,
+        "compressionLevel": 1,
+        "remainingBudget": 150000,
+        "dailyBudget": 200000,
+        "currentCost": 1000,
+        "currentDelay": 200,
+        "timestamp": "2026-02-22T00:49:25.752Z"
+      },
+      "context": {
+        "tokensRemaining": 70000,
+        "tokensTotal": 200000,
+        "compressionLevel": 1,
+        "timestamp": "2026-02-22T00:49:25.752Z"
+      },
+      "selectionReason": "选择 保守型 策略，组合得分 3.23; 收益得分: 9.41，风险得分: 16.00"
+    }
+  ],
+  [
+    "strategy_CONSERVATIVE_CONSERVATIVE_1771721467561_244",
+    {
+      "strategy": {
+        "id": "CONSERVATIVE_1771721467561_244",
+        "type": "CONSERVATIVE",
+        "label": "保守型",
+        "delay": 150,
+        "compressionLevel": 0,
+        "modelBias": "REDUCE_HIGH",
+        "estimatedCost": 12.8,
+        "expectedSuccessRate": 0.975,
+        "risks": [
+          "响应延迟较高",
+          "资源消耗低"
+        ],
+        "benefits": [
+          "风险最低",
+          "成本最低",
+          "适合稳定环境"
+        ],
+        "benefit": {
+          "totalScore": 9.4073,
+          "details": {
+            "successRateGain": 0.030000000000000027,
+            "costReduction": 0.9872000000000001,
+            "delayImprovement": 0.25,
+            "compressionImprovement": 1,
+            "modelScore": 90
+          }
+        },
+        "risk": {
+          "score": 16,
+          "level": "LOW",
+          "details": {
+            "successRateRisk": 0.025000000000000022,
+            "costRatio": 0.0128,
+            "delayRatio": 0.75,
+            "compression": 0
+          }
+        },
+        "combinedScore": 3.2251099999999995
+      },
+      "allStrategies": [
+        {
+          "id": "CONSERVATIVE_1771721467561_244",
+          "type": "CONSERVATIVE",
+          "label": "保守型",
+          "delay": 150,
+          "compressionLevel": 0,
+          "modelBias": "REDUCE_HIGH",
+          "estimatedCost": 12.8,
+          "expectedSuccessRate": 0.975,
+          "risks": [
+            "响应延迟较高",
+            "资源消耗低"
+          ],
+          "benefits": [
+            "风险最低",
+            "成本最低",
+            "适合稳定环境"
+          ],
+          "benefit": {
+            "totalScore": 9.4073,
+            "details": {
+              "successRateGain": 0.030000000000000027,
+              "costReduction": 0.9872000000000001,
+              "delayImprovement": 0.25,
+              "compressionImprovement": 1,
+              "modelScore": 90
+            }
+          },
+          "risk": {
+            "score": 16,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.025000000000000022,
+              "costRatio": 0.0128,
+              "delayRatio": 0.75,
+              "compression": 0
+            }
+          },
+          "combinedScore": 3.2251099999999995
+        },
+        {
+          "id": "BALANCED_1771721467561_764",
+          "type": "BALANCED",
+          "label": "平衡型",
+          "delay": 50,
+          "compressionLevel": 1,
+          "modelBias": "MID_ONLY",
+          "estimatedCost": 73.5,
+          "expectedSuccessRate": 0.96,
+          "risks": [
+            "响应速度中等",
+            "资源消耗中等"
+          ],
+          "benefits": [
+            "平衡性好",
+            "风险可控",
+            "成本合理"
+          ],
+          "benefit": {
+            "totalScore": 8.886875,
+            "details": {
+              "successRateGain": 0.015000000000000013,
+              "costReduction": 0.9265,
+              "delayImprovement": 0.75,
+              "compressionImprovement": 0,
+              "modelScore": 85
+            }
+          },
+          "risk": {
+            "score": 21.6,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.040000000000000036,
+              "costRatio": 0.0735,
+              "delayRatio": 0.25,
+              "compression": 1
+            }
+          },
+          "combinedScore": 1.6848124999999996
+        },
+        {
+          "id": "AGGRESSIVE_1771721467561_975",
+          "type": "AGGRESSIVE",
+          "label": "激进型",
+          "delay": 0,
+          "compressionLevel": 2,
+          "modelBias": "CHEAP_ONLY",
+          "estimatedCost": 100,
+          "expectedSuccessRate": 0.925,
+          "risks": [
+            "响应速度快但错误率高",
+            "成本较高"
+          ],
+          "benefits": [
+            "响应最快",
+            "处理能力最强",
+            "适合紧急场景"
+          ],
+          "benefit": {
+            "totalScore": 7.318,
+            "details": {
+              "successRateGain": -0.019999999999999907,
+              "costReduction": 0.9,
+              "delayImprovement": 1,
+              "compressionImprovement": -1,
+              "modelScore": 70
+            }
+          },
+          "risk": {
+            "score": 43,
+            "level": "MEDIUM",
+            "details": {
+              "successRateRisk": 0.07499999999999996,
+              "costRatio": 0.1,
+              "delayRatio": 0,
+              "compression": 2
+            }
+          },
+          "combinedScore": -3.9074000000000004
+        }
+      ],
+      "metrics": {
+        "callsLastMinute": 10,
+        "successRate": 0.95,
+        "costRate": 0.9,
+        "delayRate": 0.9,
+        "compressionLevel": 1,
+        "remainingBudget": 150000,
+        "dailyBudget": 200000,
+        "currentCost": 1000,
+        "currentDelay": 200,
+        "timestamp": "2026-02-22T00:51:07.561Z"
+      },
+      "context": {
+        "tokensRemaining": 70000,
+        "tokensTotal": 200000,
+        "compressionLevel": 1,
+        "timestamp": "2026-02-22T00:51:07.562Z"
+      },
+      "selectionReason": "选择 保守型 策略，组合得分 3.23; 收益得分: 9.41，风险得分: 16.00"
+    }
+  ],
+  [
+    "strategy_BALANCED_BALANCED_1771721467563_289",
+    {
+      "strategy": {
+        "id": "BALANCED_1771721467563_289",
+        "type": "BALANCED",
+        "label": "平衡型",
+        "delay": 50,
+        "compressionLevel": 0,
+        "modelBias": "MID_ONLY",
+        "estimatedCost": 3.5,
+        "expectedSuccessRate": 0.96,
+        "risks": [
+          "响应速度中等",
+          "资源消耗中等"
+        ],
+        "benefits": [
+          "平衡性好",
+          "风险可控",
+          "成本合理"
+        ],
+        "benefit": {
+          "totalScore": 8.904375,
+          "details": {
+            "successRateGain": 0.015000000000000013,
+            "costReduction": 0.9965,
+            "delayImprovement": 0.75,
+            "compressionImprovement": 0,
+            "modelScore": 85
+          }
+        },
+        "risk": {
+          "score": 11.600000000000001,
+          "level": "LOW",
+          "details": {
+            "successRateRisk": 0.040000000000000036,
+            "costRatio": 0.0035,
+            "delayRatio": 0.25,
+            "compression": 0
+          }
+        },
+        "combinedScore": 3.7970624999999996
+      },
+      "allStrategies": [
+        {
+          "id": "CONSERVATIVE_1771721467563_46",
+          "type": "CONSERVATIVE",
+          "label": "保守型",
+          "delay": 150,
+          "compressionLevel": 0,
+          "modelBias": "REDUCE_HIGH",
+          "estimatedCost": 12.8,
+          "expectedSuccessRate": 0.97,
+          "risks": [
+            "响应延迟较高",
+            "资源消耗低"
+          ],
+          "benefits": [
+            "风险最低",
+            "成本最低",
+            "适合稳定环境"
+          ],
+          "benefit": {
+            "totalScore": 9.30555,
+            "details": {
+              "successRateGain": 0.025000000000000022,
+              "costReduction": 0.9872000000000001,
+              "delayImprovement": 0.25,
+              "compressionImprovement": 0,
+              "modelScore": 90
+            }
+          },
+          "risk": {
+            "score": 16.200000000000003,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.030000000000000027,
+              "costRatio": 0.0128,
+              "delayRatio": 0.75,
+              "compression": 0
+            }
+          },
+          "combinedScore": 3.1118849999999996
+        },
+        {
+          "id": "BALANCED_1771721467563_289",
+          "type": "BALANCED",
+          "label": "平衡型",
+          "delay": 50,
+          "compressionLevel": 0,
+          "modelBias": "MID_ONLY",
+          "estimatedCost": 3.5,
+          "expectedSuccessRate": 0.96,
+          "risks": [
+            "响应速度中等",
+            "资源消耗中等"
+          ],
+          "benefits": [
+            "平衡性好",
+            "风险可控",
+            "成本合理"
+          ],
+          "benefit": {
+            "totalScore": 8.904375,
+            "details": {
+              "successRateGain": 0.015000000000000013,
+              "costReduction": 0.9965,
+              "delayImprovement": 0.75,
+              "compressionImprovement": 0,
+              "modelScore": 85
+            }
+          },
+          "risk": {
+            "score": 11.600000000000001,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.040000000000000036,
+              "costRatio": 0.0035,
+              "delayRatio": 0.25,
+              "compression": 0
+            }
+          },
+          "combinedScore": 3.7970624999999996
+        },
+        {
+          "id": "AGGRESSIVE_1771721467563_573",
+          "type": "AGGRESSIVE",
+          "label": "激进型",
+          "delay": 0,
+          "compressionLevel": 1,
+          "modelBias": "CHEAP_ONLY",
+          "estimatedCost": 50,
+          "expectedSuccessRate": 0.93,
+          "risks": [
+            "响应速度快但错误率高",
+            "成本较高"
+          ],
+          "benefits": [
+            "响应最快",
+            "处理能力最强",
+            "适合紧急场景"
+          ],
+          "benefit": {
+            "totalScore": 7.33225,
+            "details": {
+              "successRateGain": -0.014999999999999902,
+              "costReduction": 0.95,
+              "delayImprovement": 1,
+              "compressionImprovement": -1,
+              "modelScore": 70
+            }
+          },
+          "risk": {
+            "score": 32.8,
+            "level": "MEDIUM",
+            "details": {
+              "successRateRisk": 0.06999999999999995,
+              "costRatio": 0.05,
+              "delayRatio": 0,
+              "compression": 1
+            }
+          },
+          "combinedScore": -1.7554249999999985
+        }
+      ],
+      "metrics": {
+        "callsLastMinute": 95,
+        "successRate": 0.85,
+        "costRate": 0.92,
+        "delayRate": 0.92,
+        "compressionLevel": 0,
+        "remainingBudget": 100000,
+        "dailyBudget": 200000,
+        "currentCost": 1000,
+        "currentDelay": 200,
+        "timestamp": "2026-02-22T00:51:07.563Z"
+      },
+      "context": {
+        "tokensRemaining": 30000,
+        "tokensTotal": 200000,
+        "compressionLevel": 0,
+        "timestamp": "2026-02-22T00:51:07.563Z"
+      },
+      "selectionReason": "选择 平衡型 策略，组合得分 3.80; 收益得分: 8.90，风险得分: 11.60"
+    }
+  ],
+  [
+    "strategy_BALANCED_BALANCED_1771721467564_74",
+    {
+      "strategy": {
+        "id": "BALANCED_1771721467564_74",
+        "type": "BALANCED",
+        "label": "平衡型",
+        "delay": 50,
+        "compressionLevel": 0,
+        "modelBias": "MID_ONLY",
+        "estimatedCost": 3.5,
+        "expectedSuccessRate": 0.96,
+        "risks": [
+          "响应速度中等",
+          "资源消耗中等"
+        ],
+        "benefits": [
+          "平衡性好",
+          "风险可控",
+          "成本合理"
+        ],
+        "benefit": {
+          "totalScore": 8.904375,
+          "details": {
+            "successRateGain": 0.015000000000000013,
+            "costReduction": 0.9965,
+            "delayImprovement": 0.75,
+            "compressionImprovement": 0,
+            "modelScore": 85
+          }
+        },
+        "risk": {
+          "score": 11.600000000000001,
+          "level": "LOW",
+          "details": {
+            "successRateRisk": 0.040000000000000036,
+            "costRatio": 0.0035,
+            "delayRatio": 0.25,
+            "compression": 0
+          }
+        },
+        "combinedScore": 3.7970624999999996
+      },
+      "allStrategies": [
+        {
+          "id": "CONSERVATIVE_1771721467564_104",
+          "type": "CONSERVATIVE",
+          "label": "保守型",
+          "delay": 150,
+          "compressionLevel": 0,
+          "modelBias": "REDUCE_HIGH",
+          "estimatedCost": 12.8,
+          "expectedSuccessRate": 0.97,
+          "risks": [
+            "响应延迟较高",
+            "资源消耗低"
+          ],
+          "benefits": [
+            "风险最低",
+            "成本最低",
+            "适合稳定环境"
+          ],
+          "benefit": {
+            "totalScore": 9.30555,
+            "details": {
+              "successRateGain": 0.025000000000000022,
+              "costReduction": 0.9872000000000001,
+              "delayImprovement": 0.25,
+              "compressionImprovement": 0,
+              "modelScore": 90
+            }
+          },
+          "risk": {
+            "score": 16.200000000000003,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.030000000000000027,
+              "costRatio": 0.0128,
+              "delayRatio": 0.75,
+              "compression": 0
+            }
+          },
+          "combinedScore": 3.1118849999999996
+        },
+        {
+          "id": "BALANCED_1771721467564_74",
+          "type": "BALANCED",
+          "label": "平衡型",
+          "delay": 50,
+          "compressionLevel": 0,
+          "modelBias": "MID_ONLY",
+          "estimatedCost": 3.5,
+          "expectedSuccessRate": 0.96,
+          "risks": [
+            "响应速度中等",
+            "资源消耗中等"
+          ],
+          "benefits": [
+            "平衡性好",
+            "风险可控",
+            "成本合理"
+          ],
+          "benefit": {
+            "totalScore": 8.904375,
+            "details": {
+              "successRateGain": 0.015000000000000013,
+              "costReduction": 0.9965,
+              "delayImprovement": 0.75,
+              "compressionImprovement": 0,
+              "modelScore": 85
+            }
+          },
+          "risk": {
+            "score": 11.600000000000001,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.040000000000000036,
+              "costRatio": 0.0035,
+              "delayRatio": 0.25,
+              "compression": 0
+            }
+          },
+          "combinedScore": 3.7970624999999996
+        },
+        {
+          "id": "AGGRESSIVE_1771721467564_828",
+          "type": "AGGRESSIVE",
+          "label": "激进型",
+          "delay": 0,
+          "compressionLevel": 1,
+          "modelBias": "CHEAP_ONLY",
+          "estimatedCost": 50,
+          "expectedSuccessRate": 0.93,
+          "risks": [
+            "响应速度快但错误率高",
+            "成本较高"
+          ],
+          "benefits": [
+            "响应最快",
+            "处理能力最强",
+            "适合紧急场景"
+          ],
+          "benefit": {
+            "totalScore": 7.33225,
+            "details": {
+              "successRateGain": -0.014999999999999902,
+              "costReduction": 0.95,
+              "delayImprovement": 1,
+              "compressionImprovement": -1,
+              "modelScore": 70
+            }
+          },
+          "risk": {
+            "score": 32.8,
+            "level": "MEDIUM",
+            "details": {
+              "successRateRisk": 0.06999999999999995,
+              "costRatio": 0.05,
+              "delayRatio": 0,
+              "compression": 1
+            }
+          },
+          "combinedScore": -1.7554249999999985
+        }
+      ],
+      "metrics": {
+        "callsLastMinute": 20,
+        "successRate": 0.95,
+        "costRate": 0.85,
+        "delayRate": 0.85,
+        "compressionLevel": 0,
+        "remainingBudget": 150000,
+        "dailyBudget": 200000,
+        "currentCost": 1000,
+        "currentDelay": 200,
+        "timestamp": "2026-02-22T00:51:07.564Z"
+      },
+      "context": {
+        "tokensRemaining": 100000,
+        "tokensTotal": 200000,
+        "compressionLevel": 0,
+        "timestamp": "2026-02-22T00:51:07.564Z"
+      },
+      "selectionReason": "选择 平衡型 策略，组合得分 3.80; 收益得分: 8.90，风险得分: 11.60"
+    }
+  ],
+  [
+    "strategy_CONSERVATIVE_CONSERVATIVE_1771721467565_409",
+    {
+      "strategy": {
+        "id": "CONSERVATIVE_1771721467565_409",
+        "type": "CONSERVATIVE",
+        "label": "保守型",
+        "delay": 150,
+        "compressionLevel": 0,
+        "modelBias": "REDUCE_HIGH",
+        "estimatedCost": 12.8,
+        "expectedSuccessRate": 0.975,
+        "risks": [
+          "响应延迟较高",
+          "资源消耗低"
+        ],
+        "benefits": [
+          "风险最低",
+          "成本最低",
+          "适合稳定环境"
+        ],
+        "benefit": {
+          "totalScore": 9.4073,
+          "details": {
+            "successRateGain": 0.030000000000000027,
+            "costReduction": 0.9872000000000001,
+            "delayImprovement": 0.25,
+            "compressionImprovement": 1,
+            "modelScore": 90
+          }
+        },
+        "risk": {
+          "score": 16,
+          "level": "LOW",
+          "details": {
+            "successRateRisk": 0.025000000000000022,
+            "costRatio": 0.0128,
+            "delayRatio": 0.75,
+            "compression": 0
+          }
+        },
+        "combinedScore": 3.2251099999999995
+      },
+      "allStrategies": [
+        {
+          "id": "CONSERVATIVE_1771721467565_409",
+          "type": "CONSERVATIVE",
+          "label": "保守型",
+          "delay": 150,
+          "compressionLevel": 0,
+          "modelBias": "REDUCE_HIGH",
+          "estimatedCost": 12.8,
+          "expectedSuccessRate": 0.975,
+          "risks": [
+            "响应延迟较高",
+            "资源消耗低"
+          ],
+          "benefits": [
+            "风险最低",
+            "成本最低",
+            "适合稳定环境"
+          ],
+          "benefit": {
+            "totalScore": 9.4073,
+            "details": {
+              "successRateGain": 0.030000000000000027,
+              "costReduction": 0.9872000000000001,
+              "delayImprovement": 0.25,
+              "compressionImprovement": 1,
+              "modelScore": 90
+            }
+          },
+          "risk": {
+            "score": 16,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.025000000000000022,
+              "costRatio": 0.0128,
+              "delayRatio": 0.75,
+              "compression": 0
+            }
+          },
+          "combinedScore": 3.2251099999999995
+        },
+        {
+          "id": "BALANCED_1771721467565_368",
+          "type": "BALANCED",
+          "label": "平衡型",
+          "delay": 50,
+          "compressionLevel": 1,
+          "modelBias": "MID_ONLY",
+          "estimatedCost": 73.5,
+          "expectedSuccessRate": 0.96,
+          "risks": [
+            "响应速度中等",
+            "资源消耗中等"
+          ],
+          "benefits": [
+            "平衡性好",
+            "风险可控",
+            "成本合理"
+          ],
+          "benefit": {
+            "totalScore": 8.886875,
+            "details": {
+              "successRateGain": 0.015000000000000013,
+              "costReduction": 0.9265,
+              "delayImprovement": 0.75,
+              "compressionImprovement": 0,
+              "modelScore": 85
+            }
+          },
+          "risk": {
+            "score": 21.6,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.040000000000000036,
+              "costRatio": 0.0735,
+              "delayRatio": 0.25,
+              "compression": 1
+            }
+          },
+          "combinedScore": 1.6848124999999996
+        },
+        {
+          "id": "AGGRESSIVE_1771721467565_118",
+          "type": "AGGRESSIVE",
+          "label": "激进型",
+          "delay": 0,
+          "compressionLevel": 2,
+          "modelBias": "CHEAP_ONLY",
+          "estimatedCost": 100,
+          "expectedSuccessRate": 0.925,
+          "risks": [
+            "响应速度快但错误率高",
+            "成本较高"
+          ],
+          "benefits": [
+            "响应最快",
+            "处理能力最强",
+            "适合紧急场景"
+          ],
+          "benefit": {
+            "totalScore": 7.318,
+            "details": {
+              "successRateGain": -0.019999999999999907,
+              "costReduction": 0.9,
+              "delayImprovement": 1,
+              "compressionImprovement": -1,
+              "modelScore": 70
+            }
+          },
+          "risk": {
+            "score": 43,
+            "level": "MEDIUM",
+            "details": {
+              "successRateRisk": 0.07499999999999996,
+              "costRatio": 0.1,
+              "delayRatio": 0,
+              "compression": 2
+            }
+          },
+          "combinedScore": -3.9074000000000004
+        }
+      ],
+      "metrics": {
+        "callsLastMinute": 10,
+        "successRate": 0.95,
+        "costRate": 0.9,
+        "delayRate": 0.9,
+        "compressionLevel": 1,
+        "remainingBudget": 150000,
+        "dailyBudget": 200000,
+        "currentCost": 1000,
+        "currentDelay": 200,
+        "timestamp": "2026-02-22T00:51:07.565Z"
+      },
+      "context": {
+        "tokensRemaining": 70000,
+        "tokensTotal": 200000,
+        "compressionLevel": 1,
+        "timestamp": "2026-02-22T00:51:07.565Z"
+      },
+      "selectionReason": "选择 保守型 策略，组合得分 3.23; 收益得分: 9.41，风险得分: 16.00"
+    }
+  ],
+  [
+    "strategy_CONSERVATIVE_CONSERVATIVE_1771721467567_883",
+    {
+      "strategy": {
+        "id": "CONSERVATIVE_1771721467567_883",
+        "type": "CONSERVATIVE",
+        "label": "保守型",
+        "delay": 150,
+        "compressionLevel": 0,
+        "modelBias": "REDUCE_HIGH",
+        "estimatedCost": 12.8,
+        "expectedSuccessRate": 0.975,
+        "risks": [
+          "响应延迟较高",
+          "资源消耗低"
+        ],
+        "benefits": [
+          "风险最低",
+          "成本最低",
+          "适合稳定环境"
+        ],
+        "benefit": {
+          "totalScore": 9.4073,
+          "details": {
+            "successRateGain": 0.030000000000000027,
+            "costReduction": 0.9872000000000001,
+            "delayImprovement": 0.25,
+            "compressionImprovement": 1,
+            "modelScore": 90
+          }
+        },
+        "risk": {
+          "score": 16,
+          "level": "LOW",
+          "details": {
+            "successRateRisk": 0.025000000000000022,
+            "costRatio": 0.0128,
+            "delayRatio": 0.75,
+            "compression": 0
+          }
+        },
+        "combinedScore": 3.2251099999999995
+      },
+      "allStrategies": [
+        {
+          "id": "CONSERVATIVE_1771721467567_883",
+          "type": "CONSERVATIVE",
+          "label": "保守型",
+          "delay": 150,
+          "compressionLevel": 0,
+          "modelBias": "REDUCE_HIGH",
+          "estimatedCost": 12.8,
+          "expectedSuccessRate": 0.975,
+          "risks": [
+            "响应延迟较高",
+            "资源消耗低"
+          ],
+          "benefits": [
+            "风险最低",
+            "成本最低",
+            "适合稳定环境"
+          ],
+          "benefit": {
+            "totalScore": 9.4073,
+            "details": {
+              "successRateGain": 0.030000000000000027,
+              "costReduction": 0.9872000000000001,
+              "delayImprovement": 0.25,
+              "compressionImprovement": 1,
+              "modelScore": 90
+            }
+          },
+          "risk": {
+            "score": 16,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.025000000000000022,
+              "costRatio": 0.0128,
+              "delayRatio": 0.75,
+              "compression": 0
+            }
+          },
+          "combinedScore": 3.2251099999999995
+        },
+        {
+          "id": "BALANCED_1771721467567_69",
+          "type": "BALANCED",
+          "label": "平衡型",
+          "delay": 50,
+          "compressionLevel": 1,
+          "modelBias": "MID_ONLY",
+          "estimatedCost": 73.5,
+          "expectedSuccessRate": 0.96,
+          "risks": [
+            "响应速度中等",
+            "资源消耗中等"
+          ],
+          "benefits": [
+            "平衡性好",
+            "风险可控",
+            "成本合理"
+          ],
+          "benefit": {
+            "totalScore": 8.886875,
+            "details": {
+              "successRateGain": 0.015000000000000013,
+              "costReduction": 0.9265,
+              "delayImprovement": 0.75,
+              "compressionImprovement": 0,
+              "modelScore": 85
+            }
+          },
+          "risk": {
+            "score": 21.6,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.040000000000000036,
+              "costRatio": 0.0735,
+              "delayRatio": 0.25,
+              "compression": 1
+            }
+          },
+          "combinedScore": 1.6848124999999996
+        },
+        {
+          "id": "AGGRESSIVE_1771721467567_902",
+          "type": "AGGRESSIVE",
+          "label": "激进型",
+          "delay": 0,
+          "compressionLevel": 2,
+          "modelBias": "CHEAP_ONLY",
+          "estimatedCost": 100,
+          "expectedSuccessRate": 0.925,
+          "risks": [
+            "响应速度快但错误率高",
+            "成本较高"
+          ],
+          "benefits": [
+            "响应最快",
+            "处理能力最强",
+            "适合紧急场景"
+          ],
+          "benefit": {
+            "totalScore": 7.318,
+            "details": {
+              "successRateGain": -0.019999999999999907,
+              "costReduction": 0.9,
+              "delayImprovement": 1,
+              "compressionImprovement": -1,
+              "modelScore": 70
+            }
+          },
+          "risk": {
+            "score": 43,
+            "level": "MEDIUM",
+            "details": {
+              "successRateRisk": 0.07499999999999996,
+              "costRatio": 0.1,
+              "delayRatio": 0,
+              "compression": 2
+            }
+          },
+          "combinedScore": -3.9074000000000004
+        }
+      ],
+      "metrics": {
+        "callsLastMinute": 10,
+        "successRate": 0.95,
+        "costRate": 0.9,
+        "delayRate": 0.9,
+        "compressionLevel": 1,
+        "remainingBudget": 150000,
+        "dailyBudget": 200000,
+        "currentCost": 1000,
+        "currentDelay": 200,
+        "timestamp": "2026-02-22T00:51:07.567Z"
+      },
+      "context": {
+        "tokensRemaining": 70000,
+        "tokensTotal": 200000,
+        "compressionLevel": 1,
+        "timestamp": "2026-02-22T00:51:07.567Z"
+      },
+      "selectionReason": "选择 保守型 策略，组合得分 3.23; 收益得分: 9.41，风险得分: 16.00"
+    }
+  ],
+  [
+    "strategy_CONSERVATIVE_CONSERVATIVE_1771721467568_82",
+    {
+      "strategy": {
+        "id": "CONSERVATIVE_1771721467568_82",
+        "type": "CONSERVATIVE",
+        "label": "保守型",
+        "delay": 150,
+        "compressionLevel": 0,
+        "modelBias": "REDUCE_HIGH",
+        "estimatedCost": 12.8,
+        "expectedSuccessRate": 0.975,
+        "risks": [
+          "响应延迟较高",
+          "资源消耗低"
+        ],
+        "benefits": [
+          "风险最低",
+          "成本最低",
+          "适合稳定环境"
+        ],
+        "benefit": {
+          "totalScore": 9.4073,
+          "details": {
+            "successRateGain": 0.030000000000000027,
+            "costReduction": 0.9872000000000001,
+            "delayImprovement": 0.25,
+            "compressionImprovement": 1,
+            "modelScore": 90
+          }
+        },
+        "risk": {
+          "score": 16,
+          "level": "LOW",
+          "details": {
+            "successRateRisk": 0.025000000000000022,
+            "costRatio": 0.0128,
+            "delayRatio": 0.75,
+            "compression": 0
+          }
+        },
+        "combinedScore": 3.2251099999999995
+      },
+      "allStrategies": [
+        {
+          "id": "CONSERVATIVE_1771721467568_82",
+          "type": "CONSERVATIVE",
+          "label": "保守型",
+          "delay": 150,
+          "compressionLevel": 0,
+          "modelBias": "REDUCE_HIGH",
+          "estimatedCost": 12.8,
+          "expectedSuccessRate": 0.975,
+          "risks": [
+            "响应延迟较高",
+            "资源消耗低"
+          ],
+          "benefits": [
+            "风险最低",
+            "成本最低",
+            "适合稳定环境"
+          ],
+          "benefit": {
+            "totalScore": 9.4073,
+            "details": {
+              "successRateGain": 0.030000000000000027,
+              "costReduction": 0.9872000000000001,
+              "delayImprovement": 0.25,
+              "compressionImprovement": 1,
+              "modelScore": 90
+            }
+          },
+          "risk": {
+            "score": 16,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.025000000000000022,
+              "costRatio": 0.0128,
+              "delayRatio": 0.75,
+              "compression": 0
+            }
+          },
+          "combinedScore": 3.2251099999999995
+        },
+        {
+          "id": "BALANCED_1771721467568_200",
+          "type": "BALANCED",
+          "label": "平衡型",
+          "delay": 50,
+          "compressionLevel": 1,
+          "modelBias": "MID_ONLY",
+          "estimatedCost": 73.5,
+          "expectedSuccessRate": 0.96,
+          "risks": [
+            "响应速度中等",
+            "资源消耗中等"
+          ],
+          "benefits": [
+            "平衡性好",
+            "风险可控",
+            "成本合理"
+          ],
+          "benefit": {
+            "totalScore": 8.886875,
+            "details": {
+              "successRateGain": 0.015000000000000013,
+              "costReduction": 0.9265,
+              "delayImprovement": 0.75,
+              "compressionImprovement": 0,
+              "modelScore": 85
+            }
+          },
+          "risk": {
+            "score": 21.6,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.040000000000000036,
+              "costRatio": 0.0735,
+              "delayRatio": 0.25,
+              "compression": 1
+            }
+          },
+          "combinedScore": 1.6848124999999996
+        },
+        {
+          "id": "AGGRESSIVE_1771721467568_421",
+          "type": "AGGRESSIVE",
+          "label": "激进型",
+          "delay": 0,
+          "compressionLevel": 2,
+          "modelBias": "CHEAP_ONLY",
+          "estimatedCost": 100,
+          "expectedSuccessRate": 0.925,
+          "risks": [
+            "响应速度快但错误率高",
+            "成本较高"
+          ],
+          "benefits": [
+            "响应最快",
+            "处理能力最强",
+            "适合紧急场景"
+          ],
+          "benefit": {
+            "totalScore": 7.318,
+            "details": {
+              "successRateGain": -0.019999999999999907,
+              "costReduction": 0.9,
+              "delayImprovement": 1,
+              "compressionImprovement": -1,
+              "modelScore": 70
+            }
+          },
+          "risk": {
+            "score": 43,
+            "level": "MEDIUM",
+            "details": {
+              "successRateRisk": 0.07499999999999996,
+              "costRatio": 0.1,
+              "delayRatio": 0,
+              "compression": 2
+            }
+          },
+          "combinedScore": -3.9074000000000004
+        }
+      ],
+      "metrics": {
+        "callsLastMinute": 10,
+        "successRate": 0.95,
+        "costRate": 0.9,
+        "delayRate": 0.9,
+        "compressionLevel": 1,
+        "remainingBudget": 150000,
+        "dailyBudget": 200000,
+        "currentCost": 1000,
+        "currentDelay": 200,
+        "timestamp": "2026-02-22T00:51:07.568Z"
+      },
+      "context": {
+        "tokensRemaining": 70000,
+        "tokensTotal": 200000,
+        "compressionLevel": 1,
+        "timestamp": "2026-02-22T00:51:07.568Z"
+      },
+      "selectionReason": "选择 保守型 策略，组合得分 3.23; 收益得分: 9.41，风险得分: 16.00"
+    }
+  ],
+  [
+    "strategy_CONSERVATIVE_CONSERVATIVE_1771721467569_539",
+    {
+      "strategy": {
+        "id": "CONSERVATIVE_1771721467569_539",
+        "type": "CONSERVATIVE",
+        "label": "保守型",
+        "delay": 150,
+        "compressionLevel": 0,
+        "modelBias": "REDUCE_HIGH",
+        "estimatedCost": 12.8,
+        "expectedSuccessRate": 0.975,
+        "risks": [
+          "响应延迟较高",
+          "资源消耗低"
+        ],
+        "benefits": [
+          "风险最低",
+          "成本最低",
+          "适合稳定环境"
+        ],
+        "benefit": {
+          "totalScore": 9.4073,
+          "details": {
+            "successRateGain": 0.030000000000000027,
+            "costReduction": 0.9872000000000001,
+            "delayImprovement": 0.25,
+            "compressionImprovement": 1,
+            "modelScore": 90
+          }
+        },
+        "risk": {
+          "score": 16,
+          "level": "LOW",
+          "details": {
+            "successRateRisk": 0.025000000000000022,
+            "costRatio": 0.0128,
+            "delayRatio": 0.75,
+            "compression": 0
+          }
+        },
+        "combinedScore": 3.2251099999999995
+      },
+      "allStrategies": [
+        {
+          "id": "CONSERVATIVE_1771721467569_539",
+          "type": "CONSERVATIVE",
+          "label": "保守型",
+          "delay": 150,
+          "compressionLevel": 0,
+          "modelBias": "REDUCE_HIGH",
+          "estimatedCost": 12.8,
+          "expectedSuccessRate": 0.975,
+          "risks": [
+            "响应延迟较高",
+            "资源消耗低"
+          ],
+          "benefits": [
+            "风险最低",
+            "成本最低",
+            "适合稳定环境"
+          ],
+          "benefit": {
+            "totalScore": 9.4073,
+            "details": {
+              "successRateGain": 0.030000000000000027,
+              "costReduction": 0.9872000000000001,
+              "delayImprovement": 0.25,
+              "compressionImprovement": 1,
+              "modelScore": 90
+            }
+          },
+          "risk": {
+            "score": 16,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.025000000000000022,
+              "costRatio": 0.0128,
+              "delayRatio": 0.75,
+              "compression": 0
+            }
+          },
+          "combinedScore": 3.2251099999999995
+        },
+        {
+          "id": "BALANCED_1771721467569_351",
+          "type": "BALANCED",
+          "label": "平衡型",
+          "delay": 50,
+          "compressionLevel": 1,
+          "modelBias": "MID_ONLY",
+          "estimatedCost": 73.5,
+          "expectedSuccessRate": 0.96,
+          "risks": [
+            "响应速度中等",
+            "资源消耗中等"
+          ],
+          "benefits": [
+            "平衡性好",
+            "风险可控",
+            "成本合理"
+          ],
+          "benefit": {
+            "totalScore": 8.886875,
+            "details": {
+              "successRateGain": 0.015000000000000013,
+              "costReduction": 0.9265,
+              "delayImprovement": 0.75,
+              "compressionImprovement": 0,
+              "modelScore": 85
+            }
+          },
+          "risk": {
+            "score": 21.6,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.040000000000000036,
+              "costRatio": 0.0735,
+              "delayRatio": 0.25,
+              "compression": 1
+            }
+          },
+          "combinedScore": 1.6848124999999996
+        },
+        {
+          "id": "AGGRESSIVE_1771721467569_954",
+          "type": "AGGRESSIVE",
+          "label": "激进型",
+          "delay": 0,
+          "compressionLevel": 2,
+          "modelBias": "CHEAP_ONLY",
+          "estimatedCost": 100,
+          "expectedSuccessRate": 0.925,
+          "risks": [
+            "响应速度快但错误率高",
+            "成本较高"
+          ],
+          "benefits": [
+            "响应最快",
+            "处理能力最强",
+            "适合紧急场景"
+          ],
+          "benefit": {
+            "totalScore": 7.318,
+            "details": {
+              "successRateGain": -0.019999999999999907,
+              "costReduction": 0.9,
+              "delayImprovement": 1,
+              "compressionImprovement": -1,
+              "modelScore": 70
+            }
+          },
+          "risk": {
+            "score": 43,
+            "level": "MEDIUM",
+            "details": {
+              "successRateRisk": 0.07499999999999996,
+              "costRatio": 0.1,
+              "delayRatio": 0,
+              "compression": 2
+            }
+          },
+          "combinedScore": -3.9074000000000004
+        }
+      ],
+      "metrics": {
+        "callsLastMinute": 10,
+        "successRate": 0.95,
+        "costRate": 0.9,
+        "delayRate": 0.9,
+        "compressionLevel": 1,
+        "remainingBudget": 150000,
+        "dailyBudget": 200000,
+        "currentCost": 1000,
+        "currentDelay": 200,
+        "timestamp": "2026-02-22T00:51:07.569Z"
+      },
+      "context": {
+        "tokensRemaining": 70000,
+        "tokensTotal": 200000,
+        "compressionLevel": 1,
+        "timestamp": "2026-02-22T00:51:07.569Z"
+      },
+      "selectionReason": "选择 保守型 策略，组合得分 3.23; 收益得分: 9.41，风险得分: 16.00"
+    }
+  ],
+  [
+    "strategy_CONSERVATIVE_CONSERVATIVE_1771721467571_358",
+    {
+      "strategy": {
+        "id": "CONSERVATIVE_1771721467571_358",
+        "type": "CONSERVATIVE",
+        "label": "保守型",
+        "delay": 150,
+        "compressionLevel": 0,
+        "modelBias": "REDUCE_HIGH",
+        "estimatedCost": 12.8,
+        "expectedSuccessRate": 0.975,
+        "risks": [
+          "响应延迟较高",
+          "资源消耗低"
+        ],
+        "benefits": [
+          "风险最低",
+          "成本最低",
+          "适合稳定环境"
+        ],
+        "benefit": {
+          "totalScore": 9.4073,
+          "details": {
+            "successRateGain": 0.030000000000000027,
+            "costReduction": 0.9872000000000001,
+            "delayImprovement": 0.25,
+            "compressionImprovement": 1,
+            "modelScore": 90
+          }
+        },
+        "risk": {
+          "score": 16,
+          "level": "LOW",
+          "details": {
+            "successRateRisk": 0.025000000000000022,
+            "costRatio": 0.0128,
+            "delayRatio": 0.75,
+            "compression": 0
+          }
+        },
+        "combinedScore": 3.2251099999999995
+      },
+      "allStrategies": [
+        {
+          "id": "CONSERVATIVE_1771721467571_358",
+          "type": "CONSERVATIVE",
+          "label": "保守型",
+          "delay": 150,
+          "compressionLevel": 0,
+          "modelBias": "REDUCE_HIGH",
+          "estimatedCost": 12.8,
+          "expectedSuccessRate": 0.975,
+          "risks": [
+            "响应延迟较高",
+            "资源消耗低"
+          ],
+          "benefits": [
+            "风险最低",
+            "成本最低",
+            "适合稳定环境"
+          ],
+          "benefit": {
+            "totalScore": 9.4073,
+            "details": {
+              "successRateGain": 0.030000000000000027,
+              "costReduction": 0.9872000000000001,
+              "delayImprovement": 0.25,
+              "compressionImprovement": 1,
+              "modelScore": 90
+            }
+          },
+          "risk": {
+            "score": 16,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.025000000000000022,
+              "costRatio": 0.0128,
+              "delayRatio": 0.75,
+              "compression": 0
+            }
+          },
+          "combinedScore": 3.2251099999999995
+        },
+        {
+          "id": "BALANCED_1771721467571_204",
+          "type": "BALANCED",
+          "label": "平衡型",
+          "delay": 50,
+          "compressionLevel": 1,
+          "modelBias": "MID_ONLY",
+          "estimatedCost": 73.5,
+          "expectedSuccessRate": 0.96,
+          "risks": [
+            "响应速度中等",
+            "资源消耗中等"
+          ],
+          "benefits": [
+            "平衡性好",
+            "风险可控",
+            "成本合理"
+          ],
+          "benefit": {
+            "totalScore": 8.886875,
+            "details": {
+              "successRateGain": 0.015000000000000013,
+              "costReduction": 0.9265,
+              "delayImprovement": 0.75,
+              "compressionImprovement": 0,
+              "modelScore": 85
+            }
+          },
+          "risk": {
+            "score": 21.6,
+            "level": "LOW",
+            "details": {
+              "successRateRisk": 0.040000000000000036,
+              "costRatio": 0.0735,
+              "delayRatio": 0.25,
+              "compression": 1
+            }
+          },
+          "combinedScore": 1.6848124999999996
+        },
+        {
+          "id": "AGGRESSIVE_1771721467571_853",
+          "type": "AGGRESSIVE",
+          "label": "激进型",
+          "delay": 0,
+          "compressionLevel": 2,
+          "modelBias": "CHEAP_ONLY",
+          "estimatedCost": 100,
+          "expectedSuccessRate": 0.925,
+          "risks": [
+            "响应速度快但错误率高",
+            "成本较高"
+          ],
+          "benefits": [
+            "响应最快",
+            "处理能力最强",
+            "适合紧急场景"
+          ],
+          "benefit": {
+            "totalScore": 7.318,
+            "details": {
+              "successRateGain": -0.019999999999999907,
+              "costReduction": 0.9,
+              "delayImprovement": 1,
+              "compressionImprovement": -1,
+              "modelScore": 70
+            }
+          },
+          "risk": {
+            "score": 43,
+            "level": "MEDIUM",
+            "details": {
+              "successRateRisk": 0.07499999999999996,
+              "costRatio": 0.1,
+              "delayRatio": 0,
+              "compression": 2
+            }
+          },
+          "combinedScore": -3.9074000000000004
+        }
+      ],
+      "metrics": {
+        "callsLastMinute": 10,
+        "successRate": 0.95,
+        "costRate": 0.9,
+        "delayRate": 0.9,
+        "compressionLevel": 1,
+        "remainingBudget": 150000,
+        "dailyBudget": 200000,
+        "currentCost": 1000,
+        "currentDelay": 200,
+        "timestamp": "2026-02-22T00:51:07.572Z"
+      },
+      "context": {
+        "tokensRemaining": 70000,
+        "tokensTotal": 200000,
+        "compressionLevel": 1,
+        "timestamp": "2026-02-22T00:51:07.572Z"
+      },
+      "selectionReason": "选择 保守型 策略，组合得分 3.23; 收益得分: 9.41，风险得分: 16.00"
+    }
+  ]
+]

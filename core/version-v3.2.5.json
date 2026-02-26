@@ -1,0 +1,50 @@
+﻿{
+  "version": "v3.2.5",
+  "releaseDate": "2026-02-26 19:48:21",
+  "description": "Lingmou v3.2.5 - v3.3 Core Modules Integration",
+  "modules": {
+    "core": {
+      "count": 24,
+      "totalSize": 185600
+    },
+    "utils": {
+      "count": 14,
+      "totalSize": 73446
+    },
+    "economy": {
+      "count": 1,
+      "totalSize": 2596
+    },
+    "metrics": {
+      "count": 1,
+      "totalSize": 4782
+    }
+  },
+  "totalSize": 266424,
+  "features": [
+    "v3.3 Phase 3.3-1: Strategy Engine Enhancement",
+    "Scenario Simulator",
+    "Cost-Benefit Scorer",
+    "Risk Weight Model",
+    "Self-Play Mechanism",
+    "Multi-Perspective Evaluator",
+    "Adversary Simulator",
+    "Session Compressor",
+    "Token Governor",
+    "Performance Monitor",
+    "Nightly Worker",
+    "Watchdog",
+    "Rollback Engine",
+    "Architecture Auditor",
+    "Unified Index"
+  ],
+  "integration": {
+    "baseVersion": "v3.2",
+    "fromVersion": "v3.3-phase1",
+    "type": "partial"
+  },
+  "testing": {
+    "status": "pending",
+    "coverage": "pending"
+  }
+}

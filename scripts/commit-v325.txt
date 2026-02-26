@@ -1,0 +1,60 @@
+﻿feat: Lingmou v3.2.5 - v3.3 Core Modules Integration
+
+## Version Info
+- Version: v3.2.5
+- Time: 2026-02-26 19:48:21
+- Type: Partial integration (v3.3 Phase 3.3-1)
+
+## New Features
+
+### Strategy Engine Enhancement (v3.3 Phase 3.3-1)
+- Scenario Simulator (scenario-generator.js, scenario-evaluator.js)
+- Cost-Benefit Scorer (cost-calculator.js, benefit-calculator.js, roi-analyzer.js)
+- Risk Weight Model (risk-assessor.js, risk-controller.js, risk-adjusted-scorer.js)
+- Self-Play Mechanism (adversary-simulator.js, multi-perspective-evaluator.js)
+- Enhanced Strategy Engine (strategy-engine-enhanced.js)
+
+### Monitoring & Optimization
+- Performance Monitor (performance-monitor.js)
+- Nightly Worker (nightly-worker.js)
+- Memory Monitor (memory-monitor.js)
+- Watchdog (watchdog.js)
+
+### System Enhancement
+- Rollback Engine (rollback-engine.js)
+- Unified Index (unified-index.js)
+- Architecture Auditor (architecture-auditor.js)
+- API Tracker (api-tracker.js)
+
+### Economy System
+- Token Governor (economy/token-governor.js)
+
+### Metrics Tracking
+- Tracker (metrics/tracker.js)
+- Dashboard Data (metrics/dashboard-data.json)
+
+### Utils Modules
+- Session Compressor (utils/session-compressor.js)
+
+## Module Statistics
+- Core modules: 24 modules
+- Utils modules: 14 modules
+- Economy modules: 1 modules
+- Metrics modules: 1 modules
+- Total size: 260.18 KB
+
+## Integration Notes
+- Base version: v3.2
+- Integration source: v3.3 Phase 3.3-1
+- Integration type: Partial integration
+
+## Backup Information
+- Backup directory: C:\Users\Administrator\.openclaw\workspace\backup\v325-integration-20260226-194821
+
+## Next Steps
+- Test all core modules
+- Verify module dependencies
+- Update documentation (v3.2.5-README.md)
+- Git commit changes
+
+See reports/ and scripts/ for details.

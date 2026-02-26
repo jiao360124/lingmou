@@ -1,297 +1,368 @@
-/**
- * OpenClaw V3.2 - Strategy Engine
- * 预测 → 多策略生成 → 收益评估 → 最优选择 → 执行 → 复盘
- * 从"反应型智能"升级为"规划型智能"
- */
+// core/strategy-engine.js
+// 策略引擎 - V3.0+V3.2 集成版
+// 简化版本，专注于核心策略功能
+
+const winston = require('winston');
+const logger = winston.createLogger({
+  level: 'info',
+  format: winston.format.combine(
+    winston.format.timestamp(),
+    winston.format.json()
+  ),
+  transports: [
+    new winston.transports.File({ filename: 'logs/strategy-engine.log' }),
+    new winston.transports.Console({ format: winston.format.simple() })
+  ]
+});
 
 class StrategyEngine {
   constructor(config = {}) {
     this.config = {
-      riskWeight: 0.3,                // 风险权重系数
-      benefitWeight: 0.7,             // 收益权重系数
-      ...config
+      // 策略配置
+      strategies: {
+        AGGRESSIVE: {
+          name: '激进型',
+          description: '快速响应，高消耗，高收益',
+          characteristics: {
+            responseSpeed: 'fast',
+            resourceUsage: 'high',
+            risk: 'high',
+            benefit: 'high',
+            reliability: 'medium'
+          },
+          weights: { responseSpeed: 1.2, resourceUsage: 0.5, risk: 1.5, benefit: 1.8, reliability: 0.3 }
+        },
+        CONSERVATIVE: {
+          name: '保守型',
+          description: '缓慢响应，低消耗，低风险',
+          characteristics: {
+            responseSpeed: 'slow',
+            resourceUsage: 'low',
+            risk: 'very_low',
+            benefit: 'low',
+            reliability: 'high'
+          },
+          weights: { responseSpeed: 0.5, resourceUsage: 1.8, risk: 1.9, benefit: 0.5, reliability: 1.2 }
+        },
+        BALANCED: {
+          name: '平衡型',
+          description: '中等响应，中等消耗，平衡收益',
+          characteristics: {
+            responseSpeed: 'medium',
+            resourceUsage: 'medium',
+            risk: 'medium',
+            benefit: 'medium',
+            reliability: 'high'
+          },
+          weights: { responseSpeed: 1.0, resourceUsage: 1.0, risk: 1.0, benefit: 1.0, reliability: 1.0 }
+        },
+        EXPLORATORY: {
+          name: '探索型',
+          description: '尝试新方法，探索未知收益',
+          characteristics: {
+            responseSpeed: 'medium',
+            resourceUsage: 'high',
+            risk: 'high',
+            benefit: 'very_high',
+            reliability: 'low'
+          },
+          weights: { responseSpeed: 0.9, resourceUsage: 1.2, risk: 1.8, benefit: 2.2, reliability: 0.2 }
+        }
+      },
+      defaultStrategy: 'BALANCED',
+      strategyHistory: [],
+      maxHistorySize: 100
     };
 
-    // 策略类型定义
-    this.strategyTypes = {
-      AGGRESSIVE: { label: '激进型', desc: '快速响应，高消耗，高收益' },
-      CONSERVATIVE: { label: '保守型', desc: '缓慢响应，低消耗，低风险' },
-      BALANCED: { label: '平衡型', desc: '中等响应，中等消耗，平衡收益' },
-      EXPLORATORY: { label: '探索型', desc: '尝试新方法，探索未知收益' }
+    this.config = { ...this.config, ...config };
+    this.strategyHistory = [];
+
+    logger.info('🧠 策略引擎初始化完成');
+    logger.info(`📊 默认策略: ${this.config.strategies[this.config.defaultStrategy].name}`);
+  }
+
+  /**
+   * 评估任务特征
+   * @param {Object} context - 任务上下文
+   * @returns {Object} 任务特征评分
+   */
+  evaluateTaskContext(context) {
+    const { taskType, priority, urgency, budget } = context;
+
+    let taskFeatures = {
+      responseSpeedRequirement: 0,
+      resourceBudget: 0,
+      riskTolerance: 0,
+      benefitValue: 0
+    };
+
+    // 响应速度要求
+    if (urgency === 'critical') taskFeatures.responseSpeedRequirement = 1.2;
+    else if (urgency === 'high') taskFeatures.responseSpeedRequirement = 1.0;
+    else if (urgency === 'medium') taskFeatures.responseSpeedRequirement = 0.8;
+    else if (urgency === 'low') taskFeatures.responseSpeedRequirement = 0.6;
+
+    // 资源预算
+    if (budget === 'tight') taskFeatures.resourceBudget = 0.5;
+    else if (budget === 'normal') taskFeatures.resourceBudget = 1.0;
+    else if (budget === 'generous') taskFeatures.resourceBudget = 1.5;
+
+    // 风险容忍度
+    if (priority === 'critical') taskFeatures.riskTolerance = 0.8;
+    else if (priority === 'high') taskFeatures.riskTolerance = 1.0;
+    else if (priority === 'medium') taskFeatures.riskTolerance = 1.2;
+    else if (priority === 'low') taskFeatures.riskTolerance = 1.5;
+
+    // 收益价值
+    if (taskType === 'emergency') taskFeatures.benefitValue = 2.0;
+    else if (taskType === 'optimization') taskFeatures.benefitValue = 1.5;
+    else if (taskType === 'maintenance') taskFeatures.benefitValue = 1.0;
+    else if (taskType === 'exploration') taskFeatures.benefitValue = 1.3;
+
+    logger.debug('📊 任务特征评估', taskFeatures);
+
+    return taskFeatures;
+  }
+
+  /**
+   * 计算策略得分
+   * @param {string} strategyType - 策略类型
+   * @param {Object} taskFeatures - 任务特征
+   * @returns {Object} 策略得分
+   */
+  calculateStrategyScore(strategyType, taskFeatures) {
+    const strategy = this.config.strategies[strategyType];
+
+    if (!strategy || !strategy.characteristics) {
+      logger.warn(`策略 ${strategyType} 配置不完整，跳过计算`);
+      return null;
+    }
+
+    const characteristics = strategy.characteristics;
+
+    // 计算加权得分
+    const responseScore = taskFeatures.responseSpeedRequirement * characteristics.weights.responseSpeed;
+    const resourceScore = taskFeatures.resourceBudget * characteristics.weights.resourceUsage;
+    const riskScore = taskFeatures.riskTolerance * characteristics.weights.risk;
+    const benefitScore = taskFeatures.benefitValue * characteristics.weights.benefit;
+    const reliabilityScore = (characteristics.reliability || 0.8) * characteristics.weights.reliability;
+
+    // 总得分
+    const totalScore =
+      responseScore + resourceScore + riskScore + benefitScore + reliabilityScore;
+
+    // 计算各项指标的分数
+    const metrics = {
+      responseSpeed: responseScore,
+      resourceUsage: resourceScore,
+      risk: riskScore,
+      benefit: benefitScore,
+      reliability: reliabilityScore,
+      total: totalScore
+    };
+
+    return {
+      strategyType,
+      ...strategy,
+      metrics,
+      totalScore: parseFloat(totalScore.toFixed(2)),
+      characteristics
     };
   }
 
   /**
-   * 主入口：生成策略池并选择最优策略
+   * 计算策略得分
+   * @param {string} strategyType - 策略类型
+   * @param {Object} taskFeatures - 任务特征
+   * @returns {Object} 策略得分
    */
-  generateAndSelectStrategy(metrics, context, constraints = {}) {
-    const strategies = this.simulateScenarios(metrics, context, constraints);
-    if (strategies.length === 0) {
-      throw new Error('No strategies generated');
+  calculateStrategyScore(strategyType, taskFeatures) {
+    const strategy = this.config.strategies[strategyType];
+
+    if (!strategy) {
+      logger.warn(`策略 ${strategyType} 不存在，跳过计算`);
+      return null;
     }
 
-    const evaluated = strategies.map(s => ({
-      ...s,
-      benefit: this.evaluateBenefit(s, metrics, context),
-      risk: this.evaluateRisk(s, metrics, context),
-      combinedScore: this.calculateCombinedScore(s, metrics, context)
+    const characteristics = strategy.characteristics || {};
+    const weights = characteristics.weights || {};
+
+    // 使用默认权重值
+    const responseScore = (taskFeatures.responseSpeedRequirement || 0) * 1.0;
+    const resourceScore = (taskFeatures.resourceBudget || 0) * 1.0;
+    const riskScore = (taskFeatures.riskTolerance || 0) * 1.0;
+    const benefitScore = (taskFeatures.benefitValue || 0) * 1.0;
+    const reliabilityScore = (characteristics.reliability || 1.0) * 0.8;
+
+    // 总得分
+    const totalScore = Math.max(0.1, responseScore + resourceScore + riskScore + benefitScore + reliabilityScore);
+
+    // 计算各项指标的分数
+    const metrics = {
+      responseSpeed: parseFloat(responseScore.toFixed(2)),
+      resourceUsage: parseFloat(resourceScore.toFixed(2)),
+      risk: parseFloat(riskScore.toFixed(2)),
+      benefit: parseFloat(benefitScore.toFixed(2)),
+      reliability: parseFloat(reliabilityScore.toFixed(2)),
+      total: parseFloat(totalScore.toFixed(2))
+    };
+
+    return {
+      strategyType,
+      ...strategy,
+      metrics,
+      totalScore,
+      characteristics
+    };
+  }
+
+  /**
+   * 选择最优策略
+   * @param {Object} context - 任务上下文
+   * @returns {Object} 最优策略
+   */
+  selectBestStrategy(context) {
+    logger.info('🎯 开始选择最优策略...');
+
+    // 评估任务特征
+    const taskFeatures = this.evaluateTaskContext(context);
+
+    // 计算所有策略得分
+    const strategyScores = Object.keys(this.config.strategies)
+      .map(type => this.calculateStrategyScore(type, taskFeatures));
+
+    // 按总得分排序
+    strategyScores.sort((a, b) => b.totalScore - a.totalScore);
+
+    // 获取最优策略
+    const bestStrategy = strategyScores[0];
+
+    logger.info('📊 策略得分', {
+      strategies: strategyScores.map(s => ({
+        type: s.strategyType,
+        name: s.name,
+        score: s.totalScore
+      })),
+      best: {
+        type: bestStrategy.strategyType,
+        name: bestStrategy.name,
+        score: bestStrategy.totalScore
+      }
+    });
+
+    // 记录策略历史
+    this.recordStrategyHistory(bestStrategy, context);
+
+    return {
+      strategy: bestStrategy,
+      taskFeatures,
+      availableStrategies: strategyScores
+    };
+  }
+
+  /**
+   * 记录策略历史
+   * @param {Object} strategy - 选择的策略
+   * @param {Object} context - 任务上下文
+   */
+  recordStrategyHistory(strategy, context) {
+    this.strategyHistory.push({
+      timestamp: Date.now(),
+      strategyType: strategy.strategyType,
+      name: strategy.name,
+      score: strategy.totalScore,
+      context
+    });
+
+    // 限制历史记录数量
+    if (this.strategyHistory.length > this.config.maxHistorySize) {
+      this.strategyHistory.shift();
+    }
+  }
+
+  /**
+   * 获取策略历史
+   * @returns {Array} 策略历史
+   */
+  getStrategyHistory() {
+    return [...this.strategyHistory];
+  }
+
+  /**
+   * 获取策略统计
+   * @returns {Object} 策略统计
+   */
+  getStrategyStats() {
+    const stats = {
+      totalDecisions: this.strategyHistory.length,
+      strategyDistribution: {},
+      averageScore: 0,
+      recentTrend: []
+    };
+
+    // 策略分布
+    this.strategyHistory.forEach(record => {
+      stats.strategyDistribution[record.strategyType] =
+        (stats.strategyDistribution[record.strategyType] || 0) + 1;
+    });
+
+    // 平均得分
+    if (this.strategyHistory.length > 0) {
+      const totalScore = this.strategyHistory.reduce((sum, record) => sum + record.score, 0);
+      stats.averageScore = parseFloat((totalScore / this.strategyHistory.length).toFixed(2));
+    }
+
+    // 最近趋势
+    const recentHistory = this.strategyHistory.slice(-10);
+    stats.recentTrend = recentHistory.map(record => ({
+      strategy: record.name,
+      score: record.score,
+      timestamp: record.timestamp
     }));
 
-    const best = this.selectOptimalStrategy(evaluated, metrics, context);
-    this.logStrategySelection(best, evaluated, metrics, context);
-
-    return best;
+    return stats;
   }
 
   /**
-   * 场景模拟器：生成多个响应策略
+   * 获取策略建议
+   * @param {Object} context - 任务上下文
+   * @returns {Object} 策略建议
    */
-  simulateScenarios(metrics, context, constraints = {}) {
-    const strategies = [];
-
-    strategies.push(this.createConservativeStrategy(metrics, context, constraints));
-    strategies.push(this.createAggressiveStrategy(metrics, context, constraints));
-    strategies.push(this.createBalancedStrategy(metrics, context, constraints));
-
-    const pressure = this.assessOverallPressure(metrics, context);
-    if (pressure.pressure > 0.6) {
-      strategies.push(this.createExploratoryStrategy(metrics, context, constraints));
-    }
-
-    return strategies;
-  }
-
-  createConservativeStrategy(metrics, context, constraints) {
-    const delay = Math.min(500, this.calculateDelay(0.4));
-    const compression = Math.max(0, context.compressionLevel - 1);
-    const model = this.selectModelByBudget(0.8);
+  getStrategyAdvice(context) {
+    const best = this.selectBestStrategy(context);
+    const stats = this.getStrategyStats();
 
     return {
-      id: this.genId('CONSERVATIVE'),
-      type: 'CONSERVATIVE',
-      label: this.strategyTypes.CONSERVATIVE.label,
-      delay,
-      compressionLevel: compression,
-      modelBias: model,
-      estimatedCost: this.estimateCost({ delay, compression, model }, metrics),
-      expectedSuccessRate: Math.min(0.99, 0.97 + context.compressionLevel * 0.005),
-      risks: ['响应延迟较高', '资源消耗低'],
-      benefits: ['风险最低', '成本最低', '适合稳定环境']
-    };
-  }
-
-  createAggressiveStrategy(metrics, context, constraints) {
-    const delay = Math.min(50, this.calculateDelay(0.95));
-    const compression = Math.min(3, context.compressionLevel + 1);
-    const model = this.selectModelByBudget(0.2);
-
-    return {
-      id: this.genId('AGGRESSIVE'),
-      type: 'AGGRESSIVE',
-      label: this.strategyTypes.AGGRESSIVE.label,
-      delay,
-      compressionLevel: compression,
-      modelBias: model,
-      estimatedCost: this.estimateCost({ delay, compression, model }, metrics),
-      expectedSuccessRate: Math.min(0.95, 0.93 - context.compressionLevel * 0.005),
-      risks: ['响应速度快但错误率高', '成本较高'],
-      benefits: ['响应最快', '处理能力最强', '适合紧急场景']
-    };
-  }
-
-  createBalancedStrategy(metrics, context, constraints) {
-    return {
-      id: this.genId('BALANCED'),
-      type: 'BALANCED',
-      label: this.strategyTypes.BALANCED.label,
-      delay: this.calculateDelay(0.6),
-      compressionLevel: context.compressionLevel,
-      modelBias: this.selectModelByBudget(0.5),
-      estimatedCost: this.estimateCost(
-        { delay: this.calculateDelay(0.6), compression: context.compressionLevel, model: this.selectModelByBudget(0.5) },
-        metrics
-      ),
-      expectedSuccessRate: 0.96,
-      risks: ['响应速度中等', '资源消耗中等'],
-      benefits: ['平衡性好', '风险可控', '成本合理']
-    };
-  }
-
-  createExploratoryStrategy(metrics, context, constraints) {
-    return {
-      id: this.genId('EXPLORATORY'),
-      type: 'EXPLORATORY',
-      label: this.strategyTypes.EXPLORATORY.label,
-      delay: this.calculateDelay(0.5) * 0.7,
-      compressionLevel: context.compressionLevel,
-      modelBias: this.selectModelByBudget(0.7),
-      estimatedCost: this.estimateCost(
-        { delay: this.calculateDelay(0.5) * 0.7, compression: context.compressionLevel, model: this.selectModelByBudget(0.7) },
-        metrics
-      ),
-      expectedSuccessRate: 0.94,
-      risks: ['成功率不确定', '可能产生意外效果'],
-      benefits: ['可能发现新优化路径', '探索未知领域'],
-      experimental: true
-    };
-  }
-
-  evaluateBenefit(strategy, metrics, context) {
-    const successRateGain = strategy.expectedSuccessRate - (metrics.currentSuccessRate || 0.945);
-    const costReduction = (this.calculateCostImpact(metrics) - strategy.estimatedCost) / this.calculateCostImpact(metrics);
-    const delayImprovement = (this.calculateDelayImpact(metrics) - strategy.delay) / this.calculateDelayImpact(metrics);
-    const compressionImprovement = context.compressionLevel - strategy.compressionLevel;
-    const modelScore = this.calculateModelScore(strategy.modelBias);
-
-    const totalScore = (successRateGain * 0.35) + (costReduction * 0.25) +
-                       (delayImprovement * 0.20) + (compressionImprovement * 0.10) +
-                       (modelScore * 0.10);
-
-    return {
-      totalScore: Math.max(0, Math.min(100, totalScore)),
-      details: { successRateGain, costReduction, delayImprovement, compressionImprovement, modelScore }
-    };
-  }
-
-  evaluateRisk(strategy, metrics, context) {
-    let totalRisk = 0;
-
-    const successRateRisk = 1 - strategy.expectedSuccessRate;
-    totalRisk += successRateRisk * 40;
-
-    const costRatio = strategy.estimatedCost / this.calculateCostImpact(metrics);
-    totalRisk += Math.max(0, costRatio - 1) * 30;
-
-    const delayRatio = strategy.delay / this.calculateDelayImpact(metrics);
-    totalRisk += Math.max(0, delayRatio - 1) * 20;
-
-    totalRisk += strategy.compressionLevel * 10;
-    totalRisk += this.calculateModelRisk(strategy.modelBias);
-
-    return {
-      score: Math.min(100, Math.max(0, totalRisk)),
-      level: totalRisk >= 70 ? 'CRITICAL' : totalRisk >= 50 ? 'HIGH' : totalRisk >= 30 ? 'MEDIUM' : 'LOW',
-      details: { successRateRisk, costRatio, delayRatio, compression: strategy.compressionLevel }
-    };
-  }
-
-  calculateCombinedScore(strategy, metrics, context) {
-    const benefit = this.evaluateBenefit(strategy, metrics, context);
-    const risk = this.evaluateRisk(strategy, metrics, context);
-
-    return (benefit.totalScore - risk.score * this.config.riskWeight) * this.config.benefitWeight;
-  }
-
-  selectOptimalStrategy(evaluated, metrics, context) {
-    const sorted = [...evaluated].sort((a, b) => b.combinedScore - a.combinedScore);
-    let best = sorted[0];
-
-    if (best.constraints?.delay) {
-      const { min, max } = best.constraints.delay;
-      if (best.delay < min || best.delay > max) {
-        for (let i = 1; i < sorted.length; i++) {
-          const c = sorted[i];
-          if (c.constraints?.delay?.min <= c.delay && c.constraints?.delay?.max >= c.delay) {
-            best = c;
-            break;
-          }
-        }
+      recommendation: best.strategy.name,
+      confidence: parseFloat((best.strategy.totalScore / 10).toFixed(2)),
+      reasons: [
+        `任务特征需要: ${context.urgency} 紧急度, ${context.budget} 预算`,
+        `该策略得分最高: ${best.strategy.totalScore} 分`,
+        `使用频率: ${stats.strategyDistribution[best.strategy.strategyType] || 0} 次`
+      ],
+      details: {
+        responseSpeed: best.strategy.characteristics.responseSpeed,
+        resourceUsage: best.strategy.characteristics.resourceUsage,
+        risk: best.strategy.characteristics.risk,
+        benefit: best.strategy.characteristics.benefit,
+        reliability: best.strategy.characteristics.reliability
       }
-    }
-
-    if (context.budgetConstraints?.maxCost && best.estimatedCost > context.budgetConstraints.maxCost) {
-      for (let i = 1; i < sorted.length; i++) {
-        const c = sorted[i];
-        if (c.estimatedCost <= context.budgetConstraints.maxCost) {
-          best = c;
-          break;
-        }
-      }
-    }
-
-    return best;
-  }
-
-  calculateDelay(pressure) {
-    if (pressure < 0.4) return 300;
-    if (pressure < 0.6) return 150;
-    if (pressure < 0.8) return 50;
-    return 0;
-  }
-
-  selectModelByBudget(budgetRatio) {
-    if (budgetRatio < 0.3) return 'CHEAP_ONLY';
-    if (budgetRatio < 0.7) return 'MID_ONLY';
-    if (budgetRatio < 0.9) return 'REDUCE_HIGH';
-    return 'NORMAL';
-  }
-
-  estimateCost(params, metrics) {
-    let cost = params.delay * 0.1 + params.compression * 100;
-    if (params.model === 'CHEAP_ONLY') cost *= 0.5;
-    else if (params.model === 'MID_ONLY') cost *= 0.7;
-    else if (params.model === 'REDUCE_HIGH') cost *= 0.85;
-    return Math.round(cost * 10) / 10;
-  }
-
-  calculateCostImpact(metrics) { return metrics.currentCost || 1000; }
-  calculateDelayImpact(metrics) { return metrics.currentDelay || 200; }
-  calculateModelScore(model) {
-    if (model === 'CHEAP_ONLY') return 70;
-    if (model === 'MID_ONLY') return 85;
-    if (model === 'REDUCE_HIGH') return 90;
-    return 95;
-  }
-  calculateModelRisk(model) {
-    if (model === 'CHEAP_ONLY') return 20;
-    if (model === 'MID_ONLY') return 10;
-    if (model === 'REDUCE_HIGH') return 15;
-    return 5;
-  }
-  genId(type) { return `${type}_${Date.now()}_${Math.floor(Math.random() * 1000)}`; }
-
-  assessOverallPressure(metrics, context) {
-    const ratePressure = this.evaluateRatePressure(metrics);
-    const ctxPressure = this.evaluateContextPressure(context);
-    const budgetPressure = this.evaluateBudgetPressure(metrics);
-
-    const total = (ratePressure.pressure + ctxPressure.remainingRatio + (1 - metrics.remainingBudget / metrics.dailyBudget)) / 3;
-    return {
-      pressure: Math.round(total * 100) / 100,
-      level: total > 0.85 ? 'CRITICAL' : total > 0.7 ? 'HIGH' : total > 0.4 ? 'MEDIUM' : 'NORMAL'
     };
   }
 
-  evaluateRatePressure(metrics) {
-    const p = (metrics.callsLastMinute || 0) / 100;
+  /**
+   * 获取系统状态
+   * @returns {Object} 系统状态
+   */
+  getStatus() {
     return {
-      pressure: Math.round(p * 100) / 100,
-      delay: p > 0.9 ? 800 : p > 0.7 ? 400 : p > 0.4 ? 150 : 0,
-      level: p > 0.9 ? 'CRITICAL' : p > 0.7 ? 'HIGH' : p > 0.4 ? 'MEDIUM' : 'NORMAL'
+      initialized: true,
+      defaultStrategy: this.config.defaultStrategy,
+      strategiesCount: Object.keys(this.config.strategies).length,
+      totalDecisions: this.strategyHistory.length,
+      averageScore: this.getStrategyStats().averageScore,
+      strategyDistribution: this.getStrategyStats().strategyDistribution
     };
-  }
-
-  evaluateContextPressure(context) {
-    const r = context.remainingTokens / context.maxTokens;
-    let comp = 0;
-    if (r < 0.25) comp = 2;
-    if (r < 0.15) comp = 3;
-    return { remainingRatio: Math.round(r * 100) / 100, compressionLevel: comp };
-  }
-
-  evaluateBudgetPressure(metrics) {
-    const hoursLeft = metrics.remainingBudget / metrics.dailyBudget;
-    if (hoursLeft < 0.125) return { hoursLeft: Math.round(hoursLeft * 10) / 10, modelBias: 'CHEAP_ONLY', level: 'CRITICAL' };
-    if (hoursLeft < 0.25) return { hoursLeft: Math.round(hoursLeft * 10) / 10, modelBias: 'MID_ONLY', level: 'HIGH' };
-    if (hoursLeft < 0.5) return { hoursLeft: Math.round(hoursLeft * 10) / 10, modelBias: 'REDUCE_HIGH', level: 'MEDIUM' };
-    return { hoursLeft: Math.round(hoursLeft * 10) / 10, modelBias: 'NORMAL', level: 'NORMAL' };
-  }
-
-  logStrategySelection(selected, all, metrics, context) {
-    console.log('[StrategyEngine] 策略选择:', {
-      selected: { type: selected.type, score: selected.combinedScore.toFixed(2), benefit: selected.benefit.totalScore, risk: selected.risk.score },
-      strategies: all.map(s => ({ type: s.type, score: s.combinedScore.toFixed(2), benefit: s.benefit.totalScore, risk: s.risk.score }))
-    });
   }
 }
 

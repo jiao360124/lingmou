@@ -22,6 +22,11 @@ class SecurityValidator {
    * @returns {Object} 验证结果
    */
   validateInput(input, options = {}) {
+    // 确保输入是字符串类型
+    if (input !== null && input !== undefined && typeof input !== 'string') {
+      input = String(input);
+    }
+
     const result = {
       isValid: true,
       errors: [],
@@ -35,11 +40,13 @@ class SecurityValidator {
       result.isValid = false;
     }
 
-    // 检查长度
-    const maxLength = options.maxLength || this.options.maxInputLength;
-    if (input.length > maxLength) {
-      result.errors.push(`输入过长，最大允许 ${maxLength} 个字符`);
-      result.isValid = false;
+    // 检查长度（只在有值时检查）
+    if (input && input.length > 0) {
+      const maxLength = options.maxLength || this.options.maxInputLength;
+      if (input.length > maxLength) {
+        result.errors.push(`输入过长，最大允许 ${maxLength} 个字符`);
+        result.isValid = false;
+      }
     }
 
     // 检查特殊字符（如果启用）
@@ -195,6 +202,10 @@ class SecurityValidator {
    * @private
    */
   detectSqlInjection(input) {
+    if (!input) {
+      return [];
+    }
+
     const sqlPatterns = [
       /'/g,
       /"/g,
@@ -220,6 +231,10 @@ class SecurityValidator {
    * @private
    */
   detectXSS(input) {
+    if (!input) {
+      return [];
+    }
+
     const xssPatterns = [
       /<script\b[^>]*>.*?<\/script>/gi,
       /javascript:/gi,
@@ -268,9 +283,14 @@ class SecurityValidator {
    * @private
    */
   escapeHtml(str) {
-    const div = document.createElement('div');
-    div.textContent = str;
-    return div.innerHTML;
+    const map = {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#039;'
+    };
+    return String(str).replace(/[&<>"']/g, m => map[m]);
   }
 
   /**

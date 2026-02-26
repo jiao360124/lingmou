@@ -271,11 +271,12 @@ class MemoryMonitor {
     const minHeapUsed = Math.min(...heaps);
     const currentHeapUsed = heaps[heaps.length - 1];
 
+    // 转换为 MB
     return {
-      avgHeapUsed: Math.round(avgHeapUsed),
-      maxHeapUsed: Math.round(maxHeapUsed),
-      minHeapUsed: Math.round(minHeapUsed),
-      currentHeapUsed: Math.round(currentHeapUsed)
+      avgHeapUsed: Math.round(avgHeapUsed / 1024 / 1024),
+      maxHeapUsed: Math.round(maxHeapUsed / 1024 / 1024),
+      minHeapUsed: Math.round(minHeapUsed / 1024 / 1024),
+      currentHeapUsed: Math.round(currentHeapUsed / 1024 / 1024)
     };
   }
 }
