@@ -1,21 +1,5 @@
 {
-  "name": "innovation-dashboard",
-  "version": "1.0.0",
-  "description": "创新Dashboard - 实时数据可视化平台",
-  "main": "dashboard-server.js",
-  "scripts": {
-    "start": "node dashboard-server.js",
-    "dev": "node dashboard-server.js"
-  },
   "dependencies": {
-    "express": "^4.22.1",
-    "socket.io": "^4.8.3"
-  },
-  "keywords": [
-    "dashboard",
-    "visualization",
-    "realtime"
-  ],
-  "author": "",
-  "license": "MIT"
+    "winston": "^3.19.0"
+  }
 }

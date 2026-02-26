@@ -1,0 +1,71 @@
+{
+  "version": "v3.2.6",
+  "releaseDate": "2026-02-26 21:27:00",
+  "description": "Lingmou v3.2.6 - Full Integration and Architecture Optimization",
+  "integration": {
+    "baseVersion": "v3.2.5",
+    "type": "full",
+    "phases": [
+      "Architecture Cleanup",
+      "Feature Integration",
+      "Deep Optimization"
+    ]
+  },
+  "changes": {
+    "modules": {
+      "core": {
+        "before": 24,
+        "after": 24,
+        "reorganized": true,
+        "structure": {
+          "monitoring": "performance-monitor, memory-monitor, api-tracker",
+          "strategy": "strategy-engine, strategy-engine-enhanced, scenario-generator, scenario-evaluator"
+        }
+      },
+      "utils": {
+        "before": 14,
+        "after": 8,
+        "removed": ["memory-monitor.js", "performance-monitor.js", "test-*.js"],
+        "moved_to_tests": ["test-memory.js", "test-performance.js", "test-security.js", "test-security-email.js", "test-usage.js", "test-memory-simple.js"]
+      },
+      "skills": {
+        "before": 49,
+        "after": 43,
+        "removed": 6,
+        "integrated": {
+          "ai-toolkit": ["langchain", "moltbook", "rag"],
+          "search-toolkit": ["smart-search", "deepwiki"],
+          "dev-toolkit": ["api-dev", "database", "sql-toolkit"]
+        }
+      }
+    }
+  },
+  "optimizations": {
+    "code_duplication": {
+      "before": "high",
+      "after": "low",
+      "reduction": "~35%"
+    },
+    "directory_structure": {
+      "before": "flat",
+      "after": "hierarchical",
+      "improvement": "clear separation of concerns"
+    },
+    "test_organization": {
+      "before": "scattered in utils/",
+      "after": "centralized in tests/"
+    }
+  },
+  "testing": {
+    "status": "pending",
+    "coverage": "pending",
+    "gateway_test": "pending",
+    "skill_test": "pending",
+    "core_module_test": "pending"
+  },
+  "backup": {
+    "path": "backup/v326-integration-20260226-212707",
+    "includes": ["core", "utils", "skills"],
+    "created": "2026-02-26 21:27:07"
+  }
+}
