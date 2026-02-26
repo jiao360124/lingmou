@@ -1,191 +1,123 @@
-# test-runner
+# debug-pro
 
-Write and run tests across languages and frameworks.
+Systematic debugging methodology and language-specific debugging commands.
 
-## Framework Selection
+## The 7-Step Debugging Protocol
 
-| Language | Unit Tests | Integration | E2E |
-|----------|-----------|-------------|-----|
-| TypeScript/JS | Vitest (preferred), Jest | Supertest | Playwright |
-| Python | pytest | pytest + httpx | Playwright |
-| Swift | XCTest | XCTest | XCUITest |
+1. **Reproduce** — Get it to fail consistently. Document exact steps, inputs, and environment.
+2. **Isolate** — Narrow scope. Comment out code, use binary search, check recent commits with `git bisect`.
+3. **Hypothesize** — Form a specific, testable theory about the root cause.
+4. **Instrument** — Add targeted logging, breakpoints, or assertions.
+5. **Verify** — Confirm root cause. If hypothesis was wrong, return to step 3.
+6. **Fix** — Apply the minimal correct fix. Resist the urge to refactor while debugging.
+7. **Regression Test** — Write a test that catches this bug. Verify it passes.
 
-## Quick Start by Framework
+## Language-Specific Debugging
 
-### Vitest (TypeScript / JavaScript)
+### JavaScript / TypeScript
 ```bash
-npm install -D vitest @testing-library/react @testing-library/jest-dom
+# Node.js debugger
+node --inspect-brk app.js
+# Chrome DevTools: chrome://inspect
+
+# Console debugging
+console.log(JSON.stringify(obj, null, 2))
+console.trace('Call stack here')
+console.time('perf'); /* code */ console.timeEnd('perf')
+
+# Memory leaks
+node --expose-gc --max-old-space-size=4096 app.js
 ```
 
-```typescript
-// vitest.config.ts
-import { defineConfig } from 'vitest/config'
-export default defineConfig({
-  test: {
-    globals: true,
-    environment: 'jsdom',
-    setupFiles: './tests/setup.ts',
-  },
-})
-```
-
+### Python
 ```bash
-npx vitest              # Watch mode
-npx vitest run          # Single run
-npx vitest --coverage   # With coverage
+# Built-in debugger
+python -m pdb script.py
+
+# Breakpoint in code
+breakpoint()  # Python 3.7+
+
+# Verbose tracing
+python -X tracemalloc script.py
+
+# Profile
+python -m cProfile -s cumulative script.py
 ```
 
-### Jest
+### Swift
 ```bash
-npm install -D jest @types/jest ts-jest
+# LLDB debugging
+lldb ./MyApp
+(lldb) breakpoint set --name main
+(lldb) run
+(lldb) po myVariable
+
+# Xcode: Product → Profile (Instruments)
 ```
 
+### CSS / Layout
+```css
+/* Outline all elements */
+* { outline: 1px solid red !important; }
+
+/* Debug specific element */
+.debug { background: rgba(255,0,0,0.1) !important; }
+```
+
+### Network
 ```bash
-npx jest                # Run all
-npx jest --watch        # Watch mode
-npx jest --coverage     # With coverage
-npx jest path/to/test   # Single file
+# HTTP debugging
+curl -v https://api.example.com/endpoint
+curl -w "@curl-format.txt" -o /dev/null -s https://example.com
+
+# DNS
+dig example.com
+nslookup example.com
+
+# Ports
+lsof -i :3000
+netstat -tlnp
 ```
 
-### pytest (Python)
+### Git Bisect
 ```bash
-uv pip install pytest pytest-cov pytest-asyncio httpx
+git bisect start
+git bisect bad              # Current commit is broken
+git bisect good abc1234     # Known good commit
+# Git checks out middle commit — test it, then:
+git bisect good  # or  git bisect bad
+# Repeat until root cause commit is found
+git bisect reset
 ```
 
-```bash
-pytest                          # Run all
-pytest -v                       # Verbose
-pytest -x                       # Stop on first failure
-pytest --cov=app                # With coverage
-pytest tests/test_api.py -k "test_login"  # Specific test
-pytest --tb=short               # Short tracebacks
-```
+## Common Error Patterns
 
-### XCTest (Swift)
-```bash
-swift test                      # Run all tests
-swift test --filter MyTests     # Specific test suite
-swift test --parallel           # Parallel execution
-```
+| Error | Likely Cause | Fix |
+|-------|-------------|-----|
+| `Cannot read property of undefined` | Missing null check or wrong data shape | Add optional chaining (`?.`) or validate data |
+| `ENOENT` | File/directory doesn't exist | Check path, create directory, use `existsSync` |
+| `CORS error` | Backend missing CORS headers | Add CORS middleware with correct origins |
+| `Module not found` | Missing dependency or wrong import path | `npm install`, check tsconfig paths |
+| `Hydration mismatch` (React) | Server/client render different HTML | Ensure consistent rendering, use `useEffect` for client-only |
+| `Segmentation fault` | Memory corruption, null pointer | Check array bounds, pointer validity |
+| `Connection refused` | Service not running on expected port | Check if service is up, verify port/host |
+| `Permission denied` | File/network permission issue | Check chmod, firewall, sudo |
 
-### Playwright (E2E)
-```bash
-npm install -D @playwright/test
-npx playwright install
-```
-
-```bash
-npx playwright test                    # Run all
-npx playwright test --headed           # With browser visible
-npx playwright test --debug            # Debug mode
-npx playwright test --project=chromium # Specific browser
-npx playwright show-report             # View HTML report
-```
-
-## TDD Workflow
-
-1. **Red** — Write a failing test that describes the desired behavior.
-2. **Green** — Write the minimum code to make the test pass.
-3. **Refactor** — Clean up the code while keeping tests green.
-
-```
-┌─────────┐     ┌─────────┐     ┌──────────┐
-│  Write   │────▶│  Write  │────▶│ Refactor │──┐
-│  Test    │     │  Code   │     │  Code    │  │
-│  (Red)   │     │ (Green) │     │          │  │
-└─────────┘     └─────────┘     └──────────┘  │
-     ▲                                          │
-     └──────────────────────────────────────────┘
-```
-
-## Test Patterns
-
-### Arrange-Act-Assert
-```typescript
-test('calculates total with tax', () => {
-  // Arrange
-  const cart = new Cart([{ price: 100, qty: 2 }]);
-
-  // Act
-  const total = cart.totalWithTax(0.08);
-
-  // Assert
-  expect(total).toBe(216);
-});
-```
-
-### Testing Async Code
-```typescript
-test('fetches user data', async () => {
-  const user = await getUser('123');
-  expect(user.name).toBe('Colt');
-});
-```
-
-### Mocking
-```typescript
-import { vi } from 'vitest';
-
-const mockFetch = vi.fn().mockResolvedValue({
-  json: () => Promise.resolve({ id: 1, name: 'Test' }),
-});
-vi.stubGlobal('fetch', mockFetch);
-```
-
-### Testing API Endpoints (Python)
-```python
-import pytest
-from httpx import AsyncClient
-from app.main import app
-
-@pytest.mark.asyncio
-async def test_get_users():
-    async with AsyncClient(app=app, base_url="http://test") as client:
-        response = await client.get("/users")
-    assert response.status_code == 200
-    assert isinstance(response.json(), list)
-```
-
-### Testing React Components
-```typescript
-import { render, screen, fireEvent } from '@testing-library/react';
-import { Button } from './Button';
-
-test('calls onClick when clicked', () => {
-  const handleClick = vi.fn();
-  render(<Button onClick={handleClick}>Click me</Button>);
-  fireEvent.click(screen.getByText('Click me'));
-  expect(handleClick).toHaveBeenCalledOnce();
-});
-```
-
-## Coverage Commands
+## Quick Diagnostic Commands
 
 ```bash
-# JavaScript/TypeScript
-npx vitest --coverage          # Vitest (uses v8 or istanbul)
-npx jest --coverage            # Jest
+# What's using this port?
+lsof -i :PORT
 
-# Python
-pytest --cov=app --cov-report=html    # HTML report
-pytest --cov=app --cov-report=term    # Terminal output
-pytest --cov=app --cov-fail-under=80  # Fail if < 80%
+# What's this process doing?
+ps aux | grep PROCESS
 
-# View HTML coverage report
-open coverage/index.html       # macOS
-open htmlcov/index.html        # Python
+# Watch file changes
+fswatch -r ./src
+
+# Disk space
+df -h
+
+# System resource usage
+top -l 1 | head -10
 ```
-
-## What to Test
-
-**Always test:**
-- Public API / exported functions
-- Edge cases: empty input, null, boundary values
-- Error handling: invalid input, network failures
-- Business logic: calculations, state transitions
-
-**Don't bother testing:**
-- Private implementation details
-- Framework internals (React rendering, Express routing)
-- Trivial getters/setters
-- Third-party library behavior

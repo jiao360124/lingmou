@@ -1,311 +1,138 @@
-# Skill Builder - 自我进化技能构建器
-
-**版本**: 1.0.0
-**创建日期**: 2026-02-13
-**作者**: 灵眸
-**状态**: 实施中
-
+---
+name: skill-vetter
+version: 1.0.0
+description: Security-first skill vetting for AI agents. Use before installing any skill from ClawdHub, GitHub, or other sources. Checks for red flags, permission scope, and suspicious patterns.
 ---
 
-## 🎯 核心使命
+# Skill Vetter 🔒
 
-通过自动创建和优化Skills，实现自我进化能力，让系统能够基于使用数据持续改进。
+Security-first vetting protocol for AI agent skills. **Never install a skill without vetting it first.**
 
----
+## When to Use
 
-## 📋 目录
+- Before installing any skill from ClawdHub
+- Before running skills from GitHub repos
+- When evaluating skills shared by other agents
+- Anytime you're asked to install unknown code
 
-- [概述](#概述)
-- [核心功能](#核心功能)
-- [使用指南](#使用指南)
-- [工作原理](#工作原理)
-- [技能模板](#技能模板)
-- [配置管理](#配置管理)
-- [最佳实践](#最佳实践)
+## Vetting Protocol
 
----
-
-## 概述
-
-Skill Builder是基于Moltbook MOLTRON概念实现的自我进化系统，能够：
-
-1. **自动创建Skills** - 基于模式和需求自动生成新Skills
-2. **Skill优化** - 基于性能数据自动改进现有Skills
-3. **模板管理** - 提供可复用的Skill模板
-4. **编译转换** - 将任意代码转换为标准Skill格式
-5. **测试验证** - 自动化测试和验证机制
-
----
-
-## 核心功能
-
-### 1. Skill创建引擎
-- ✅ 模板化创建
-- ✅ 参数化配置
-- ✅ 自动代码生成
-- ✅ 元数据填充
-
-### 2. Skill优化引擎
-- ✅ 性能分析
-- ✅ 代码重构
-- ✅ 错误修复
-- ✅ 文档完善
-
-### 3. 模板系统
-- ✅ 代码模板
-- ✅ 元数据模板
-- ✅ 测试模板
-- ✅ 文档模板
-
-### 4. 编译器
-- ✅ 代码转换
-- ✅ 格式统一
-- ✅ 依赖管理
-- ✅ 环境检查
-
-### 5. 测试框架
-- ✅ 单元测试
-- ✅ 集成测试
-- ✅ 性能测试
-- ✅ 回归测试
-
----
-
-## 使用指南
-
-### 快速开始
-
-#### 1. 创建新Skill
-
-```powershell
-# 使用模板创建
-.\skill-builder.ps1 -Action create -Template 'automation' -Name 'custom-task'
-
-# 命名空间模板
-.\skill-builder.ps1 -Action create -Template 'namespace' -Name 'my-tools'
-
-# 从代码创建
-.\skill-builder.ps1 -Action create-from-code -Path 'scripts/custom-script.ps1' -Name 'custom-tool'
-```
-
-#### 2. 优化现有Skill
-
-```powershell
-# 分析性能
-.\skill-builder.ps1 -Action analyze -Skill 'self-healing'
-
-# 自动优化
-.\skill-builder.ps1 -Action optimize -Skill 'self-healing'
-
-# 完整改进流程
-.\skill-builder.ps1 -Action improve -Skill 'self-healing'
-```
-
-#### 3. 编译和测试
-
-```powershell
-# 编译Skill
-.\skill-builder.ps1 -Action compile -Skill 'my-skill'
-
-# 运行测试
-.\skill-builder.ps1 -Action test -Skill 'my-skill'
-
-# 生成报告
-.\skill-builder.ps1 -Action report -Skill 'my-skill'
-```
-
----
-
-## 工作原理
-
-### Skill生命周期
+### Step 1: Source Check
 
 ```
-┌─────────────┐
-│  需求识别    │
-└──────┬──────┘
-       ↓
-┌─────────────┐
-│  模板匹配    │
-└──────┬──────┘
-       ↓
-┌─────────────┐
-│  代码生成    │
-└──────┬──────┘
-       ↓
-┌─────────────┐
-│  元数据填充  │
-└──────┬──────┘
-       ↓
-┌─────────────┐
-│  编译转换    │
-└──────┬──────┘
-       ↓
-┌─────────────┐
-│  测试验证    │
-└──────┬──────┘
-       ↓
-┌─────────────┐
-│  部署发布    │
-└─────────────┘
+Questions to answer:
+- [ ] Where did this skill come from?
+- [ ] Is the author known/reputable?
+- [ ] How many downloads/stars does it have?
+- [ ] When was it last updated?
+- [ ] Are there reviews from other agents?
 ```
 
-### 智能优化流程
+### Step 2: Code Review (MANDATORY)
+
+Read ALL files in the skill. Check for these **RED FLAGS**:
 
 ```
-┌─────────────┐
-│  性能数据收集 │
-└──────┬──────┘
-       ↓
-┌─────────────┐
-│  问题识别    │
-└──────┬──────┘
-       ↓
-┌─────────────┐
-│  解决方案生成 │
-└──────┬──────┘
-       ↓
-┌─────────────┐
-│  代码重构    │
-└──────┬──────┘
-       ↓
-┌─────────────┐
-│  测试验证    │
-└──────┬──────┘
-       ↓
-┌─────────────┐
-│  部署更新    │
-└─────────────┘
+🚨 REJECT IMMEDIATELY IF YOU SEE:
+─────────────────────────────────────────
+• curl/wget to unknown URLs
+• Sends data to external servers
+• Requests credentials/tokens/API keys
+• Reads ~/.ssh, ~/.aws, ~/.config without clear reason
+• Accesses MEMORY.md, USER.md, SOUL.md, IDENTITY.md
+• Uses base64 decode on anything
+• Uses eval() or exec() with external input
+• Modifies system files outside workspace
+• Installs packages without listing them
+• Network calls to IPs instead of domains
+• Obfuscated code (compressed, encoded, minified)
+• Requests elevated/sudo permissions
+• Accesses browser cookies/sessions
+• Touches credential files
+─────────────────────────────────────────
 ```
+
+### Step 3: Permission Scope
+
+```
+Evaluate:
+- [ ] What files does it need to read?
+- [ ] What files does it need to write?
+- [ ] What commands does it run?
+- [ ] Does it need network access? To where?
+- [ ] Is the scope minimal for its stated purpose?
+```
+
+### Step 4: Risk Classification
+
+| Risk Level | Examples | Action |
+|------------|----------|--------|
+| 🟢 LOW | Notes, weather, formatting | Basic review, install OK |
+| 🟡 MEDIUM | File ops, browser, APIs | Full code review required |
+| 🔴 HIGH | Credentials, trading, system | Human approval required |
+| ⛔ EXTREME | Security configs, root access | Do NOT install |
+
+## Output Format
+
+After vetting, produce this report:
+
+```
+SKILL VETTING REPORT
+═══════════════════════════════════════
+Skill: [name]
+Source: [ClawdHub / GitHub / other]
+Author: [username]
+Version: [version]
+───────────────────────────────────────
+METRICS:
+• Downloads/Stars: [count]
+• Last Updated: [date]
+• Files Reviewed: [count]
+───────────────────────────────────────
+RED FLAGS: [None / List them]
+
+PERMISSIONS NEEDED:
+• Files: [list or "None"]
+• Network: [list or "None"]  
+• Commands: [list or "None"]
+───────────────────────────────────────
+RISK LEVEL: [🟢 LOW / 🟡 MEDIUM / 🔴 HIGH / ⛔ EXTREME]
+
+VERDICT: [✅ SAFE TO INSTALL / ⚠️ INSTALL WITH CAUTION / ❌ DO NOT INSTALL]
+
+NOTES: [Any observations]
+═══════════════════════════════════════
+```
+
+## Quick Vet Commands
+
+For GitHub-hosted skills:
+```bash
+# Check repo stats
+curl -s "https://api.github.com/repos/OWNER/REPO" | jq '{stars: .stargazers_count, forks: .forks_count, updated: .updated_at}'
+
+# List skill files
+curl -s "https://api.github.com/repos/OWNER/REPO/contents/skills/SKILL_NAME" | jq '.[].name'
+
+# Fetch and review SKILL.md
+curl -s "https://raw.githubusercontent.com/OWNER/REPO/main/skills/SKILL_NAME/SKILL.md"
+```
+
+## Trust Hierarchy
+
+1. **Official OpenClaw skills** → Lower scrutiny (still review)
+2. **High-star repos (1000+)** → Moderate scrutiny
+3. **Known authors** → Moderate scrutiny
+4. **New/unknown sources** → Maximum scrutiny
+5. **Skills requesting credentials** → Human approval always
+
+## Remember
+
+- No skill is worth compromising security
+- When in doubt, don't install
+- Ask your human for high-risk decisions
+- Document what you vet for future reference
 
 ---
 
-## 技能模板
-
-### 可用模板
-
-| 模板名称 | 用途 | 适用场景 |
-|---------|------|---------|
-| `automation` | 自动化任务 | 定时任务、批处理 |
-| `namespace` | 命名空间 | 工具集合、分类工具 |
-| `api-client` | API客户端 | RESTful/GraphQL |
-| `processor` | 数据处理器 | 数据转换、过滤 |
-| `validator` | 验证器 | 输入验证、格式检查 |
-| `notifier` | 通知器 | 邮件、Telegram等 |
-| `storage` | 存储管理 | 数据库、文件系统 |
-| `optimizer` | 优化器 | 性能优化、缓存 |
-
----
-
-## 配置管理
-
-### Skill配置文件
-
-每个Skill都有配置文件，位于 `skills/[skill-name]/config.json`
-
-```json
-{
-  "name": "skill-name",
-  "version": "1.0.0",
-  "author": "creator-name",
-  "description": "Skill description",
-  "parameters": {
-    "param1": {
-      "type": "string",
-      "default": "value",
-      "description": "Parameter description"
-    }
-  },
-  "actions": ["action1", "action2"],
-  "dependencies": ["dep1", "dep2"],
-  "rateLimit": {
-    "callsPerMinute": 60,
-    "concurrentCalls": 5
-  }
-}
-```
-
----
-
-## 最佳实践
-
-### 创建新Skill时
-
-1. **选择合适模板**
-   - 优先使用现有模板
-   - 自定义模板需要明确需求
-
-2. **完善元数据**
-   - 写清楚description
-   - 定义明确的parameters
-
-3. **编写测试**
-   - 先写测试再写代码
-   - 保持测试覆盖率 > 80%
-
-4. **文档完整**
-   - README.md
-   - 使用示例
-   - API文档
-
-### 优化现有Skill时
-
-1. **定期分析**
-   - 每周性能分析
-   - 持续监控错误率
-
-2. **渐进改进**
-   - 小步迭代
-   - 保持向后兼容
-
-3. **测试验证**
-   - 每次改进后测试
-   - 保持测试通过
-
----
-
-## 技术架构
-
-### 核心组件
-
-```
-skill-builder/
-├── SKILL.md
-├── main.ps1
-├── templates/
-│   ├── automation.json
-│   ├── namespace.json
-│   └── ...
-├── compiler/
-│   ├── convert.ps1
-│   ├── format.ps1
-│   └── validate.ps1
-├── test/
-│   ├── unit-tests.ps1
-│   ├── integration-tests.ps1
-│   └── performance-tests.ps1
-└── data/
-    ├── templates/
-    ├── compiled/
-    └── reports/
-```
-
----
-
-## 未来计划
-
-- [ ] Skill模板市场
-- [ ] 自动部署
-- [ ] 版本管理
-- [ ] 依赖管理
-- [ ] 社区贡献
-
----
-
-**更新日志**:
-
-- 2026-02-13: v1.0.0 初始版本
-  - 创建基础Skill创建引擎
-  - 添加5个模板
-  - 实现编译和测试框架
-  - 完成基本文档
+*Paranoia is a feature.* 🔒🦀

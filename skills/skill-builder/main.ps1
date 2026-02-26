@@ -1,29 +1,19 @@
-# Skill Builder - 核心引擎
+# Skill标准化系统 - 可测量可执行性
 
 # @Author: 灵眸
 # @Version: 1.0.0
 # @Date: 2026-02-13
-# @Purpose: 自动创建和优化Skills，实现自我进化
 
 param(
     [Parameter(Mandatory=$false)]
-    [ValidateSet("create", "optimize", "compile", "test", "analyze", "improve", "report")]
-    [string]$Action = "analyze",
+    [ValidateSet("validate", "compile", "score", "report", "test")]
+    [string]$Action = "validate",
 
     [Parameter(Mandatory=$true)]
-    [string]$Name,
+    [string]$SkillPath,
 
     [Parameter(Mandatory=$false)]
-    [string]$Template = "default",
-
-    [Parameter(Mandatory=$false)]
-    [string]$Path = "",
-
-    [Parameter(Mandatory=$false)]
-    [string]$Output = "",
-
-    [Parameter(Mandatory=$false)]
-    [switch]$Force = $false,
+    [switch]$Strict = $false,
 
     [Parameter(Mandatory=$false)]
     [switch]$DryRun = $false
@@ -31,33 +21,27 @@ param(
 
 # 获取脚本路径
 $ScriptPath = $PSScriptRoot
-$SkillsDir = "$ScriptPath/../.."
-$TemplatesDir = "$ScriptPath/templates"
-$CompilerDir = "$ScriptPath/compiler"
-$TestDir = "$ScriptPath/test"
-$DataDir = "$ScriptPath/data"
+$SkillsDir = "$ScriptPath/../../.."
 
-# 初始化
-$StartTime = Get-Date
+# 初始化结果
 $Result = @{
     Success = $false
     Action = $Action
-    SkillName = $Name
-    Template = $Template
-    Path = $Path
-    Output = $Output
-    Force = $Force
+    SkillPath = $SkillPath
+    Strict = $Strict
     DryRun = $DryRun
-    StartTime = $StartTime
+    StartTime = Get-Date
     EndTime = $null
     Duration = 0
     Messages = @()
     Errors = @()
+    SkillName = $SkillPath.Split('\')[-1]
+    Metrics = @{}
 }
 
 # 日志函数
 function Write-Log {
-    param([string]$Message, [ValidateSet("INFO", "SUCCESS", "ERROR", "WARNING", "DEBUG")]
+    param([string]$Message, [ValidateSet("INFO", "SUCCESS", "ERROR", "WARNING", "DEBUG", "STANDARD")]
     [string]$Level = "INFO")
 
     $Timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
@@ -69,108 +53,88 @@ function Write-Log {
         "ERROR"   { Write-Host "$Prefix $Message" -ForegroundColor Red }
         "WARNING" { Write-Host "$Prefix $Message" -ForegroundColor Yellow }
         "DEBUG"   { Write-Host "$Prefix $Message" -ForegroundColor DarkGray }
+        "STANDARD" { Write-Host "$Prefix $Message" -ForegroundColor Magenta }
     }
 
     $Result.Messages += "$Prefix $Message"
 }
 
 try {
-    Write-Log "Skill Builder 启动" "INFO"
+    Write-Log "Skill标准化系统启动" "INFO"
     Write-Log "Action: $Action" "DEBUG"
-    Write-Log "Skill Name: $Name" "DEBUG"
+    Write-Log "Skill: $SkillPath" "DEBUG"
 
-    # 验证参数
-    if ([string]::IsNullOrWhiteSpace($Name)) {
-        throw "Skill name is required"
+    # 验证Skill路径
+    $FullSkillPath = "$SkillsDir/$SkillPath"
+
+    if (-not (Test-Path $FullSkillPath)) {
+        throw "Skill路径不存在: $FullSkillPath"
     }
 
-    # 转换为小写并移除特殊字符
-    $SkillName = $Name -replace '[^a-zA-Z0-9_-]', '-'
-    $SkillName = $SkillName.ToLower()
+    Write-Log "Skill路径: $FullSkillPath" "DEBUG"
 
-    # 确定目标目录
-    $TargetDir = "$SkillsDir/$SkillName"
+    # 加载Skill配置
+    $ConfigFile = "$FullSkillPath/config.json"
 
-    # 根据Action执行不同操作
+    if (-not (Test-Path $ConfigFile)) {
+        throw "配置文件不存在: $ConfigFile"
+    }
+
+    $SkillConfig = Get-Content -Path $ConfigFile | ConvertFrom-Json
+    $Result.SkillName = $SkillConfig.name
+
+    Write-Log "Skill名称: $($SkillConfig.name)" "STANDARD"
+
     switch ($Action) {
-        "create" {
-            $Result = & "$CompilerDir/create-skill.ps1" -Name $SkillName -Template $Template -Force:$Force -DryRun:$DryRun
-        }
-
-        "optimize" {
-            $Result = & "$CompilerDir/optimize-skill.ps1" -SkillName $SkillName -Force:$Force -DryRun:$DryRun
+        "validate" {
+            $Result = & "$ScriptPath/validators/validate-skill.ps1" -SkillPath $FullSkillPath -Strict:$Strict -DryRun:$DryRun
         }
 
         "compile" {
-            $Result = & "$CompilerDir/analyze-skill.ps1" -SkillName $SkillName -DryRun:$DryRun
+            $Result = & "$ScriptPath/compilers/compile-skill.ps1" -SkillPath $FullSkillPath -Strict:$Strict -DryRun:$DryRun
+        }
+
+        "score" {
+            $Result = & "$ScriptPath/scorers/score-skill.ps1" -SkillPath $FullSkillPath -Strict:$Strict -DryRun:$DryRun
         }
 
         "test" {
-            $Result = & "$TestDir/run-tests.ps1" -SkillName $SkillName -DryRun:$DryRun
-        }
-
-        "analyze" {
-            $Result = & "$CompilerDir/analyze-skill.ps1" -SkillName $SkillName -DryRun:$DryRun
-        }
-
-        "improve" {
-            $Result = & "$CompilerDir/optimize-skill.ps1" -SkillName $SkillName -Force:$Force -DryRun:$DryRun
-            if ($Result.Success) {
-                $Result = & "$TestDir/run-tests.ps1" -SkillName $SkillName -DryRun:$DryRun
-            }
+            $Result = & "$ScriptPath/testers/test-skill.ps1" -SkillPath $FullSkillPath -Strict:$Strict -DryRun:$DryRun
         }
 
         "report" {
-            $Result = & "$TestDir/generate-report.ps1" -SkillName $SkillName -DryRun:$DryRun
+            $Result = & "$ScriptPath/reporters/generate-report.ps1" -SkillPath $FullSkillPath -Strict:$Strict -DryRun:$DryRun
         }
     }
-
-    # 计算执行时间
-    $EndTime = Get-Date
-    $Result.Duration = ($EndTime - $StartTime).TotalSeconds
-    $Result.EndTime = $EndTime
 
     # 设置最终状态
-    if ($Result.Errors.Count -gt 0) {
-        $Result.Success = $false
-        Write-Log "操作失败" "ERROR"
-        Write-Log "错误数量: $($Result.Errors.Count)" "ERROR"
-        foreach ($Error in $Result.Errors) {
-            Write-Log "  - $Error" "ERROR"
-        }
-    } else {
-        $Result.Success = $true
-        Write-Log "操作成功" "SUCCESS"
-        Write-Log "执行时间: $([math]::Round($Result.Duration, 2))秒" "SUCCESS"
-    }
+    $Result.EndTime = Get-Date
+    $Result.Duration = ($Result.EndTime - $Result.StartTime).TotalSeconds
 
-    # 保存结果
-    $ResultFile = "$DataDir/results/skill-builder-$SkillName-$Action.json"
-    if (-not (Test-Path (Split-Path $ResultFile))) {
-        New-Item -ItemType Directory -Path (Split-Path $ResultFile) -Force | Out-Null
-    }
-
-    $Result | ConvertTo-Json -Depth 10 | Out-File -FilePath $ResultFile -Encoding UTF8
-
-    return $Result
+    Write-Log "操作完成" "SUCCESS"
+    Write-Log "执行时间: $([math]::Round($Result.Duration, 2))秒" "SUCCESS"
 
 } catch {
     $Result.Success = $false
     $Result.Errors += $_.Exception.Message
     $Result.Errors += $_.ScriptStackTrace
 
-    Write-Log "错误: $($_.Exception.Message)" "ERROR"
-    Write-Log "堆栈跟踪: $($_.ScriptStackTrace)" "ERROR"
+    Write-Log "操作失败: $($_.Exception.Message)" "ERROR"
 
-    # 保存错误结果
-    $ResultFile = "$DataDir/errors/skill-builder-$SkillName-$Action.json"
-    if (-not (Test-Path (Split-Path $ResultFile))) {
-        New-Item -ItemType Directory -Path (Split-Path $ResultFile) -Force | Out-Null
-    }
+    # 保存错误
+    $ErrorFile = "$ScriptPath/data/errors/skill-standard-error-$(Get-Date -Format 'yyyyMMdd-HHmmss').log"
+    $ErrorContent = @"
+Skill标准化系统错误
+时间: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
+操作: $Action
+Skill: $SkillPath
+错误: $($_.Exception.Message)
+堆栈: $($_.ScriptStackTrace)
 
-    $Result | ConvertTo-Json -Depth 10 | Out-File -FilePath $ResultFile -Encoding UTF8
+"@
+    $ErrorContent | Out-File -FilePath $ErrorFile -Encoding UTF8 -Force
+    Write-Log "错误已记录: $ErrorFile" "WARNING"
 
-    return $Result
 } finally {
-    Write-Log "Skill Builder 完成" "INFO"
+    return $Result
 }
