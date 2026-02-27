@@ -1,0 +1,12 @@
+{
+  "cacheEnabled": true,
+  "cacheSize": 100,
+  "cacheTTL": 300,
+  "cacheStrategy": "LRU",
+  "endpoints": {
+    "gateway-status": 600,
+    "skill-list": 1800,
+    "session-info": 300,
+    "memory-stats": 60
+  }
+}

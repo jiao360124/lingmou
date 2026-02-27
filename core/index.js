@@ -26,6 +26,12 @@ const performanceMonitor = require('./monitoring/performance-monitor');
 const memoryMonitor = require('./monitoring/memory-monitor');
 const predictiveEngine = require('./predictive-engine');
 
+// 性能优化模块
+const lazyLoader = require('./lazy-loader');
+const asyncIO = require('./async-io');
+const apiCache = require('./api-cache');
+const optimizedStrategyEngine = require('./optimized-strategy-engine');
+
 // 策略引擎模块
 const scenarioGenerator = require('./strategy/scenario-generator');
 const scenarioEvaluator = require('./strategy/scenario-evaluator');
@@ -73,6 +79,12 @@ module.exports = {
   benefitCalculator,
   roiAnalyzer,
 
+  // 性能优化模块
+  lazyLoader,
+  asyncIO,
+  apiCache,
+  optimizedStrategyEngine,
+
   /**
    * 初始化所有核心模块
    */
@@ -83,6 +95,11 @@ module.exports = {
     cognitiveLayer.init(config);
     systemMemory.init(config);
     unifiedIndex.init(config);
+
+    // 初始化性能优化模块
+    lazyLoader.init(config);
+    apiCache.init(config);
+    optimizedStrategyEngine.init(config);
   },
 
   /**
