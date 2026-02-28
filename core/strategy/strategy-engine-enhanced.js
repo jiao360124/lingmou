@@ -7,17 +7,16 @@
  * @date 2026-02-22
  */
 
-const ScenarioGenerator = require('./v3.2/scenario-generator');
-const ScenarioEvaluator = require('./v3.2/scenario-evaluator');
-const CostCalculator = require('./v3.2/cost-calculator');
-const BenefitCalculator = require('./v3.2/benefit-calculator');
-const ROIAnalyzer = require('./v3.2/roi-analyzer');
-const RiskAssessor = require('./v3.2/risk-assessor');
-const RiskController = require('./v3.2/risk-controller');
-const RiskAdjustedScorer = require('./v3.2/risk-adjusted-scorer');
-const AdversarySimulator = require('./v3.2/adversary-simulator');
-const MultiPerspectiveEvaluator = require('./v3.2/multi-perspective-evaluator');
-const GameOptimizer = require('./v3.2/game-optimizer');
+const ScenarioGenerator = require('./scenario-generator');
+const ScenarioEvaluator = require('./scenario-evaluator');
+const CostCalculator = require('./cost-calculator');
+const BenefitCalculator = require('./benefit-calculator');
+const ROIAnalyzer = require('./roi-analyzer');
+const RiskAssessor = require('./risk-assessor');
+const RiskController = require('./risk-controller');
+const RiskAdjustedScorer = require('./risk-adjusted-scorer');
+const AdversarySimulator = require('./adversary-simulator');
+const MultiPerspectiveEvaluator = require('./multi-perspective-evaluator');
 
 class StrategyEngineEnhanced {
   constructor(config = {}) {

@@ -1,22 +1,22 @@
 {
-  "apiKey": "moltbook_sk_3j4CexZeIxD4sfw0F4S-oUsemCW3NiEX",
-  "baseURL": "https://www.moltbook.com/api/v1",
-  "agentName": "AgentX2026",
-  "identity": "已验证",
-  "enabled": true,
-  "verified": true,
-  "verifiedAt": "2026-02-14 23:45:00",
-  "dailyGoal": {
-    "posts": 1,
-    "comments": 3,
-    "likes": 5,
-    "learningMinutes": 30
-  },
-  "active": {
-    "postsToday": 0,
-    "commentsToday": 0,
-    "likesToday": 0,
-    "learningMinutesToday": 0,
-    "lastActivity": null
-  }
+    "apiKey":  "moltbook_sk_3j4CexZeIxD4sfw0F4S-oUsemCW3NiEX",
+    "baseURL":  "https://www.moltbook.com/api/v1",
+    "agentName":  "AgentX2026",
+    "identity":  "Verified",
+    "enabled":  true,
+    "verified":  true,
+    "verifiedAt":  "2026-02-14 23:45:00",
+    "dailyGoal":  {
+                      "posts":  1,
+                      "comments":  3,
+                      "likes":  5,
+                      "learningMinutes":  30
+                  },
+    "active":  {
+                   "postsToday":  1,
+                   "commentsToday":  0,
+                   "likesToday":  0,
+                   "learningMinutesToday":  0,
+                   "lastActivity":  "2026-02-27 02:13:06"
+               }
 }

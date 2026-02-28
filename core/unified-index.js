@@ -22,11 +22,11 @@ const logger = winston.createLogger({
 const PredictiveEngine = require('./predictive-engine');
 
 // 场景模拟器（V3.2）
-const ScenarioGenerator = require('./scenario-generator');
-const ScenarioEvaluator = require('./scenario-evaluator');
+const ScenarioGenerator = require('./strategy/scenario-generator');
+const ScenarioEvaluator = require('./strategy/scenario-evaluator');
 
 // 策略引擎（V3.2）
-const StrategyEngine = require('./strategy-engine');
+const StrategyEngine = require('./strategy/strategy-engine');
 
 // 认知层（V3.2）
 const CognitiveLayer = require('./cognitive-layer');
@@ -55,13 +55,13 @@ const Watchdog = require('./watchdog');
 const NightlyWorker = require('./nightly-worker');
 
 // 性能监控模块
-const PerformanceMonitor = require('./performance-monitor');
+const PerformanceMonitor = require('./monitoring/performance-monitor');
 
 // 内存监控模块
-const MemoryMonitor = require('./memory-monitor');
+const MemoryMonitor = require('./monitoring/memory-monitor');
 
 // API追踪模块
-const APITracker = require('./api-tracker');
+const APITracker = require('./monitoring/api-tracker');
 
 // ==========================================
 // 初始化所有模块

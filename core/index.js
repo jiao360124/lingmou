@@ -17,7 +17,7 @@ const systemMemory = require('./system-memory');
 const unifiedIndex = require('./unified-index');
 
 // 系统工具
-const apiTracker = require('./api-tracker');
+const apiTracker = require('./monitoring/api-tracker');
 const architectureAuditor = require('./architecture-auditor');
 const rollbackEngine = require('./rollback-engine');
 const watchdog = require('./watchdog');
