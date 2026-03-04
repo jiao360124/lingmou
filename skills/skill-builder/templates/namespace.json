@@ -1,0 +1,107 @@
+{
+  "templateName": "namespace",
+  "displayName": "工具集合",
+  "description": "用于创建工具集合模板，提供分类的工具组织方式",
+  "parametersDescription": "无",
+  "dependencies": ["performance-metrics"],
+  "skillContent": "# {{NAME}}
+
+**版本**: 1.0.0
+**创建日期**: 2026-02-13
+
+---
+
+## 概述
+
+{{DESCRIPTION}}
+
+这是一个工具集合，包含多个相关的工具和函数。
+
+---
+
+## 工具列表
+
+### 工具1
+- **功能**: 描述工具功能
+- **用法**: .\\{{NAME}}.ps1 -Tool tool1 -Param1 value1
+
+### 工具2
+- **功能**: 描述工具功能
+- **用法**: .\\{{NAME}}.ps1 -Tool tool2 -Param1 value1
+
+---
+
+## 使用方法
+
+\`\`\`powershell
+# 使用工具
+.\{{NAME}}.ps1 -Tool <tool-name> -Param1 <value1>
+\`\`\`
+
+---
+
+## 参数
+
+| 参数 | 类型 | 必填 | 默认值 | 描述 |
+|------|------|------|--------|------|
+| Tool | string | 是 | - | 工具名称 |
+| Param1 | string | 否 | - | 参数1描述 |
+
+---
+
+**作者**: 灵眸
+**模板**: namespace
+**基于**: Moltbook MOLTRON",
+  "configContent": {
+    "name": "{{NAME}}",
+    "version": "1.0.0",
+    "author": "灵眸",
+    "description": "{{DESCRIPTION}}",
+    "category": "tools",
+    "tools": {
+      "tool1": {
+        "name": "工具1",
+        "description": "工具1描述",
+        "parameters": []
+      },
+      "tool2": {
+        "name": "工具2",
+        "description": "工具2描述",
+        "parameters": []
+      }
+    },
+    "rateLimit": {
+      "callsPerMinute": 120,
+      "concurrentCalls": 10
+    }
+  },
+  "scriptTemplate": "# {{NAME}} - 工具集合脚本
+
+# @Author: 灵眸
+# @Version: 1.0.0
+
+param(
+    [Parameter(Mandatory=$true)]
+    [ValidateSet("tool1", "tool2")]
+    [string]$Tool,
+
+    [Parameter(Mandatory=$false)]
+    [string]$Param1 = "default"
+)
+
+$ErrorActionPreference = 'Stop'
+
+Write-Host "[$(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')] $Tool - $Param1" -ForegroundColor Cyan
+
+switch ($Tool) {
+    "tool1" {
+        # TODO: 实现工具1逻辑
+        Write-Host "✓ 工具1执行成功: $Param1" -ForegroundColor Green
+    }
+    "tool2" {
+        # TODO: 实现工具2逻辑
+        Write-Host "✓ 工具2执行成功: $Param1" -ForegroundColor Green
+    }
+}
+"
+}

@@ -1,0 +1,36 @@
+{
+  "name": "moltbook-integration",
+  "version": "1.0.0",
+  "description": "Moltbook API Integration for AI Agents",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node --test tests/*.test.js",
+    "test:watch": "node --test --watch tests/*.test.js",
+    "lint": "eslint src/**/*.js",
+    "docs": "node scripts/generate-docs.js"
+  },
+  "keywords": [
+    "moltbook",
+    "ai",
+    "integration",
+    "api",
+    "community"
+  ],
+  "author": "Lingmou",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.0",
+    "node-cache": "^5.1.2",
+    "p-queue": "^7.4.0",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.50.0",
+    "jest": "^29.7.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

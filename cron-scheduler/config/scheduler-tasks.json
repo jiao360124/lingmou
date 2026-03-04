@@ -1,0 +1,21 @@
+{
+  "version": "2.0.0",
+  "description": "任务调度器任务定义文件",
+  "tasks": [],
+  "triggers": {
+    "time": {
+      "daily-report": "0 4 * * *",
+      "weekly-report": "0 0 * * 1",
+      "daily-metrics-reset": "0 3 * * *",
+      "weekly-cleanup": "0 0 * * 0",
+      "heartbeat-monitor": "*/30 * * * *"
+    }
+  },
+  "priority": {
+    "highest": 20,
+    "high": 15,
+    "medium": 10,
+    "low": 5,
+    "lowest": 1
+  }
+}

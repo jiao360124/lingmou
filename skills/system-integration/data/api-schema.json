@@ -1,0 +1,90 @@
+{
+  "apiVersion": "1.0.0",
+  "basePath": "/api/v1",
+  "endpoints": {
+    "copilot": {
+      "analyze": {
+        "method": "POST",
+        "path": "/copilot/analyze",
+        "description": "代码质量分析",
+        "request": {
+          "code": { "type": "string", "required": true, "description": "代码内容" },
+          "language": { "type": "string", "required": true, "description": "编程语言" },
+          "contextLines": { "type": "integer", "default": 5, "description": "上下文行数" },
+          "focus": { "type": "string", "default": "all", "description": "分析重点（quality, performance, security, maintainability）" }
+        },
+        "response": {
+          "success": { "type": "boolean" },
+          "analysis": {
+            "score": { "type": "number", "description": "质量评分0-100" },
+            "issues": { "type": "array", "items": { "type": "object" }, "description": "发现的问题" },
+            "suggestions": { "type": "array", "items": { "type": "object" }, "description": "改进建议" }
+          },
+          "metadata": {
+            "processingTime": { "type": "number", "description": "处理时间（毫秒）" },
+            "patternsUsed": { "type": "array", "items": { "type": "string" } }
+          }
+        }
+      },
+      "complement": {
+        "method": "POST",
+        "path": "/copilot/complement",
+        "description": "代码补全",
+        "request": {
+          "code": { "type": "string", "required": true, "description": "已有代码" },
+          "language": { "type": "string", "required": true, "description": "编程语言" },
+          "context": { "type": "string", "required": true, "description": "期望的代码上下文" },
+          "topN": { "type": "integer", "default": 3, "description": "返回补全数量" }
+        },
+        "response": {
+          "success": { "type": "boolean" },
+          "completions": { "type": "array", "items": { "type": "string" } },
+          "scores": { "type": "array", "items": { "type": "number" } },
+          "metadata": {
+            "retrievedPatterns": { "type": "integer", "description": "检索到的模式数" }
+          }
+        }
+      }
+    },
+    "rag": {
+      "search": {
+        "method": "POST",
+        "path": "/rag/search",
+        "description": "知识库检索",
+        "request": {
+          "query": { "type": "string", "required": true, "description": "搜索关键词" },
+          "categories": { "type": "array", "items": { "type": "string" }, "description": "分类过滤" },
+          "tags": { "type": "array", "items": { "type": "string" }, "description": "标签过滤" },
+          "limit": { "type": "integer", "default": 10, "description": "返回数量" },
+          "minScore": { "type": "number", "default": 0.5, "description": "最低相关度分数" }
+        },
+        "response": {
+          "success": { "type": "boolean" },
+          "results": { "type": "array", "items": { "type": "object" } },
+          "total": { "type": "integer", "description": "总结果数" },
+          "metadata": {
+            "searchTime": { "type": "number", "description": "搜索时间（毫秒）" }
+          }
+        }
+      }
+    },
+    "auto-gpt": {
+      "run": {
+        "method": "POST",
+        "path": "/auto-gpt/run",
+        "description": "执行任务",
+        "request": {
+          "task": { "type": "string", "required": true, "description": "任务描述" },
+          "params": { "type": "object", "description": "任务参数" },
+          "workflow": { "type": "string", "description": "工作流类型" }
+        },
+        "response": {
+          "success": { "type": "boolean" },
+          "taskId": { "type": "string", "description": "任务ID" },
+          "status": { "type": "string", "description": "任务状态" },
+          "result": { "type": "object", "description": "任务结果" }
+        }
+      }
+    }
+  }
+}

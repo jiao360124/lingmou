@@ -1,0 +1,112 @@
+{
+  "templateName": "default",
+  "displayName": "默认模板",
+  "description": "通用默认模板，用于创建基础Skill",
+  "parametersDescription": "无",
+  "dependencies": ["performance-metrics"],
+  "skillContent": "# {{NAME}}
+
+**版本**: 1.0.0
+**创建日期**: 2026-02-13
+
+---
+
+## 概述
+
+{{DESCRIPTION}}
+
+---
+
+## 核心功能
+
+### 功能1
+描述此功能
+
+### 功能2
+描述此功能
+
+---
+
+## 使用方法
+
+\`\`\`powershell
+# 执行功能
+.\{{NAME}}.ps1 -Action <action> -Param <value>
+\`\`\`
+
+---
+
+## 参数
+
+| 参数 | 类型 | 必填 | 默认值 | 描述 |
+|------|------|------|--------|------|
+| Action | string | 是 | - | 操作类型 |
+| Param | string | 否 | - | 参数描述 |
+
+---
+
+## 使用示例
+
+\`\`\`powershell
+# 执行action1
+.\{{NAME}}.ps1 -Action action1 -Param "value"
+
+# 执行action2
+.\{{NAME}}.ps1 -Action action2
+\`\`\`
+
+---
+
+## 依赖
+
+- performance-metrics - 性能评估
+
+---
+
+**作者**: 灵眸
+**模板**: default
+**基于**: Moltbook MOLTRON",
+  "configContent": {
+    "name": "{{NAME}}",
+    "version": "1.0.0",
+    "author": "灵眸",
+    "description": "{{DESCRIPTION}}",
+    "category": "general",
+    "actions": ["action1", "action2"],
+    "parameters": {},
+    "dependencies": ["performance-metrics"],
+    "rateLimit": {
+      "callsPerMinute": 60,
+      "concurrentCalls": 5
+    }
+  },
+  "scriptTemplate": "# {{NAME}} - 默认脚本
+
+# @Author: 灵眸
+# @Version: 1.0.0
+
+param(
+    [Parameter(Mandatory=$true)]
+    [ValidateSet("action1", "action2")]
+    [string]$Action,
+
+    [Parameter(Mandatory=$false)]
+    [string]$Param = ""
+)
+
+$ErrorActionPreference = 'Stop'
+
+Write-Host "[$(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')] $Action - $Param" -ForegroundColor Cyan
+
+switch ($Action) {
+    "action1" {
+        # TODO: 实现action1逻辑
+        Write-Host "✓ action1执行成功: $Param" -ForegroundColor Green
+    }
+    "action2" {
+        # TODO: 实现action2逻辑
+        Write-Host "✓ action2执行成功" -ForegroundColor Green
+    }
+}
+"
+}

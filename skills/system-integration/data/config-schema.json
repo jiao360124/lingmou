@@ -1,0 +1,72 @@
+{
+  "version": "1.0.0",
+  "global": {
+    "version": { "type": "string", "default": "1.0.0", "description": "系统版本" },
+    "environment": { "type": "string", "enum": ["development", "testing", "production"], "default": "development", "description": "运行环境" },
+    "timezone": { "type": "string", "default": "Asia/Shanghai", "description": "时区设置" },
+    "debug": { "type": "boolean", "default": false, "description": "调试模式" }
+  },
+  "api": {
+    "timeout": { "type": "integer", "default": 30, "min": 5, "max": 300, "description": "API请求超时（秒）" },
+    "retry": { "type": "integer", "default": 3, "min": 0, "max": 10, "description": "重试次数" },
+    "rateLimit": { "type": "integer", "default": 60, "min": 1, "max": 1000, "description": "请求速率限制（次/分钟）" },
+    "maxConnections": { "type": "integer", "default": 10, "min": 1, "max": 50, "description": "最大并发连接数" }
+  },
+  "skills": {
+    "copilot": {
+      "enabled": { "type": "boolean", "default": true, "description": "是否启用Copilot" },
+      "timeout": { "type": "integer", "default": 20, "min": 5, "max": 120, "description": "超时时间（秒）" },
+      "patterns": {
+        "type": "array",
+        "items": { "type": "string" },
+        "default": ["javascript", "python"],
+        "description": "支持的编程语言/模式"
+      },
+      "maxCompletions": { "type": "integer", "default": 5, "min": 1, "max": 20, "description": "最大补全数量" }
+    },
+    "auto-gpt": {
+      "enabled": { "type": "boolean", "default": true, "description": "是否启用Auto-GPT" },
+      "timeout": { "type": "integer", "default": 60, "min": 30, "max": 300, "description": "超时时间（秒）" },
+      "maxTasks": { "type": "integer", "default": 10, "min": 1, "max": 100, "description": "最大并发任务数" },
+      "enableErrorRecovery": { "type": "boolean", "default": true, "description": "启用错误恢复" }
+    },
+    "rag": {
+      "enabled": { "type": "boolean", "default": true, "description": "是否启用RAG" },
+      "indexPath": { "type": "string", "default": "./data/knowledge-base.json", "description": "知识库索引文件路径" },
+      "maxResults": { "type": "integer", "default": 10, "min": 1, "max": 50, "description": "最大检索结果数" },
+      "enableOnlineSources": { "type": "boolean", "default": true, "description": "启用在线源集成" }
+    },
+    "prompt-engineering": {
+      "enabled": { "type": "boolean", "default": true, "description": "是否启用提示工程" },
+      "maxTemplates": { "type": "integer", "default": 50, "min": 1, "max": 200, "description": "最大模板数量" }
+    },
+    "skill-linkage": {
+      "enabled": { "type": "boolean", "default": true, "description": "是否启用技能联动" },
+      "maxParallel": { "type": "integer", "default": 5, "min": 1, "max": 20, "description": "最大并行任务数" }
+    }
+  },
+  "storage": {
+    "cachePath": { "type": "string", "default": "./data/cache", "description": "缓存目录路径" },
+    "logPath": { "type": "string", "default": "./logs", "description": "日志目录路径" },
+    "maxCacheSize": { "type": "string", "default": "1GB", "pattern": "^[0-9]+[BKMG]?$", "description": "最大缓存大小" },
+    "cacheTTL": { "type": "integer", "default": 3600, "min": 60, "max": 86400, "description": "缓存有效期（秒）" }
+  },
+  "logging": {
+    "level": { "type": "string", "enum": ["debug", "info", "warn", "error"], "default": "info", "description": "日志级别" },
+    "format": { "type": "string", "enum": ["text", "json", "pretty"], "default": "json", "description": "日志格式" },
+    "output": { "type": "string", "enum": ["file", "console", "both"], "default": "both", "description": "输出方式" },
+    "logRetention": { "type": "integer", "default": 7, "min": 1, "max": 90, "description": "日志保留天数" }
+  },
+  "security": {
+    "apiKeys": { "type": "object", "description": "API密钥配置" },
+    "rateLimitEnabled": { "type": "boolean", "default": true, "description": "启用速率限制" },
+    "ipWhitelist": { "type": "array", "items": { "type": "string" }, "description": "IP白名单" },
+    "ipBlocklist": { "type": "array", "items": { "type": "string" }, "description": "IP黑名单" }
+  },
+  "performance": {
+    "enableCompression": { "type": "boolean", "default": true, "description": "启用数据压缩" },
+    "enableCaching": { "type": "boolean", "default": true, "description": "启用结果缓存" },
+    "maxCacheEntries": { "type": "integer", "default": 1000, "min": 100, "max": 10000, "description": "最大缓存条目数" },
+    "chunkSize": { "type": "integer", "default": 1024, "min": 256, "max": 8192, "description": "数据分块大小（字节）" }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "local": {
+    "name": "本地文件",
+    "enabled": true,
+    "search_command": "fd -t f -H -J {query}",
+    "content_command": "rg -C 5 -i --heading {query}",
+    "weight": 0.6,
+    "icon": "📁",
+    "paths": ["C:\\Users\\Administrator\\.openclaw\\workspace"]
+  },
+  "web": {
+    "name": "Web搜索",
+    "enabled": true,
+    "search_command": "powershell -Command \"& '.\\scripts\\search-web.ps1' -Query '{query}' -Results 5\"",
+    "weight": 0.5,
+    "icon": "🌐"
+  },
+  "memory": {
+    "name": "内部记忆",
+    "enabled": true,
+    "paths": ["C:\\Users\\Administrator\\.openclaw\\workspace\\MEMORY.md", "C:\\Users\\Administrator\\.openclaw\\workspace\\memory\\2026-02-14.md"],
+    "weight": 0.7,
+    "icon": "🧠"
+  },
+  "rag": {
+    "name": "RAG知识库",
+    "enabled": true,
+    "weight": 0.9,
+    "icon": "📚",
+    "knowledge_base": "C:\\Users\\Administrator\\.openclaw\\workspace\\skills\\rag\\data\\knowledge-base.json"
+  },
+  "moltbook": {
+    "name": "Moltbook社区",
+    "enabled": false,
+    "weight": 0.8,
+    "icon": "👥"
+  },
+  "api": {
+    "name": "API结果",
+    "enabled": false,
+    "weight": 0.4,
+    "icon": "🔌"
+  }
+}

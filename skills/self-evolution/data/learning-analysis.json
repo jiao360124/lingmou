@@ -1,0 +1,21 @@
+﻿{
+    "PerformanceInsights":  {
+                                "skillUsage":  {
+
+                                               },
+                                "topSkills":  null
+                            },
+    "SkillPreferences":  {
+
+                         },
+    "OptimizationOpportunities":  [
+
+                                  ],
+    "UsagePatterns":  {
+                          "avgTokensPerSession":  0,
+                          "totalSessions":  0,
+                          "peakUsageHours":  {
+
+                                             }
+                      }
+}

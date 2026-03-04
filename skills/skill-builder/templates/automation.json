@@ -1,0 +1,120 @@
+{
+  "templateName": "automation",
+  "displayName": "自动化任务",
+  "description": "用于创建自动化任务模板，适用于定时任务、批处理等场景",
+  "parametersDescription": "无",
+  "dependencies": ["performance-metrics", "persistent-memory"],
+  "skillContent": "# {{NAME}}
+
+**版本**: 1.0.0
+**创建日期**: 2026-02-13
+
+---
+
+## 概述
+
+{{DESCRIPTION}}
+
+---
+
+## 核心功能
+
+### 1. 功能1
+描述此功能
+
+### 2. 功能2
+描述此功能
+
+---
+
+## 使用方法
+
+\`\`\`powershell
+# 执行自动化任务
+.\{{NAME}}.ps1 -Action run -Task <task-name>
+\`\`\`
+
+---
+
+## 参数
+
+| 参数 | 类型 | 必填 | 默认值 | 描述 |
+|------|------|------|--------|------|
+| Action | string | 是 | - | 操作类型 (run/stop/status) |
+| Task | string | 是 | - | 任务名称 |
+
+---
+
+## 使用示例
+
+\`\`\`powershell
+# 启动任务
+.\{{NAME}}.ps1 -Action run -Task "daily-backup"
+
+# 查看状态
+.\{{NAME}}.ps1 -Action status -Task "daily-backup"
+
+# 停止任务
+.\{{NAME}}.ps1 -Action stop -Task "daily-backup"
+\`\`\`
+
+---
+
+## 依赖
+
+- performance-metrics - 性能评估
+- persistent-memory - 持久化记忆
+
+---
+
+**作者**: 灵眸
+**模板**: automation
+**基于**: Moltbook MOLTRON",
+  "configContent": {
+    "name": "{{NAME}}",
+    "version": "1.0.0",
+    "author": "灵眸",
+    "description": "{{DESCRIPTION}}",
+    "category": "automation",
+    "parameters": {},
+    "actions": ["run", "stop", "status"],
+    "dependencies": ["performance-metrics", "persistent-memory"],
+    "rateLimit": {
+      "callsPerMinute": 60,
+      "concurrentCalls": 5
+    }
+  },
+  "scriptTemplate": "# {{NAME}} - 自动化任务脚本
+
+# @Author: 灵眸
+# @Version: 1.0.0
+
+param(
+    [Parameter(Mandatory=$true)]
+    [ValidateSet("run", "stop", "status")]
+    [string]$Action,
+
+    [Parameter(Mandatory=$true)]
+    [string]$Task
+)
+
+$ErrorActionPreference = 'Stop'
+
+Write-Host "[$(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')] $Task - $Action" -ForegroundColor Cyan
+
+switch ($Action) {
+    "run" {
+        # TODO: 实现任务运行逻辑
+        Write-Host "✓ 任务启动: $Task" -ForegroundColor Green
+    }
+    "stop" {
+        # TODO: 实现任务停止逻辑
+        Write-Host "✓ 任务停止: $Task" -ForegroundColor Green
+    }
+    "status" {
+        # TODO: 实现状态查询逻辑
+        Write-Host "✓ 任务状态: 运行中" -ForegroundColor Green
+    }
+}
+"
+}

@@ -1,0 +1,22 @@
+{
+  "dailyBudget": 200000,
+  "turnThreshold": 10,
+  "baseContextThreshold": 40000,
+  "cooldownTurns": 3,
+  "budgetCompressionLevels": [0.8, 0.7, 0.6, 0.5, 0.4],
+  "nightBudgetTokens": 50000,
+  "nightBudgetCalls": 10,
+  "validationDays": 3,
+  "maxRequestsPerMinute": 60,
+  "checkInterval": 60000,
+  "warningThresholds": {
+    "avgLatency": 2000,
+    "errorRate": 0.05,
+    "successRate": 0.9
+  },
+  "criticalThresholds": {
+    "avgLatency": 5000,
+    "errorRate": 0.1,
+    "successRate": 0.8
+  }
+}

@@ -1,0 +1,56 @@
+﻿[
+    {
+        "action":  "Create learning plan",
+        "description":  "Focus on @{intensity=Medium; growth=Stable; area=Self Evolution}.area",
+        "startDate":  "2026-02-14",
+        "estimatedHours":  2,
+        "priority":  "high",
+        "category":  "High Priority",
+        "status":  "pending"
+    },
+    {
+        "action":  "Create learning plan",
+        "description":  "Focus on @{intensity=High; growth=Continuous; area=Performance Optimization}.area",
+        "startDate":  "2026-02-14",
+        "estimatedHours":  2,
+        "priority":  "high",
+        "category":  "High Priority",
+        "status":  "pending"
+    },
+    {
+        "action":  "Create learning plan",
+        "description":  "Focus on @{intensity=Medium; growth=Gradual; area=Moltbook Integration}.area",
+        "startDate":  "2026-02-14",
+        "estimatedHours":  2,
+        "priority":  "high",
+        "category":  "High Priority",
+        "status":  "pending"
+    },
+    {
+        "action":  "Follow the pattern",
+        "description":  "Implement @{frequency=5; description=Regular performance evaluation; name=Performance Optimization Pattern}.name",
+        "startDate":  "2026-02-14",
+        "estimatedHours":  4,
+        "priority":  "medium",
+        "category":  "Medium Priority",
+        "status":  "pending"
+    },
+    {
+        "action":  "Follow the pattern",
+        "description":  "Implement @{frequency=3; description=Sync docs after updates; name=Documentation Update Pattern}.name",
+        "startDate":  "2026-02-14",
+        "estimatedHours":  4,
+        "priority":  "medium",
+        "category":  "Medium Priority",
+        "status":  "pending"
+    },
+    {
+        "action":  "Follow the pattern",
+        "description":  "Implement @{frequency=1; description=Automated daily backup; name=Daily Backup Pattern}.name",
+        "startDate":  "2026-02-14",
+        "estimatedHours":  4,
+        "priority":  "medium",
+        "category":  "Medium Priority",
+        "status":  "pending"
+    }
+]

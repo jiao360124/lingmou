@@ -1,0 +1,102 @@
+﻿========================================
+Lingmou v3.2.5 Integration Report
+========================================
+
+Time: 2026-02-26 19:48:21
+Version: v3.2.5
+Type: v3.3 Core Modules Integration
+
+========================================
+Module Statistics
+========================================
+
+Core modules: 24 modules
+Total size: 181.25 KB
+
+Utils modules: 14 modules
+Total size: 71.72 KB
+
+Economy modules: 1 modules
+Total size: 2.54 KB
+
+Metrics modules: 1 modules
+Total size: 4.67 KB
+
+TOTAL SIZE: 260.18 KB
+
+========================================
+New Features (v3.3 Phase 3.3-1)
+========================================
+
+Strategy Engine Enhancement:
+  - Scenario Simulator (scenario-generator.js + scenario-evaluator.js)
+  - Cost-Benefit Scorer (cost-calculator.js + benefit-calculator.js + roi-analyzer.js)
+  - Risk Weight Model (risk-assessor.js + risk-controller.js + risk-adjusted-scorer.js)
+  - Self-Play Mechanism (adversary-simulator.js + multi-perspective-evaluator.js)
+  - Enhanced Strategy Engine (strategy-engine-enhanced.js)
+
+Monitoring & Optimization:
+  - Performance Monitor (performance-monitor.js)
+  - Nightly Worker (nightly-worker.js)
+  - Memory Monitor (memory-monitor.js)
+  - Watchdog (watchdog.js)
+
+System Enhancement:
+  - Rollback Engine (rollback-engine.js)
+  - Unified Index (unified-index.js)
+  - Architecture Auditor (architecture-auditor.js)
+  - API Tracker (api-tracker.js)
+
+Economy System:
+  - Token Governor (economy/token-governor.js)
+
+Metrics Tracking:
+  - Tracker (metrics/tracker.js)
+  - Dashboard Data (metrics/dashboard-data.json)
+
+Utils Modules:
+  - Session Compressor (utils/session-compressor.js)
+
+========================================
+Integration Notes
+========================================
+
+Base version: v3.2
+Integration source: v3.3 Phase 3.3-1
+Integration type: Partial integration
+
+Not integrated (waiting for v3.3):
+  - Phase 3.3-2: Cognitive Layer Deepening
+  - Phase 3.3-3: Architecture Self-Audit Improvement
+  - Phase 3.3-4: Integration and Testing
+
+========================================
+Next Steps
+========================================
+
+1. Test all core modules
+2. Verify module dependencies
+3. Update documentation (v3.2.5-README.md)
+4. Git commit changes
+5. Push to remote repository
+
+========================================
+Backup Information
+========================================
+
+Backup directory: C:\Users\Administrator\.openclaw\workspace\backup\v325-integration-20260226-194821
+Backup contents:
+  - backup-core/ - Complete core modules
+  - backup-utils/ - Complete utils modules
+  - backup-economy/ - Complete economy modules
+  - backup-metrics/ - Complete metrics modules
+
+Rollback command:
+  Copy-Item -Path "C:\Users\Administrator\.openclaw\workspace\backup\v325-integration-20260226-194821\backup-core" -Destination "core" -Recurse -Force
+  Copy-Item -Path "C:\Users\Administrator\.openclaw\workspace\backup\v325-integration-20260226-194821\backup-utils" -Destination "utils" -Recurse -Force
+  Copy-Item -Path "C:\Users\Administrator\.openclaw\workspace\backup\v325-integration-20260226-194821\backup-economy" -Destination "economy" -Recurse -Force
+  Copy-Item -Path "C:\Users\Administrator\.openclaw\workspace\backup\v325-integration-20260226-194821\backup-metrics" -Destination "metrics" -Recurse -Force
+
+========================================
+Report Generated: 2026-02-26 19:48:21
+========================================

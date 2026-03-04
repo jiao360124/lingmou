@@ -1,0 +1,85 @@
+{
+  "version": "1.0.0",
+  "enabled": true,
+  "intervalMinutes": 30,
+  "maxQueueSize": 100,
+  "maxRetries": 3,
+  "retryDelaySeconds": 60,
+  "channels": {
+    "heartbeat": true,
+    "telegram": true,
+    "console": true
+  },
+  "notifications": {
+    "enabled": true,
+    "channels": {
+      "heartbeat": true,
+      "telegram": true,
+      "console": true
+    },
+    "types": {
+      "task-completed": {
+        "enabled": true,
+        "template": "✅ 任务完成: {taskName}",
+        "priority": "normal"
+      },
+      "task-failed": {
+        "enabled": true,
+        "template": "❌ 任务失败: {taskName} - {errorMessage}",
+        "priority": "high"
+      },
+      "queue-full": {
+        "enabled": true,
+        "template": "⚠️ 任务队列已满 ({count}/{max})",
+        "priority": "high"
+      },
+      "system-start": {
+        "enabled": true,
+        "template": "🚀 Heartbeat整合系统启动",
+        "priority": "normal"
+      },
+      "system-stop": {
+        "enabled": true,
+        "template": "🛑 Heartbeat整合系统停止",
+        "priority": "high"
+      }
+    }
+  },
+  "presetTasks": {
+    "check-memory": {
+      "name": "检查记忆文件",
+      "action": "memory-check",
+      "parameters": {},
+      "priority": "normal",
+      "delaySeconds": 0
+    },
+    "update-daily-log": {
+      "name": "更新每日日志",
+      "action": "daily-log",
+      "parameters": {},
+      "priority": "normal",
+      "delaySeconds": 300
+    },
+    "sync-moltbook": {
+      "name": "同步Moltbook",
+      "action": "moltbook-sync",
+      "parameters": {},
+      "priority": "high",
+      "delaySeconds": 600
+    },
+    "generate-report": {
+      "name": "生成每日报告",
+      "action": "daily-report",
+      "parameters": {},
+      "priority": "normal",
+      "delaySeconds": 1800
+    }
+  },
+  "telegram": {
+    "chatId": "1520225096",
+    "apiToken": "",
+    "enabled": false
+  },
+  "createdAt": "2026-02-14",
+  "lastUpdated": "2026-02-14"
+}

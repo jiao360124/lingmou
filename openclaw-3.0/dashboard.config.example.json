@@ -1,0 +1,37 @@
+// openclaw-3.0/dashboard.config.json
+// Dashboard 配置文件示例
+
+{
+  "server": {
+    "port": 8080,
+    "host": "127.0.0.1"
+  },
+  "cache": {
+    "duration": 30000,
+    "maxLogs": 10000
+  },
+  "websocket": {
+    "path": "/ws",
+    "interval": 60000
+  },
+  "dataService": {
+    "logFile": "logs/dashboard-logs.json",
+    "exportFormats": ["json", "csv"]
+  },
+  "dashboard": {
+    "title": "OpenClaw Dashboard",
+    "refreshInterval": 30000,
+    "theme": "light"
+  },
+  "dataSources": {
+    "requestLogger": true,
+    "circuitBreaker": false,
+    "modelScheduler": false,
+    "dynamicSwitcher": false
+  },
+  "export": {
+    "enabled": true,
+    "formats": ["json", "csv"],
+    "autoExport": false
+  }
+}

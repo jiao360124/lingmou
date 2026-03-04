@@ -1,0 +1,28 @@
+{
+  "Checks": {
+    "Moltbook": {
+      "TotalChecks": 0,
+      "SuccessCount": 0,
+      "FailureCount": 0,
+      "LastCheck": null,
+      "CurrentStatus": "unknown"
+    },
+    "Network": {
+      "TotalChecks": 0,
+      "SuccessCount": 0,
+      "FailureCount": 0,
+      "LastCheck": null,
+      "CurrentStatus": "unknown"
+    },
+    "API": {
+      "TotalChecks": 0,
+      "SuccessCount": 0,
+      "FailureCount": 0,
+      "LastCheck": null,
+      "CurrentStatus": "unknown"
+    }
+  },
+  "Warnings": 0,
+  "Downgrades": 0,
+  "LastUpdated": "2026-02-14 23:55:00"
+}

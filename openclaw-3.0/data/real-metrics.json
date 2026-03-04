@@ -1,0 +1,67 @@
+{
+  "daily": {
+    "startTime": "Mon Feb 16 2026",
+    "tokens": 550,
+    "calls": 4,
+    "successes": 3,
+    "failures": 1,
+    "totalCost": 0.05,
+    "avgLatency": 3475,
+    "successRate": 75
+  },
+  "hourly": [
+    {
+      "hour": 8,
+      "tokens": 550,
+      "calls": 4,
+      "successes": 3,
+      "failures": 1,
+      "cost": 0.05
+    }
+  ],
+  "dailyByHour": {
+    "8": {
+      "hour": 8,
+      "tokens": 550,
+      "calls": 4,
+      "successes": 3,
+      "failures": 1,
+      "cost": 0.05
+    }
+  },
+  "callHistory": [
+    {
+      "tokensUsed": 100,
+      "success": true,
+      "latency": 500,
+      "cost": 0.01,
+      "model": "gpt-3.5-turbo",
+      "timestamp": "2026-02-16T00:25:06.371Z"
+    },
+    {
+      "tokensUsed": 250,
+      "success": true,
+      "latency": 800,
+      "cost": 0.025,
+      "model": "gpt-4",
+      "timestamp": "2026-02-16T00:25:06.371Z"
+    },
+    {
+      "tokensUsed": 50,
+      "success": false,
+      "latency": 12000,
+      "cost": 0,
+      "model": "gpt-3.5-turbo",
+      "timestamp": "2026-02-16T00:25:06.371Z"
+    },
+    {
+      "tokensUsed": 150,
+      "success": true,
+      "latency": 600,
+      "cost": 0.015,
+      "model": "gpt-3.5-turbo",
+      "timestamp": "2026-02-16T00:25:06.371Z"
+    }
+  ],
+  "lastUpdated": "2026-02-16T00:25:06.374Z"
+}

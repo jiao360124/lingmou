@@ -1,0 +1,44 @@
+{
+  "heartbeat_config": {
+    "check_interval_minutes": 30,
+    "check_sources": [
+      "gateway",
+      "memory",
+      "disk",
+      "network",
+      "api"
+    ],
+    "check_windows": {
+      "gateway": "running",
+      "memory": "stable",
+      "disk": "> 70%",
+      "network": "available",
+      "api": "healthy"
+    },
+    "notification_thresholds": {
+      "warning": 15,
+      "critical": 30
+    }
+  },
+  "check_history": [],
+  "last_checks": {
+    "gateway": null,
+    "memory": null,
+    "disk": null,
+    "network": null,
+    "api": null
+  },
+  "current_status": {
+    "overall": "healthy",
+    "last_status_change": null,
+    "consecutive_checks": 0,
+    "consecutive_failures": 0
+  },
+  "performance_metrics": {
+    "avg_response_time_ms": 0,
+    "total_checks_performed": 0,
+    "successful_checks": 0,
+    "failed_checks": 0
+  },
+  "alerts": []
+}

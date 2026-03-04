@@ -1,0 +1,51 @@
+# OpenClaw 3.0 Docker Compose 配置
+# 一键部署配置
+
+version: '3.8'
+
+services:
+  openclaw:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: openclaw-3.0
+    restart: unless-stopped
+    ports:
+      - "18789:18789"  # Dashboard API
+      - "3000:3000"    # Dashboard UI
+    environment:
+      - NODE_ENV=production
+      - PORT=18789
+      - API_BASE_URL=${API_BASE_URL:-https://api.openai.com/v1}
+      - DAILY_BUDGET=${DAILY_BUDGET:-200000}
+    volumes:
+      - ./logs:/app/logs
+      - ./data:/app/data
+      - ./reports:/app/reports
+      - ./config.json:/app/config.json
+    networks:
+      - openclaw-network
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:18789/api/status', (r) => {process.exit(r.statusCode === 200 ? 0 : 1)})"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 10s
+
+  # 可选：Prometheus监控（如果需要）
+  # prometheus:
+  #   image: prom/prometheus:v2.47.0
+  #   container_name: prometheus
+  #   ports:
+  #     - "9090:9090"
+  #   volumes:
+  #     - ./prometheus.yml:/etc/prometheus/prometheus.yml
+  #   command:
+  #     - '--config.file=/etc/prometheus/prometheus.yml'
+  #   networks:
+  #     - openclaw-network
+
+# 网络配置
+networks:
+  openclaw-network:
+    driver: bridge

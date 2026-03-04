@@ -1,0 +1,134 @@
+﻿# OpenClaw v3.2 Architecture Diagram
+
+## System Overview
+`
+鈹屸攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?鈹?                 OpenClaw v3.2                        鈹?鈹?             (AI-Powered Assistant System)            鈹?鈹斺攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?                          鈹?        鈹屸攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹尖攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?        鈹?                鈹?                鈹?鈹屸攢鈹€鈹€鈹€鈹€鈹€鈹€鈻尖攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?鈹屸攢鈹€鈹€鈹€鈹€鈻尖攢鈹€鈹€鈹€鈹€鈹€鈹?鈹屸攢鈹€鈹€鈹€鈹€鈹€鈹€鈻尖攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?鈹? Skills Layer  鈹?鈹?Core Layer 鈹?鈹? Data Layer    鈹?鈹斺攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?鈹斺攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?鈹斺攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?`
+
+## Skills Layer (67 Skills)
+
+### Browser & Frontend (3)
+鈹溾攢鈹€ agent-browser (consolidated)
+鈹斺攢鈹€ ...
+
+### API & Backend (4)
+鈹溾攢鈹€ api-dev
+鈹溾攢鈹€ api-gateway
+鈹溾攢鈹€ system-integration
+鈹斺攢鈹€ database
+
+### Git Tools (4)
+鈹溾攢鈹€ git-essentials
+鈹溾攢鈹€ github-action-gen
+鈹溾攢鈹€ github-pr
+鈹斺攢鈹€ git-sync
+
+### Testing (2)
+鈹溾攢鈹€ test-runner
+鈹斺攢鈹€ webapp-testing
+
+### Security (3)
+鈹溾攢鈹€ fail2ban-reporter
+鈹溾攢鈹€ agentguard
+鈹斺攢鈹€ debug-pro
+
+### LLM/AI (6)
+鈹溾攢鈹€ auto-gpt
+鈹溾攢鈹€ langchain
+鈹溾攢鈹€ moltbook
+鈹溾攢鈹€ gpt
+鈹溾攢鈹€ prompt-engineering
+鈹斺攢鈹€ rag
+
+### Search (4)
+鈹溾攢鈹€ smart-search
+鈹溾攢鈹€ file-search
+鈹溾攢鈹€ deepwiki
+鈹斺攢鈹€ exa-web-search-free
+
+### Dev Tools (5)
+鈹溾攢鈹€ docker-essentials
+鈹溾攢鈹€ jq
+鈹溾攢鈹€ ripgrep
+鈹溾攢鈹€ ffmpeg-cli
+鈹斺攢鈹€ fd-find
+
+### Workflow (4)
+鈹溾攢鈹€ clawlist
+鈹溾攢鈹€ cyclic-review
+鈹溾攢鈹€ task-status
+鈹斺攢鈹€ deepwork-tracker
+
+### Documentation (3)
+鈹溾攢鈹€ conventional-commits
+鈹溾攢鈹€ get-tldr
+鈹斺攢鈹€ skill-builder
+
+### And 25+ specialized skills...
+
+## Core Layer (17 Modules)
+
+### Self-Protection (5)
+鈹溾攢鈹€ rollback-engine.js
+鈹溾攢鈹€ system-memory.js
+鈹溾攢鈹€ watchdog.js
+鈹溾攢鈹€ predictive-engine.js
+鈹斺攢鈹€ risk-controller.js
+
+### Control & Strategy (4)
+鈹溾攢鈹€ control-tower.js
+鈹溾攢鈹€ strategy-engine.js
+鈹溾攢鈹€ cognitive-layer.js
+鈹溾攢鈹€ objective-engine.js 鉂?鈹斺攢鈹€ value-engine.js 鉂?
+### Analysis (4)
+鈹溾攢鈹€ architecture-auditor.js
+鈹溾攢鈹€ risk-assessor.js
+鈹溾攢鈹€ cost-calculator.js
+鈹斺攢鈹€ benefit-calculator.js
+
+### Integration (4)
+鈹溾攢鈹€ adversary-simulator.js
+鈹溾攢鈹€ risk-adjusted-scorer.js
+鈹溾攢鈹€ multi-perspective-evaluator.js
+鈹斺攢鈹€ integration-manager.js
+
+## Data Layer
+
+### Metrics
+- metrics/tracker.js
+- metrics/*.json files
+
+### Logs
+- logs/*.log files
+
+### Configuration
+- config/*.json files
+
+## Integration Flow
+
+`
+User Request
+      鈹?      鈻?鈹屸攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?鈹?  Gateway   鈹?鈹斺攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?      鈹?      鈻?鈹屸攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?鈹?Skills Layer鈹?鈫?67 skills
+鈹斺攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?      鈹?      鈻?鈹屸攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?鈹?Core Layer  鈹?鈫?15/17 modules
+鈹斺攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?      鈹?      鈻?鈹屸攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?鈹?Data Layer  鈹?鈹斺攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?`
+
+## Performance Metrics
+
+- Skills: 67
+- Core Modules: 15/17 (88.2%)
+- Code Reduction: 35-40%
+- Backup: Complete
+- Documentation: Comprehensive
+
+## Integration Points
+
+1. **Browser**: agent-browser
+2. **API**: api-gateway
+3. **Git**: git-essentials + tools
+4. **Testing**: test-runner
+5. **Security**: fail2ban-reporter + agentguard
+
+---
+
+**Diagram Generated**: 2026-02-26 18:14:47
+**Version**: v3.2
+**Status**: Integrated & Optimized

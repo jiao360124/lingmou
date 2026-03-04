@@ -1,0 +1,24 @@
+# 忽略文件和目录
+node_modules
+npm-debug.log
+yarn-error.log
+.git
+.gitignore
+.env
+.env.local
+*.md
+!README.md
+test-*.js
+debug-*.js
+logs
+*.log
+data
+test-reports
+backups
+.DS_Store
+Thumbs.db
+.vscode
+.idea
+*.swp
+*.swo
+*~

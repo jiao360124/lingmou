@@ -1,0 +1,27 @@
+{
+  "generatedAt": "2026-02-16T00:58:29.683Z",
+  "date": "2026-02-16",
+  "timezone": "Asia/Shanghai",
+  "sections": {
+    "systemMetrics": {
+      "title": "系统指标",
+      "timestamp": "08:58:29",
+      "summary": "系统状态正常，各项指标运行稳定"
+    },
+    "taskStatus": {
+      "title": "任务状态",
+      "timestamp": "08:58:29",
+      "summary": "所有定时任务运行正常"
+    },
+    "performance": {
+      "title": "性能统计",
+      "timestamp": "08:58:29",
+      "summary": "性能指标在正常范围内"
+    },
+    "healthCheck": {
+      "title": "健康检查",
+      "timestamp": "08:58:29",
+      "summary": "系统健康度: 正常"
+    }
+  }
+}

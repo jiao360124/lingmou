@@ -1,0 +1,65 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-02-12",
+  "totalPatterns": 100,
+  "categories": {
+    "javascript": {
+      "total": 80,
+      "files": [
+        "array-methods.json",
+        "async-await.json",
+        "object-creation.json",
+        "validation.json",
+        "error-handling.json"
+      ]
+    },
+    "python": {
+      "total": 20,
+      "files": [
+        "array-methods.json"
+      ]
+    }
+  },
+  "patterns": [
+    {
+      "id": "js.array.filter.map",
+      "category": "javascript",
+      "subcategory": "array-methods",
+      "name": "过滤并映射数组",
+      "language": "javascript",
+      "score": 0.95,
+      "popularity": 0.98,
+      "difficulty": 0.2
+    },
+    {
+      "id": "js.async.try.catch",
+      "category": "javascript",
+      "subcategory": "async-await",
+      "name": "Try-Catch错误处理",
+      "language": "javascript",
+      "score": 0.98,
+      "popularity": 0.97,
+      "difficulty": 0.2
+    },
+    {
+      "id": "js.object.create",
+      "category": "javascript",
+      "subcategory": "object-creation",
+      "name": "对象字面量",
+      "language": "javascript",
+      "score": 0.99,
+      "popularity": 0.99,
+      "difficulty": 0.05
+    },
+    {
+      "id": "py.array.filter",
+      "category": "python",
+      "subcategory": "array-methods",
+      "name": "过滤数组",
+      "language": "python",
+      "score": 0.95,
+      "popularity": 0.98,
+      "difficulty": 0.2
+    }
+  ]
+}

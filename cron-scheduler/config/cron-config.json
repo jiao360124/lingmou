@@ -1,0 +1,60 @@
+{
+  "version": "1.0.0",
+  "description": "Cron scheduler configuration",
+  "timezone": "Asia/Shanghai",
+  "enabled": true,
+  "maxRetries": 3,
+  "retryDelay": 5,
+  "tasks": [
+    {
+      "id": "daily-report",
+      "name": "每日报告生成",
+      "cronExpression": "0 4 * * *",
+      "timezone": "Asia/Shanghai",
+      "enabled": true,
+      "priority": 10,
+      "script": "scripts/generate-daily-report.js",
+      "description": "每天凌晨4点生成每日报告"
+    },
+    {
+      "id": "weekly-report",
+      "name": "每周报告生成",
+      "cronExpression": "0 0 * * 1",
+      "timezone": "Asia/Shanghai",
+      "enabled": true,
+      "priority": 15,
+      "script": "scripts/generate-weekly-report.js",
+      "description": "每周一凌晨生成每周报告"
+    },
+    {
+      "id": "daily-metrics-reset",
+      "name": "每日指标重置",
+      "cronExpression": "0 3 * * *",
+      "timezone": "Asia/Shanghai",
+      "enabled": true,
+      "priority": 5,
+      "script": "scripts/reset-daily-metrics.js",
+      "description": "每天凌晨3点重置每日指标"
+    },
+    {
+      "id": "weekly-cleanup",
+      "name": "定期清理旧数据",
+      "cronExpression": "0 0 * * 0",
+      "timezone": "Asia/Shanghai",
+      "enabled": true,
+      "priority": 8,
+      "script": "scripts/weekly-data-cleanup.js",
+      "description": "每周日凌晨清理旧数据"
+    },
+    {
+      "id": "heartbeat-monitor",
+      "name": "心跳监控",
+      "cronExpression": "*/30 * * * *",
+      "timezone": "Asia/Shanghai",
+      "enabled": true,
+      "priority": 12,
+      "script": "scripts/heartbeat-monitor.js",
+      "description": "每30分钟检查系统健康状态"
+    }
+  ]
+}

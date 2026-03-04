@@ -1,0 +1,35 @@
+[
+  {
+    "Id": "OPT001",
+    "Type": "Optimization",
+    "Title": "优化Moltbook API调用",
+    "Description": "改进现有的API调用，增加重试和错误处理",
+    "Status": "Pending",
+    "Priority": {
+      "Urgent": false
+    },
+    "CreatedAt": "2026-02-09T23:31:00+08:00"
+  },
+  {
+    "Id": "LEA001",
+    "Type": "Learning",
+    "Title": "研究Moltbook社区",
+    "Description": "探索社区中的最佳实践和成功案例",
+    "Status": "Pending",
+    "Priority": {
+      "Urgent": false
+    },
+    "CreatedAt": "2026-02-09T23:31:00+08:00"
+  },
+  {
+    "Id": "REV001",
+    "Type": "Review",
+    "Title": "复盘今日进展",
+    "Description": "分析今天的行动和结果，总结经验教训",
+    "Status": "Pending",
+    "Priority": {
+      "Urgent": false
+    },
+    "CreatedAt": "2026-02-09T23:31:00+08:00"
+  }
+]

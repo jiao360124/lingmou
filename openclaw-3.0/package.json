@@ -1,0 +1,43 @@
+{
+  "name": "openclaw-3.0",
+  "version": "3.0.0",
+  "description": "OpenClaw 3.0 - Strategic Intelligence Architecture",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/runner.js",
+    "test:config": "node test/unit/config.test.js",
+    "test:logger": "node test/unit/logger.test.js",
+    "test:error-handler": "node test/unit/error-handler.test.js",
+    "test:retry": "node test/unit/retry.test.js",
+    "test:cache": "node test/unit/cache.test.js",
+    "start:gateway": "node index.js",
+    "start:dashboard": "node dashboard/server.js",
+    "start:reports": "node report-sender.js",
+    "start:cron": "node cron-scheduler/index.js"
+  },
+  "keywords": [
+    "openclaw",
+    "ai",
+    "automation",
+    "dashboard",
+    "monitoring"
+  ],
+  "author": "OpenClaw",
+  "license": "MIT",
+  "dependencies": {
+    "node-fetch": "^3.3.2",
+    "node-cache": "^5.1.2",
+    "node-cron": "^3.0.3",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/openclaw/openclaw.git"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "moltbook": {
+    "apiEndpoint": "https://api.moltbook.com",
+    "apiKey": "",
+    "autoSync": true,
+    "dailyTarget": {
+      "posts": 1,
+      "comments": 3,
+      "likes": 5,
+      "learningMinutes": 30
+    }
+  },
+  "continuousOptimizer": {
+    "checkInterval": "daily",
+    "optimizationStrategies": [
+      "performance",
+      "code-quality",
+      "documentation",
+      "testing"
+    ],
+    "activeStrategies": [
+      "performance",
+      "code-quality"
+    ],
+    "checkSchedule": {
+      "daily": "02:00",
+      "weekly": "Sunday 03:00"
+    }
+  },
+  "selfEvolution": {
+    "version": "1.0.0",
+    "lastUpdated": "2026-02-13",
+    "phases": [
+      "learning-analysis",
+      "pattern-recognition",
+      "improvement-generation",
+      "continuous-optimization",
+      "moltbook-integration"
+    ]
+  }
+}

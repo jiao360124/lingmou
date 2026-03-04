@@ -1,0 +1,46 @@
+{
+  "generatedAt": "2026-02-16T00:58:29.738Z",
+  "weekNumber": 7,
+  "period": {
+    "start": "2026-02-15",
+    "end": "2026-02-21"
+  },
+  "timezone": "Asia/Shanghai",
+  "summary": "第 7 周工作总结",
+  "sections": {
+    "overview": {
+      "title": "周概览",
+      "period": "02-15 - 02-21",
+      "summary": "第 7 周报告生成完毕，各项指标正常"
+    },
+    "taskSummary": {
+      "title": "任务汇总",
+      "totalTasks": 5,
+      "completed": 5,
+      "failed": 0,
+      "successRate": "100%",
+      "summary": "所有任务执行成功"
+    },
+    "performanceTrend": {
+      "title": "性能趋势",
+      "trend": "稳定上升",
+      "improvement": "+12.5%",
+      "summary": "本周性能较上周有所提升"
+    },
+    "issues": {
+      "title": "问题与修复",
+      "reported": 0,
+      "fixed": 0,
+      "pending": 0,
+      "summary": "本周未发现新问题"
+    },
+    "resources": {
+      "title": "资源使用",
+      "cpu": "正常",
+      "memory": "正常",
+      "storage": "正常",
+      "network": "正常",
+      "summary": "各项资源使用在合理范围内"
+    }
+  }
+}

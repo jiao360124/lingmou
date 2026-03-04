@@ -1,0 +1,25 @@
+{
+  "smtp": {
+    "host": "smtp.gmail.com",
+    "port": 587,
+    "secure": false,
+    "user": "your-email@gmail.com",
+    "password": "your-app-password",
+    "rejectUnauthorized": true
+  },
+  "defaultRecipients": [
+    "recipient1@example.com",
+    "recipient2@example.com"
+  ],
+  "senderSettings": {
+    "maxRetries": 3,
+    "retryDelay": 1000,
+    "enableRetry": true,
+    "enableHistory": true
+  },
+  "templateSettings": {
+    "defaultTemplate": "dailyReport",
+    "enableHTML": true,
+    "enableText": true
+  }
+}

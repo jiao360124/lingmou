@@ -1,0 +1,39 @@
+{
+  "defaults": {
+    "fast": {
+      "local": 0.8,
+      "memory": 0.7,
+      "web": 0.5
+    },
+    "deep": {
+      "rag": 0.9,
+      "moltbook": 0.8,
+      "web": 0.7,
+      "local": 0.6
+    },
+    "code": {
+      "local": 0.9,
+      "rag": 0.8,
+      "web": 0.7
+    },
+    "search": {
+      "rag": 0.9,
+      "memory": 0.8,
+      "local": 0.7,
+      "web": 0.6,
+      "moltbook": 0.5
+    }
+  },
+  "user_custom": {
+    "current": {
+      "rag": 0.9,
+      "memory": 0.7,
+      "local": 0.6,
+      "web": 0.5,
+      "moltbook": 0.4,
+      "api": 0.3
+    }
+  },
+  "last_updated": "2026-02-14T04:52:00+08:00",
+  "active_profile": "search"
+}
