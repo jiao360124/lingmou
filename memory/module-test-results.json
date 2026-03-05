@@ -1,0 +1,52 @@
+{
+  "timestamp": "2026-03-05T01:32:39.843Z",
+  "coreModules": [],
+  "strategies": [
+    {
+      "module": "cost-calculator",
+      "error": "Cannot read properties of undefined (reading 'tokenBudget')",
+      "passed": false
+    },
+    {
+      "module": "benefit-calculator",
+      "error": "Cannot read properties of undefined (reading 'successRate')",
+      "passed": false
+    },
+    {
+      "module": "roi-analyzer",
+      "passed": true,
+      "roi": 200
+    },
+    {
+      "module": "risk-assessor",
+      "error": "assessor.assess is not a function",
+      "passed": false
+    },
+    {
+      "module": "risk-controller",
+      "error": "controller.control is not a function",
+      "passed": false
+    },
+    {
+      "module": "risk-adjusted-scorer",
+      "error": "scorer.calculate is not a function",
+      "passed": false
+    },
+    {
+      "module": "adversary-simulator",
+      "error": "simulator.simulate is not a function",
+      "passed": false
+    },
+    {
+      "module": "multi-perspective-evaluator",
+      "error": "evaluator.evaluate is not a function",
+      "passed": false
+    },
+    {
+      "module": "strategy-engine-enhanced",
+      "error": "GameOptimizer is not defined",
+      "passed": false
+    }
+  ],
+  "skills": []
+}

@@ -1,3 +1,8 @@
+---
+name: self-healing-engine
+description: "自我修复引擎完整文档"
+---
+
 # 自我修复引擎完整文档
 
 ## 📚 概述

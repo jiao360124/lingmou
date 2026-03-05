@@ -1,3 +1,8 @@
+---
+name: data-visualization
+description: "Data Visualization System"
+---
+
 # Data Visualization System
 
 ## 概述

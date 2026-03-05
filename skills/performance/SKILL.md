@@ -1,3 +1,8 @@
+---
+name: performance
+description: "性能优化技能"
+---
+
 # 性能优化技能
 
 ## 概述

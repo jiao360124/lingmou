@@ -1,3 +1,8 @@
+---
+name: dev-toolkit
+description: "开发工具包 (Dev Toolkit)"
+---
+
 # 开发工具包 (Dev Toolkit)
 
 整合了灵眸的开发工具集，包括API开发、数据库管理和SQL操作。

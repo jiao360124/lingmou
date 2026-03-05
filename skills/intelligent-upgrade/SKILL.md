@@ -1,3 +1,8 @@
+---
+name: intelligent-upgrade
+description: "智能升级技能"
+---
+
 # 智能升级技能
 
 ## 概述

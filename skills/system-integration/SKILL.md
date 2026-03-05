@@ -1,3 +1,8 @@
+---
+name: system-integration
+description: "系统整合技能"
+---
+
 # 系统整合技能
 
 ## Overview

@@ -1,3 +1,8 @@
+---
+name: search-toolkit
+description: "搜索工具包 (Search Toolkit)"
+---
+
 # 搜索工具包 (Search Toolkit)
 
 整合了灵眸的AI驱动搜索工具集，包括网络搜索、代码搜索和文档查询。

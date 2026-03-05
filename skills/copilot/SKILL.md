@@ -1,3 +1,8 @@
+---
+name: copilot
+description: "Copilot - 智能代码助手"
+---
+
 # Copilot - 智能代码助手
 
 ## 简介

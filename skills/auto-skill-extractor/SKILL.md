@@ -1,3 +1,8 @@
+---
+name: auto-skill-extractor
+description: "技能自动提取器"
+---
+
 # 技能自动提取器
 
 ## 概述

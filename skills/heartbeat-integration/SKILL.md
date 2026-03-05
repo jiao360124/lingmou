@@ -1,3 +1,8 @@
+---
+name: heartbeat-integration
+description: "Heartbeat整合增强系统"
+---
+
 # Heartbeat整合增强系统
 
 **版本**: 1.0.0

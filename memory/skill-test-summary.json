@@ -1,0 +1,319 @@
+{
+  "timestamp": "2026-03-05T01:33:10.164Z",
+  "skills": [
+    {
+      "skill": "agent-browser",
+      "name": "agent-browser",
+      "description": "No description",
+      "status": "CONFIGURED",
+      "passed": true
+    },
+    {
+      "skill": "agent-collaboration",
+      "name": "agent-collaboration",
+      "description": "Missing required fields",
+      "status": "INVALID",
+      "passed": false
+    },
+    {
+      "skill": "agentguard",
+      "name": "agentguard",
+      "description": "Missing required fields",
+      "status": "INVALID",
+      "passed": false
+    },
+    {
+      "skill": "ai-toolkit",
+      "name": "ai-toolkit",
+      "description": "Missing required fields",
+      "status": "INVALID",
+      "passed": false
+    },
+    {
+      "skill": "api-gateway",
+      "name": "api-gateway",
+      "description": "Missing required fields",
+      "status": "INVALID",
+      "passed": false
+    },
+    {
+      "skill": "auto-skill-extractor",
+      "name": "auto-skill-extractor",
+      "description": "Missing required fields",
+      "status": "INVALID",
+      "passed": false
+    },
+    {
+      "skill": "clawlist",
+      "name": "clawlist",
+      "description": "MUST use for any multi-step project, long-running task, or infinite monitoring workflow. Plan, execute, track, and verify tasks with checkpoint validation. For projects, automation, and ongoing operations.",
+      "status": "CONFIGURED",
+      "passed": true
+    },
+    {
+      "skill": "code-mentor",
+      "name": "code-mentor",
+      "description": "Comprehensive AI programming tutor for all levels. Teaches programming through interactive lessons, code review, debugging guidance, algorithm practice, project mentoring, and design pattern exploration. Use when the user wants to: learn a programming language, debug code, understand algorithms, review their code, learn design patterns, practice data structures, prepare for coding interviews, understand best practices, build projects, or get help with homework. Supports Python and JavaScript.",
+      "status": "CONFIGURED",
+      "passed": true
+    },
+    {
+      "skill": "community-integration",
+      "name": "community-integration",
+      "description": "Missing required fields",
+      "status": "INVALID",
+      "passed": false
+    },
+    {
+      "skill": "conventional-commits",
+      "name": "conventional-commits",
+      "description": "No description",
+      "status": "CONFIGURED",
+      "passed": true
+    },
+    {
+      "skill": "coolify",
+      "name": "coolify",
+      "description": "No description",
+      "status": "CONFIGURED",
+      "passed": true
+    },
+    {
+      "skill": "copilot",
+      "name": "copilot",
+      "description": "Missing required fields",
+      "status": "INVALID",
+      "passed": false
+    },
+    {
+      "skill": "cyclic-review",
+      "name": "cyclic-review",
+      "description": "Missing required fields",
+      "status": "INVALID",
+      "passed": false
+    },
+    {
+      "skill": "data-visualization",
+      "name": "data-visualization",
+      "description": "Missing required fields",
+      "status": "INVALID",
+      "passed": false
+    },
+    {
+      "skill": "decision-trees",
+      "name": "decision-trees",
+      "description": "No description",
+      "status": "CONFIGURED",
+      "passed": true
+    },
+    {
+      "skill": "deepwork-tracker",
+      "name": "deepwork-tracker",
+      "description": "No description",
+      "status": "CONFIGURED",
+      "passed": true
+    },
+    {
+      "skill": "dev-toolkit",
+      "name": "dev-toolkit",
+      "description": "Missing required fields",
+      "status": "INVALID",
+      "passed": false
+    },
+    {
+      "skill": "docker-essentials",
+      "name": "docker-essentials",
+      "description": "No description",
+      "status": "CONFIGURED",
+      "passed": true
+    },
+    {
+      "skill": "fail2ban-reporter",
+      "name": "fail2ban-reporter",
+      "description": "Auto-report fail2ban banned IPs to AbuseIPDB and notify via Telegram. Use when monitoring server security, reporting attackers, or checking banned IPs. Watches fail2ban for new bans, reports them to AbuseIPDB, and sends alerts.",
+      "status": "CONFIGURED",
+      "passed": true
+    },
+    {
+      "skill": "fd-find",
+      "name": "fd-find",
+      "description": "No description",
+      "status": "CONFIGURED",
+      "passed": true
+    },
+    {
+      "skill": "ffmpeg-cli",
+      "name": "ffmpeg-cli",
+      "description": "No description",
+      "status": "CONFIGURED",
+      "passed": true
+    },
+    {
+      "skill": "file-organizer",
+      "name": "file-organizer",
+      "description": "No description",
+      "status": "CONFIGURED",
+      "passed": true
+    },
+    {
+      "skill": "get-tldr",
+      "name": "get-tldr",
+      "description": "No description",
+      "status": "CONFIGURED",
+      "passed": true
+    },
+    {
+      "skill": "git-essentials",
+      "name": "git-essentials",
+      "description": "No description",
+      "status": "CONFIGURED",
+      "passed": true
+    },
+    {
+      "skill": "github-action-gen",
+      "name": "github-action-gen",
+      "description": "No description",
+      "status": "CONFIGURED",
+      "passed": true
+    },
+    {
+      "skill": "github-pr",
+      "name": "github-pr",
+      "description": "No description",
+      "status": "CONFIGURED",
+      "passed": true
+    },
+    {
+      "skill": "heartbeat-integration",
+      "name": "heartbeat-integration",
+      "description": "Missing required fields",
+      "status": "INVALID",
+      "passed": false
+    },
+    {
+      "skill": "intelligent-upgrade",
+      "name": "intelligent-upgrade",
+      "description": "Missing required fields",
+      "status": "INVALID",
+      "passed": false
+    },
+    {
+      "skill": "jq",
+      "name": "jq",
+      "description": "No description",
+      "status": "CONFIGURED",
+      "passed": true
+    },
+    {
+      "skill": "nextjs-expert",
+      "name": "nextjs-expert",
+      "description": "No description",
+      "status": "CONFIGURED",
+      "passed": true
+    },
+    {
+      "skill": "notion-cli",
+      "name": "notion-cli",
+      "description": "No description",
+      "status": "CONFIGURED",
+      "passed": true
+    },
+    {
+      "skill": "performance",
+      "name": "performance",
+      "description": "Missing required fields",
+      "status": "INVALID",
+      "passed": false
+    },
+    {
+      "skill": "ripgrep",
+      "name": "ripgrep",
+      "description": "No description",
+      "status": "CONFIGURED",
+      "passed": true
+    },
+    {
+      "skill": "search-toolkit",
+      "name": "search-toolkit",
+      "description": "Missing required fields",
+      "status": "INVALID",
+      "passed": false
+    },
+    {
+      "skill": "self-evolution",
+      "name": "self-evolution",
+      "description": "Missing required fields",
+      "status": "INVALID",
+      "passed": false
+    },
+    {
+      "skill": "self-healing-engine",
+      "name": "self-healing-engine",
+      "description": "Missing required fields",
+      "status": "INVALID",
+      "passed": false
+    },
+    {
+      "skill": "skill-builder",
+      "name": "skill-builder",
+      "description": "No description",
+      "status": "CONFIGURED",
+      "passed": true
+    },
+    {
+      "skill": "smtp-send",
+      "name": "smtp-send",
+      "description": "No description",
+      "status": "CONFIGURED",
+      "passed": true
+    },
+    {
+      "skill": "system-integration",
+      "name": "system-integration",
+      "description": "Missing required fields",
+      "status": "INVALID",
+      "passed": false
+    },
+    {
+      "skill": "task-status",
+      "name": "task-status",
+      "description": "No description",
+      "status": "CONFIGURED",
+      "passed": true
+    },
+    {
+      "skill": "technews",
+      "name": "technews",
+      "description": "No description",
+      "status": "CONFIGURED",
+      "passed": true
+    },
+    {
+      "skill": "test-runner",
+      "name": "test-runner",
+      "description": "Missing required fields",
+      "status": "INVALID",
+      "passed": false
+    },
+    {
+      "skill": "weather",
+      "name": "weather",
+      "description": "Get current weather and forecasts (no API key required).",
+      "status": "CONFIGURED",
+      "passed": true
+    },
+    {
+      "skill": "whatsapp-styling-guide",
+      "name": "whatsapp-styling-guide",
+      "description": "No description",
+      "status": "CONFIGURED",
+      "passed": true
+    }
+  ],
+  "summary": {
+    "totalSkills": 44,
+    "passedSkills": 26,
+    "failedSkills": 18,
+    "overall": 59.09090909090909
+  }
+}

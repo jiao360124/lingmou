@@ -1,3 +1,8 @@
+---
+name: ai-toolkit
+description: "AI/LLM 工具包 (AI Toolkit)"
+---
+
 # AI/LLM 工具包 (AI Toolkit)
 
 整合了灵眸的AI和LLM相关工具集，包括提示工程、社区集成和知识库检索。

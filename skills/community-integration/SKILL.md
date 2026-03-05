@@ -1,3 +1,8 @@
+---
+name: community-integration
+description: "社区集成技能"
+---
+
 # 社区集成技能
 
 ## 概述

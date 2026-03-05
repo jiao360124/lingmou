@@ -1,3 +1,8 @@
+---
+name: agentguard
+description: "AgentGuard - Security Monitoring Skill"
+---
+
 # AgentGuard - Security Monitoring Skill
 
 **Version:** 1.0.0  

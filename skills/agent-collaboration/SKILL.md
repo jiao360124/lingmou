@@ -1,3 +1,8 @@
+---
+name: agent-collaboration
+description: "Agent Collaboration System"
+---
+
 # Agent Collaboration System
 
 ## 概述
