@@ -1,0 +1,20 @@
+{
+  "name": "core-modules",
+  "version": "1.0.0",
+  "description": "OpenClaw v4.0 核心模块插件 - 将策略引擎和监控模块注册为 Agent Tools",
+  "author": "Lingmou",
+  "main": "core/plugin-entry.js",
+  "keywords": [
+    "openclaw",
+    "plugin",
+    "core",
+    "strategy",
+    "monitoring"
+  ],
+  "openclaw": {
+    "entry": "./core/plugin-entry.js",
+    "version": "1.0.0",
+    "type": "agent-tool",
+    "enabled": true
+  }
+}
